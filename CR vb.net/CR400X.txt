@@ -1,0 +1,66 @@
+其實對方只有提供4個指令
+USB連線
+USB斷線
+drawer打開.
+DrawerState
+
+連線後會有DrawerState,所以連線前沒有狀態.
+所以,要記錄連線狀態.
+
+怎麼呼叫他提供的東西
+#Region "Declare COM Control"
+    ''' <summary>
+    ''' 開啟USB 連結（回傳 0 代表成功）
+    ''' </summary>
+    Private Declare Function OpenUSBcr Lib "usbcr.dll" () As Short
+    ''' <summary>
+    ''' 關閉USB 連結（回傳 0 代表成功）
+    ''' </summary>
+    Private Declare Function CloseUSBcr Lib "usbcr.dll" () As Short
+
+    ''' <summary>
+    ''' 打開錢櫃（回傳 0 代表成功 -1 代表錯誤）
+    ''' </summary>
+    ''' <param name="ID">錢櫃位置</param>
+    Private Declare Function DrawerOpen Lib "usbcr.dll" (ByVal ID As Short) As Short
+
+    ''' <summary>
+    ''' 回傳錢櫃狀態（回傳 0 代表開啟中、回傳 1 代表關閉、回傳 -1 代表錯誤）
+    ''' </summary>
+    ''' <param name="ID">錢櫃位置</param>
+    Private Declare Function DrawerState Lib "usbcr.dll" (ByVal ID As Short) As Short
+#End Region
+
+*************************************************************
+        Select Case ss
+            Case 1, 112
+                If _OpenType = crType.Close Then 
+                    _StatusMessage = "錢櫃異常開啟中"
+elseIf _OpenType = crType.SysOpen Then
+ _StatusMessage = "錢櫃開啟中"
+         
+                End If 
+                RaiseEvent OnOpen(ss, _StatusMessage)
+            Case 0, 113
+                _StatusMessage = "錢櫃關閉"
+                _OpenType = crType.Close
+                RaiseEvent OnClose(ss, _StatusMessage)
+            Case -1
+                _StatusMessage = "錢櫃狀態錯誤"
+                _OpenType = crType.Error
+                _Connected = False
+                RaiseEvent OnError(ss, _StatusMessage)
+            Case -5432
+                _StatusMessage = "請檢查設備是否正常連結"
+                _OpenType = crType.Error
+                _Connected = False
+                RaiseEvent OnError(ss, _StatusMessage)
+            Case Else
+                _StatusMessage = "錢櫃狀態錯誤"
+                _OpenType = crType.Error
+                _Connected = False
+                RaiseEvent OnError(ss, _StatusMessage)
+        End Select
+
+
+

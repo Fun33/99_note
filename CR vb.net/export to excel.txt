@@ -1,0 +1,88 @@
+
+
+
+POS_Application.ExportExcel
+Public Sub ExportExcel(ByVal Title As String, ByVal DG As WinUI_Helper.XenDataGridView)
+        Dim SaveFileDialog As SaveFileDialog
+        Dim app As Microsoft.Office.Interop.Excel.Application
+        Dim wb As Microsoft.Office.Interop.Excel.Workbook
+        Dim ws As Microsoft.Office.Interop.Excel.Worksheet
+
+        Try
+            SaveFileDialog = New SaveFileDialog
+            SaveFileDialog.Filter = "Execl files (*.xls)|*.xls"
+            SaveFileDialog.FilterIndex = 0
+            SaveFileDialog.RestoreDirectory = True
+            SaveFileDialog.Title = Title
+            SaveFileDialog.FileName = Date.Now.ToString("yyyyMMdd")
+            If SaveFileDialog.ShowDialog() = DialogResult.OK Then
+
+                app = New Microsoft.Office.Interop.Excel.Application
+                app.Visible = False
+                app.DisplayAlerts = False
+                wb = app.Workbooks.Add
+                ws = wb.Worksheets.Add
+
+                Dim CellIndex As Integer = 0
+                Dim RowIndex As Integer = 0
+                Dim Value As String = ""
+
+                'Dim HeaderStyle As Microsoft.Office.Interop.Excel.Style
+                'HeaderStyle = wb.Styles.Add("Style4")
+                'With HeaderStyle
+                '    .VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter
+                '    .HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft
+                '    .WrapText = True
+                '    .Font.Size = 10
+                '    .Font.Bold = True
+                '    .Font.Italic = False
+                'End With
+
+                SyncLock ws
+
+                    For CellIndex = 0 To DG.Columns.Count - 1
+                        ws.Cells(1, CellIndex + 1) = DG.Columns(CellIndex).HeaderText
+                    Next
+
+                    For RowIndex = 0 To DG.Rows.Count - 1
+                        If RowIndex Mod 100 = 0 Then
+                            Me.StatusBar("匯出中…請稍後" + RowIndex.ToString + " / " + DG.Rows.Count.ToString + "", MessageType.Help)
+                        End If
+                        For CellIndex = 0 To DG.Columns.Count - 1
+                            'MsgBox(DG.Columns(CellIndex).HeaderText)
+                            Value = "#NA"
+                            Try
+                                Select Case DG.Item(CellIndex, RowIndex).Value.GetType.ToString.ToUpper
+                                    Case "SYSTEM.DATETIME"
+                                        Value = Date.Parse(DG.Item(CellIndex, RowIndex).Value).ToString("yyyy/MM/dd")
+                                    Case Else
+                                        Value = DG.Item(CellIndex, RowIndex).Value.ToString()
+                                End Select
+                            Catch
+                                Value = "#NA"
+                            End Try
+                            If Value.Length <> 0 Then
+                                If Value.Substring(0, 1) = "0" Then
+                                    Value = "'" + Value
+                                End If
+                            End If
+                            ws.Cells(RowIndex + 2, CellIndex + 1) = Value
+                        Next
+                    Next
+                End SyncLock
+
+                wb.SaveAs(SaveFileDialog.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, _
+                            Type.Missing, Type.Missing, False, False, _
+                            Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, _
+                            Microsoft.Office.Interop.Excel.XlSaveConflictResolution.xlLocalSessionChanges, _
+                             Type.Missing, Type.Missing, Type.Missing, Type.Missing)
+
+                Me.StatusBar(SaveFileDialog.FileName + "檔案匯出完成", MessageType.Success)
+                wb.Close()
+                app.Quit()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        SaveFileDialog = Nothing
+    End Sub

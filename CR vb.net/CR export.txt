@@ -1,0 +1,36 @@
+Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.WordForWindows, 	  PropertyPrints.ExpFilePath + "\" + ExpFileName + ".doc")
+Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat,	  PropertyPrints.ExpFilePath + "\" + ExpFileName + ".pdf")
+Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel			, PropertyPrints.ExpFilePath + "\" + ExpFileName + ".xls")
+
+   Private Sub BtnXLS_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnXLS.Click
+        Try
+            If CheckExpPah() Then
+                Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, PropertyPrints.ExpFilePath + "\" + ExpFileName + ".xls")
+                Me.POS_Application.MessageBox("檔案已儲存!!")
+            End If
+        Catch ex As Exception
+            Me.POS_Application.MessageBox(ex.ToString, MessageType.Error)
+        End Try
+    End Sub
+
+    Private Sub BtnToPDF_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnToPDF.Click
+        Try
+            If CheckExpPah() Then
+                Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, PropertyPrints.ExpFilePath + "\" + ExpFileName + ".pdf")
+                Me.POS_Application.MessageBox("檔案已儲存!!")
+            End If
+        Catch ex As Exception
+            Me.POS_Application.MessageBox(ex.ToString, MessageType.Error)
+        End Try
+    End Sub
+    Private Sub BtnDOC_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnDOC.Click
+        Try
+            If CheckExpPah() Then
+                Me.Report.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.WordForWindows, PropertyPrints.ExpFilePath + "\" + ExpFileName + ".doc")
+                Me.POS_Application.MessageBox("檔案已儲存!!")
+            End If
+        Catch ex As Exception
+            Me.POS_Application.MessageBox(ex.ToString, MessageType.Error)
+        End Try
+
+    End Sub

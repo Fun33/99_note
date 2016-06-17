@@ -1,0 +1,5 @@
+setup cr
+1.
+D:\0-appl\cadmen toolkit\CR2008 for SBO\CR 2008 V1 for SBO8.8\CR_2008_SP01_for_B1
+2.
+D:\0-appl\cadmen toolkit\CR2008 for SBO\CR 2008 V1 for SBO8.8\FixPack_03
