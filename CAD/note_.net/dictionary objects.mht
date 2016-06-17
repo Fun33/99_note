@@ -1,0 +1,859 @@
+MIME-Version: 1.0
+Content-Type: multipart/related; boundary="----=_NextPart_01C85B01.E3571890"
+
+此文件是「單一檔案網頁」，亦稱為「網頁封存檔案」。若看到此訊息，表示您的瀏覽器或編輯器不支援「網頁封存檔案」。請下載支援「網頁封存」的瀏覽器，例如 Microsoft Internet Explorer。
+
+------=_NextPart_01C85B01.E3571890
+Content-Location: file:///C:/8AD41AF3/dictionaryobjects.htm
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:o=3D"urn:schemas-microsoft-com:office:office"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dus-ascii">
+<meta name=3DProgId content=3DWord.Document>
+<meta name=3DGenerator content=3D"Microsoft Word 11">
+<meta name=3DOriginator content=3D"Microsoft Word 11">
+<link rel=3DFile-List href=3D"dictionaryobjects.files/filelist.xml">
+<link rel=3DEdit-Time-Data href=3D"dictionaryobjects.files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Symbol tables and dictionaries perform essentially the same function;
+they contain entries that are database objects that can be looked up using a
+text string key</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>una</o:Author>
+  <o:LastAuthor>una</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>52</o:TotalTime>
+  <o:Created>2008-01-19T16:54:00Z</o:Created>
+  <o:LastSaved>2008-01-19T17:15:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>487</o:Words>
+  <o:Characters>2782</o:Characters>
+  <o:Company>casys</o:Company>
+  <o:Lines>23</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3263</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEve=
+ry>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState=3D"false" LatentStyleCount=3D"156">
+ </w:LatentStyles>
+</xml><![endif]--><![if !supportAnnotations]>
+<style id=3D"dynCom" type=3D"text/css"><!-- --></style>
+<script language=3D"JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck())=20
+		{
+		c =3D document.all(com_id);
+		a =3D document.all(anchor_id);
+		if (null !=3D c && null =3D=3D c.length && null !=3D a && null =3D=3D a.l=
+ength)
+			{
+			var cw =3D c.offsetWidth;
+			var ch =3D c.offsetHeight;
+			var aw =3D a.offsetWidth;
+			var ah =3D a.offsetHeight;
+			var x  =3D a.offsetLeft;
+			var y  =3D a.offsetTop;
+			var el =3D a;
+			while (el.tagName !=3D "BODY")=20
+				{
+				el =3D el.offsetParent;
+				x =3D x + el.offsetLeft;
+				y =3D y + el.offsetTop;
+				}
+			var bw =3D document.body.clientWidth;
+			var bh =3D document.body.clientHeight;
+			var bsl =3D document.body.scrollLeft;
+			var bst =3D document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >=3D bsl )=20
+				{ c.style.left =3D x + aw - ah / 2 - cw; }
+			else=20
+				{ c.style.left =3D x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >=3D bst )=20
+				{ c.style.top =3D y + ah / 2 - ch; }
+			else=20
+				{ c.style.top =3D y + ah / 2; }
+			c.style.visibility =3D "visible";
+}	}	}
+function msoCommentHide(com_id)=20
+{
+	if(msoBrowserCheck())
+		{
+		c =3D document.all(com_id);
+		if (null !=3D c && null =3D=3D c.length)
+		{
+		c.style.visibility =3D "hidden";
+		c.style.left =3D -1000;
+		c.style.top =3D -1000;
+		} }=20
+}
+function msoBrowserCheck()
+{
+	ms =3D navigator.appVersion.indexOf("MSIE");
+	vers =3D navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 =3D (ms > 0) && (parseInt(vers) >=3D 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackg=
+round");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackgrou=
+nd");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid th=
+reedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid =
+threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid=
+ threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid t=
+hreedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt=
+");
+	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
+}
+// --></script>
+<![endif]>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-alt:PMingLiU;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:PMingLiU;
+	mso-bidi-font-family:PMingLiU;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:\8A3B\89E3\6587\5B57;
+	mso-style-next:\8A3B\89E3\6587\5B57;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:9.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:PMingLiU;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:1.0pt;}
+span.code
+	{mso-style-name:code;}
+span.label
+	{mso-style-name:label;}
+span.charlink
+	{mso-style-name:char_link;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+ /* Page Definitions */
+ @page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;
+	layout-grid:18.0pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:\8868\683C\5167\6587;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=3DZH-TW link=3Dblue vlink=3Dpurple style=3D'tab-interval:24.0pt;=
+text-justify-trim:
+punctuation'>
+
+<div class=3DSection1 style=3D'layout-grid:18.0pt'>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd6></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+color:red;mso-font-kerning:0pt'>Symbol tables and dictionaries perform
+essentially the same function</span><span lang=3DEN-US style=3D'font-family=
+:PMingLiU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>; they contain entries =
+that
+are database objects that can be looked up using a text string key. <a
+style=3D'mso-comment-reference:u_1;mso-comment-date:20080120T0057'>You can =
+add
+entries to these container objects</a></span><span class=3DMsoCommentRefere=
+nce><span
+lang=3DEN-US style=3D'font-size:9.0pt'><![if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_1"
+onmouseover=3D"msoCommentShow('_anchor_1','_com_1')"
+onmouseout=3D"msoCommentHide('_com_1')" href=3D"#_msocom_1" language=3DJava=
+Script
+name=3D"_msoanchor_1">[u1]</a><![endif]><span style=3D'mso-special-characte=
+r:comment'>&nbsp;</span></span></span><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>, and <b style=3D'mso-bidi-font-weight:normal'>you ca=
+n use
+an <span class=3DSpellE><span style=3D'color:red'>iterator</span></span> to=
+ step through
+the entries and query their contents.</b><o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd5></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>The AutoCAD database always contains a fixed set of n=
+ine
+symbol tables, described in the following section. You cannot create or del=
+ete
+a symbol table, but you can add or change the entries in a symbol table, wh=
+ich
+are called records. Each symbol table contains only a particular type of
+object. For example, the <span class=3DSpellE>AcDbLayerTable</span> contain=
+s only
+objects of type <span class=3DSpellE>AcDbLayerTableRecord</span>. Symbol ta=
+bles
+are defined in this manner mainly for compatibility with AutoCAD Release 12=
+ and
+previous releases of AutoCAD.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd4></a><b
+style=3D'mso-bidi-font-weight:normal'><span lang=3DEN-US style=3D'font-fami=
+ly:PMingLiU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>Dictionaries provide a
+similar mechanism for storing and retrieving objects with associated name k=
+eys.</span></b><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'> The AutoCAD database creates the named object dictio=
+nary
+whenever it creates a new drawing. The named object dictionary can be viewe=
+d as
+the master </span><span style=3D'font-family:PMingLiU;mso-bidi-font-family:=
+PMingLiU;
+mso-font-kerning:0pt'>&#8220;<span lang=3DEN-US>table of contents</span>&#8=
+221;<span
+lang=3DEN-US> for the nonentity object structures in a drawing. This dictio=
+nary,
+by default, contains nine dictionaries: the GROUP dictionary, the MLINE sty=
+le
+dictionary, the layout dictionary, the plot style name dictionary, the color
+dictionary, the material dictionary, the plot settings dictionary, the table
+style dictionary, and the SYSVAR dictionary. <b style=3D'mso-bidi-font-weig=
+ht:
+normal'>You can create any number of additional objects and add them to the
+named object dictionary</b>. However, <b style=3D'mso-bidi-font-weight:norm=
+al'>the
+best practice is to add one object directly to the named object dictionary =
+and
+have that object in turn own the other objects associated with your applica=
+tion</b>.
+Typically, <b style=3D'mso-bidi-font-weight:normal'>the owning object is a
+container class such as a dictionary</b>. <b style=3D'mso-bidi-font-weight:=
+normal'>Use
+your assigned four-letter Registered Developer Symbol for the name of this
+class. </b><o:p></o:p></span></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd3></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>An <span class=3DSpellE>AcDbDictionary</span> object =
+can
+contain any type of <span class=3DSpellE>AcDbObject</span>, including other
+dictionaries. A dictionary object does not perform type <b style=3D'mso-bid=
+i-font-weight:
+normal'>checking of entries</b>. However, the <a style=3D'mso-comment-refer=
+ence:
+u_2;mso-comment-date:20080120T0114'>MLINE style dictionary</a></span><span
+class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0pt'><!=
+[if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_2"
+onmouseover=3D"msoCommentShow('_anchor_2','_com_2')"
+onmouseout=3D"msoCommentHide('_com_2')" href=3D"#_msocom_2" language=3DJava=
+Script
+name=3D"_msoanchor_2">[u2]</a><![endif]><span style=3D'mso-special-characte=
+r:comment'>&nbsp;</span></span></span><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'> should contain only instances of class <span
+class=3DSpellE>AcDbMlineStyle</span>, and the GROUP dictionary should conta=
+in
+only instances of <span class=3DSpellE>AcDbGroup</span>. <b style=3D'mso-bi=
+di-font-weight:
+normal'>An application may require<span style=3D'color:red'> specific typin=
+g</span>
+for entries in a dictionary that it creates and maintains.</b> <o:p></o:p><=
+/span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd2></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>The class hierarchy for symbol tables, symbol table
+records, dictionaries, and <span class=3DSpellE>iterators</span> is as foll=
+ows.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWS1a9193826455f5ff128052610e798412bc=
+-499></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'><!--[if gte vml 1]><v:shapetype id=3D"_x0000_t75"
+ coordsize=3D"21600,21600" o:spt=3D"75" o:preferrelative=3D"t" path=3D"m@4@=
+5l@4@11@9@11@9@5xe"
+ filled=3D"f" stroked=3D"f">
+ <v:stroke joinstyle=3D"miter"/>
+ <v:formulas>
+  <v:f eqn=3D"if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn=3D"sum @0 1 0"/>
+  <v:f eqn=3D"sum 0 0 @1"/>
+  <v:f eqn=3D"prod @2 1 2"/>
+  <v:f eqn=3D"prod @3 21600 pixelWidth"/>
+  <v:f eqn=3D"prod @3 21600 pixelHeight"/>
+  <v:f eqn=3D"sum @0 0 1"/>
+  <v:f eqn=3D"prod @6 1 2"/>
+  <v:f eqn=3D"prod @7 21600 pixelWidth"/>
+  <v:f eqn=3D"sum @8 21600 0"/>
+  <v:f eqn=3D"prod @7 21600 pixelHeight"/>
+  <v:f eqn=3D"sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok=3D"f" gradientshapeok=3D"t" o:connecttype=3D"rect"/>
+ <o:lock v:ext=3D"edit" aspectratio=3D"t"/>
+</v:shapetype><v:shape id=3D"_x0000_i1025" type=3D"#_x0000_t75" alt=3D"" st=
+yle=3D'width:24pt;
+ height:24pt'/><![endif]--><![if !vml]><img width=3D32 height=3D32
+src=3D"dictionaryobjects.files/image001.gif" v:shapes=3D"_x0000_i1025"><![e=
+ndif]><o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd1></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>An important difference between symbol tables and
+dictionaries is that symbol table records cannot be erased directly by an <=
+span
+class=3DSpellE>ObjectARX</span><sup>&reg;</sup> application. These records =
+can be
+erased only with the PURGE command or <a style=3D'mso-comment-reference:u_3;
+mso-comment-date:20080120T0053'>selectively filtered out with </a><span
+class=3DSpellE><span style=3D'mso-comment-continuation:3'>wblock</span></sp=
+an><span
+style=3D'mso-comment-continuation:3'> operations.</span></span><span
+class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0pt'><!=
+[if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_3"
+onmouseover=3D"msoCommentShow('_anchor_3','_com_3')"
+onmouseout=3D"msoCommentHide('_com_3')" href=3D"#_msocom_3" language=3DJava=
+Script
+name=3D"_msoanchor_3">[u3]</a><![endif]><span style=3D'mso-special-characte=
+r:comment'>&nbsp;</span></span></span><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'> Objects owned by a dictionary can be erased. <o:p></=
+o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><span class=3DSp=
+ellE><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>WarningErasing</span></span><span lang=3DEN-US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'> dictionaries or dictionary entries (see <a
+href=3D"mk:@MSITStore:C:\ObjectARX%202008\docs\arxdev.chm::/WS1a9193826455f=
+5ff128052610e798412bc-4b99.htm#WS4b0506698c46277a1ef8cf3105a303aecb-7ffe">E=
+ssential
+Database Objects</a>) probably will cause AutoCAD or other applications to
+fail.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+4bd0></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>Another important difference is that symbol table rec=
+ords
+store their associated look-up name in a field in their class definition.
+Dictionaries, on the other hand, store the name key as part of the dictiona=
+ry,
+independent of the object it is associated with, as shown in the following
+figure.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><span lang=3DEN-US style=3D'font-family:PMingL=
+iU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'><!--[if gte vml 1]><v:s=
+hape
+ id=3D"_x0000_i1026" type=3D"#_x0000_t75" style=3D'width:297pt;height:372pt=
+'>
+ <v:imagedata src=3D"dictionaryobjects.files/image004.gif" o:title=3D""/>
+</v:shape><![endif]--><![if !vml]><img border=3D0 width=3D396 height=3D496
+src=3D"dictionaryobjects.files/image004.gif" v:shapes=3D"_x0000_i1026"><![e=
+ndif]><o:p></o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-US><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+<div style=3D'mso-element:comment-list'><![if !supportAnnotations]>
+
+<hr class=3Dmsocomoff align=3Dleft size=3D1 width=3D"33%">
+
+<![endif]>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_1" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_1','_com_1')"
+onmouseout=3D"msoCommentHide('_com_1')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_1"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_1" class=3Dmsocomoff>[u1]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#25226;&#23427;&#20497;&#30070;&#25104;&#23481;&#22120;=
+</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#26032;&#22686;=
+</span><span
+lang=3DEN-US>entry</span><span class=3DGramE><span style=3D'font-family:PMi=
+ngLiU;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Ro=
+man"'>&#20043;&#24847;&#21966;</span></span><span
+lang=3DEN-US>?</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_2" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_2','_com_2')"
+onmouseout=3D"msoCommentHide('_com_2')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_2"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_2" class=3Dmsocomoff>[u2]</a><![endif]></span></span></=
+span><span
+lang=3DEN-US>Within the MLINE style dictionary, the STANDARD style is always
+present</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_3" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_3','_com_3')"
+onmouseout=3D"msoCommentHide('_com_3')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_3"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_3" class=3Dmsocomoff>[u3]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#28858;&#20160;&#40636;&#35201;&#25226;</span><span
+class=3DSpellE><span lang=3DEN-US>wblock</span></span><span style=3D'font-f=
+amily:
+PMingLiU;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Tim=
+es New Roman"'>&#31721;&#36984;&#25481;</span><span
+lang=3DEN-US>?</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#22240;&#28858;=
+&#23427;&#21487;&#33021;&#23601;&#26159;&#19968;&#20491;</span><span
+lang=3DEN-US>block</span><span style=3D'font-family:PMingLiU;mso-ascii-font=
+-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20102;</span><=
+span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#25152;&#20197;=
+&#35201;&#24590;&#40636;&#34987;</span><span
+class=3DSpellE><span lang=3DEN-US>wblock</span></span><span style=3D'font-f=
+amily:
+PMingLiU;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Tim=
+es New Roman"'>&#21602;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+</div>
+
+</body>
+
+</html>
+
+------=_NextPart_01C85B01.E3571890
+Content-Location: file:///C:/8AD41AF3/dictionaryobjects.files/image001.gif
+Content-Transfer-Encoding: base64
+Content-Type: image/gif
+
+R0lGODlhIAAgAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAAAB
+AAEAgAAAAAECAwICRAEAOw==
+
+------=_NextPart_01C85B01.E3571890
+Content-Location: file:///C:/8AD41AF3/dictionaryobjects.files/image004.gif
+Content-Transfer-Encoding: base64
+Content-Type: image/gif
+
+R0lGODlhjAHvAXcAMSH/C0dBTU1BTk9XMS4wBGNbAwAAIf8LTVNPRkZJQ0U5LjAVAAAACXBIWXMA
+AA7EAAAOxAGVKw4bACH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACwAAAAAjAHvAYcAAAAB
+AQECAgIDAwMEBAQFBQUGBgYHBwcICAgJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMU
+FBQVFRUWFhYXFxcYGBgZGRkaGhobGxscHBwdHR0eHh4fHx8gICAhISEiIiIjIyMkJCQlJSUmJiYn
+JycoKCgpKSkqKiorKyssLCwtLS0uLi4vLy8wMDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6
+Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NERERFRUVGRkZHR0dISEhJSUlKSkpLS0tMTExN
+TU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19g
+YGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJz
+c3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWG
+hoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZ
+mZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6us
+rKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/
+v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS
+0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl
+5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4
++Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8I/wD/CRxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzI
+saPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnT
+pxv9lcIBwIy6h7/OKLyEaSAwAGDBSinIlaAZYFDTql3L0BQAVLZ0APDnTyBduv36+ctbN0+evHbz
+9hMIgNbAa7ZsAdhkC5jgugBmAfYH4N9evmwza3aqB83gf3yAmRFYSo+ZS2BLgTX1D0cOsOv++Qqr
+jjI7g5X/YQprjfIUAFH8/QogO2y1zciTF20XAICsz5XXAcAGYIo7sO7S5PkHIM2/AIqkb//6lyaK
+tdwEZxFnl+Pavyl5zqO6/gsTFemGF0VRzr//Trr/bNJcbACsg0cV0rXDnTD/nKGHdALpoQcmOghE
+CwCmVFhQHntYtsgZYC2SIWG0nLEIJs2BRZx/LLYYEyaXDJSDIt+pho16luUGQC2zVOYPDprosZ0/
+iVDBoUE4oPKPGTmgUsuOeeiR4zU76jFFYrQw6OKWXKKECgDV9FMNAJqQBwAf/xyJo215BKCOLAGw
+owkA6sz2pJIE2cadIv0oUhkAOfSDhwDcyUnnmO51qeiiIPERFpr/KBKAgjoouUgV/wBDqA5qABCA
+lp0u9o8AiR5G6D+pNEcFoQLs4ak715z/GmoqjNZqq0f+7HODH7f26qtSXw3w67DECtUOLsUmq+yy
+zDbr7LPQRivttNRWa+212Gar7bZI9YPPt+CGK+645JZr7rnopqvuuuy26+4+1ua6z7z01mvvvfjm
+q++++fIj0yqeBiDwwAQXbPDBCCes8MIMN+zwwxA7DIAc1oojRx0YZ6zxxhx37PHHIHdMhycytRIL
+txR5U4e12ZDBzcswxyzzzDTXbPPNNO9CR8mtoDxRNitXC7RP2gQNUys9+xzR0EIbvRPTRyet9ENQ
+T1u1Tle3hPTUEGUNrdc3ga3S1lw7JHazZ9OU9klkl83Q2srCHZPcFOnlUNsG8fMtvA/V/7OQ3wT5
+exDgAxE+kuEt0U2s4i4xHpEy2uCzz2cJ4V3QKlRQcQpE6CHU+T8kH/T55yGRvpLjvqJ+utMeyQHA
+EYrsQk4+/FBOkOUEAXDPP/foI3g+/tSzTz718KNP8YTpk889n+WDTz6EBQ7APnstLzgAyjPPnWX6
+fFtX4frs/s/yn4WPT13OQy9QPeGPn48+pquk+q3zH+SPPvrYrlH9DNURFlhcwIQx2uG77/0DdwNB
+wCr8lYhXWGYM9cBQGgDgiUUIYBWESUQacCCNf8DDDFQwAzy2N5ALaSIc1EADDjDIHQ1ycHvxuAMV
+pMCN3C2iBh5kUgfhgYcdUKEeHwzhCP+5swgbwOMMaUhE/FLCP0Y1kSDcaEMbjOGRJybEf//7XxtI
+AY17TI4VUjOINwbQCn7gQgz+8IYVuKONfxwDAOTgh46QpYsw/EMOufhHLig2OoGkohzDmOM/6ri9
+SHTiH8Ww40DgCIg75uIcdpQDCx2pR4pxhxyRkEMx/oGLJaLEil0CZT9cEJZx1OOUqEylKlfJynpA
+Aw6tjKUsWQmHLNoSAC3gAyw6McmDoIMHGAyAPESRR/ToKHrRMyYJFzmQeSgGmdv7UzfwAb/cLVJ5
+f7ImMo8JzcaxLlqgzEaKBECAcprznOhMpzrLOQByrvOd8EynAG75vwEU4J5GKERCBnP/jsoIohVS
+wMcyuTm9f8ijAP8oALz2gdA+/sNJlCEMvA66vQJMwQpW8II2/0EAKmQ0oXwD6T8YiswC+GsfnjwJ
+KLm00iwgAAE/8Ag4thOSPNxSAAZIwAK00Ilm/AMWrkCIP6BhD2wo4B/ccMIfoEnQV9ijFYT4ByFa
+8dSofu4A7AvAO2IxF+44FarbkwMt+GFAaHLBGp8hRCjqcY95TLWqyIQDK+4xipSaZKVbWuk8bnEL
+elTxmxzBIlgKgIAFAOERwrDH7cJIkHqsoQo9AIdAclDDfzBgIJe1rEAY8IgqYAF6+WhDFdoAvcwO
+ZBQ8QMUorLAKBviNs54t7T/04Ycq//ChTJgdSDfWoIYyhZYHasBGaEervsx2Awtq6IRpvckywIbN
+uRqhAwEOoAAG/OEWtzkIAg8SDyxMDa8uAi9IxDuQPbxhFdhgyHYLYo9R7OK70EVbfNU2X7YxFiFV
+eATXyOsf/nbEvxBZr9sIAmDlFHh/9TWJgAcskAMjx8EYKRrPGLwQCGvmGm14h4Y3zOEOe/jDIA6x
+iD+8jDhMWCX92Ac88mGPd8CrH/WQB9/ggY93OK/FfLtHPRQ7OadYODO6EMA9h0zkIhv5yEhOspKR
+TIAbnPgk+7DHNr5yCT4MgDXSSEMOWMOdTAyAEYngQwBY4447rMEM7gDGNuwR0qT8mP8t2qApT8Jx
+hyeTZB/32AUfOHEPAGwyHJVRxTmIoaNySIeKy6iMG4LKCzfcgxN82IUXlfLmtVT6ZwkuyYI5ogo7
+dIJvyjRoJ7fJTAC4gx59Fsg+OmEHVVA608W6tERkXZBNbyQLnoCH9pRpClv0g6DMJMAUrnAFO/bj
+HvDwRBZe3Vyf0HqxKClHH/agjWpGTwDtgEVXubk9MIx1MPrQxh76UI6lPNvHsH7JuQVi646c4xG2
+kMBA5H0KLLRCAn6T9z/0ve9/9CMQbPADJ2zxiHM0Zd1MQfjb0i2SdpdN4czuCcIdvl+G/wriCpn4
+fSlMYIunzuOrs/NL1PcPBVnE5CX/WYe/9AEPfqgcIxhHykr10Y52kHwjGp9JjLo5EbtupADi+Acp
+foANoMMc5PRDukH80QmwREJ/Rxe5Sfqhj3/QQx5+zYfuqq67eqyj6v+oxzz8WnJ7DFEgZpcHZMY3
+D3hUXR/ymEfv4i4+gcBdsWVvu79iLI/PAFHt0RifjwL/j7SXlWpKrxUo6fG/cPw38RuheEaOp41g
+sMMMWDADOxTDCQYB4BJ+IAAp/sGOO7BB89xhhA0Gwo5D+AALfqvMK9agg9GP4gpt4MTtc0+QUWDB
+EYRBBBty4Ix32AELU3BP6V8fwX9wXhyVaT3zMd1sjZCDAWA5QGVxDnmNSN4i+ZhH/y784Al8qMEX
+slHDQI/xj3JURg0n+4V3AHCOTAxEDQ5kpiv4UYzKEGAadfF/hycA2cUdvJApWYAIofAPzLBsagAL
+zERC75d/FBFzR7FSoyABEmAHfyV1IXEKdgAK0FFqERhN6vAO85BNuXNzPvIOulAZqVAAjZAOMTiD
+74AO6BAgOWBwAzUd7yAPxNE5wAYANzdr3acoeHUOPPh4HggSXQAK7jAPg5EAoJUAA8VMBkAFWqAF
+o/E5CfAOdrE9oIALciQQ0OAFV/APZ3gFWZAAVvgPtTAEhAE98CAECFAFWzgaCSBQOUJqXxiGRlh9
+PJFzJ3EOf8AH14APipAK75AKNP/CAOOwO8pUBrOQD9SzTAKhCJ3QDj+4PQEwD68AAPxgDfLADgpA
+iqY4EPxADfSwAITBCu9wCpiQB7MgOXWhCJzQDvEgD8CmiZwoD9TXNM52hBjxfRiBDpBwC/wQB1kQ
+B/6SCkHgahUwENPoD4LQBn9wSNMYOHIABFmQDf8wjYuQBa5QAeIACFkQBMOAjuo4EOLwBlkwDIQx
+CVnQBZMjCFmQjf/AD93YBtmwjQC5j934jcFILRZ4EIS4KD4nEgdZFA1ZEAmpKAsZEg85FBU5EBHZ
+JduYOMTIJdggB/kQkiI5kiRZkiZ5kiiZkiZJDTsTE8aIMhcZFM/QBKdQkzZ5kzj/mZM6uZM82ZM6
+6Qhk0IQ3YQ6bEZNAIQweMARKuZRM2ZRO+ZRQGZVS+ZQ5wARCaRMTKXMduSXaICU9IQ515pIbBxLm
+0GLkgA/zMDsCIQ81Nxhl+Q5nmZbQAwA1pg5n9w7q4C/mMA+xgQ/tMA//wIdBYZQ/YZQZKRIAcApv
+UACS0AgK8AklVwdbQAXUwB2KyZiOCZkA0ApvIARlcBXqcAY/sAzc0Qg08A+RsAWQ8A+vEA94V5hb
+GV6xOV6zOREv2XPdoIYAkIOVUQij8A/NkIYAkJvQsJvRBAoCMQto8A9oAAzuIJzoQCMEcBX/sAuA
+QApleXg5QZjD2J1ieRKh9ifW/9AO8BCEEfgnIfUn8eAO5ikQnYAD5SYQyYAGi4ByT1Ob/YWfTPid
+JhGe/5AAVcAFXDB/58kd4tMODvAPB4AFA4qJ0CgQyHYLYIAsEqef/GGYFvoQtykR/tkHsUAP+OAv
+/gkAocAO5+AJGGQGRCWiqjYO8JCg7wALXHCAsCmI93mVHcEBA6Gj/6Cj/lAIXBAIJMOjPSoQOsoB
+sQAHRGAJ8DIOcgAHQyoQ4hAHXEBFgcB+g5mhyYGhOMpg3FmhHQEYHcifHIeQWvpgHRkPv/ALYLif
+UVOmCPGlg0iM/QAGYAEFYMd9XTpgcnqjGtEO/wOOHHGYcPoPfYo1xHgPGAAWE/9wdgi2p25zqNvZ
+kdcAAiBgC2P6poUKkWdalJ16ERMXVJtKEBImjGAaE6zwCeywqqzaqq76qrAaq7I6q7Raq7Z6q7ia
+q7iaDHNgo4gqE7WgBX4xrMRarMZ6rMiarMq6rMzarM76rNAKrWsgCL46qTIxD+YwDtq6rdzard76
+reAaruI6ruRaruZ6ruh6ruRgn9LCpaP6rgzJgT1RqvBarx1hDWywDvq6r/zar/76rwAbsAL7r8hg
+YvZ6sBqBDDGgBgzbsA77sBAbsRI7sRQbsVvgXQibsRbBDD+ACB77sSAbsiI7siRbsiY7snSgURq7
+shIRZz4BDvLKsjLbEO46szb/mxA1e7M623HeubM+a6ifahGS+rOy2bNEe7M5e7Qzm7RKy7J4dUpQ
+F3VNa7MrVQ2N0AjHoJ2gGrRT+zXEiA9UAQAh4KgZMbRdu6XEyA1hIQDb4KZnq7ErNQUTAAFPUIRS
++7Zw25HzMAqU4Hhui7cHy7SAC6+CO7ijWriGW6iIm7hluriMS2HZEJY8wQ0x+7ijSg1iYA2au7mc
+27me+7mgG7qi+7m3wAaWC6/CwAE/sLqs27qu+7qwG7uyO7uwWwNWebqX+wXPsLu827u++7vAG7zC
+O7zACwumi7ubGrk+0Q2Vi7wc57jOqzTQG70wybUVaL3Ui4TYG4jZC7nbuzTf/9u9LTK94ost5Fu+
+1Qp+3SAOgqmn6PtwdOoKM1AEmCA47vu+8LUR8dABYbGEj4q/+asR59AAYMEA3/C3ALwtK4UIJBAC
+zVu24ZvAnnqvpJmpEqzAEWw2GXzBlrbBC8fB3HK+IMwsIjzCcePBFYbCJswU2oAHPuEND7zC0hIN
+WAAMNnzDOJzDOrzDPNzDPrzDo1AGMnwtvjABKnDESJzESrzETNzETvzETDwCQDDE1rINfeAT6SBn
+VNyuKoyzXbzFDvnFZgrGViPGBmG2ZCwTJZzGimfGnMrGXmu0cLwsazzHoeTGPGvHJNyR6PAKr5CD
+CKzHwwJK+mAGYGEG7QvBgv9Mx8QoHWEhWYOKx4tsE6AUDyIAFh5Anfc7yYPckbmQAzkgqpHMybG2
+lfPyEWhMynclyQ3GyqoME3X8ymgrx7LsRK6cyrVMkTF8E9vgyrm8EtfgBvAwzMRczMZ8zMiczMq8
+zMjMDJb0y4yyDD+QCNRczdZ8zdiczdq8zdyczXXQBdBcK8fgAmZQzuZ8zuiczuq8zuzczup8BVQQ
+zoyyDZDCE+XgwvKsvbSczywSy/z8FP78zwd3y74s0AxJ0AZdtKea0Pm5zww9wRxBD2QXyA+tGSvF
+DIMwCMxgwRWNphtRD3IBADoAjKPc0QZGjObwP21b0ibt0RqhDzrwUjow0f//29IQrRHlcAd3EJ8s
+bdOZEdA+naUOHdToNtREnXAIfdQdbNRKnRTaILk7AcNNrRbUAAbScNVYndVavdVc3dVe/dVcPQvH
+O9VPcQwvUAZondZqvdZs3dZu/dZw3dZWkIZk/RTPwASkkNd6vdd83dd+/deAHdh+zQhjUNdP4bI9
+QWeGXdQLvdgRN6eOjdRMHdlAAdSUPROWfdlzk9SabRSZ3dnMtRH9kA3ZELVbC9qe3ZGkwAR4bdoV
+gcuUDUrvMAGMmg4UjdqNfRHkcADZ57ebjNuV3ZF3EAMrcAdtpsjALRQzVwy7kKe/ndy5ba3QHdyT
+Pd30Vd3Wrcacnd1+Ctnc/80TiD1nUP3dOPEMTrAK6J3e6r3e7N3e7v3e8N3eklDY5K0TxXACGJXf
++r3f/N3f/v3fAO7fSTAW9Z0T1lAG3ZDgCr7gDN7gDv7gEB7hDs4Lb1Dg2zneOcG8Fo4Tn73ht10T
+sB3ZHe7hz83hBT3dI07iyO3dKq7d2N3iJbFS8cAKrBAPHA3jHLkR/NAGERABbZDId4vjoZ0R7NB4
+Hy7kq7wR7XDJACAC/rviSM4SK4UKUKAEeNLTUS4/W6kO44DKJw7dKZ7lXbPdYv5JZF7mSR7daE4S
+Yb7mFdYhPVEOX57c1zADgHDneJ7ner7nfN7nfv7nfL4GbeDmKKEOafAFiP+e6Iq+6Ize6I7+6JDe
+6GIgC4Re6ZZ+6Zie6Zq+6Zze6Z7+6aAe6qI+6qRe6qZ+6qie6qq+6qze6q7+6rAe67I+67Re67Z+
+67ie67q+67ze677+68BOLHWQBmngCEGHSFpCEOJgDeQR7J8EAE3QBFpABN4Ah+hXEE7wC/qwBc5+
+Ep1QA0pYDUZgYluwD+qwBmXABubwCQDwBsOAqVlmBobxD3WQDGVQBwLVCuWsJNpAC2lgBkFDD8DX
+7QoBB4YwELLQAEX+D1HQA3pAA2bwBQBgB3RACd1wA1TwBh+gDEVOCHoAAMwwDV6gB4DAAdaACR2Q
+8QDgHoOgBQSvECMgNbH/MAK+oAHS8ADgaA2dkAdGoA4ioAqB8AMKAgSAMBvJwB2s0A1zEApv4Bw1
+cAQKogGrIA4HcBwv7zk87QOJMAlccAje8Q/v4A8toAvcUQ4akH9gQAiTMMXc4Q1rsAZ9YAW7CQDP
+IBBdUAlLsARXjxDUMRCcoADjMAObMAg58A/hQASp1vcfMAlqiADIMAOQ6Q1/UgrpMAgAAH18Uwkz
+AABttPcGEQkAgOgYhUEAgAzIEPo6wAWMFwaRMAL/wAoY8AUsQAYohQz/AAquvwNIoAUyAAC4PxC7
+EPqefxDJ4Ah3HghU9A+O4GLGTwjuUA/GnwwUigiAYAjuoPxgCA3IsgyD/xAIpuAI2j8QrWCcw/8S
+ZKACc37rUbAHdlv+KgHI7h//8j//9F//OsEO00C8+r///N///v//APFM4ECCBQ0eRJgw4bZ/DR0+
+hBhR4kSKFS1exJhR40aOHT1+BFmxF6FRJU2eRJlS5UqWLV2+hBlT5syZRUI2TDdGy06ePX3+BBpU
+6FCgX9AQRZpUC5dXN50+hZpRlSRuVa1exZpV61auXb1+BRtW7NixAJxes2FI7Vq2bd2+hRtX7tsu
+EebexWsITpuoff32bQXr72DChaGavZltj+G+wnIwbkiuDmTKlf+1amVZ82bCiENmm8zZYy4blEGL
+Rv0Uc2rWrTN6BnnaNf9G0qZDz8ZtcXVu3q5hf5TdW2JtyMGFH999XLnl3x6NL/9HnPFz6LOTV8f+
+t3lH6sqlG+6eHfV18eVvbucYXvj3wurNc1SmDZ9H8g/tdWLEqJO9hmcgXlnnImvemw29jdx7SJ5q
+zvjFlCu++UcdTv6A8J8zjtEkC2toqaLCVhj55J9q5OmIPcIQJBAjQYKoQpFfxPFHo/oagkcJUGKJ
+BRQl4PnnN0HiueiHFFszUCMUtyGFlW4AOKWYOoL4JxZVBoGyx156KYMHXBSB8phAaFEklm5YIYUh
+jUwcDMUhK5IDAAAUaIEIKzA5Jp2LZvxHkSjqaaieKBTpkZZLHHHnny7/HOIkj0L/UeUORPBZBoBc
+1FlTtCIzcg+bVTzxhZp+ALBTH7PAwUcXxAAgER4A7unxHxui+UeeEfqhxhdPVsEmIzQpysYLL47h
+yJs7Kv3oDjePBcCCGZDQ4pRoeJQIzwxweQiXDHrMpJdAMGk1SkUq4TaWRFKhRR9vAJiGRGI1uxQj
+99AIJNeGPDNLnGTOOdWhfAEwBBFGQnAIm0DQ0LW0jOjxwc0ZgmGmYYcfhpgZV7yIuGKLL8Y4Y403
+5tgLZD8G4IMcmvBiFWYWbQhPAIp5qBizACDnn3NE6DYFEjn4J4UK512Xs3Yvcg+XYkgxZZ5uW7WB
+nGry5RlpRoLxBZl//+YxhZRiqKXNYIzWQdaRmRRZgiaxxyZ7piVARhsALEbJ5iE8cZjloVlwOPrl
+eR9RhObffu65L74rQvAeY2IRJVJ9/3ECEVEAmI9enodZJBJWgllGlFiMYbVgjfCZws0ksPkmdNFH
+J/0bX8woPXXVV2e9dddfh92MtN0kgQs+LhnmG2hTzkwiV1JY1J0UXOmRmn+sEaJbFUj5RWohmmlo
+n6P7puxvXm+rCB9nvOnEoe6/qYWbTvT5p/uGzDc/GVqKmcYbZ+bbaNeJulFkkGs44sYO6jWyA2QJ
+pqBDJH4xjsxFBE/10EO/EGEIPfAJAI9AhB2W0a1SOOITwfjHMuJwh/9LQOgKdxDG/iBjvYmoaTby
+o4j00oM9EVKkTW7yQRsUQYtuqKsiePqHPn5BC1r8gnzlgwYtMNgte/yiF9NoiDBS0YtCfSMVbWth
+YUgoERO6BoVRqSL1EsGFQXQCGu3YCA5fE8UCOSWLrLkiVM7Ys2+QQ4UcEeOd+EJGIpmRhctJ41PW
+SEeMxNEiz2AHH1kzxYjsUTR5tKMg/eJHyxyqMk2gVDLmMA5IUkSSlJSIIx2iyfOYcVjZ6cUNKNMN
+/SkyKoysDCE/wgijzaAW8WAlRVwJS4ns7TBOqUYZyLJLXm6lEyzoJVl28QZTnrJ3m4kHEk8xh0I0
+7h/QqMQTcsUNQ2T/hhuHoMQtHkLNzHShF5S4wzsagopCKIJP/1hmM7HwD2UAABjsWOc/ZsFM+LHT
+nfAcZyEy0bRMUEIWiJmGIYIxDSB1RJUtMwEVFLpQhjbUoQ+FaEQl+lAcNGCiF8UoFZAQhWJCBZVR
+0UYoVOGNVyjCFbiQnllEoYs3mOEfNPgFNP7hSmQMyCEwlSkALhGMQBziH8UQBC4YoYl/lPSk+xgV
+AKoxD7O8QhJHdQg4lMrUnwaVEU1pKiWCoQnEvOAX2/CGKkKhDY4c1CHPgAIs1LpWtrbVrW+Fa1zl
++lY/jGCud8UrLCpBho6q5piQsQYqOhEMa/jjBOF4iFlixosH/AMJ/31oSBSWoAyIPHZe4PiHOzAw
+U2n8Ix8a+MdhD9cts5yArBHJ1ww6Ow+AlTaQ5UAMEv7wD39YIxidQIVNMWLWhmgjD+IBBt0gE45P
+9jUkH3WKGQRx2um1ChzHQIdZugEHSvxjHGvggigKoQQl/GO61XUcAAZRCESMYHpMe1mMUMsz8RYi
+Eea1W9O4wYXq9lYQLh1jYu7oHa2BZ7/GDeNfGfOLY3wiFEA6AmVz2CoZnEMaZsmHPBDwj3v44xgQ
+4AUnOOFZCfcIWNM4wj90AAlkGOMZ/0hwQ0TVNLMcwRgqTizPRlziE5uFB9X4hzE8c44JxyMUnzjG
+LzTC238YkjOI1P8vgI8rYMZAqhafQMYz3vCGSHijVT4IxOLSUQhDsCEdkiCEHNjgkC13uUeIEAQd
+TowMRCTCFLz4h5SpfC4Wx3nKgrDyaM3CZjfD2SyyKEMkJGGWdDTiEGxAxidqsYx67jaR2UHyZ/6r
+5D4yGTL5mIY4/oEMWRCDR6c4Hi/AcYp5FIMX7ZgHM3ghCzA2pNSn7pE1eAGshjiDF8u436Y7DQ9Q
+o7MhveY0L3bna2LbGte+LiIxtgHqeRDj1OKYRj4M+mjsRDo2k6a0biydIiL3hshG3oy1gYPtbFME
+udDpNm++Te7ciNs57C63AbdNoF5Tb93icTd34B1vt82b33VMMqT/+4sRc5hD3/+Wkb8Rjpp7C3wj
+q/CBDzaxwoVXuuLqpnZ1kLwOELhpAzEz0r4Rfu6LG6bh1R54RdyBrHEcSOT/JnnJO5Nx6CC5H3+o
+QAXu8ENMvZzfrdCFzMsYcJRvhB6/+MWw3eXzeJ/CBECAetSlPnWqV93qV8d61rW+da533eteP7nG
+U54mppebHKQIRdrVvna2t93tb4d73OU+d7rX3e53vzsraI7Hsf8F3EIHPHb+bpl8Uzzwhxfh4CtT
+eJcj3vF9UzxlGB/yx1e+UtrQg3iCIVzGENfynyeQM5LwCdKX3vSnR33qVb961qf+DR5ofexl/wlE
+iAH0txcPMl5Q/wbe9973vwd+8IU/fOIHfwgPKH7ylV+GK1wB98+HDjXCQA3qV9/618d+9rW/fe5n
+HxMr6H74xU+NWswR+ufnTTaKW51QjrKU6Ie/ayIPmcn3PP73Z838GVP/pePf/5zRP8PgP6Apu/8z
+wHfDt77ziwA8wAaECAYkjAG0CAh0QAekwL+QQMApwArkwBLawHBTwL64wA70vxHsi0jDhytptP4j
+wRa8tgTciDMgARI4A55jQRfEwcZzuIwAhwJwkwLIM/vLwSG8QbHTiHnAADfBgECiPCJ0wuuBQY2Y
+BSzAglnoBx18wix8CBOMikjrB3EQhyvEQi3UQi6EigyEQjIkQ/8zfAo09EA1XMMP1Aw3pCI5hEP4
+Y0OnoMNCssM7PL88vIk9fMA+9MPn2wY+EA9ieAzIKAc8KEQnNIYV+IJJpMRKtMRLxMRM1MRNxEQh
+iABOBMVQ/IIokIJHJEJmAIL8UMVVZMVWdMVXhMVYfEUwyABZtMVbZIQ78AJTHEJseIN4AMZgFMZh
+JMZiNMZjRMZibAUZSMZmdMZ4aAY54MUczIb3q45dCMGo2AZCnMbKA8SQEMQt5MZudLxvBIlwdAhz
+JMdsU8fRyEY1Gsd1DLx2LJF31KN4lEeho0eOQMeG2Md8LKZ/PBN73DuALEF8jECCJDqDNECB1ByN
+AAc/SAPMGkP/hjzIKMSIfFCBBjAAFbChIrRI/HPIrNEI2DoW5gLJkIy/kbwIJMOHIXCTIeCPJlRJ
+kUTIwYg0bFiERZAXmqzJlbxJDFTIhqAHeji4n7w/lrSIfiyyoERKAFPKimDKqHzKNaHKiZhKp6zK
+jrrK4RjKF9zKP9TKLvzKcQvL89sGyMoOY9ABykCH3zrL5+sFCBCBurTLu8TLvNTLveTLvtRLDDgA
+vxTMwRSBDvCBuHw+adCCYmDMxnTMx4TMyJTMyaTMyHwEFajMzNTMYkAF/0DM29MGRwQlUYIMb7DG
+z/TGsTzDskRA1Py8royIrHTN11TNNmTNo5zNx4NNiJDN3NTN/9rUw9s0PN9EvN18iN4kzsMzTodA
+zuQEvOVsCGvDhxVMSee8OOiMjqGMBRVQgVgYTuuUOexEMni4ADe5AHSoSPCsOPFUSK45FooUQvUs
+OfbUCH6YAzeZAxskQPkMT+AMxKF8h2HQBXFKT/7kN/rkCPUqUAMtNwSdDv9kUMGD0HMUzgWNUCVz
+UP+6UITL0PaY0A09DvUTD14gTcYgJRDlt2mgGI5h0RZtUUhAAReV0YZxhTFD0XIThg3ggR3l0R71
+0R8F0iAV0iEF0hNAACJF0iTlgRlYghstt1zyhiiV0iml0iq10ivF0iy1UlBwAS310i/1hl5wAydl
+x9Ncjl0oUf/DyB8ypbQOPZEPZVP5g9N6tI04hco55ccK9Uk7NSU3JTs+7Ss/9Ts8BdTNENQFJNRC
+tYxDFcFEVdQ63UGNcAZnwM1HpSNGjQg/yIAM8IPvtNQowtSHMAcGcBMG6AYL/dSeCVWHkAdksZM9
+TdX9WdWG8AdU2IEdQAUxjM9YTTxHJUmN0Ad1UAf93E9ebaFZXUhjhTxfbUk93VVlVVVmXUpnrU5o
+tUpplUpqLVZrjVaM1FBu7ZnQFI9f4DzD+AYzBdcUWYYeIIR2ddd3hdd4ldd5pdd6ldctuAB71dd9
+JYQ44KR0HZJkkAE2INiCNdiDRdiEVdiFZdiERQIIaNiIlVj/NuCCeALYNbkGN4CHjeXYjvXYjwXZ
+kBXZkQXZZSTZk0VZeGAGabzYaxUPXdBWi9AGbG1ZVOWN5qxZ80BWScvZFNlZsOxZnaVZrIxZDQza
+9/hZszza8kja1lza7GjaSn1a6NhZd8AETCgHT51a5dhZJGAABjgC6jTara0OZN2GAHCTAEDJbSVb
+rh1ar9SIfTgBN0EBo4HVtk2/t43NoeyGQAiEaVDQasXb2fjZe6gwrR1c3IhaxE1cOfVWD21c4Vhc
+m41cANRb3izaNKxcxb3c48zcN9xc3MA8zSvXwhAH0Qxd19CFATiA1nXd14Xd2JXd2aXd2pXdAggA
+29Xd3T0A/wMo3dRFDWtgg3Ug3uI13uNF3uRV3uVl3uRdBRlo3uiV3nVABjgAXsfNDpiljJm93taY
+3Lvt3kXtXOb83DoM39T43mc9X/F93DddX9FIX8F9X8iN1G+dX/atX/q938qIX7bd3wdt34p4huMj
+Bsb930EN4Im4hwUQAABYAAJV3wP+0/ytiHFAlp6UXwmGxwSWiH5YAzfRAl3NYA0uyOOItHwYhlyA
+4AgmYSwa3+j8yn4QYRZu4Xvk4EatYfel4AnOYUS9YRfuYQTeYSEOYixC1+PARsrYxiLuC2nAAqSD
+4iiW4imm4iq24iuu4kMgASzm4i7+hVFIAyaOimDAgBow4/8zRuM0VuM1ZuM2duM1FoEDeOM5puMa
+aIHuEuOnwIY4MNw+9uM/BuRAFuRBJmRBngUaKOREVuR7kIY5yGMbHmIffuRk5TtInWSgNcLieOGp
+7d8J3OSn7eSxvWSlLTpNHmVMrrny5cNTJuVMBmBWltpK3ogojWVY9l9ZzohMMAADWAzKteVB/OGH
+aAcCcJMBWFtP/mVfPiGFZAdk0TTwTWbzjWSJSAU3eYTAveVoBt1Szgh/2Id9mOFs1uZVnmYgHmdk
+LucNPmdRdmX7XWdp5mZ3fmdgTmdInmdyxg7thQzuvedCcgLMAOiAFuiBJuiCNuiDLug+GAGEZuiG
+boVJoINEfo4IdlgFVrDoi8bojNbojebojvbojQaFQfjokSZpix4GiY4If1DplWbplnbpl4bpmJbp
+mabpmq5plMbpnNbpne6IgAAAOw==
+
+------=_NextPart_01C85B01.E3571890
+Content-Location: file:///C:/8AD41AF3/dictionaryobjects.files/filelist.xml
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/xml; charset="utf-8"
+
+<xml xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+ <o:MainFile HRef=3D"../dictionaryobjects.htm"/>
+ <o:File HRef=3D"image001.gif"/>
+ <o:File HRef=3D"image004.gif"/>
+ <o:File HRef=3D"filelist.xml"/>
+</xml>
+------=_NextPart_01C85B01.E3571890--

@@ -1,0 +1,25 @@
+它先介紹什麼是事件
+再介紹什麼是委派
+再介紹C# += and -= statements新增移除事件,再介紹表示法為何?
+再介紹如何新增移除EVENT HANDLER
+介紹我們做什麼
+開始做,並介紹各個變數和COD的用意
+
+*************************************
+1.新增一個EVENT HANDLER
+CAD OBJECT被新增時,public void objAppended(object o, ObjectEventArgs e)
+2.加入EVENT
+Database db = HostApplicationServices.WorkingDatabase;
+db. ObjectAppended += new ObjectEventHandler(objAppended);
+3.移除EVENT
+db. ObjectAppended -= new ObjectEventHandler(objAppended);
+
+
+************************
+它先介紹什麼是事件?
+事件可視為ACTION發生時,一個簡單的MSG通知.
+arx是有一個反應器和cad事件做對應..net也是嗎??
+事件就是程序,它在這個環境裡,負責回應事件發生時並帶入資訊.
+
+再介紹什麼是委派.委派可以做什麼?說到一個執行是委派執行的.syak到
+

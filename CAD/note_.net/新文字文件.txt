@@ -1,0 +1,261 @@
+新增一個就好,沒有事件
+[]
+                ContextMenuExtension cme = new ContextMenuExtension();
+
+                MenuItem mi = new MenuItem("Count");
+
+                mi.Click += new EventHandler(OnCount);
+
+                cme.MenuItems.Add(mi);
+
+//資料來源
+//http://through-the-interface.typepad.com/through_the_interface/2007/05/its_all_in_the_.html
+//延續01又做了一個contextmenu and item,沒有選取物件時,也會出現哦.
+
+using Autodesk.AutoCAD.ApplicationServices;
+
+using Autodesk.AutoCAD.DatabaseServices;
+
+using Autodesk.AutoCAD.EditorInput;
+
+using Autodesk.AutoCAD.Runtime;
+
+using Autodesk.AutoCAD.Windows;
+
+using Autodesk.AutoCAD.Internal;
+
+using System;
+
+
+
+namespace ContextMenuApplication
+{
+
+    public class Commands : IExtensionApplication
+    {
+
+        public void Initialize()
+        {
+
+            CountMenu.Attach();
+
+            ApplicationMenu.Attach();
+
+        }
+
+        public void Terminate()
+        {
+
+            CountMenu.Detach();
+
+            ApplicationMenu.Detach();
+
+        }
+
+
+
+        [CommandMethod("ADDCONTEXT")]
+
+        static public void AttachContextMenus()
+        {
+
+            CountMenu.Attach();
+
+            ApplicationMenu.Attach();
+
+        }
+
+        [CommandMethod("NOCONTEXT")]
+
+        static public void DetachContextMenus()
+        {
+
+            CountMenu.Detach();
+
+            ApplicationMenu.Detach();
+
+        }
+
+        [CommandMethod("COUNT", CommandFlags.UsePickSet)]
+
+        static public void CountSelection()
+        {
+
+            Editor ed =
+
+              Application.DocumentManager.MdiActiveDocument.Editor;
+
+
+
+            PromptSelectionResult psr = ed.GetSelection();
+
+            if (psr.Status == PromptStatus.OK)
+            {
+
+                ed.WriteMessage(
+
+                  "\nSelected {0} entities.",
+
+                  psr.Value.Count
+
+                );
+
+            }
+
+        }
+
+    }
+
+
+
+    public class CountMenu
+    {
+
+        private static ContextMenuExtension cme;
+
+
+
+        public static void Attach()
+        {
+
+            if (cme == null)
+            {
+
+                cme = new ContextMenuExtension();
+
+                MenuItem mi = new MenuItem("Count");
+
+                mi.Click += new EventHandler(OnCount);
+
+                cme.MenuItems.Add(mi);
+
+            }
+
+            RXClass rxc = Entity.GetClass(typeof(Entity));//這個是什麼呢?RunTimeClass,RunTimeClass是什麼呢?
+            Application.AddObjectContextMenuExtension(rxc, cme);//
+
+        }
+
+        public static void Detach()
+        {
+
+            RXClass rxc = Entity.GetClass(typeof(Entity));
+
+            Application.RemoveObjectContextMenuExtension(rxc, cme);
+
+        }
+
+        private static void OnCount(Object o, EventArgs e)
+        {
+
+            Document doc =
+
+              Application.DocumentManager.MdiActiveDocument;
+
+            doc.SendStringToExecute("_.COUNT ", true, false, false);//這個是什麼?該不會是使用CAD語言吧.像:circle
+            /*
+           System.Void SendStringToExecute(
+            System.String  command,
+            System.Boolean activate,
+            System.Boolean wrapUpInactiveDoc,
+            System.Boolean echoCommand)
+
+            */
+        }
+
+    }
+
+
+
+    public class ApplicationMenu
+    {
+
+        private static ContextMenuExtension cme;
+
+
+
+        public static void Attach()
+        {
+
+            if (cme == null)
+            {
+
+                cme = new ContextMenuExtension();
+
+                cme.Title = "Kean's commands";
+
+                MenuItem mi1 = new MenuItem("1st");//新增一個item
+
+                mi1.Click += new EventHandler(On1st);//把按下去要做的事,加到ITEM的click事件裡
+
+                cme.MenuItems.Add(mi1);//再把item加到contextMenuExtension裡.
+
+                MenuItem mi2 = new MenuItem("2nd");
+
+                mi2.Click += new EventHandler(On2nd);
+
+                cme.MenuItems.Add(mi2);
+
+                MenuItem mi3 = new MenuItem("3rd");
+
+                mi3.Click += new EventHandler(On3rd);
+
+                cme.MenuItems.Add(mi3);
+
+            }
+
+            Application.AddDefaultContextMenuExtension(cme);
+
+        }
+
+        public static void Detach()
+        {
+
+            Application.RemoveDefaultContextMenuExtension(cme);//remove comntextMenuExtension
+
+        }
+
+        private static void On1st(Object o, EventArgs e)
+        {
+
+            Editor ed =
+
+              Application.DocumentManager.MdiActiveDocument.Editor;
+
+            ed.WriteMessage("\nFirst item selected.");
+
+            Utils.PostCommandPrompt();//這個不知道是什麼
+
+        }
+
+        private static void On2nd(Object o, EventArgs e)
+        {
+
+            Editor ed =
+
+              Application.DocumentManager.MdiActiveDocument.Editor;
+
+            ed.WriteMessage("\nSecond item selected.");
+
+            Utils.PostCommandPrompt();
+
+        }
+
+        private static void On3rd(Object o, EventArgs e)
+        {
+
+            Editor ed =
+
+              Application.DocumentManager.MdiActiveDocument.Editor;
+
+            ed.WriteMessage("\nThird item selected.");
+
+            Utils.PostCommandPrompt();
+
+        }
+
+    }
+
+}
+
+

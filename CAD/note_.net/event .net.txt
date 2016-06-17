@@ -1,0 +1,51 @@
+[dwg event]
+[event]
+[ event .NET]
+Before Save File EVENT
+Before Save File .net
+
+很多CLASS都有事件.要找的是File Save Before/After
+Autodesk.AutoCAD.ApplicationServices.Document 
+Autodesk.AutoCAD.ApplicationServices.DocumentCollection 
+Autodesk.AutoCAD.DatabaseServices.Database Events
+
+BeginSave
+SaveComplete
+******************************************************
+BeginDocumentClose /CloseAborted /CloseWillStart /
+CommandCancelled /CommandEnded /CommandFailed /CommandWillStart /
+ImpliedSelectionChanged /LispCancelled /LispEnded /LispWillStart /UnknownCommand
+(wraps the AcApDocument ObjectARX class)可這些命名跟範例的不同
+public void objOpenedForMod(object o, ObjectEventArgs e)
+public void cmdWillStart( object o  , CommandEventArgs e )
+public void cmdEnded(object o  , CommandEventArgs e)
+原來命名和範例不同是要看
+                db.ObjectOpenedForModify += new ObjectEventHandler(objOpenedForMod);
+                doc.CommandWillStart += new CommandEventHandler(cmdWillStart);
+                doc.CommandEnded += new CommandEventHandler(cmdEnded);
+
+ObjectARX uses reactors to model events. 
+Because .NET makes events a primary abstraction, 
+the ObjectARX managed wrappers map reactors to events. 
+ARX是使用反應器設計事件
+因為.NET設計事件主要的抽象化的
+ARX管理換頁地圖反應事件.
+
+Unmanaged reactors require two classes: 
+the event source class and the abstract reactor class. 
+The event source class is instantiated (舉例說明)
+by the system and exposes the addReactor() and removeReactor() functions. 
+The client derives a concrete reactor class from the abstract reactor,
+instantiates the concrete reactor, and adds it to the event source. 
+The event source calls virtual functions in the concrete reactor when events occur.
+沒有被管理的反應器需求兩個CLASS:
+事件來源event source CLASS/虛擬反應abstract reactor CLASS
+事件來源CLASS是被藉由系統接觸ADDREACTOR()和REMOVEREACTOR()這兩個fun
+client將由虛擬的reactor獲得具體的reactor class
+舉例說明具體reactor和add reacotr to 事件來源
+當事件發生時,事件來源呼叫具體reactor裡的虛擬fun.
+
+The ObjectARX managed wrappers model the reactor pattern 
+as one event source class with managed events.
+arx管理wrapper設計,這個反應器模型就像是managed events的event source class
+

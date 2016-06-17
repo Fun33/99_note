@@ -1,0 +1,34 @@
+自訂檔載入成功。自訂群組: ACAD
+自訂檔載入成功。自訂群組: CUSTOM
+自訂檔載入成功。自訂群組: EXPRESS
+正在重生模型。
+AutoCAD Express Tools Copyright ?2002-2004 Autodesk, Inc.
+AutoCAD 功能表公用程式已載入。
+指令: COMMANDLINE
+指令: DASHBOARD
+
+*************************************
+哦.. COMMANDLINE就是指令了,那開cad後,要載入的指令放在哪個檔案呢?
+********************************
+自訂檔載入成功.沒有在acad.lsp裡.
+****************************************
+ACAD.LSP,ACADDOC.LSP,
+*.MNU或*.CUI:menuload”
+****************************************
+啟動 AutoCAD 時，它將在支援檔搜尋路徑中搜尋 acad.lsp 檔
+某些 ObjectARX 範例包含 acad.rx 檔，該檔案可列示啟動 AutoCAD 時自動載入的 ObjectARX 程式檔。 
+
+此檔案可定義功能表使用的許多 AutoLISP 函數。載入 acaddoc.lsp 檔之後，才載入 MNL 檔
+(如果自訂檔是使用語法類似於 (command "menu" "newmenu") 的 AutoLISP command 函數載入的，
+則直到整個 AutoLISP 常式執行後，才會載入關聯的 MNL 檔)
+
+AutoCAD 在載入自訂檔時會搜尋檔名相符的 MNL 檔
+預設 AutoCAD 自訂檔 acad.cui 依賴於檔案 acad.mnl。
+
+********************************************************************
+ACAD.PGP簡化指令(建立系統別名)
+********************
+
+載入vba
+載入AutoLISP :acad.lsp
+載入objectarx

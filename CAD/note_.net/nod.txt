@@ -1,0 +1,10 @@
+影片位於1:47 NOD
+它很特別,它是存於:named object 底下
+
+講義NOTE(翻釋出來而已,還沒有了解其內容)
+P62
+Dictionaries
+是容器:專門拿來放data
+可放其它Dictionaries
+可放non-graphical object(所謂的non-graphical指的是derived from DbObject而非derived from DbEntity的Object
+它是可數的(each item has a string key/items searchable with a string key using GetAt() or Item

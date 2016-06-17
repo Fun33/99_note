@@ -1,0 +1,170 @@
+// (C) Copyright 2002-2005 by Autodesk, Inc. 
+//
+// Permission to use, copy, modify, and distribute this software in
+// object code form for any purpose and without fee is hereby granted, 
+// provided that the above copyright notice appears in all copies and 
+// that both that copyright notice and the limited warranty and
+// restricted rights notice below appear in all supporting 
+// documentation.
+//
+// AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS. 
+// AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC. 
+// DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
+// UNINTERRUPTED OR ERROR FREE.
+//
+// Use, duplication, or disclosure by the U.S. Government is subject to 
+// restrictions set forth in FAR 52.227-19 (Commercial Computer
+// Software - Restricted Rights) and DFAR 252.227-7013(c)(1)(ii)
+// (Rights in Technical Data and Computer Software), as applicable.
+//
+//Lab 7 code begins here
+
+using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.EditorInput;
+using Autodesk.AutoCAD.ApplicationServices;
+
+namespace Lab3
+{
+    public class AsdkEvent
+    {
+        [CommandMethod("AddEvents")]
+        public void plantEvents()
+        {
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                //plantDbEvents()
+                Database db = HostApplicationServices.WorkingDatabase;              
+
+                //儲存
+                db.BeginSave += new DatabaseIOEventHandler(OnBeginSave);//開始儲存
+                db.SaveComplete += new DatabaseIOEventHandler(OnSaveComplete);//儲存完畢
+                
+                //當某個子圖沒有SAVE就被關掉時
+                db.DatabaseToBeDestroyed += new System.EventHandler(OnDatabaseToBeDestroyed);//當某個子圖沒有SAVE就被關掉時, step 1
+                db.Disposed += new System.EventHandler(OnDisposed);//當某個子圖沒有SAVE就被關掉時, step 2
+
+                //當CAD軟體要關閉時
+                Autodesk.AutoCAD.ApplicationServices.Application.BeginQuit +=
+                    new System.EventHandler(OnBeginQuit);//當CAD軟體要關閉時,step 1                
+                Autodesk.AutoCAD.ApplicationServices.Application.QuitWillStart+=
+                    new System.EventHandler(OnQuitWillStart);////當CAD軟體要關閉時,step 2
+
+                DocumentCollection dm = Application.DocumentManager;
+                //開新檔案
+                dm.DocumentCreateStarted += new DocumentCollectionEventHandler(OnDocumentCreateStarted);
+                dm.DocumentCreated += new DocumentCollectionEventHandler(OnDocumentCreated);
+                dm.DocumentCreationCanceled += new DocumentCollectionEventHandler(OnDocumentCreationCanceled);
+
+                
+                    //db.InitialDwgFileOpenComplete += new System.EventHandler(OnInitialDwgFileOpenComplete);//不是新建檔案
+                //db.DwgFileOpened += new DatabaseIOEventHandler(OnDwgFileOpened); //這個應該是檔案被打開了,測試結果,不是              
+                /*
+                db.BeginInsert;//這個應該是插入圖框                 
+                db.InsertEnded;//這個是插入完成
+                db.DwgFileOpened; //這個應該是檔案被打開了,測試結果,不是
+                */
+
+
+                //doc.CommandWillStart += new CommandEventHandler(cmdWillStart);
+                //doc.CommandEnded += new CommandEventHandler(cmdEnded);
+                //bEditCommand = false;
+                //bDoRepositioning = false;
+            }
+            catch
+            {
+                ed.WriteMessage("Error adding events");
+            }
+        }
+
+        [CommandMethod("RemoveEvents")]
+        public void removeDbEvents()
+        {
+            Editor ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                Database db;
+                Document doc;
+                doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+                db = HostApplicationServices.WorkingDatabase;/*
+                db.ObjectOpenedForModify -= new ObjectEventHandler(objOpenedForMod);
+                doc.CommandEnded -= new CommandEventHandler(cmdEnded);
+                doc.CommandWillStart -= new CommandEventHandler(cmdWillStart);
+                bEditCommand = false;
+                bDoRepositioning = false;*/
+            }
+            catch
+            {
+                ed.WriteMessage("Error Removing Events");
+            }
+        }
+
+        public void OnBeginSave(object sender, DatabaseIOEventArgs e)//開始儲存 step 1
+        {
+            Editor ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage("\n  OnBeginSave");            
+        }
+        public void OnSaveComplete(object sender, DatabaseIOEventArgs e)//儲存完畢 step 2
+        {
+            Editor ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage("\n  SaveComplete");
+        }
+        public void OnDatabaseToBeDestroyed(object sender, System.EventArgs e)//當某個子圖沒有SAVE就被關掉時, step 1
+        {
+
+        }
+        public void OnDisposed(object sender, System.EventArgs e)//當某個子圖沒有SAVE就被關掉時,step 2
+        {
+           
+        }
+        public void OnBeginQuit(object sender, System.EventArgs e)//當CAD軟體要關閉時,step 1
+        {
+
+        }
+        public void OnQuitWillStart(object sender, System.EventArgs e)//當CAD軟體要關閉時,step 2
+        {
+            //藍經理說,這裡要釋放license
+        }
+        //當開新檔案時,這個跑完才會跳出選取樣板的畫面
+        //檔開啟舊檔時,這個跑完才會跳出選取檔案的畫面/選字型的畫面
+        private void OnDocumentCreateStarted( object sender, DocumentCollectionEventArgs e )
+        {
+            string str = e.Document.ToString();
+            string name = e.Document.Name;
+            //開新檔案還沒有還沒有拿到預設的名子//開啟舊檔還沒選取檔案//所以是空白
+        }
+        //當開新檔案時,選完樣板按下開啟後
+        //當開啟舊檔,選取檔案的畫面按下開啟(選完字型按下確定)後
+        private void OnDocumentCreated( object sender, DocumentCollectionEventArgs e )
+        {           
+            string name = e.Document.Name;
+            //開新檔案沒有路徑
+            //e.Document.Editor.PointMonitor +=  new PointMonitorEventHandler(OnMonitorPoint);
+        }
+        //當開新檔案時,選完樣板按下取消後   
+        //當開啟舊檔,選完字型按下取消後
+        private void OnDocumentCreationCanceled(object sender, DocumentCollectionEventArgs e) 
+        {            
+            //e.Document.Editor.PointMonitor +=  new PointMonitorEventHandler(OnMonitorPoint);
+        }
+
+        public void OnInitialDwgFileOpenComplete(object sender, System.EventArgs e)
+        {
+
+        }
+        public void OnDwgFileOpened(object sender, DatabaseIOEventArgs e)
+        {
+            Editor ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage("\n  OnDwgFileOpened");
+        }
+
+        public void cmdEnded(object o, CommandEventArgs e)
+        {
+            Editor ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage("\n cmdEnded");
+        }
+    }
+}

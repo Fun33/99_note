@@ -1,0 +1,43 @@
+
+Study xRecord
+1.說明文件
+2.範例
+3.有用到哪些class和方法
+To create a new dictionary, you need to create an instance of AcDbDictionary, add it to the database, and register it with its owner object. Use theAcDb/AcDbDictionary/setAt function to add objects to the dictionary and the database. 
+新增dictionary,你需要新增一個AcDbDictionary,新增AcDbDictionary給database,註冊AcDbDictionary給object owner(看AcDbDictionary要掛在哪個object).使用SetAt函數增加object給AcDbDictionary和database(把dictionary掛在某個object上,並且掛在database上).
+
+The setAt() function adds a new entry specified by newValue to the dictionary. If the entry already exists, it is replaced by the new value. The name of the object is specified by srchKey. The object ID of the entry is returned in retObjId.
+SetAt()這個方法新增一個實體,具體的一個值給dictionary.如果已有登記了,那它將把舊的值替換掉,採用新的.這個object有一個具體的名稱,就是srchKey.登記的物件ID就是retObjId的回傳.
+
+When you add an entry to a dictionary, the dictionary automatically attaches a reactor to the entry. If the object is erased, the dictionary is notified and removes it from the dictionary.
+當你新增一個dictionary的進入點,這個dictionary會自動得附加一個反應給登記.如果物件被刪除,dictionary會被通知移除dictionary.
+
+2/4
+有Xrecord
+有dictionary
+有Xrecord.Data = new ResultBuffer
+有dictionary.SetAt
+有TypedValue[]
+
+Xrecord mgrXRec;
+try
+{//get record of way
+mgrXRec = (Xrecord)trans.GetObject(divDict.GetAt("Department	Manager"), OpenMode.ForWrite);
+}
+catch
+{//new record of way
+mgrXRec = new Xrecord();
+mgrXRec.Data = new ResultBuffer(new TypedValue((int)DxfCode.Text, "manager"));//create field type.
+divDict.SetAt("Department Manager", mgrXRec);//add dictionary(dictionary可以有很多個,可藉由SetAt來增加)
+trans.AddNewlyCreatedDBObject(mgrXRec, true);
+}
+//可以把dictionary視為一個db,然後xRecord視為talbe,裡面可以有多個欄位.
+
+ResultBuffer rb = new ResultBuffer();
+int number = 5;
+foreach (ObjectId id in objidcolGroup)
+rb.Add(new TypedValue((int)resbufCode.RTSHORT, number)); // resbufCode.RTENAME int 5600
+
+TypedValue[] ti = rb.AsArray();
+Xrecord xrec = new Xrecord();
+xrec.Data = new ResultBuffer(ti);

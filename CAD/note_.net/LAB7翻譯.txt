@@ -1,0 +1,349 @@
+In this lab, we explore Events in AutoCAD.  在這個LAB,我們將瀏覽CAD的事件
+We will discuss the use of event handlers; 我們將賞味事件的使用
+specifically, to monitor AutoCAD commands as well as monitor objects which are about to be modified by those commands.  
+具體的,去監測CAD CMD就像監測修己物件一樣
+We begin with a brief discussion of events in .NET, 
+我們先做一個簡單討論的.NET事件
+before proceeding to demonstrate how to implement AutoCAD event handlers in C#. 
+在這之前,我們先來DEMO如何使用EVENT在CAD.
+
+Events in C#
+
+An event is simply a message sent to notify that an action has taken place.  
+事件可以看為是一個簡單的MSG通知ACTION發生=>事件可視為ACTION發生時,一個簡單的MSG通知.
+In ObjectARX, we refer to reactors to model AutoCAD events.  
+在ARX,我們參考反應器去設計CAD事件.
+In the AutoCAD .NET API, the ObjectARX reactors are mapped to events.
+在CAD,.NET,ARX反應器是和事件做對應. 
+
+Event handlers (or callbacks) are procedures 
+事件是程序
+which are placed in environment to watch and react to events 
+程序是在環境裡,WATCH和對事件做反應
+that occur in the application. Events come in a variety of types. 
+在應用程式發生時,事件會帶入多種類型.
+
+As an introduction to working with events in AutoCAD's .NET API, 
+開始使用CAD事件 .NET之前
+a brief description of delegates may be helpful.
+一個簡單的宣告描述將是有用的.
+***********************************
+Delegates Described
+
+A delegate is a class that holds a reference to a method (the functionality is similar to function pointers). 
+一個委派是一個CLASS,它會有一個參考to一個方法,(這個功能是一個簡單的FUN指標)
+
+Delegates are type-safe references to methods (similar to function pointers in C).  
+委派是安全TYPE參考方法(簡單的功能指標)
+They have a specific signature and return type.  
+他們有具體的表現法和回傳類型
+A delegate can encapsulate any method which matches the specific signature.
+一個委派能封裝任何方法去配對明確的表示法.
+
+Delegates have several uses, 
+委派能有數個使用
+one of which is acting as a dispatcher for a class that raises an event.  
+ONE將發生作用,(什麼時侯發生作用呢)當dispatcher FOR CLASS發生揚出某個事件時,
+Events are first-class objects in the .NET environment.  
+在.NET環境裡,事件將是第一個CLASS物件
+Even though C# hides much of the implementation detail, 
+即使C#隱藏很多執行的細節
+events are implemented with delegates.  
+事件是被委派給實行的
+Event delegates are multicast (meaning they hold references to more than one event handling method).
+事件委派是multicast(這個意思是他們擁有參考比一個更多的EVENT方法)
+They maintain a list of registered event handlers for the event.  
+他們保有註冊的事件表.=>事件裡保有每個被註冊的LIST
+A typical event-handling delegate has a signature like the following:
+典型的EVENT 委派有一個表示法,就像下面那個
+ public delegate Event (Object sender, EventArgs e)
+
+The first argument, sender, represents the object that raises the event.
+第一個引數SENDER是代表揚起事件的OBJECT
+The second, e, is an EventArgs object (or a class derived from such).  
+第二個E是事件引數物件(或是CLASS衍派)
+This object generally contains data that would be of use to the events handler. 
+這個物件通常包含資料.而這些資料通常都會被EVENT所用到.
+
+**************************************************************************
+
+C# += and -= statements
+
+In order to use an event handler, we must associate it with an event.  
+為了要使用evnet,我們要參加事件
+This is done by using either the += statement.  += and its counterpart -=, 
+怎麼做呢?使用+=或-=來加入或退出事件
+allow you to connect, disconnect, or change handlers associated with the event at run time.
+
+When we use the += statement, we specify the name of the event sender, 
+當我們使用+=statement時,我們具體化事件的名子.
+and we specify the name of our event handler with the new statement; for example: 
+ 我們具體化事件名子在新的statement.舉例來說
+MyClass1.AnEvent += new  HandlerDelegate(EHandler) 
+
+As mentioned, we use the -= statement to disconnect an event from an event handler (remove the association).  The syntax is as follows:
+依照被提即的,我們使用-=來取消事件連結(移除交往)語法如下:
+MyClass1.AnEvent -= new  HandlerDelegate(EHandler)
+********************************************************
+Handling AutoCAD Events in .NET
+用.NET管理CAD事件
+In ObjectARX, we refer to reactors to model AutoCAD events.  
+在ARX我們參考對應器去設計CAD事件
+In the AutoCAD .NET API, the ObjectARX reactors are mapped to events.    
+在.NET,ARX對應器對應到事件
+
+In general, the steps for dealing with AutoCAD events are:
+通常,事件建照的STEPS是
+1. Create the event handler.
+
+An event handler (or callback) is the procedure to be called when an event is raised (triggered).  
+EVENT是一個程序,當事件揚起時,這個程序會被呼叫
+Any action we wish to take, in response to an AutoCAD event, takes place in the event handler. 
+當我們希望做任何ACTION反應在CAD事件時,發生在EVENT handler.
+For example, suppose we just want to notify the user that an AutoCAD object has been appended.  
+舉例來說,如果我們要通知使用者,這個CAD OBJECT被新增時,
+We can use the AutoCAD database event “ObjectAppended” to accomplish this.  
+我們能使用DB事件:OBJECTAPPENDED去完成.
+We can write our callback (event handler) as follows:
+我們能寫一個事件,像下面那樣. 
+
+public void objAppended(object o, ObjectEventArgs e)
+{
+         // Do something here
+}
+The first argument, in this case, represents an AutoCAD database.  
+第一個引數,在這個例子是代表CAD的DATAABSE.
+The second represents the ObjectEventArgs class, 
+第二個引數是代表OBJECTEVENTARGS類別
+which may contain data that is useful to the handler. 
+它是包含HANDLER會用到的DATA
+
+2. Associate the event handler with an event.
+參加EVENT HANDLER在這個EVENT
+In order to begin monitoring an action, we must connect our handler to the event.
+為了監測這個ACTION,我們必需把我們的HANDLER連接到這個事件裡
+At this point, the ObjectAppended event will fire when an object is added to the database.  
+在這個時侯,OBJECTAPPENDED事件將FIRE當OBJECT被新增至這個DB時,
+However, our handler will not respond to it until we associate it to the event, such as:
+然而,我們的HANDLER將不會回應,直到我們參加這個EVNET,像這樣
+Database db;  
+db = HostApplicationServices.WorkingDatabase;
+db. ObjectAppended += new ObjectEventHandler(objAppended);
+
+
+3. Disconnect the event handler.
+取消連結EVENT HANDLER
+To cease monitoring an action, we must remove the association between our handler and the event.  
+終止監測活動,我們必需移除HANDLER和EVENT之間的連結
+When we want to stop notifying the user when objects are appended, 
+當我們要停止通知使用者物件被新增時
+we need to remove the association between our handler and the ObjectAppended event:
+我們需要移除HANDLER和ObjectAppended event之間的連接
+db. ObjectAppended -= new ObjectEventHandler(objAppended);
+
+******************************************************************************
+Lab: Using event handlers to control AutoCAD behavior
+使用handler去控制cad行為
+The objective of Lab 7 is to demonstrate 
+第7lab將deMO
+how AutoCAD events can be used to control behavior in a drawing.  
+如何控制CAD事件
+In this case, let us assume that we have used the previous lab (Lab 6), 
+在這個例子,讓我們假設我們使用先前的LAB6
+to create some EMPLOYEE block references in a drawing.  
+所CREATE的BLOCK REFERENCES
+We want to prevent the user from changing the position of the EMPLOYEE block reference in the drawing, 
+我們要預防使用者改變BF的位置
+without limiting the location of other (non-EMPLOYEE) block references.  
+We will do this through a combination of Database and Document events. 
+沒有限制其它BF的位置,我們將橫貫DB組合和文件事件
+
+We first want to monitor AutoCAD commands as they are about to be executed 
+(we use the CommandWillStart event).  
+Specifically we are watching for the MOVE command.  
+We also need to be notified when an object is about to be modified 
+(using the ObjectOpenedForModify event), 
+so we can verify that it is an EMPLOYEE block reference.  
+It would be futile to modify the object from this callback, 
+as our change would just re-trigger the event, causing unstable behavior.  
+So, we will wait for the execution of the MOVE command to end (using the CommandEnded event).  
+This would be a safe time to modify our object.  
+Of course any modification to the block reference will again trigger the ObjectOpenedForModify event.  
+However, we will set some global variables as flags, to indicate that a MOVE command is active, 
+and that the object being modified is an EMPLOYEE block reference.
+首先我們要監測CAD CMD,執行什麼(我們使用CommandWillStart event)
+特別的我們要看MOVE CMD. 
+當物件被修改時,我們也需要被通知(使用ObjectOpenedForModify event)
+所以我們能證實它是一個BF,它被一個事件沒有用的修改OBJECT
+像我們的改變,就只是重新觸發事件而已.引發不安定的作用
+所以我們將等待MOVE的CMD執行完(using the CommandEnded event)
+那就可以去修改物件了.
+當然任何修改BF都導致觸發ObjectOpenedForModify event.  
+然而,我們需要設定一些全域性的變數去記錄,去標明MOVE正ATCTIVE
+和BF已被修改完成.
+
+NOTE: Since this lab requires a considerable amount of code to produce the desired result, 
+any code not specifically dealing with reactors is provided, 
+so as to be pasted into the event handlers.  
+The emphasis at this time is on the successful creation of the event handlers and 
+their registration
+自從LAB被要求大量CODE數給程序的需求回傳
+任何CODE沒有具體的舉例WITH反應器為條件.
+像被傳遞的EVENT HANDLDER
+這個重點在EVENT HANDLDER被成功的CREATE的時間和他們的註冊
+=>完全看不懂在講什麼
+************************************************************************
+Setup the new project 
+
+Begin with the solved Lab6 project.  Add a new class AsdkClass2.  
+We will need to add four global variables.  
+The first two are of type Boolean: one to indicate that our monitored command is active, 
+and one to indicate that the ObjectOpenedForModify handler should be bypassed.
+我們接續著LAB6做,新增一個新的CLASS2
+我們要新增4個全域變數
+前兩個的TYPE是BOOL:一個是指示監測CMD是不是ACTIVE
+另一個是指示ObjectOpenedForModify handler是否被繞過.
+//Global variables                                                                                                                       
+bool bEditCommand;
+bool bDoRepositioning;
+Next, we declare a global variable which represents an ObjectIdCollection.  
+This will hold the ObjectIDs of the objects we have selected to modify.  
+下一步我們將宣告一個全域變數來代表ObjectIdCollection
+它將擁有被我們修改的OBJECTID 
+ObjectIdCollection changedObjects = new ObjectIdCollection();
+
+Finally, we declare a global variable which represents a Point3dCollection.  
+This collection contains the position (3dPoint) of our selected objects. 
+最後,我們將宣告一個全域變數,它代表Point3dCollection
+這個收集器包容我們選取物件的位置.
+ Point3dCollection employeePositions = new Point3dCollection();
+
+Create the first Document event handler (callback)
+新增第一個文件EVENT HANDLER
+Now we must create an event handler which notifies us when an AutoCAD command is about to start.  
+We should check that the GlobalCommandName = MOVE
+現在我們必需CREATE EVENT HANDLER.它是通知我們CAD CMD開始嚕
+我們需要確認GlobalCommandName變數=MOVE
+if ( e.GlobalCommandName == "MOVE" ) 
+{
+} 
+
+If the MOVE command is about to start, we need to set our Boolean variable bEditCommand accordingly, 
+so we know that our monitored command is active.  
+Likewise, we should set our other Boolean variable bDoRepositioning to 
+NOT bypass the ObjectOpenedForModify event handler at this time.  
+After all, it is during this period, while the command is active, 
+that we must acquire information about our selected block references.
+如果MOVE CMD開始了,我們需要設定我們的BOOL 變數bEditCommand做對應
+所以我們知道我們監測的CMD是ACTIVE
+同樣的,我們需要 設定其它變數bDoRepositioning沒有繞過ObjectOpenedForModify event handler
+在這些之後,它在這個期間,當CMD ACTIVE 
+我們必需取得關於被選取BF的INFO
+
+At this time, we should also clear any contents from our two Collection objects.  
+We are only concerned with the currently-selected object.
+在這個時侯,我們也應該要清除COLLECTION OBJECT裡的ANY CONTENT
+我們只關心真正被選取的OBJECT
+
+Create the Database event handler (callback)
+新增DB的事件HANDLER
+This event handler will be called 
+whenever an object has been opened for modification.  
+Of course, if our monitored command is not active at this time, 
+we should bypass any further processing done by this callback: 
+這個EVENT HANDLER是被呼叫
+無論如何一個物件被修改時,物件會被打開
+當然,如果我們監測CMD不是ACTIVE,我們應該繞過任何更遠的程序.done by this callback: 
+if ( bEditCommand == false ) 
+{
+         return;
+}
+
+Similarly, if our monitored command has ended, 
+and the ObjectOpenedForModify event is re-triggered by some action taken in another callback, 
+we want to prevent any subsequent executions of this callback while the object is being modified:   
+簡單地,如果我們監測CMD已結束且ObjectOpenedForModify event又被其它的CALLBACK觸發
+我們要預防物件被修改時,子要求執行CALLBACK
+if ( bDoRepositioning == true ) 
+{
+         return;
+}
+The remainder off the code in this callback is used to validate that 
+we are indeed processing an EMPLOYEE block reference.  
+If so, we collect its ObjectID and its Position (3dPoint).  
+The following code can be pasted into this event handler:
+在CALLBACK剩下的CODE是用來確認我們真的處理了BF.
+如果如此,我們收集的OBJECTID和POSITION. 這些CODE也要被張貼在EVENT HANDLER
+
+******************************************************************************
+Create the second Document event handler (callback)
+新增第二個EVENT HANDLER
+The third event handler is called when a command ends.  
+Again, we check our global variable to verify that it is our monitored command that is ending.  
+If so, we can reset the variable now:
+第三個EVENT HANDLER 被呼叫當CMd結束時
+再一次我們CHK我們全域變數對應我們監測的CMD是結束了
+如果那樣,我們重設這個變數
+if ( bEditCommand == false ) 
+{
+         return;
+}
+bEditCommand = false;
+
+Actions taken by this callback will re-trigger the ObjectOpenedForModify event.  
+We must ensure that we bypass any action in the callback for that event: 
+ACTIONS發生在CALLBACK將重新觸發ObjectOpenedForModify event.
+我們必需確保CALLBACK繞過任何ACTIVE
+
+//Set flag to bypass OpenedForModify handler
+bDoRepositioning = true; 
+
+The remainder off the code in this callback is used to 
+compare the current (modified) positions of an EMPLOYEE block reference and 
+its associated attribute reference to their original positions.  
+If the positions have changed, we reset them to the original positions during his callback.  
+The following code can be pasted into this event handler:
+剩下的CODE在CALLBACK時被使用去比較BF正確的位置.
+它是被聯合的屬性參考他們原始的位置.
+如果位置被改變,我們將重設原始的POSITIONS during his callback. 
+以下這些CODE要貼在EVENT HANDLER裡 
+*********************************************************************************
+Create the commands to register/disconnect the event handlers 
+新增CMD去註冊或取消連結EVENT HANDLER 
+
+Create a command ADDEVENTS, 
+which uses += statements to associate each of the three event handlers to the events.  
+During this command, we should also set our global Boolean variables:
+新增一個CMD ADDEVENTS,它是使用USE +=語法去聯結三個EVENT HANDLER和EVENt
+在這個CMD,我們應該去設全域BOOL變數.
+bEditCommand = false;
+bDoRepositioning = false;
+
+Create another command REMOVEEVENTS, using -= statements to 
+disconnect our event handlers from the events.  
+新增另一個CMD :REMOVEEVENTS,使用-= statements取消EVENT HANDLER和EVENT的聯結
+ 
+Test the project
+測試專案
+To test this project, Create one or more EMPLOYEE block references, using the CREATE command.  
+For comparison, also insert some non-EMPLOYEE block references, if you like.
+測試專案,CREAT一個或多個BF,使用CREATE CMD
+如果你想比較,我們也INSERT一些不是EMPLOYEE的BF. 
+
+Execute the ADDEVENTS command by typing it into the command window.  
+執行ADDEVENTS把輸入CMD WINDOW
+
+Execute the MOVE command at the command window, and select as many block references as you want.  
+Note that when the MOVE command ends, 
+the EMPLOYEE block references (and attributes) retain their original positions.  
+執行MOVE CMD在CMD WINDOW.選取多個BF
+NOTE:當MOVE做完時,BF將保有原來的POSITION.
+
+Execute the REMOVEEVENTS command, and try the MOVE command again.  
+Note that the EMPLOYEE block references can now be moved.
+執行REMOVEEVENTS,試著MOVE一次
+NOTE:BF現在被移動了. 
+
+Extra credit:  Add an additional callback which is triggered 
+when the EMPLOYEE block reference “Name” attribute has been changed by the user.
+額外廣告:增加一個額外的CALLBACK,當BF NAME的屬性被使用者改變時,CALLBACK會被觸發

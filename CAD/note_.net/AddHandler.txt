@@ -1,0 +1,15 @@
+AddHandler 
+??AddHandler C#語法不知怎麼寫,要查一下.
+新增DB的事件
+1.新增一個public方法:新增事件
+2.為每個事件寫private方法
+callback_ObjectAppended:add node
+callback_ObjectErased:remove node
+callback_ObjectReappended:
+callback_ObjectUnappended:
+太神奇了,CAD如果新增,刪除,UNDO,REDO,都可藉由事件來做控制.
+CAD真是太棒了,提供這些事件(事件提供了OBJECTID)讓人家來做整合.使用者做了什麼都可讀取並控制.
+使用者新增一條線,我就可讀取它的OBJECTID然後在自制的CONTROL裡做顯示.
+刪除一條線,我就可讀取它的OBJECTID然後在自制的CONTROL裡做刪除.
+UNDO一條線,我就可讀取它的OBJECTID然後在自制的CONTROL裡做更改.
+REDO一條線,我就可讀取它的OBJECTID然後在自制的CONTROL裡做更改.

@@ -1,0 +1,5 @@
+concept
+穝糤BLOCK,BLOCK琌OBJECT.璝礶ㄏノBLOCK,琌ㄏノ把σよΑㄏノ.τ獶NEWOBJECT.
+┮狦禟BLOCK,ウJUST穝糤把σ,τぃ穦穝糤BLOCK.
+
+瞷ΤBLOCK,ウ砆滦糶,ê┮Τ把σ碞穦把σ穝瓜.

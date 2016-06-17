@@ -1,0 +1,23 @@
+
+Doc Events: CommandWillStart - 31
+DocMan Events: DocumentToBeDeactivated - Drawing1.dwg
+DocMan Events: DocumentCreateStarted - 31.dwg
+DocMan Events: DocumentToBeDeactivated - Drawing1.dwg
+DB Events: DatabaseConstructed - 
+DocMan Events: DocumentCreated - C:\31.dwg
+DocMan Events: DocumentToBeActivated - C:\31.dwg
+DocMan Events: DocumentActivated - C:\31.dwg
+DocMan Events: DocumentToBeDeactivated - C:\31.dwg
+DocMan Events: DocumentToBeActivated - C:\31.dwg
+DocMan Events: DocumentBecameCurrent - C:\31.dwg
+Doc Events: LispWillStart - (amdtresetdbmod)
+
+Doc Events: LispEnded
+Doc Events: LispWillStart - s::startup
+
+Doc Events: LispEnded
+DocMan Events: DocumentToBeDeactivated - C:\31.dwg
+DocMan Events: DocumentToBeActivated - Drawing1.dwg
+DocMan Events: DocumentBecameCurrent - Drawing1.dwg
+DocMan Events: DocumentActivated - Drawing1.dwg
+Doc Events: CommandEnded - 31

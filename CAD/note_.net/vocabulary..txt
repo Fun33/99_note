@@ -1,0 +1,65 @@
+***********************************【電】單字
+explode爆開it remains as a block unless u explode it. and r u able to move, scale, hatch those block...?....
+Solution Explorer方案總管
+navigate 瀏覽
+Object Browser
+explore 檢查,瀏覽
+diagnose除錯
+
+forceValidity強制驗證
+
+sheet表格,
+Transparency透明度
+plot在CAD的指令是出圖-模型.標繪,繪製...的圖/測定(點,線)的位置.
+converter教化者,轉化爐,【電】變流器,整流器;(電視、收音機的)變頻器
+processmeter
+meter計量器,儀錶,米,公尺
+
+traylitem:在ToolPalette裡的物件.
+traylitemBubbleWindow
+tray:托盤,就是工具列,因為工具列裡可放代表不同功能的小圖示,所以稱為托盤.
+Bubble水泡,氣泡,泡,泡狀物;透明圓形罩;圓形頂,沸騰(聲);冒泡(聲)[the S]
+
+ObjectARX for AutoCAD 2008 : Application Interoperability 
+Interoperability 讓軟硬體在多種品牌機器上能有意義的溝通
+***********************************單字
+similar類似
+perfect 完美.
+******************************************************易混淆單字
+respect關連
+expected需要
+plications are expected to use unique entry names in the named object dictionary
+***************************************************片語
+as well as 而且
+in the other words換句話說
+if one so wish如果有人這麼希望
+other than除了
+on matter 不管
+no longer不再
+on the other hand另外一方面
+looked up查找
+described in the following section在以下做描述
+table of contents目錄
+viewed as視為
+associated with 相關
+filtered out過濾掉
+Objects owned by a dictionary=>dictionary擁有的物件
+whenever每次
+such as譬如,像是
+selectively有選擇的,選擇性的.
+within在之內,在
+
+particular object特殊功能的物件.
+
+it is replaced by the new value它會被新的值替換掉.
+specified by;;The setAt() function adds a new entry specified by newValue to the dictionary
+
+*****************************************
+
+***************************應該要寫整句,或寫在哪出現,現在也不知這樣的翻譯對否?
+?arbitrary任意的
+arbitrary object任意的物件
+arbitrary data streams任意的資料流
+*****************************************************
+directOnly
+interop

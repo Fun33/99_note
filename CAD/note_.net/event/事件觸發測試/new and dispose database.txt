@@ -1,0 +1,14 @@
+// new Database/關閉Database所觸發的事件
+
+            //03
+            Database db = new Database();
+            db.SaveAs("C:\\31.dwg",DwgVersion.Current);
+      
+            Doc Events: CommandWillStart - 31
+            DB Events: DatabaseConstructed - 
+            DB Events: ObjectOpenedForModify - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130560344)
+            DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130560344)
+            DB Events: ObjectOpenedForModify - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130560424)
+            DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130560424)
+            DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130554424)
+            Doc Events: CommandEnded - 31*/

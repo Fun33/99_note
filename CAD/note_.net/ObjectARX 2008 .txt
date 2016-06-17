@@ -1,0 +1,9 @@
+ObjectARX 2008 目錄下
+	Arxlabs這東西是教人家安裝和使用裡面的東西.
+Classmap這東西範例裡也有,不過檔案型式不同,這個是DWG,範例的是DWF.
+	Docs裡面放DLL的說明文件,有acmgd.dll還有ARX的.
+	inc裡面有很多C++的程式碼,不知是做什麼的,大概是有人寫可以用的方法吧
+	lib裡面有很多lib檔,不知是做什麼的,裡面大概是人家寫好的功能的程式庫吧
+	redistrib裡面放有.dbx檔案,上網查了下,dbx用的最多的是outlook,是用來記錄結構,那它應該也是來記錄結構的吧!只是不知是記錄什麼結構就是了.
+	Samples裡面有一些範例.除了C:\ObjectARX 2008\samples\dotNet資料夾外,其它都是用C++寫的.
+	Utils: C:\ObjectARX 2008\utils\ObjARXWiz是安裝程式.其它有一些C++的程式碼,做什麼用途的,不清楚.

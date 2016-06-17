@@ -1,0 +1,8 @@
+commandEnded()是拿來做什麼的: 
+Within the commandEnded() implementation, you can open the entity for read
+參考資料mk:@MSITStore:D:\ObjectARX%202008\docs\arxref.chm::/AcEd/AcEditorReactor/commandEnded.htm
+
+解釋為什麼不要用CommandEnded事件
+mk:@MSITStore:D:\ObjectARX%202008\docs\arxdev.chm::/WS1a9193826455f5ff128052610e798412bc-4b00.htm
+
+document可單純的就是打開關閉而已,真正建立檔案的是database

@@ -1,0 +1,58 @@
+摘要:
+在class1建commandname,那在class2還可否建commnadname
+
+
+測試方法:*******************************************測試方法:
+netload dll
+輸入commandname c1
+顯示 1
+輸入commandname c2
+顯示 2
+
+測試結果:**********************************************測試結果:
+	在class1建commandname,那在class2還可否建commnadname=>可以.
+
+程式碼:*******************************************************程式碼:
+using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
+using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.Customization;
+using System;
+using System.Collections.Specialized;
+
+namespace PartialCUI
+{
+    public class Commands 
+    {
+        // cs - main AutoCAD CUI file
+        [CommandMethod("c1")]
+        public void addToolbar()//新增cui,裡面是工具列自訂.
+        {
+            Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage("\nERR: " +"1");            
+        }
+    }
+}
+
+using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
+using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.Customization;
+using System;
+using System.Collections.Specialized;
+
+namespace PartialCUI
+{
+    public class Commands2
+    {
+        [CommandMethod("c2")]
+        public void addToolbar()//新增cui,裡面是工具列自訂.
+        {
+            Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage("\nERR: " + "2");
+        }
+    }
+}
+

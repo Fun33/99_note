@@ -1,0 +1,19 @@
+Transaction«ç»ò¼g.
+            Autodesk.AutoCAD.DatabaseServices.Transaction trans = dwg.TransactionManager.StartTransaction()
+              try
+              {
+              /*  // tell the transaction about the new circle so that it can autoclose it
+                trans.AddNewlyCreatedDBObject(circle, True);
+                // now commit the transaction
+                trans.Commit();*/
+              }
+              catch(Exception ex)
+              {
+                // ok so we have an exception
+                ed.WriteMessage("problem due to " + ex.Message);
+              }
+              finally
+              {
+                // all done, whether an error on not - dispose the transaction.
+                trans.Dispose();
+              }

@@ -1,0 +1,51 @@
+event
+Autodesk.AutoCAD.ApplicationServices.Application acmgd
+This class represents the AutoCAD application. All methods are static, and the class cannot be instantiated or inherited from as a base class. It provides services for accessing the AcadApplication automation object, as well as AutoCAD's editor, document manager, and main window. It also provides methods for updating AutoCAD's display, and invoking help and context help.
+這個class就是AutoCAD應用程式.所有方法都是靜態的,所有class都不能被具體化或繼承. AcadApplication物會自動產生,並提供存取服務.好用的就像editor,document manager, and main window.它提供方法可以更新CAD和invoking help and context help.
+
+Autodesk.AutoCAD.ApplicationServices.Document acmgd
+	This .NET class wraps the AcApDocument ObjectARX class.
+Each open drawing will have an associated AcApDocument object. The AcApDocument object contains information such as the filename, the MFC CDocument object, the current database, and the save format of the current drawing.
+每張圖都會有一個AcApDocument object,這個AcApDocument object有一些資訊,像是檔案. MFC CDocument object, the current database, and the save format of the current drawing.
+
+Additionally there are document lock status query functions. The two provided are: AcApDocument::lockMode(), which returns the most restrictive lock mode currently placed on the document from execution contexts other than the caller, and will thus determine what kind of lock, if any, you can now add to the document, and AcApDocument::myLockMode(), which returns the current lock status the current execution status has on the document, and can be either stronger or weaker than that returned by lockmode().
+另外文件會有lock status query functions.有兩個方法提供:AcApDocument::lockMode(),回傳
+可惡,它是在說什麼lock.一氣之下拿去全文翻釋,大概就是說lock就不能被更改,就算更改也會還原成lock都樣子..
+
+Autodesk.AutoCAD.DatabaseServices.Database acdbmgd
+	如果你要對圖素做存取,請找它
+	This .NET class wraps the AcDbDatabase ObjectARX class.
+The AcDbDatabase class represents the AutoCAD drawing file. Each AcDbDatabase object contains the various header variables, symbol tables, table records, entities, and objects that make up the drawing.
+AcDbDatabase就是drawing file.每個AcDbDatabase會有various header variables, symbol tables, table records, entities, and 組成的圖素
+
+The AcDbDatabase class has member functions to allow access to all the symbol tables, to read and write to DWG files, to get or set database defaults, to execute various database-level operations such as wblock and deepCloneObjects, and to get or set all header variables. all the symbol tables
+AcDbDatabase可以使用元素方法是存取DWG files, database defaults, wblock and deepCloneObjects, header variables. all the symbol tables
+
+什麼是application=>就是CAD軟體
+什麼是document=>就是開啟的檔案.
+什麼是database=>就是開啟的檔案,那和document有什麼不同.
+
+記得李先生給我看時,有好多事件,怎麼現在找到的事件都沒剩幾個了.
+好像找到了耶…是database
+開啟舊檔:還沒找到.
+開新檔案:還沒找到.
+	InitialDwgFileOpenComplete(初始化檔案開啟完成)
+	DwgFileOpened//這個好像是已經被打開完成的.
+	ObjectOpenedForModify//這個是指物件的.
+	PartialOpenNotice//這個不知道是什麼
+
+儲存save=>OK 
+	db.BeginSave開始儲存
+	db.SaveComplete儲存完畢
+	AbortSave
+當某個圖沒有SAVE就被關掉時
+	db.DatabaseToBeDestroyed //當某個圖沒有SAVE就被關掉時, step 1
+	db.Disposed //當某個圖沒有SAVE就被關掉時, step 2
+當CAD軟體要關閉時
+	Autodesk.AutoCAD.ApplicationServices.Application.BeginQuit //當CAD軟體要關閉時,step 1
+	Autodesk.AutoCAD.ApplicationServices.Application.QuitWillStart //當CAD軟體要關閉時,step 2
+
+
+參考文件
+http://through-the-interface.typepad.com/through_the_interface/notification_events/index.html
+

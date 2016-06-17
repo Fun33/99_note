@@ -1,0 +1,60 @@
+1.更改[圖檔性質/摘要]的值
+2.新增/刪除[圖檔性質/自訂]的值.
+
+更改摘要資訊,可它是唯讀.
+Autodesk.AutoCAD.DatabaseServices.DatabaseSummaryInfo dbsi = new Autodesk.AutoCAD.DatabaseServices.DatabaseSummaryInfo();             
+dbsi.Title = "test";
+要怎麼寫呢?應該不會在其它類別吧,應該就在這個類別做讀寫,看看是不是要用方法.有五個方法,它們各是做什麼的呢.按字面意思猜測:一個是建構函式,一個是比較有沒有=,一個是取HASHCODE,其它兩個是轉成STRING.
+查HELP看看是不是真的是那個意思.
+天啊..找到了.居然是在別的類別,也就是李先生提供的第二個類別Autodesk.AutoCAD.DatabaseServices.DatabaseSummaryInfoBuilder
+這件事告訴我們,以後要兩個都看完它是什麼再來實作,當時是猜測一個是摘要一個是自訂,所以就沒再看另一個,想說先看摘要,想不到..居然…
+Autodesk.AutoCAD.DatabaseServices.DatabaseSummaryInfoBuilder dbsi = new Autodesk.AutoCAD.DatabaseServices.DatabaseSummaryInfoBuilder();             
+dbsi.Title = "test";
+=>知道怎麼寫後,發現它有一些概念,像這個雖然NEW了一個,但這個東西被NEW了要放在哪裡.沒有被放到哪裡,所以..就沒有出現在任何地方
+可以執行,但沒有寫進去.不是在CAD操作的前提錯了,就是CODE少寫了什麼.
+1.在開啟CAD時,TEST=>寫入失敗
+2.在開啟CAD後,開啟舊檔,TEST=>寫入失敗.
+這個裡面有三個類別,有兩個建構函式.另一個不知是什麼.查HELP看看它們各自什麼,什麼情況下要用第一個建構函式什麼時侯要用第二個.
+上網查DatabaseSummaryInfoBuilder()想不到居然有文章,等等把它印出來,好好看看.
+其實什麼時侯要用TRANS什麼時侯不用還不了解.
+有沒有範例可以看.上網看到四篇論談文章.裡面有(真是太好了
+以下是摘要的程式碼
+方法1
+            Database DB = Application.DocumentManager.MdiActiveDocument.Database;
+            DatabaseSummaryInfoBuilder objSumBuilder = new DatabaseSummaryInfoBuilder(DB.SummaryInfo);
+            objSumBuilder.Title= "test";
+            DB.SummaryInfo = objSumBuilder.ToDatabaseSummaryInfo();
+方法2
+            Database DB = Application.DocumentManager.MdiActiveDocument.Database;            
+            DatabaseSummaryInfoBuilder objSumBuilder = new DatabaseSummaryInfoBuilder();
+            objSumBuilder.Title = "test";
+            DB.SummaryInfo = objSumBuilder.ToDatabaseSummaryInfo();
+再來就是自訂了,如果解決了,就換改寫TV和七個範例哦
+自訂
+        private Boolean SetCustomPropety(Document Dwg,string name,string value)
+        {
+            DatabaseSummaryInfoBuilder Builder = new DatabaseSummaryInfoBuilder(Dwg.Database.SummaryInfo);
+            try
+            {
+                if (Builder.CustomProperties.ContainsKey(name))
+                {
+                    //Builder.CustomProperties
+                }
+                else { Builder.CustomProperties.Add(name, value); }
+                Dwg.Database.SummaryInfo = Builder.ToDatabaseSummaryInfo();
+            }
+            catch
+            { return false; }
+            return true;
+        }
+奇怪怎麼沒有範例說的ITEM可以更新值.那先來做刪除好了.
+        private void CustomPropertiesRemove(Document Dwg, string name)
+        {
+            DatabaseSummaryInfoBuilder Builder = new DatabaseSummaryInfoBuilder(Dwg.Database.SummaryInfo);
+            Builder.CustomProperties.Remove(name);
+            Dwg.Database.SummaryInfo = Builder.ToDatabaseSummaryInfo();
+        } //如果NAME不存在,REMOVE不會發生錯誤.
+
+參考資料:
+http://discussion.autodesk.com/thread.jspa?threadID=550167
+http://forums.augi.com/archive/index.php/t-60681.html

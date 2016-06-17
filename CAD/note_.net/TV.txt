@@ -1,0 +1,39 @@
+01-
+0:07 reg symbol:vpdm
+0:10 hello world end.what's .net
+0:28 介紹結構.
+0:29 末,開始介紹BLOCK.介紹BLOCK放在哪?BF放在哪?
+0:33:23 講解:唯一的OBJECTID;;
+0:39:40 會走的毛毛線.
+0:42:40 開始CODE:提供使用者畫BLOCK和畫CIRCLE的選項.
+1:02 interface(plattes:就是畫什麼就會出現什麼的那個畫面.)
+1:25 Xrecord
+1:45 不會自訂是用XRECORD做的吧,感覺很像耶.不過它沒有抬頭.如果MYDATA稱之為抬頭也算有抬頭啦.1221答案揭曉:不是!!
+1:47 後看不懂的居多.可是還是想看完.
+1:47 NOD
+1:51 pointmonitor移動到那條線時,PALETTE裡的NODE會粗體.(它寫在哪個事件,剛沒仔細看.)
+2:01 pointmonitor debug1.netload;;addevent;;point等等看看CODE它是怎麼做的.
+2:02 寫那個不知要做什麼
+2:06 newinput,不知是新增一個myeventinput的事件,還是本來就有的.
+2:17 debug完後,開始CODING線上出現圓數字
+2:22 debug線上出現圓和數字.
+2:22 jigs
+2:23 開始CODE,debug了還是看不出來.
+看完了,最後那個講很久,可看了debug還是看不懂.要實作看看.
+
+訓練是持續的,兩三天提出解決方案.
+題目要解答.
+
+訓練解決問題的能力.
+
+比例.
+
+前置條件,
+vb c#
+ Dim  As
+Try try{  
+End Try}
+Then{ 
+end if}
+Ifif
+

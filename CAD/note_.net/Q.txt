@@ -1,0 +1,36 @@
+??為什麼影片中他使用的VS工具列裡ToolBox,裡頭有transaction(拖拉它即會有transation的code),而我的沒有,要安裝什麼呢?
+??vista不知從何進入registry(P38)
+??不知P38設定那些登錄檔的用意
+??ObjectARX vista setup err(P42)的原因
+
+?如果一個CUI要放兩個POPMENU要怎麼做?
+?如果一個cui要放兩個TOOLBAR要怎麼做?
+?如果一個cui裡的popmenu還要有一個puopmenu,那要怎麼做?
+?toolbar還不會指定圖案/
+
+?儲存新檔時,不知道DwgVersion.Current是什麼
+
+Point3d(0, 0, 0)
+?Vector3d type不知是什麼?好像是3D的座標,還蠻常出現的.
+?checking of entries指什麼呢?
+
+************************************************************************dictionary
+//dictionary可以記錄任意結構的record.如ed所言,CAD自己也有用dictionary
+?GROUP dictionary, the ==>group是什麼呢?裡面裝什麼呢
+?MLINE style dictionary, the =>mline style是什麼呢?裡面裝什麼呢?
+?layout dictionary, the =>layout是什麼呢?建立與修改圖面配置頁籤.還是不懂@@.裡面裝什麼呢
+?plot style name dictionary, the =>plot style是什麼呢?.裡面裝什麼呢
+?plot settings dictionary, the 	=>指的是列印設定嗎?是輸入plot會跳出來的那個視窗嗎?那裡面裝什麼呢?
+
+color dictionary, the =>color裡面會裝什麼呢?可以從哪裡知道它裝什麼嗎?
+?material dictionary, the =>material是什麼呢?這裡面是什麼呢?
+?table style dictionary, and the =>table style是什麼呢?這裡面是什麼呢
+***************************************************************************
+?
+[CommandMethod("c_wblock")]
+[CommandMethod("vv", CommandFlags.UsePickSet)]後面那個是什麼
+[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]//這是什麼東西
+
+它會是為了可以兩個都有command嗎?
+測試結果:沒有使用[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]也可以在兩個class建commandname,呼叫也沒有問題.
+http://discussion.autodesk.com/thread.jspa?messageID=5769397

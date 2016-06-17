@@ -1,0 +1,38 @@
+AutoLISP 自動載入概述
+
+自動載入並執行 AutoLISP 常式
+
+ACADDOC.LSP 檔 
+ 
+如果您需要經常使用特定的 AutoLISP 常式，則可以建立一個 acad.lsp 檔。
+啟動 AutoCAD 時，它將在支援檔搜尋路徑中搜尋 acad.lsp 檔。
+如果找到 acad.lsp 檔，則將其載入記憶體。 
+
+啟動 AutoCAD 後，會在每個繪圖階段作業啟動時載入 acad.lsp 檔。
+因為 acad.lsp 用於應用程式特定的啟動常式，
+所以所有在 acad.lsp 檔中定義的函數與變數僅在第一個圖面中可用。
+您可能要將在所有文件中均可用的常式從 acad.lsp 檔移至 acaddoc.lsp 檔。
+
+建議使用的 acad.lsp 和 acaddoc.lsp 功能可以由系統變數 ACADLSPASDOC 取代。
+如果將系統變數 ACADLSPASDOC 設為 0 (預設設定)，則 acad.lsp 檔僅會載入一次，即在應用程式啟動時載入。
+如果將 ACADLSPASDOC 設為 1，則可以在每次開啟新圖面時重新載入 acad.lsp 檔。
+*不知ACADLSPASDOC的變數在哪裡,VISTA預設的話,都會載入.
+
+acad.lsp 檔可以包含一個或多個常式的 AutoLISP 程式碼，也可以僅包含一系列 load 函數呼叫。
+後者是比較理想的方式，因為修改較為容易。如果您將以下程式碼儲存為 acad.lsp 檔，
+則檔案 mysessionapp1.lsp、databasesynch.lsp 和 drawingmanagerlsp 會在每次啟動 AutoCAD 時載入。 
+(.LSP裡面放LIST CODE,然後再使用LOAD呼叫.LSP)
+(load "mysessionapp1")
+(load "databasesynch")
+(load "drawingmanager")
+*
+(command "netload" "arc.dll")
+注意：arc.dll是你編譯好的.net程序的名字，最好把它放到AutoCAD2005的安裝目錄下。
+
+警告請勿修改保留的 acad2008.lsp 檔。Autodesk 提供 acad2008doc.lsp 檔，
+其中包含 AutoCAD 所需的由 AutoLISP 定義的函數。將此檔案載入記憶體之後，會立即載入 acad.lsp 檔。 
+*******************************************
+載入啟動檔案時防止 AutoLISP 出錯
+************************************
+
+把DLL放在AUTOCAD2008目錄下的資料夾DLL裡,結果出現錯誤訊息.

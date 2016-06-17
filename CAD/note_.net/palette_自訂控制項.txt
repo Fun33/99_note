@@ -1,0 +1,16 @@
+在CAD自訂控制項(所謂的控制項就和CAD工具列長的一樣)(控制項裡還沒有放東西)
+usercontrol1必需事先建立.
+  Public Autodesk.AutoCAD.Windows.PaletteSet myPaletteSet;
+  Public UserControl1 myPalette;
+  [CommandMethod("palette")]
+  Public void palette()
+if (mypaletteset == null)
+{
+1.new paletteset. mypaletteset = new paletteset
+2.new palette.    mypalette = new usercontrol
+3.paletteset.add("palatte1",mypalette)
+}
+4.mypaletteset.visible = true;
+=>太帥了,CAD提供我們自訂CONTROL在CAD上使用.
+=>?為什麼要GUID
+1:12

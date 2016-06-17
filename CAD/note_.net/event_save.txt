@@ -1,0 +1,3 @@
+儲存
+     db.BeginSave開始儲存
+     db.SaveComplete儲存完畢

@@ -1,0 +1,61 @@
+m1:IAcadToolbarItem.SetBitmaps
+m2:MenuMacro.LargeIcon/SmallIcon = "mybitmap.bmp";
+
+*****************************************
+http://discussion.autodesk.com/thread.jspa?messageID=5218893
+
+using System ;
+using Autodesk.AutoCAD.Runtime ;
+using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.Interop;
+using Autodesk.AutoCAD.Interop.Common;
+ 
+[assembly: CommandClass(typeof(Rivilis.ToolbarSample))]
+ 
+namespace Rivilis
+{
+  public class ToolbarSample
+  {
+    // Define Command "TS"
+    [CommandMethod("TS")]
+    static public void TSample()
+    {
+      try
+      {
+        IAcadApplication  app      = 
+          (IAcadApplication) Autodesk.AutoCAD.ApplicationServices.Application.AcadApplication;
+        IAcadMenuGroups   groups   = app.MenuGroups;
+        IAcadMenuGroup    group    = groups.Item(0);
+        IAcadToolbars     toolbars = group.Toolbars;
+        // Adding new toolbar
+        IAcadToolbar      toolbar  = toolbars.Add("My toolbar");
+        // Adding button to toolbar
+        IAcadToolbarItem  button   = toolbar.AddToolbarButton(
+          0,                      // Index of button
+          "My button",            // Name of button
+          "Helpstring button",    // Helpstring of button
+          "\x1b\x1b_.OPTIONS\n",  // Macro command
+          false                   // Flyout 
+          );
+        // Setting path to small and large icons
+        button.SetBitmaps("C:\\SmallIcon.bmp","C:\\LargeIcon.bmp");
+        // Center toolbar on AutoCAD Window
+        int x = app.WindowLeft + (app.Width  - toolbar.Width)/2, 
+          y = app.WindowTop  + (app.Height - toolbar.Height)/2;
+        toolbar.Float(y,x,1);
+      }
+      catch (System.Exception e)
+      {
+      }
+    }
+  }
+}
+*******************************************************************
+http://discussion.autodesk.com/thread.jspa?messageID=5625951
+
+MenuMacro mm = new MenuMacro(parent,name,command,tag);
+// the large and small icons need a string
+mm.macro.LargeIcon = "mybitmap.bmp";
+mm.macro.SmallIcon = "mybitmap.bmp";
+
+******************************************************

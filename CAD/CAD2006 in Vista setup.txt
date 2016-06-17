@@ -1,0 +1,23 @@
+序號是亂填的,會過就好
+generate an activation code(啟用碼) based on your request code(需求碼)
+
+產品:   Autodesk Inventor Professional 2008 
+序號:   123-45677899 
+需求碼:   HRDY KA7C CJLG 0T53 SEQH 5658 
+啟用碼: 
+K5JA X9PF 3WJS ZA53
+AURF LZAJ 1FGF JC43
+82T0 U1JD U8F9 A9ST
+CX1U FHV0 XWPZ RRFW
+9067
+
+安裝CAD 2006 in Vista(32位元)
+  無法安裝,問藍經理,藍經理說勝源也發生這個問題,要手動安裝dotnet和dotnet中文
+  手動安裝以下兩個,按順序來
+  \\casfs1\APPL\Autodesk\AutoCAD 2006\Bin\acadFeui\support\dotnetfx
+  \\casfs1\APPL\Autodesk\AutoCAD 2006\Bin\acadFeui\support\dotnetfx\cht
+  \\casfs1\APPL\Autodesk\AutoCAD 2006
+  安裝後,卻不能執行.  安裝SP1後,還是不行
+安裝CAD 2008 in Vista(32位元)
+  向藍經理拿SETUP DISK,選取安裝第一和第二選項,沒有安裝VAULT和資料庫與資源庫
+  \\casfs1\APPL\Autodesk\KeyGen\ADSK 2008 Key\inventor-pro-2008-keygen

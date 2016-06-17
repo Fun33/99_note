@@ -1,0 +1,3 @@
+當某個圖沒有SAVE就被關掉時
+     db.DatabaseToBeDestroyed //當某個圖沒有SAVE就被關掉時, step 1
+     db.Disposed //當某個圖沒有SAVE就被關掉時, step 2

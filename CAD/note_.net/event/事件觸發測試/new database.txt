@@ -1,0 +1,16 @@
+new Database所觸發的事件
+          //01
+                Database db = new Database(true, false);
+ 
+                Doc Events: CommandWillStart - 3
+                DB Events: DatabaseConstructed - 
+                DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130554424)
+                Doc Events: CommandEnded - 3
+          
+            //02
+            Database db = new Database();
+            
+            Doc Events: CommandWillStart - 31
+            DB Events: DatabaseConstructed - 
+            DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2130554424)
+            Doc Events: CommandEnded - 31

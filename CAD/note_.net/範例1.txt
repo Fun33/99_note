@@ -1,0 +1,16 @@
+範例一NOTE
+範例一:輸出值至CAD畫面.
+
+1.加入參考,修改參考設定屬性COPYLOCAL=FALSE
+2.修改DEBUG設定,指定CAD執行檔(acad.exe)的路徑
+
+3.USING namespace
+4.新增一個方法 
+5.執行
+
+6.在CAD輸入:netload
+7.選D:\CAD\01\ClassLibrary1\ClassLibrary1\bin\Debug的DLL(就是剛在VS做的那個)
+ 
+8.在CAD輸入方法名稱:hello,即會出現Hello World
+ 
+

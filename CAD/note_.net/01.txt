@@ -1,0 +1,178 @@
+Imports Autodesk.AutoCAD.Runtime
+Imports System.io
+Public Class GILSclass1
+
+
+Public Sub EraseObjectsFromLayer()
+File.Create("C:\\temp\\MyTest.dwg")
+End Sub
+End Class
+http://discussion.autodesk.com/thread.jspa?messageID=5499660
+
+DocumentCollection docs = AcadApp.DocumentManager;
+            Database db = new Database();
+            db.SaveAs("d:\\11.dwg", DwgVersion.Newest);
+            db.Dispose();
+            Document newDoc = Application.DocumentManager.Open("d:\\11.dwg", false);
+            using (DocumentLock myLock = newDoc.LockDocument())
+            {
+
+            } 
+*********************************************************
+0203
+看CAD討論區裡有關ExtensionApplication的文章,看CAD blog發表有關ExtensionApplication的文章
+測試[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]的用處
+詳列工作要做的事,與目前的狀況記錄.
+*********************************************************
+李先生,請問您知道[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]是什麼意思嗎?找不到.
+還是有沒有方向知道它是什麼?
+李先生您好,在範例裡看到[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]不知道它是什麼意思,也找不到它是什麼意思?李先生可知道它是什麼?或是有沒有什麼建議可以幫忙找到答案.
+***********************************************************
+
+                            AttributeReference attRef = new AttributeReference();
+                                attRef.Position = new Point3d(attDef.Position.X + br.Position.X,
+                                attDef.Position.Y + br.Position.Y,
+                                attDef.Position.Z + br.Position.Z);
+
+                                attRef.Height = attDef.Height;
+                                attRef.Rotation = attDef.Rotation;
+                                attRef.Tag = attDef.Tag;
+                                attRef.TextString = name;
+***********************************************************
+if (ent is AttributeDefinition)
+if (ent.GetType().FullName.Equals("Autodesk.AutoCAD.DatabaseServices.AttributeDefinition"))  //We use .NET//s RTTI to establish type.
+
+                    
+***********************************************************
+
+
+********************************************************
+http://through-the-interface.typepad.com/through_the_interface/2006/09/initialization_.html
+
+所以登入,取資料庫設定要設在Initialization,取pdm的環境設定也是在這做.
+如果沒有登入成功,CAD會關閉/表單全部失效,按鈕全部失效,命令列失效.
+
+使用CAD前要先登入,登入失敗,表單全部失效,按鈕全部失效,命令列失效.(登入的有效,其它都失效)
+1.使用CAD前要先登入
+2.使用者登入,那登入畫面要做
+3.使用者登入,那資料庫設定畫面要做
+4.使用者的輸入的資料庫設定資料要儲存.不能讓使用者每次使用都要重新設定.
+5.表單全部失效,
+6.按鈕全部失效,
+7.命令列失效
+ 
+1.使用CAD前要先登入
+在main的class寫=>
+[assembly: ExtensionApplication(typeof(Lab7.AsdkClass1))]
+    public class Commands :IExtensionApplication
+    {
+        public int a;
+        public void Initialize()
+        {
+ //在這裡寫讓使用者登入/登入成功要讀取的變數/登入失敗要做的處理
+        }
+        public void Terminate()//app關掉的時侯,才會跑到這裡來
+        {
+ //在這裡可以寫APP關掉後,釋放資料庫使用者license
+        }
+2.使用者登入,那登入畫面要做. 
+3.使用者登入,那資料庫設定畫面要做.
+ 1.?可否使用藍經理領號的那個資料庫設定畫面
+ 2.自訂資料庫設定畫面
+4.使用者的輸入的資料庫設定資料要儲存.不能讓使用者每次使用都要重新設定.
+5.表單全部失效
+6.按鈕全部失效
+7.命令列失效
+*********************************************************
+使用者若登入成功,要占據license,存取PDM系統設定.(要確認PDM有哪些變數,可能會和CAD有關.)
+1.登入成功
+ 判斷是否還有license可登入,如果有,占住license
+2.需要讀取的系統變數有:
+ 使用者工作路徑.(才知道新增的文件要建在哪個目錄下)
+ 使用者名稱.
+ 使用者有沒有讀取共同設計中心資料夾.(若有才可把檔案新增到共同資料夾)
+ 文件名是否等於檔名.文件名是否等於物件名稱(不確定正不正確,還要再查証.)
+ 伺服器名稱
+ 資料庫名稱
+ 使用者登入資料庫的名稱(連資料庫用的)
+ 使用者登入資料庫的密碼(連資料庫用的)
+ 使用者個人登入VPDM的名稱(取個人工作路徑/取權限用/領號時權限判斷用的)
+ 使用者個人登入VPDM的密碼(取個人工作路徑/取權限用/領號時權限判斷用的)
+*********************************************************
+領號,設定伺服器名稱,資料庫名稱,登入者名稱,密碼.
+?第一次使用時,會跳出伺服器設定的畫面.那日後如何呼叫那個畫面重新設定.
+?如何用code更改伺服器名稱.(資料庫名稱/使用者名稱/密碼都可在領號時再輸入,所以沒有不知如何更改的問題)
+ 
+***************************************************
+怎麼讀取PDM的伺服器名稱,資料庫名稱,資料庫密碼.
+設計中心的個人工作目錄.要讀哪一個?
+藍經理說要看register可沒看到東西耶?
+
+*****************************************************************
+選取,然後讀選取的屬性.
+http://through-the-interface.typepad.com/through_the_interface/2006/09/getting_autocad.html
+
+將block att做為List
+http://through-the-interface.typepad.com/through_the_interface/2007/06/creating_an_aut_2.html
+http://through-the-interface.typepad.com/through_the_interface/2007/06/creating_a_tabl.html
+
+更新屬性值    private int UpdateAttributesInBlock(
+      ObjectId btrId,      string blockName,      string attbName,      string attbValue   )
+http://through-the-interface.typepad.com/through_the_interface/2007/07/updating-a-spec.html
+http://through-the-interface.typepad.com/through_the_interface/2007/07/updating-a-sp-1.html
+
+dictionary
+http://through-the-interface.typepad.com/through_the_interface/fields/index.html
+
+blockjig是什麼
+http://through-the-interface.typepad.com/through_the_interface/2007/05/using_a_jig_fro.html
+
+attRef
+http://discussion.autodesk.com/servlet/JiveServlet/download/152-625870-5780490-170871/InsertModelSpaceAsBlockWithName.txt
+*********************************************************************
+//[assembly: CommandClass(typeof(ClassLibrary.block))]
+public int USERID
+{
+get
+{
+return strUSERID;
+}
+set
+{
+strUSERID = value;
+}
+}
+public string DRAFTER
+{
+get
+{
+return strDRAFTER;
+}
+set
+{
+strDRAFTER = value;
+}
+}
+public DateTime DRAFTER_DATE
+{
+get
+{
+return DateDRAFTER_DATE;
+}
+set
+{
+DateDRAFTER_DATE = value;
+}
+}
+public char ONVAULT
+{
+get
+{
+return charONVAULT;
+}
+set
+{
+charONVAULT = value;
+}
+}
+

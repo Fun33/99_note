@@ -1,0 +1,27 @@
+微軟編譯器可出的 DLL 檔早期在 DOS 6.x 的年代最多有三種，微軟 DOS 下自己用的延伸記憶體模式下的 DLL ，例如 CodeView 的附屬檔案，OS/2 的 DLL 檔及 Win16 下的 DLL 檔。
+到了 Windows 95 就沒人在用 DOS 下的 DLL 檔，且因為 OS/2 Warp 4.0 已經跟微軟分家了，微軟編譯器就不能輸出 OS/2 DLL ，也不能輸出 DOS 下的 DLL ，但此時已經加入 ActiveX DLL (後來稱為 COM DLL)。
+到了 VS2002 推出後，加入 .Net Managed DLL 。
+ 
+目前在 windows 下 dll 檔分三種主類型，有些會附帶資源。
+函數庫：dll 最早型態，windows API 核心函式庫都是這類，比如說 gdi32.dll。 Windows 底層的 dll ，所有 Windows API 都是這種，用 dllImport 引用。
+COM 物件：又稱 ActiveX DLL，比如說 OWC 或是 Web Browser Control或 OWC 、FileObjectSystem 這類。 
+.Net 物件：又稱 Managed DLL ，在 .Net 記憶體型別下使用。例如整個 .Net 類別就是放在不同的 DLL 內。
+開發： 
+
+函數庫基本上傳統的開發環境都可以開發，包含 VC/VF 等之類，VB5/6 經過特殊處理是可以做，但是VB6 並非是設計來開發函數庫用的，多多少少會有點問題。
+COM 物件：VC/VB6 等。在專案選擇 Active DLL 接著往下做。
+.Net 物件：基本上與 COM 不相容，專供 .Net 程式使用，但有 COM 相容模式，散佈型別程式庫給 VB6 / IE 內崁使用。在 VB.NET 下直接新開專案時，選類別庫即可。 
+
+在 VBNET 使用：
+要用參考方式引入專案的 DLL 必需為 COM 物件或是 .Net 物件。
+函數庫的 DLL 要像 Windows API 方式來呼叫，不能用參考的方式。
+
+--------------------------------------------------------------------------------
+
+本篇的主題：
+函數型的 DLL 若是在宣告時，不指定路徑，則預設找尋路徑及順序如下：
+目前處理序之可執行模組的所在目錄。 就是執行檔所在路徑啦，例如：Application.Path。 
+目前的目錄。 又稱工作目錄或工作路徑 (Work Directory) ，程式執行時可變更，透過捷徑開啟的受捷徑內啟動路徑而改變，對於原始碼除錯影響比較明顯，若透過檔案總管雙觸擊啟動，則會以檔案總管當時路徑為工作目錄。 
+Windows 系統目錄。可用 GetSystemDirectory 函式擷取這個目錄的路徑。Win9x 是 下面那個目錄的子目錄 System ，WinNT 是下面那個目錄的子目錄 System32 。  
+Windows 目錄。可用 GetWindowsDirectory 函式擷取這個目錄的路徑。 在 Win9x/WinXP/2003 預設為 c:\Windows，在 WinNT/2k/Vista/Longhorn 預設為 c:\WinNT 。 
+列於 PATH 環境變數的目錄。

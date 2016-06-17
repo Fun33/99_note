@@ -1,0 +1,56 @@
+
+你試一下看看 ..
+我不知用其他程式呼叫是否穩定
+是否要顯示登入視窗再討論看看 ...
+ 
+若還有其他需要連結的程式 .. 可以提出 ...
+希望能增加與 CAD 間的結合度 ...
+我有用 Excel VBA  呼叫是可行的,範例如下 ...
+ 
+Private Declare Function VPDMGetItemNO Lib "D:\Work\VPDM\GetNODLL\VPGetNO.dll" (ByVal APPObj As Variant, ByVal DBName As String, ByVal LogonUser As String, ByVal LogonPassword As String, ByVal isChkPassword As Integer, ByVal GetNOTag As Integer, ByRef RetItemNO As String) As Integer
+ 
+Private Sub CommandButton1_Click()
+Dim mItemNO As String
+Dim mRet As Integer
+  mRet = VPDMGetItemNO(Application.Hwnd, "VPDMDemo", "Sa", "11", 0, 32011, mItemNO)
+  Select Case mRet
+  Case 0 ' 成功
+     MsgBox mItemNO
+  Case -1 '使用者領號取消
+    MsgBox "Cancel"
+  Case -2 '使用者認證不通過
+    MsgBox "User Error"
+  Case -3 '資料庫連結失敗
+    MsgBox "Database Connected Error"
+  Case -4 '資料庫未定義
+   MsgBox "Database Name Error"
+  Case Else    ' 其它數值。
+    MsgBox "Error"
+  End Select
+End Sub
+傳入參數介紹
+APPObj  >> 一般傳入 Application Handle ID  若無就傳入 0
+DBName >> Database Name
+LogonUser  >> VPDM Logon User
+LogonPassword >> VPDM Logon Password
+isChkPassword  >> 1 表示傳入 User 及 Password 正確才會啟動 ...
+                                 0 只要傳入 User 存在即會啟動 (不檢查 Password 是否正確)
+GetNOTag  >>  傳入編號類別 (VPDM 的原則)
+                         34811 行政事務代號  PDM_Meeting ID
+                         21011 規格屬性編號  PDM_AttribList ID
+                         21111 產品碼編號  PDM_ProductCode Code
+                         21211 商品碼編號  PDM_CommCode Code
+                         22011 廠商編號  PDM_Vendor ID
+                         30011 專案編號  PDM_Project ID
+                         31011 文件編號  PDM_Document ID
+                         31511 文件資料夾編號  PDM_DOCFolder ID
+                         32011 物件編號  PDM_Part ID (預設)
+                         25011 設計變更單號  PDM_EcInfo ID
+                         27011 會議記錄編號  PDM_TaskEexec ID
+ 
+RetItemNO >> 傳回的編號值
+ 
+ 
+Blue
+ 
+

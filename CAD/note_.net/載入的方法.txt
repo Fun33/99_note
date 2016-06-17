@@ -1,0 +1,3 @@
+netload會跳出視窗讓人家選(.NET DLL)
+APPLOAD會跳出視窗讓人家選(ObjectARX、VBA 和 DBX 等應用程式)
+menuload自訂檔載入成功。自訂群組

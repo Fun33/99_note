@@ -1,0 +1,47 @@
+[CommandMethod("AddEvents")]
+[CommandMethod("RemoveEvents")]
+
+
+public void plantDbEvents()
+public void removeDbEvents()
+
+public void objOpenedForMod(object o, ObjectEventArgs e)
+public void cmdWillStart( object o  , CommandEventArgs e )
+public void cmdEnded(object o  , CommandEventArgs e)
+
+
+*********************************************************
+public void plantDbEvents()
+把那三個事件加進來
+public void removeDbEvents()
+把那三個事件移除
+
+***********************************************************************
+public void objOpenedForMod(object o, ObjectEventArgs e)物件的事件
+			if ( bEditCommand == false || bDoRepositioning == true )
+				return;
+取得觸發這個事件的OBJECTID,判斷它是不是BF,
+如果是BF,判斷它有沒有EXTENDDINARY,
+如果有,判斷EXTENDDINARY裡是否有"EmployeeData"
+如果有,
+	Store the objectID and the position
+	(get attribute references and Store the objectID and the position)
+	並取得該OBJECT屬性的的OBJECTID,並把它們Store the objectID and the position
+=>不知道這樣要幹嘛
+
+*****************************************************************************
+public void cmdWillStart( object o  , CommandEventArgs e )CMD的事件
+如果CMD是"MOVE",
+                    bEditCommand = true;
+                    bDoRepositioning = false;
+                    changedObjects.Clear();
+                    employeePositions.Clear();
+
+**************************************************************************
+public void cmdEnded(object o  , CommandEventArgs e)
+		    if ( bEditCommand == false ) 			    return;
+bEditCommand = false;編輯完了,所以要這個設成FALSE了
+bDoRepositioning = true;編輯完了,所以要這個設成TRUE了.和cmdWillStart設定相反.
+取得容器中被編輯的OBJECTID出來判斷,如果新的Positions和舊的Positions不相同的話,給舊的Positions.
+=>也就是說取消被移動.
+****************************************************************

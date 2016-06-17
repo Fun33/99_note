@@ -1,0 +1,17 @@
+影片看到1:45講完dictionaries/xrecord.(看過一次還要再看一次)
+為object自訂dictionary,並在dictionary放入record.(並將XREOCOD的節點也加入自訂控制項裡.)
+如果RECORD存在,顯示它已存在.如果RECORD不存在,新增record.(很特別,它在catch做)
+
+XRECORD會存於module space/objectid底下
+*********************************************
+有兩個根dictionaries
+一個是named object dictionary,它是
+Owned by the database
+Available by default
+Used to store database level data
+一個是extension  dictionary,它是
+Owned by an entity
+Created by user only when needed.
+Used to store entity level data
+Use snoopdb to look where the dictionaries are stored
+

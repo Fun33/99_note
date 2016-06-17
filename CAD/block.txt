@@ -1,0 +1,69 @@
+Dim newBlockDef As BlockTableRecord = New BlockTableRecord
+newBlockDef.Name = 'blockName'
+Dim blockTable As BlockTable = trans.GetObject(dwg.BlockTableId, OpenMode.ForRead)
+
+
+
+        Case "Block"
+
+            Dim dwg As Database = ed.Document.Database//¨ú±oDatabase
+            ' now start a transaction
+            Dim trans As Transaction = dwg.TransactionManager.StartTransaction
+            Try
+
+              ' create the new block definition
+              Dim newBlockDef As BlockTableRecord = New BlockTableRecord
+              ' name the block definition
+              newBlockDef.Name = 'blockName'
+
+              ' now add the new block defintion to the block table
+              ' open the blok table for read so we can check to see if the name already exists
+              Dim blockTable As BlockTable = trans.GetObject(dwg.BlockTableId, OpenMode.ForRead)
+              ' check to see if the block already exists
+              If (blockTable.Has('blockName') = False) Then
+                ' if it's not there, then we are ok to add it
+                ' but first we need to upgrade the open to write
+                blockTable.UpgradeOpen()
+                blockTable.Add(newBlockDef)
+                ' tell the transaction manager about the new object so that the transaction will autoclose it
+                trans.AddNewlyCreatedDBObject(newBlockDef, True)
+              End If
+
+              ' now add some objects to the block definition
+              Dim circle1 As New Circle(New Point3d(0, 0, 0), Vector3d.ZAxis, 10)
+              Dim circle2 As New Circle(New Point3d(20, 10, 0), Vector3d.ZAxis, 10)
+              newBlockDef.AppendEntity(circle1)
+              newBlockDef.AppendEntity(circle2)
+              ' tell the transaction manager about the new objects so that the transaction will autoclose it
+              trans.AddNewlyCreatedDBObject(circle1, True)
+              trans.AddNewlyCreatedDBObject(circle2, True)
+
+              ' now set where it should appear in the current space
+              Dim blockRefPointOptions As PromptPointOptions = New PromptPointOptions("Pick insertion point of Block : ")
+              Dim blockRefPointResult As PromptPointResult = ed.GetPoint(blockRefPointOptions)
+              ' check to see if everything was ok - if not
+              If (blockRefPointResult.Status <> PromptStatus.OK) Then
+                ' dispose of everything that we have done so far and return
+                trans.Dispose()
+                Return
+              End If
+              ' now we have the block defintion in place and the position we need to create the reference to it
+              Dim blockRef As BlockReference = New BlockReference(blockRefPointResult.Value, newBlockDef.ObjectId)
+              ' otherwise add it to the current space, first open the current space for write
+              Dim curSpace As BlockTableRecord = trans.GetObject(dwg.CurrentSpaceId, OpenMode.ForWrite)
+              ' now add the block reference to it
+              curSpace.AppendEntity(blockRef)
+              ' remember to tell the transaction about the new block reference so that the transaction can autoclose it
+              trans.AddNewlyCreatedDBObject(blockRef, True)
+
+              ' all ok, commit it
+              trans.Commit()
+
+            Catch ex As Exception
+              ' a problem occured, lets print it
+              ed.WriteMessage("a problem occured because " + ex.Message)
+            Finally
+              ' whatever happens we must dispose the transaction
+              trans.Dispose()
+
+            End Try

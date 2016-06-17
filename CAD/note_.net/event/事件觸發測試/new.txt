@@ -1,0 +1,29 @@
+//CAD new 指令所觸發的事件
+
+DocMan Events: DocumentToBeDeactivated - Drawing2.dwg
+DocMan Events: DocumentToBeActivated - Drawing2.dwg
+DB Events: ObjectModified - Autodesk.AutoCAD.DatabaseServices.ImpDBObject (2128407856)
+Doc Events: CommandWillStart - NEW
+Doc Events: CommandEnded - NEW
+DocMan Events: DocumentCreateStarted - 
+DocMan Events: DocumentToBeDeactivated - Drawing2.dwg
+DB Events: DatabaseConstructed - 
+DB Events: DatabaseConstructed - 
+DB Events: DatabaseConstructed - 
+DocMan Events: DocumentCreated - Drawing3.dwg
+DocMan Events: DocumentToBeActivated - Drawing3.dwg
+DocMan Events: DocumentActivated - Drawing3.dwg
+DocMan Events: DocumentToBeDeactivated - Drawing3.dwg
+DocMan Events: DocumentToBeActivated - Drawing3.dwg
+DocMan Events: DocumentBecameCurrent - Drawing3.dwg
+Doc Events: LispWillStart - (amdtresetdbmod)
+Doc Events: LispEnded
+
+//您可以定義 S::STARTUP 函數，以在初始化圖面後執行任何需要的設定作業。
+Doc Events: LispWillStart - s::startup
+Doc Events: CommandWillStart - UNDO
+Doc Events: CommandEnded - UNDO
+Doc Events: CommandWillStart - UNDO
+Doc Events: CommandEnded - UNDO
+Doc Events: LispEnded
+//解釋看不懂.大概是說已結束事件控制.

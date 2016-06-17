@@ -1,0 +1,36 @@
+CAD
+使用.lsp
+DLL放在任一地方:出現錯誤訊息
+DLL放在AutoCAD安裝目錄下:載入OK
+DLL放在個人的文件夾裡:載入OK,但其它使用者載入會失敗.
+
+*************************************
+C#
+參考網站: http://forums.microsoft.com/msdn-cht/ShowPost.aspx?PostID=332039&SiteID=14
+
+如果未指定 DLL 的路徑，系統 將按照下列順序尋找檔案： 
+1..exe 檔案所在的目錄
+2.目前目錄 (工作路徑)
+3.Windows 系統目錄 (通常為 \Windows\System)
+4.Windows 目錄 (通常為 \Windows)
+5.Path 環境變數中的目錄 
+
+一般 3, 4, 5 不想動它，不考慮的情況下：
+
+1. exe 所在路徑
+
+a.預設是在專案路徑下的 bin 目錄內，所以可以把 DLL 檔拷貝到這裡試看看。
+
+b.把執行檔預設路徑變更到專案路徑，選單 專案 xxx屬性 編譯 建置輸出路徑把\bin 刪除。
+
+2. 工作路徑
+
+a.若是由開始選單啟動，是由捷徑設定，捷徑預設為：
+C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\
+
+所以你可以改看看。
+
+b.如果你直接以檔案總管點選專案來啟動，則此時工作路徑會在由檔案總管傳遞目前目錄給 VS.NET，也就是專案路徑，所以你可以先把 VS.NET 關閉，直接用檔案總管點選專案路徑下的 sln 檔啟動 VS.NET 後執行試看看。
+
+c.你可以替你的專案執行檔建個捷徑，例如捷徑內目標指到 X:\ProjPath\bin\ooo.exe ，開始位置指到 X:\ProjPath\
+

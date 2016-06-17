@@ -1,0 +1,11 @@
+1.加入參考
+2.使用USING
+using Autodesk.AutoCAD.Runtime ;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.Colors;
+using Autodesk.AutoCAD.EditorInput;
+
+3.[CommandMethod("CREATE")] 
+找不到型別或命名空間名稱 'CommandMethod' (您是否遺漏 using 指示詞或組件參考?)
+4.偵錯設定為AUTOCAD.EXE

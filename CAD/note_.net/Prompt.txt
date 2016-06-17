@@ -1,0 +1,99 @@
+這樣是不會跑出提示視窗的.
+PromptStringOptions(string msg)
+att:bol AllowSpaces,string DefaultValue,bol UseDefaultValue
+
+        [CommandMethod("test")]
+        public void test()
+        {
+            Database db = HostApplicationServices.WorkingDatabase;
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                using (Transaction trans = db.TransactionManager.StartTransaction())
+                {
+                    //Prompts for each employee detail
+                    PromptStringOptions prName = new PromptStringOptions("Enter Employee Name");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ed.WriteMessage("\nError: " + ex.Message + "\n");
+            }
+        }
+這樣才會出現,用ed寫出來.
+        [CommandMethod("test")]
+        public void test()
+        {
+            Database db = HostApplicationServices.WorkingDatabase;
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                using (Transaction trans = db.TransactionManager.StartTransaction())
+                {
+                    //Prompts for each employee detail
+                    PromptStringOptions prName = new PromptStringOptions("Enter Employee Name");
+                    ed.GetString(prName);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ed.WriteMessage("\nError: " + ex.Message + "\n");
+            }
+        }
+***************************************************這個輸入什麼就是什麼,沒有預設值.
+如果有輸入按空白=>OK,輸入的字串
+如果沒有輸入按空白=>OK,空白
+如果沒有輸入按ENTER=>OK,空白
+
+如果有輸入按ESC=>CANCEL,空白 
+如果沒有輸入按ESC=>CANCEL,空白 
+        [CommandMethod("test")]
+        public void test()
+        {
+            PromptResult prNameRes = null;
+            Database db = HostApplicationServices.WorkingDatabase;
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                using (Transaction trans = db.TransactionManager.StartTransaction())
+                {
+                    //Prompts for each employee detail
+                    PromptStringOptions prName = new PromptStringOptions("Enter Employee Name");
+                    prNameRes = ed.GetString(prName);
+                    ed.WriteMessage("\n " + prNameRes.Status.ToString() + "\n" + prNameRes.StringResult.ToString());
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ed.WriteMessage("\nError: " + ex.Message + "\n");
+            }
+        }
+*******************************************************使用預設值.
+如果有輸入按空白=>OK,輸入的字串
+如果沒有輸入按空白=>OK,預設值
+如果沒有輸入按ENTER=>OK,預設值
+
+如果有輸入按ESC=>CANCEL,空白 
+如果沒有輸入按ESC=>CANCEL,空白 
+        [CommandMethod("test")]
+        public void test()
+        {
+            PromptResult prNameRes = null;
+            Database db = HostApplicationServices.WorkingDatabase;
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            try
+            {
+                using (Transaction trans = db.TransactionManager.StartTransaction())
+                {
+                    //Prompts for each employee detail
+                    PromptStringOptions prName = new PromptStringOptions("Enter Employee Name");
+                    prName.DefaultValue = "hi";
+                    prNameRes = ed.GetString(prName);
+                    ed.WriteMessage("\n " + prNameRes.Status.ToString() + "\n" + prNameRes.StringResult.ToString());
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ed.WriteMessage("\nError: " + ex.Message + "\n");
+            }
+        }

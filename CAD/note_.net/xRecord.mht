@@ -1,0 +1,1111 @@
+MIME-Version: 1.0
+Content-Location: file:///C:/AA834AA4/xRecord.htm
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:o=3D"urn:schemas-microsoft-com:office:office"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+xmlns:st1=3D"urn:schemas-microsoft-com:office:smarttags"
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dus-ascii">
+<meta name=3DProgId content=3DWord.Document>
+<meta name=3DGenerator content=3D"Microsoft Word 11">
+<meta name=3DOriginator content=3D"Microsoft Word 11">
+<link rel=3DFile-List href=3D"xRecord.files/filelist.xml">
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"chmetcnv"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>una</o:Author>
+  <o:LastAuthor>una</o:LastAuthor>
+  <o:Revision>19</o:Revision>
+  <o:TotalTime>58</o:TotalTime>
+  <o:Created>2008-01-20T14:22:00Z</o:Created>
+  <o:LastSaved>2008-01-20T15:04:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>513</o:Words>
+  <o:Characters>2925</o:Characters>
+  <o:Company>casys</o:Company>
+  <o:Lines>24</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3432</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEve=
+ry>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState=3D"false" LatentStyleCount=3D"156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid=3D"clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=3Dieooui></objec=
+t>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]--><![if !supportAnnotations]>
+<style id=3D"dynCom" type=3D"text/css"><!-- --></style>
+<script language=3D"JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck())=20
+		{
+		c =3D document.all(com_id);
+		a =3D document.all(anchor_id);
+		if (null !=3D c && null =3D=3D c.length && null !=3D a && null =3D=3D a.l=
+ength)
+			{
+			var cw =3D c.offsetWidth;
+			var ch =3D c.offsetHeight;
+			var aw =3D a.offsetWidth;
+			var ah =3D a.offsetHeight;
+			var x  =3D a.offsetLeft;
+			var y  =3D a.offsetTop;
+			var el =3D a;
+			while (el.tagName !=3D "BODY")=20
+				{
+				el =3D el.offsetParent;
+				x =3D x + el.offsetLeft;
+				y =3D y + el.offsetTop;
+				}
+			var bw =3D document.body.clientWidth;
+			var bh =3D document.body.clientHeight;
+			var bsl =3D document.body.scrollLeft;
+			var bst =3D document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >=3D bsl )=20
+				{ c.style.left =3D x + aw - ah / 2 - cw; }
+			else=20
+				{ c.style.left =3D x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >=3D bst )=20
+				{ c.style.top =3D y + ah / 2 - ch; }
+			else=20
+				{ c.style.top =3D y + ah / 2; }
+			c.style.visibility =3D "visible";
+}	}	}
+function msoCommentHide(com_id)=20
+{
+	if(msoBrowserCheck())
+		{
+		c =3D document.all(com_id);
+		if (null !=3D c && null =3D=3D c.length)
+		{
+		c.style.visibility =3D "hidden";
+		c.style.left =3D -1000;
+		c.style.top =3D -1000;
+		} }=20
+}
+function msoBrowserCheck()
+{
+	ms =3D navigator.appVersion.indexOf("MSIE");
+	vers =3D navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 =3D (ms > 0) && (parseInt(vers) >=3D 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackg=
+round");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackgrou=
+nd");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid th=
+reedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid =
+threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid=
+ threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid t=
+hreedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt=
+");
+	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
+}
+// --></script>
+<![endif]>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-alt:PMingLiU;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:PMingLiU;
+	mso-bidi-font-family:PMingLiU;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:\8A3B\89E3\6587\5B57;
+	mso-style-next:\8A3B\89E3\6587\5B57;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	mso-font-kerning:1.0pt;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:9.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:PMingLiU;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:1.0pt;}
+span.code
+	{mso-style-name:code;}
+span.comments-link
+	{mso-style-name:comments-link;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+ /* Page Definitions */
+ @page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;
+	layout-grid:18.0pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1204099258;
+	mso-list-template-ids:-1310842174;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:2098207584;
+	mso-list-template-ids:1865335504;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:\8868\683C\5167\6587;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"5122"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=3DZH-TW link=3Dblue vlink=3Dblue style=3D'tab-interval:24.0pt;te=
+xt-justify-trim:
+punctuation'>
+
+<div class=3DSection1 style=3D'layout-grid:18.0pt'>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><span lang=3DEN-=
+US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;display:none;
+mso-hide:all;mso-font-kerning:0pt'>Using Handles in Extended Data<o:p></o:p=
+></span></p>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><a
+name=3DWS4b0506698c46277a1e893df105e00d248a-7ff></a><span class=3DSpellE><s=
+pan
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>Xrecord</span></span><span lang=3DEN-US style=3D'font=
+-family:
+PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'> Objects<o:p><=
+/o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><span lang=3DEN-=
+US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-line-height-alt:0pt;mso-pagination:widow-=
+orphan'><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><span lang=3DEN-=
+US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1b4></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>The <span class=3DSpellE>xrecord</span> object is a
+built-in object class with a DXF name of </span><span style=3D'font-family:=
+PMingLiU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>&#8220;<span lang=3DEN-=
+US>XRECORD</span>&#8221;<span
+lang=3DEN-US>, which stores and manages arbitrary data streams, represented
+externally as a result-buffer list composed of DXF groups with </span>&#822=
+0;<span
+lang=3DEN-US>normal object</span>&#8221;<span lang=3DEN-US> groups (that is=
+, non-<span
+class=3DSpellE>xdata</span> group codes), ranging from 1 through 369.<o:p><=
+/o:p></span></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1b3></a><span
+class=3DSpellE><span lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-fo=
+nt-family:
+PMingLiU;mso-font-kerning:0pt'>Xrecord</span></span><span lang=3DEN-US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'> objects are generic objects intended for use by <span class=3DSpellE>=
+ObjectARX</span>
+and <span class=3DSpellE>AutoLISP</span> applications. This class allows
+applications to create and store arbitrary object structures of arbitrary
+result-buffer lists of non-graphical information completely separate from
+entities. The root owner for all application-defined objects is either the
+named object dictionary, which accepts any <span class=3DSpellE>AcDbObject<=
+/span>
+type as an entry, including <span class=3DSpellE>AcDbXrecord</span>, or the
+extension dictionary of any object.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1b2></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>Applications are expected to use unique entry names in
+the named object dictionary. The logic of using a named object dictionary or
+extension dictionary entry name is similar to that of a<span style=3D'color=
+:red'>
+REGAPP</span> name. In fact, REGAPP names are perfect for use as entry names
+when appending application-defined objects to the database or a particular
+object.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1b1></a><b
+style=3D'mso-bidi-font-weight:normal'><span lang=3DEN-US style=3D'font-fami=
+ly:PMingLiU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>The use of <span
+class=3DSpellE>xrecord</span> objects represents a substantial streamlining=
+ with
+respect to the current practice of assigning</span></b><span lang=3DEN-US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'> <span class=3DSpellE><b style=3D'mso-bidi-font-weight:normal'>xdata</=
+b></span><b
+style=3D'mso-bidi-font-weight:normal'> to entities.</b> Because an <span
+class=3DSpellE>xrecord</span> object does not need to be linked with an ent=
+ity,
+you no longer need to create dummy entities (dummy entities were often used=
+ to
+provide more room for <span class=3DSpellE>xdata</span>), or entities on<a
+style=3D'mso-comment-reference:u_1;mso-comment-date:20080120T2227'> frozen
+layers.</a></span><span class=3DMsoCommentReference><span lang=3DEN-US
+style=3D'font-size:9.0pt'><![if !supportAnnotations]><a class=3Dmsocomanchor
+id=3D"_anchor_1" onmouseover=3D"msoCommentShow('_anchor_1','_com_1')"
+onmouseout=3D"msoCommentHide('_com_1')" href=3D"#_msocom_1" language=3DJava=
+Script
+name=3D"_msoanchor_1">[u1]</a><![endif]><span style=3D'mso-special-characte=
+r:comment'>&nbsp;</span></span></span><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1b0></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>Applications can use <span class=3DSpellE>xrecord</sp=
+an>
+objects to do the following:<o:p></o:p></span></p>
+
+<ul type=3Ddisc>
+ <li class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;
+     mso-pagination:widow-orphan;mso-list:l0 level1 lfo3;tab-stops:list 36.=
+0pt'><a
+     name=3DWS1a9193826455f5ff128052610e798412bc-491></a><a style=3D'mso-co=
+mment-reference:
+     u_2;mso-comment-date:20080120T2231'><span lang=3DEN-US style=3D'font-f=
+amily:
+     PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>Protect
+     information from indiscriminate purging or thawing of layers, which is
+     always a threat to </span></a><span class=3DSpellE><span style=3D'mso-=
+comment-continuation:
+     2'><span lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-fami=
+ly:PMingLiU;
+     mso-font-kerning:0pt'>nongraphical</span></span></span><span
+     style=3D'mso-comment-continuation:2'><span lang=3DEN-US style=3D'font-=
+family:
+     PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'> informat=
+ion
+     stored in <span class=3DSpellE>xdata</span>. </span></span><span
+     class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0p=
+t'><![if !supportAnnotations]><a
+     class=3Dmsocomanchor id=3D"_anchor_2"
+     onmouseover=3D"msoCommentShow('_anchor_2','_com_2')"
+     onmouseout=3D"msoCommentHide('_com_2')" href=3D"#_msocom_2"
+     language=3DJavaScript name=3D"_msoanchor_2">[u2]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'><o:p></o:p></span></li>
+ <li class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;
+     mso-pagination:widow-orphan;mso-list:l0 level1 lfo3;tab-stops:list 36.=
+0pt'><span
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'>Utilize the <span style=3D'color:red'>object
+     ownership/pointer reference</span> fields (330</span><span class=3DGra=
+mE><span
+     style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-k=
+erning:
+     0pt'>&#8211;</span></span><span lang=3DEN-US style=3D'font-family:PMin=
+gLiU;
+     mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>369) to maintain
+     internal database object references. <a style=3D'mso-comment-reference=
+:u_3;
+     mso-comment-date:20080120T2235'><span style=3D'color:red'>Arbitrary ha=
+ndle
+     values</span> are completely exempt from the object ID translation
+     mechanics</a></span><span class=3DMsoCommentReference><span lang=3DEN-=
+US
+     style=3D'font-size:9.0pt'><![if !supportAnnotations]><a class=3Dmsocom=
+anchor
+     id=3D"_anchor_3" onmouseover=3D"msoCommentShow('_anchor_3','_com_3')"
+     onmouseout=3D"msoCommentHide('_com_3')" href=3D"#_msocom_3"
+     language=3DJavaScript name=3D"_msoanchor_3">[u3]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'>. <a style=3D'mso-comment-reference:u_4;mso-comm=
+ent-date:
+     20080120T2250'>This is opposed to 1005 </a><span class=3DSpellE><span
+     style=3D'mso-comment-continuation:4'>xdata</span></span><span
+     style=3D'mso-comment-continuation:4'> groups, which are translated in =
+some
+     cases but not in others. </span></span><span class=3DMsoCommentReferen=
+ce><span
+     lang=3DEN-US style=3D'font-size:9.0pt'><![if !supportAnnotations]><a
+     class=3Dmsocomanchor id=3D"_anchor_4"
+     onmouseover=3D"msoCommentShow('_anchor_4','_com_4')"
+     onmouseout=3D"msoCommentHide('_com_4')" href=3D"#_msocom_4"
+     language=3DJavaScript name=3D"_msoanchor_4">[u4]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'><o:p></o:p></span></li>
+ <li class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;
+     mso-pagination:widow-orphan;mso-list:l0 level1 lfo3;tab-stops:list 36.=
+0pt'><a
+     style=3D'mso-comment-reference:u_5;mso-comment-date:20080120T2245'><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'>Remain unaffected</span></a><span
+     class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0p=
+t'><![if !supportAnnotations]><a
+     class=3Dmsocomanchor id=3D"_anchor_5"
+     onmouseover=3D"msoCommentShow('_anchor_5','_com_5')"
+     onmouseout=3D"msoCommentHide('_com_5')" href=3D"#_msocom_5"
+     language=3DJavaScript name=3D"_msoanchor_5">[u5]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'> by the 16K per object <span class=3DSpellE>xdat=
+a</span>
+     capacity limit. This object can also be used instead of <span
+     class=3DSpellE>xdata</span> on specific entities and objects,<a
+     style=3D'mso-comment-reference:u_6;mso-comment-date:20080120T2243'> if=
+ one
+     so wishes</a></span><span class=3DMsoCommentReference><span lang=3DEN-=
+US
+     style=3D'font-size:9.0pt'><![if !supportAnnotations]><a class=3Dmsocom=
+anchor
+     id=3D"_anchor_6" onmouseover=3D"msoCommentShow('_anchor_6','_com_6')"
+     onmouseout=3D"msoCommentHide('_com_6')" href=3D"#_msocom_6"
+     language=3DJavaScript name=3D"_msoanchor_6">[u6]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'>, with the understanding that <a style=3D'mso-co=
+mment-reference:
+     u_7;mso-comment-date:20080120T2240'>no matter</a></span><span
+     class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0p=
+t'><![if !supportAnnotations]><a
+     class=3Dmsocomanchor id=3D"_anchor_7"
+     onmouseover=3D"msoCommentShow('_anchor_7','_com_7')"
+     onmouseout=3D"msoCommentHide('_com_7')" href=3D"#_msocom_7"
+     language=3DJavaScript name=3D"_msoanchor_7">[u7]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'> where you store <span class=3DSpellE>xrecord</s=
+pan>
+     objects, they have no built-in size limit, <a style=3D'mso-comment-ref=
+erence:
+     u_8;mso-comment-date:20080120T2247'>other than</a></span><span
+     class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0p=
+t'><![if !supportAnnotations]><a
+     class=3Dmsocomanchor id=3D"_anchor_8"
+     onmouseover=3D"msoCommentShow('_anchor_8','_com_8')"
+     onmouseout=3D"msoCommentHide('_com_8')" href=3D"#_msocom_8"
+     language=3DJavaScript name=3D"_msoanchor_8">[u8]</a><![endif]><span
+     style=3D'mso-special-character:comment'>&nbsp;</span></span></span><sp=
+an
+     lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingL=
+iU;
+     mso-font-kerning:0pt'> the limit of 2 GB imposed by signed 32-bit inte=
+ger
+     range. <o:p></o:p></span></li>
+</ul>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+margin-left:36.0pt;mso-pagination:widow-orphan'><a
+name=3DWSfacf1429558a55de8821c21057fbebc2b-1af></a><span lang=3DEN-US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'>In the case of object-specific state, <span class=3DSpellE>xrecord</sp=
+an>
+objects are well suited for storing larger amounts of stored information, w=
+hile
+<span class=3DSpellE>xdata</span> is better suited for smaller amounts of d=
+ata.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1ae></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>When building up a hierarchy of <span class=3DSpellE>=
+xrecord</span>
+objects (<b style=3D'mso-bidi-font-weight:normal'>adding ownership or point=
+er
+reference to an object</b>), that object must already exist in the database,
+and, thus, have a legitimate entity name. <a style=3D'mso-comment-reference=
+:u_9;
+mso-comment-date:20080120T2258'>Because </a><span class=3DSpellE><span
+class=3DGramE><span style=3D'mso-comment-continuation:9'>acdbEntMake</span>=
+</span></span><span
+style=3D'mso-comment-continuation:9'><span class=3DGramE>(</span>) does not=
+ return
+an entity name, and <span class=3DSpellE>acdbEntLast</span>() only recogniz=
+es graphical
+objects, you must use <span class=3DSpellE>acdbEntMakeX</span>() if you are
+referencing <span class=3DSpellE>nongraphical</span> objects. </span></span=
+><span
+class=3DMsoCommentReference><span lang=3DEN-US style=3D'font-size:9.0pt'><!=
+[if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_9"
+onmouseover=3D"msoCommentShow('_anchor_9','_com_9')"
+onmouseout=3D"msoCommentHide('_com_9')" href=3D"#_msocom_9" language=3DJava=
+Script
+name=3D"_msoanchor_9">[u9]</a><![endif]><span style=3D'mso-special-characte=
+r:comment'>&nbsp;</span></span></span><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt=
+:auto;
+mso-pagination:widow-orphan'><a name=3DWSfacf1429558a55de8821c21057fbebc2b-=
+1ad></a><span
+lang=3DEN-US style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;
+mso-font-kerning:0pt'>The <span class=3DSpellE><span class=3DGramE>acdbEntM=
+akeX</span></span><span
+class=3DGramE>(</span>) function returns the entity name of the object adde=
+d to
+the database (either graphical or <span class=3DSpellE>nongraphical</span>)=
+. If
+the object being created is an entity or a symbol table record, then <span
+class=3DSpellE><span class=3DGramE>acdbEntMakeX</span></span><span class=3D=
+GramE>(</span>)
+will behave the same as <span class=3DSpellE>acdbEntMake</span>() (in other
+words, it will create the object and establish the object's ownership). For=
+ all
+other object types, <span class=3DSpellE><span class=3DGramE>acdbEntMakeX</=
+span></span><span
+class=3DGramE>(</span>) appends the object to the database, but does not
+establish <a style=3D'mso-comment-reference:u_11;mso-comment-date:20080120T=
+2304'></a><a
+style=3D'mso-comment-reference:u_10;mso-comment-date:20080120T2302'><span
+style=3D'mso-comment-continuation:11'>ownership</span></a></span><span
+style=3D'mso-comment-continuation:11'><span class=3DMsoCommentReference><sp=
+an
+lang=3DEN-US style=3D'font-size:9.0pt'><![if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_10"
+onmouseover=3D"msoCommentShow('_anchor_10','_com_10')"
+onmouseout=3D"msoCommentHide('_com_10')" href=3D"#_msocom_10" language=3DJa=
+vaScript
+name=3D"_msoanchor_10">[u10]</a><![endif]><span style=3D'mso-special-charac=
+ter:
+comment'>&nbsp;</span></span></span></span><span class=3DMsoCommentReferenc=
+e><span
+lang=3DEN-US style=3D'font-size:9.0pt'><![if !supportAnnotations]><a
+class=3Dmsocomanchor id=3D"_anchor_11"
+onmouseover=3D"msoCommentShow('_anchor_11','_com_11')"
+onmouseout=3D"msoCommentHide('_com_11')" href=3D"#_msocom_11" language=3DJa=
+vaScript
+name=3D"_msoanchor_11">[u11]</a><![endif]><span style=3D'mso-special-charac=
+ter:
+comment'>&nbsp;</span></span></span><span lang=3DEN-US style=3D'font-family=
+:PMingLiU;
+mso-bidi-font-family:PMingLiU;mso-font-kerning:0pt'>.<o:p></o:p></span></p>
+
+<p class=3DMsoNormal style=3D'mso-pagination:widow-orphan'><span lang=3DEN-=
+US
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'><a href=3D"javascript:doComments('./html/ac.cmtdialog.htm');">Please s=
+end us
+your comment about this page</a><o:p></o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-US><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+<div style=3D'mso-element:comment-list'><![if !supportAnnotations]>
+
+<hr class=3Dmsocomoff align=3Dleft size=3D1 width=3D"33%">
+
+<![endif]>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_1" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_1','_com_1')"
+onmouseout=3D"msoCommentHide('_com_1')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_1"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_1" class=3Dmsocomoff>[u1]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#20912;&#20941;<span class=3DGramE>&#22294;&#23652;&#25=
+351;&#30340;</span>&#26159;&#20160;&#40636;&#21602;</span><span
+lang=3DEN-US>?</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_2" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_2','_com_2')"
+onmouseout=3D"msoCommentHide('_com_2')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_2"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_2" class=3Dmsocomoff>[u2]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#36889;&#27573;&#22312;&#35611;&#20160;&#40636;&#21602;=
+</span><span
+lang=3DEN-US>?</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20445;&#35703;=
+&#36039;&#35338;&#20813;&#21463;&#19981;&#21152;&#21312;&#21029;&#28165;&#2=
+7927;&#25110;&#35299;&#20941;&#23652;</span><span
+lang=3DEN-US>, </span><span style=3D'font-family:PMingLiU;mso-ascii-font-fa=
+mily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#32317;&#26159;=
+&#23041;&#33029;&#23565;</span><span
+class=3DSpellE><span lang=3DEN-US>nongraphical</span></span><span lang=3DEN=
+-US> </span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#36039;&#35338;&#34987;&#23384;&#20786;&#22312;</span><=
+span
+class=3DSpellE><span lang=3DEN-US>xdata</span></span><span lang=3DEN-US> </=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#12290;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_3" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_3','_com_3')"
+onmouseout=3D"msoCommentHide('_com_3')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_3"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_3" class=3Dmsocomoff>[u3]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#36889;&#26159;&#35498;&#23384;&#21462;&#23427;&#19981;=
+&#29992;</span><span
+lang=3DEN-US>trans</span><span style=3D'font-family:PMingLiU;mso-ascii-font=
+-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20043;&#24847;=
+&#21966;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_4" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_4','_com_4')"
+onmouseout=3D"msoCommentHide('_com_4')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_4"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_4" class=3Dmsocomoff>[u4]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#26159;&#35498;&#19978;&#36848;&#19981;&#36969;&#29992;=
+&#26044;</span><span
+lang=3DEN-US>1005xData</span><span style=3D'font-family:PMingLiU;mso-ascii-=
+font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20043;&#24847;=
+&#21966;</span></p>
+
+<p class=3DMsoCommentText><span style=3D'font-family:PMingLiU;mso-ascii-fon=
+t-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#35498;</span><=
+span
+lang=3DEN-US>1005</span><span style=3D'font-family:PMingLiU;mso-ascii-font-=
+family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#30340;&#35498;=
+&#26126;&#22312;&#20854;&#23427;&#22320;&#26041;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#19981;&#22312;=
+&#36889;&#35041;<span
+class=3DGramE>&#20043;&#24847;&#21966;</span></span><span lang=3DEN-US>?</s=
+pan></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_5" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_5','_com_5')"
+onmouseout=3D"msoCommentHide('_com_5')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_5"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_5" class=3Dmsocomoff>[u5]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#20445;&#30041;&#26410;&#21463;&#24433;&#38911;</span><=
+span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20160;&#40636;=
+&#21483;&#20570;&#26410;&#21463;&#24433;&#38911;</span><span
+lang=3DEN-US>?</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#19981;&#21463;=
+&#24433;&#38911;&#26159;&#24590;&#27171;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#21463;&#24433;=
+&#38911;&#26159;&#24590;&#27171;</span><span
+lang=3DEN-US>.</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#26159;&#25351;=
+&#26371;&#20445;&#30041;</span><span
+lang=3DEN-US>16K</span><span style=3D'font-family:PMingLiU;mso-ascii-font-f=
+amily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#19981;&#25918;=
+&#36039;&#26009;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#26377;&#40670;=
+&#20687;&#20570;</span><span
+lang=3DEN-US>HD</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fa=
+mily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20999;&#21106;=
+&#26178;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20063;&#37117;=
+&#26371;&#19968;&#37096;&#20998;&#19981;&#33021;&#34987;&#20999;&#21106;&#2=
+0043;&#24847;&#21966;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_6" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_6','_com_6')"
+onmouseout=3D"msoCommentHide('_com_6')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_6"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_6" class=3Dmsocomoff>[u6]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#22914;&#26524;&#26377;&#20154;&#24076;&#26395;</span><=
+/p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_7" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_7','_com_7')"
+onmouseout=3D"msoCommentHide('_com_7')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_7"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_7" class=3Dmsocomoff>[u7]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#19981;&#31649;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_8" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_8','_com_8')"
+onmouseout=3D"msoCommentHide('_com_8')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_8"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_8" class=3Dmsocomoff>[u8]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#38500;&#20102;</span><span lang=3DEN-US>integer</span>=
+<span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#26377;</span><st1:chmetcnv UnitName=3D"g" SourceValue=
+=3D"2"
+HasSpace=3D"False" Negative=3D"False" NumberType=3D"1" TCSC=3D"0" w:st=3D"o=
+n"><span
+ lang=3DEN-US>2G</span></st1:chmetcnv><span style=3D'font-family:PMingLiU;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Ro=
+man"'>&#30340;&#38480;&#21046;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#26159;&#36889;=
+&#27171;&#21966;</span><span
+lang=3DEN-US>?</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_9" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_9','_com_9')"
+onmouseout=3D"msoCommentHide('_com_9')"><![endif]><span style=3D'mso-commen=
+t-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_9"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_9" class=3Dmsocomoff>[u9]</a><![endif]></span></span></=
+span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#20171;&#32057;&#35201;&#29992;&#20160;&#40636;&#26041;=
+&#27861;</span><span
+lang=3DEN-US>,</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fam=
+ily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#20006;&#35299;=
+&#37323;&#28858;&#20160;&#40636;&#19981;&#33021;&#29992;&#20854;&#23427;&#2=
+0841;&#31278;&#26041;&#27861;</span><span
+lang=3DEN-US>.</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_10" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_10','_com_10')"
+onmouseout=3D"msoCommentHide('_com_10')"><![endif]><span style=3D'mso-comme=
+nt-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_10"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_10" class=3Dmsocomoff>[u10]</a><![endif]></span></span>=
+</span><span
+style=3D'font-family:PMingLiU;mso-bidi-font-family:PMingLiU;mso-font-kernin=
+g:
+0pt'>&#25351;&#30340;&#26159;<span lang=3DEN-US>symbol table</span>&#21966;=
+</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style=3D'mso-element:comment'><![if !supportAnnotations]>
+
+<div id=3D"_com_11" class=3Dmsocomtxt language=3DJavaScript
+onmouseover=3D"msoCommentShow('_anchor_11','_com_11')"
+onmouseout=3D"msoCommentHide('_com_11')"><![endif]><span style=3D'mso-comme=
+nt-author:
+una'><![if !supportAnnotations]><a name=3D"_msocom_11"></a><![endif]></span>
+
+<p class=3DMsoCommentText><span class=3DMsoCommentReference><span lang=3DEN=
+-US
+style=3D'font-size:9.0pt'><span style=3D'mso-special-character:comment'>&nb=
+sp;<![if !supportAnnotations]><a
+href=3D"#_msoanchor_11" class=3Dmsocomoff>[u11]</a><![endif]></span></span>=
+</span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#35498;&#26126;</span><span class=3DSpellE><span lang=
+=3DEN-US>acdbEntMakeX</span></span><span
+lang=3DEN-US>()</span><span style=3D'font-family:PMingLiU;mso-ascii-font-fa=
+mily:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>&#21644;</span><=
+span
+class=3DSpellE><span lang=3DEN-US>acdbEntMake</span></span><span lang=3DEN-=
+US>()</span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#30340;&#24046;&#21029;&#26159;&#22312;&#26044;</span><=
+span
+class=3DSpellE><span lang=3DEN-US>acdbEntMakeX</span></span><span style=3D'=
+font-family:
+PMingLiU;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Tim=
+es New Roman"'>&#19981;&#26371;</span><span
+lang=3DEN-US>establish the object<span class=3DGramE>&#8217;</span>s owners=
+hip</span><span
+style=3D'font-family:PMingLiU;mso-ascii-font-family:"Times New Roman";mso-h=
+ansi-font-family:
+"Times New Roman"'>&#21966;</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+</div>
+
+</body>
+
+</html>

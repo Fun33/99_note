@@ -1,0 +1,4 @@
+
+當CAD軟體要關閉時:BM說這個的用意是為了釋放license,呵呵,原來如此啊.
+     Autodesk.AutoCAD.ApplicationServices.Application.BeginQuit //當CAD軟體要關閉時,step 1
+     Autodesk.AutoCAD.ApplicationServices.Application.QuitWillStart //當CAD軟體要關閉時,step 2

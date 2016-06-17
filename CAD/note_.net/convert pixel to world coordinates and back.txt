@@ -1,0 +1,97 @@
+功能:convert pixel to world coordinates and back(改變大量座標的像素和回溯)
+這個東西是在找BLOCK時,在網路上撈到的,翻譯完後,發現不是我要的.留著,或許日後用的到呢.
+
+the following functions is provieded in dotnetarx 2.1.
+這些功能是由.NET2.1提供的
+
+addblocktablerecord
+in dotnetarx,you can add the symbol table record using the addsymboltablerecord() function.
+but the blocktablerecord is different from the other symbol table records.
+so,you must use the addblocktablerecord() function to add the blocktablerecord.
+addblocktablerecord() function has two forms.
+
+the first one takes the entity array as its argument 
+(which represents the entities that have not added into the autocad database).
+if you want to add the entities on the screen into the block table record,
+you will have to use the second one.
+it takes the objectid of the entities as its argument.
+在.NETARX,你能增加一個SYMBOL TABLE RECORD使用addsymboltablerecord()方法
+但是BLOCKTABLERECORD是不同的其它SYMBOL TABLE RECORD
+所以你必需使用addblocktablerecord() 方法去增加blocktablerecord
+addblocktablerecord()方法有兩個forms
+
+首先取個體的objectid 作為它的引數
+(這個引數是參考ENTITIES,而ENTITIES還沒有被加到autocad database)
+如果你要加入ENTITIES on the screen into the block table record,
+你必須使用第二個.
+它採取個體的objectid 作為它的引數。
+
+the following example show you how to use addblocktablerecord() to create block table records.      
+下面的例子將SHOW如何使用addblocktablerecord()新增BLOCK TABLE RECORD
+    void test()
+    {
+        lines line=new lines(new point3d(0,0,0),new point3d(50,50,0));
+        circles circle=new circles(new point3d(50,50,0),25);
+        blocktablerecord btr1=new blocktablerecord();//creates a new block table record named block1
+        btr1.name="block1";
+        btr1.origin=circle.center;//?orgin是什麼
+        tools.addblocktablerecord(btr1,new entity[]{line,circle});//?tools從何而來
+        //adds the line and circle to block1,then adds block1 to the block table of autocad database.
+
+        promptselectionresult res=tools.editor.getselection();//selects objects on the screen.
+        objectidcollection ids=new objectidcollection(res.value.getobjectids());
+        //gets the objectids of the selected objects.
+        blocktablerecord btr2=new blocktablerecord();//creates a new block table record named block2
+        btr2.name="block2";
+        btr2.origin=new point3d(0,0,0);
+        tools.addblocktablerecord(btr2,ids);
+        //adds the selected objects to block2,then adds block2 to the block table of autocad database.
+    }
+
+ coordfrompixeltoworld() and coordfromworldtopixel()
+theres no first class .net api to convert pixel to world coordinates and back.
+special thanks to albert szilvasy on autodesk discussion group providing the way to solve this problem. 
+沒有第一個class .net api 去改變圖像TO大量的座標和回溯
+特別感謝albert szilvasy on autodesk discussion group提供這個方法解決這個問題
+the following example shows you how to use coordfrompixeltoworld() and coordfromworldtopixel() function 
+to convert pixel to world coordinates and back. 
+note:inorder to use the two functions,you must add the system.drawing.dll assembly to your project.     
+以下的例子將show如何使用coordfrompixeltoworld()and coordfromworldtopixel()function 
+改變大量座標的像素和回溯
+NOTE:為了使用這兩個方法,必須add the system.drawing.dll assembly to your project. 
+
+    void test()
+    {
+        editor ed=tools.editor;
+        point3d pt1=ed.getpoint("\nplease select a point:").value;
+        system.drawing.point pix1;//you must add the system.drawing.dll in the reference of your project.
+        tools.coordfromworldtopixel(0,ref pt1,out pix1);
+        ed.writemessage("\npixel coordinate is"+pix1.tostring()+",world coordinate is"+pt1.tostring());
+
+        system.drawing.point pix2=new system.drawing.point(100,100);
+        point3d pt2;
+        tools.coordfrompixeltoworld(0,pix2,out pt2);
+        ed.writemessage("\npixel coordinate is"+pix2.tostring()+",world coordinate is"+pt2.tostring());
+    }
+getboundingbox() 
+in the .net api,the geomextents property of an entity can get the corner points of a box that encloses the 3d extents of the entity.but for dbtext and mtext,the geomextents property always returns the point (0,0,0) for the minpoint of the box.so,dotnetarx provides the getboundingbox() function to let you get the correct corner points of an entity including the dbtext and the mtext object.the return value of getboundingbox() is a point3d array,[0] is the minimum point of the objects bounding box,[1] is the maximum point of the objects bounding box. the following example shows you how to use getboundingbox().       
+    void test()
+    {
+        editor ed=tools.editor;
+        objectid id=ed.getentity("please select an entity on the screen:\n").objectid;
+        //gets the objectid of a selected entity.
+        point3d[] pts=tools.getboundingbox(id);//gets the the two points of a box enclosing the selected entity.
+        lines line=new lines(pts[0],pts[1]);//creates a line to see the output.
+        tools.addentity(line);
+    }
+sendcommand and regen
+sendcommand() function sends a command string to the current document for processing.
+there is no regen function in .net api,so i add the regen() function in dotnetarx. 
+the following example sends a command for evaluation to the autocad command line of a particular drawing. create a circle in the active drawing and zoom to display the entire circle.      
+
+    void test()
+    {
+        tools.sendcommand("_circle","2,2,0","4");//you dont need the character "\n" for the return action.
+        tools.sendcommand("_zoom","a");
+        tools.regen(tools.regentype.allviewports);//refresh view
+    }

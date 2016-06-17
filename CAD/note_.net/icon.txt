@@ -1,0 +1,8 @@
+                CustomizationSection pcs = new CustomizationSection();
+                pcs.MenuGroupName = myCuiSectionName;//這個就是出現在檔案那行"casys",如果不寫會有錯誤訊息.
+
+                // Let's add a menu group, with two commands//為該CustomizationSection做命令. 
+                MacroGroup mg = new MacroGroup(myCuiSectionName, pcs.MenuGroup);
+                MenuMacro mm1 = new MenuMacro(mg, "登入", "^C^Clogin", "ID_login");//^C^C後面是是指令的名子.//ID_MyCmd是macro的名子，可讓toolbarBtn做連接啟動該CMD
+                
+mm1.macro.LargeImage = @"d:\1.bmp";//一定要是bmp類型的,其它不行.若用到不行的CAD不會顯示錯誤,只會有預設的圖案?

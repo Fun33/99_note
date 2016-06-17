@@ -1,0 +1,152 @@
+using Autodesk.AutoCAD.ApplicationServices;
+
+using Autodesk.AutoCAD.DatabaseServices;
+
+using Autodesk.AutoCAD.EditorInput;
+
+using Autodesk.AutoCAD.Runtime;
+
+using Autodesk.AutoCAD.Geometry;
+
+using Autodesk.AutoCAD.Customization;
+
+using System;
+
+using System.Collections.Specialized;
+
+
+
+namespace PartialCUI
+{
+
+    public class Commands : IExtensionApplication
+    {
+
+        public void Initialize()
+        {
+            BuildMenuCUI();
+        }
+
+        public void Terminate()
+        {
+
+        }
+
+        [CommandMethod("bm")]
+       
+        public void BuildMenuCUI()
+        {
+            const string myCuiFile = "d:\\Casys.cui";//不知道這個是做什麼的.
+            const string myCuiFileToSend = "d:/Casys.cui";//這個是檔案位置//LoadMyCui(myCuiFileToSend);
+            const string myCuiSectionName = "Casys";//這個section指的是什麼呢
+
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+
+            string mainCui = Application.GetSystemVariable("MENUNAME") + ".cui";
+            //取得mainCui = "C:\\Users\\una\\AppData\\Roaming\\Autodesk\\Autodesk Mechanical Desktop 2008\\R17.1\\cht\\acadm\\acadm.cui"
+
+            CustomizationSection cs = new CustomizationSection(mainCui);//filePaht+filename.但放filename要做什麼呢
+            PartialCuiFileCollection pcfc = cs.PartialCuiFiles;
+            
+            if (pcfc.Contains(myCuiFile))//filename
+            {
+                //pcfc.Remove(myCuiFile);//不知哪一個測試,讓它卡在collection裡沒刪掉.刪不掉耶...苦啊我
+                ed.WriteMessage("\nCustomization file \"" + myCuiFile + "\" already loaded.");
+            }
+            else
+            {
+                if (System.IO.File.Exists(myCuiFile))
+                {
+                    ed.WriteMessage("\nCustomization file \"" + myCuiFile + "\" exists - loading it.");
+                    LoadMyCui(myCuiFileToSend);
+                }
+                else
+                {
+                    ed.WriteMessage("\nCustomization file \"" + myCuiFile + "\" does not exist - building it.");
+
+                    // Create a customization section for our partial menu
+                    CustomizationSection pcs = new CustomizationSection();
+                    pcs.MenuGroupName = myCuiSectionName;//這個就是出現在檔案那行casys
+                    //這個不知道是什麼                     
+                    /*
+                    指令: bm
+                    Customization file "d:\kean.cui" exists - loading it.
+                    沒有錯誤訊息,但是沒有東西.                        */
+                    // Let's add a menu group, with two commands
+                    MacroGroup mg = new MacroGroup(myCuiSectionName, pcs.MenuGroup);
+                    MenuMacro mm1 = new MenuMacro(mg, "Cmd 1", "^C^CCmd1", "ID_MyCmd1");//^C^C後面是是指令的名子.
+                    MenuMacro mm2 = new MenuMacro(mg, "Cmd 2", "^C^CCmd2", "ID_MyCmd2");//不過還不知道ID_MyCmd是什麼
+
+                    //這個不知道是什麼
+                    /*                                        
+                    指令: bm
+                    Customization file "d:\kean.cui" exists - loading it.
+                    沒有錯誤訊息,但是沒有東西.                        */
+                    // Now let's add a pull-down menu, with two items
+                    StringCollection sc = new StringCollection();
+                    sc.Add("POP15");//這個不知道是什麼                    
+                    PopMenu pm = new PopMenu(myCuiSectionName, sc, "ID_MyPop1", pcs.MenuGroup);
+                    PopMenuItem pmi1 = new PopMenuItem(mm1, "Pop Cmd 1", pm, -1);//
+                    PopMenuItem pmi2 = new PopMenuItem(mm2, "Pop Cmd 2", pm, -1);
+
+                    // Finally we save the file and load it
+                    pcs.SaveAs(myCuiFile);//"d:\\kean.cui"
+                    LoadMyCui(myCuiFileToSend);
+                }
+            }
+        }
+        /*
+//Customization file "c:\kean.cui" exists - loading it.
+//指令: 不明的指令「C:/KEAN.CUI」。請按 F1 取得說明。      
+//畫面停在cuiload,需要瀏覽自訂檔載入        
+        private void LoadMyCui(string cuiFile)
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            doc.SendStringToExecute("_.cuiload " + cuiFile + " ", false, false, false);//執行cuiload 檔案路徑+檔案名稱=>載入自訂功能表.
+        }
+          
+//Customization file "c:\kean.cui" exists - loading it.
+//指令: 不明的指令「C:/KEAN.CUI」。請按 F1 取得說明。
+//畫面停在cuiload,需要瀏覽自訂檔載入                 
+        private void LoadMyCui(string cuiFile)
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+
+            //這些不知道做什麼的
+            object oldCmdEcho = Application.GetSystemVariable("CMDECHO");
+            //object oldFileDia = Application.GetSystemVariable("FILEDIA");
+
+            Application.SetSystemVariable("CMDECHO", 0);//這個不知道做什麼的
+           // Application.SetSystemVariable("FILEDIA", 0);//這個不知道做什麼的
+
+            doc.SendStringToExecute( "_.cuiload " + cuiFile + " ", false, false, false);//執行cuiload 檔案路徑+檔案名稱=>載入自訂功能表.
+
+           // doc.SendStringToExecute("(setvar \"FILEDIA\" " + oldFileDia.ToString() + ")(princ) ",false, false, false);//這個不知道是做什麼的.
+            doc.SendStringToExecute("(setvar \"CMDECHO\" " + oldCmdEcho.ToString() + ")(princ) ", false, false, false);//這個不知道是什麼的.
+        }
+*/
+        private void LoadMyCui(string cuiFile)
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+
+            //這些不知道做什麼的
+            object oldCmdEcho = Application.GetSystemVariable("CMDECHO");
+            object oldFileDia = Application.GetSystemVariable("FILEDIA");
+
+            Application.SetSystemVariable("CMDECHO", 0);//這個不知道做什麼的,李先生說這是設定editor不要做回應的
+            Application.SetSystemVariable("FILEDIA", 0);//這個不知道做什麼的,李先生說這是設定不要跳出對話框的
+
+            doc.SendStringToExecute( "_.cuiload " + cuiFile + " ", false, false, false);//執行cuiload 檔案路徑+檔案名稱=>載入自訂功能表.
+
+            doc.SendStringToExecute("(setvar \"FILEDIA\" " + oldFileDia.ToString() + ")(princ) ",false, false, false);//這個不知道是做什麼的.
+            doc.SendStringToExecute("(setvar \"CMDECHO\" " + oldCmdEcho.ToString() + ")(princ) ", false, false, false);//這個不知道是什麼的.
+        }
+        [CommandMethod("Cmd1")]
+        public void Cm1()
+        {
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage("12345");
+        }
+    }
+}
+

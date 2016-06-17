@@ -1,0 +1,4 @@
+ AttributeDefinition 這是定義,當給值後就會變成AttributeReference
+AttributeDefinition   AttributeReference
+
+確認一下,AttributeDefinition還在不在?.
