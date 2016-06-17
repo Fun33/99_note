@@ -1,0 +1,12 @@
+http://www.microsoft.com/taiwan/msdn/sql/library/zh-tw/dnbda/html/daag.mspx#EALAG
+.NET Data Providers
+ADO.NET 必須有 .NET data providers 的協助。
+.NET data providers 提供對基礎資料來源的存取，
+其是由四個主要物件構成 (Connection， Command， DataReader，以及 DataAdapter)。
+
+目前 ADO.NET 隨附了兩種 providers : bridge providers and native providers。 
+Bridge providers，是由 OLE DB 和 ODBC 等提供的， 讓你可以使用早期資料存取技術的函式庫。 
+Native providers，像是 SQL Server 和 Oracle providers， 通常是為了效能的改善而將抽象層減少。
+
+
+

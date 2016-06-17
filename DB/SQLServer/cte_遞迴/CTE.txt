@@ -1,0 +1,42 @@
+--ref	http://www.dotblogs.com.tw/dc690216/archive/2010/02/02/13440.aspx
+--ref 	http://www.flag.com.tw/book/cento-5105.asp?bokno=FS232&id=419
+
+----CTE怎麼用.
+----1.當暫存資料表用.若條件過於複雜時,可讓程式,看起來好看一點.
+--with tmp11( Itemcode,qty1,Code,Qty)
+--as
+--(
+--	select itt1.Father ,1,itt1.Code,itt1.qty   from t2.dbo.ITT1 itt1 
+--)
+--select * from tmp12 where Itemcode ='A'
+--go
+--1.當暫存資料表用-2
+--with tmp12( Itemcode,qty1,Code,Qty)
+--as
+--(
+--	select itt1.Father ,1,itt1.Code,itt1.qty   from t2.dbo.ITT1 itt1 
+--)
+--select * from tmp12 where Itemcode ='A'
+--union 
+--select * from tmp12 where Itemcode ='P01'
+
+--2.遞迴=撈出POS底下的itemcode,qty.
+
+if OBJECT_ID ('subBOM') is not null 
+drop function subBOM
+go
+create function subBOM() returns   table  
+as 
+return
+	with tmp21(Code,Qty,need,ItemCode,qty1,F)
+	as
+	(
+		select itt1.Code,itt1.qty,a.qty * itt1.qty,a.*,1 F    from t1.dbo.POS a inner join t2.dbo.ITT1 itt1 on a.ItemCode = itt1.Father 
+		union all
+		select itt1.Code,itt1.qty ,tmp21.need  *itt1.qty,tmp21.code,tmp21.qty  ,F +1
+		from tmp21 inner join t2.dbo.ITT1 itt1 on tmp21.Code = itt1.Father 
+			
+	)
+	 select * from tmp21 where Code in (select code from t2.dbo.OITT )--order by Code 
+go
+select * from dbo.subbom()

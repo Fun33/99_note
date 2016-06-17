@@ -1,0 +1,31 @@
+個人查詢調校經驗中大多是DBA或開發人員未建立相關正確Index而導致查詢效能低落，
+
+閱讀圖型執行計畫是由上而下、由右到左，每個圖示都表示一項以執行的邏輯和實體作業，
+而箭頭表示作業之間的資料流向。厚度表示作業之間傳遞的資料列數量，越厚表示資料列越多。
+如果將滑鼠移到資料表掃描圖示上，會顯示該作業的詳細資料 (如下圖)，
+這階段我們將關注點放在成本高的作業。
+
+看時間
+
+
+看
+1.成本(CBO)， 
+2.statistics i/o 實體讀取
+3.statistics time 經過時間
+
+使用Stored Procedure或許是解決Client/Server架構效能問題的方法之一, 但不是絕對的.
+
+因為, 基本上, 我們對DB Performance Tuning, 主要是針對:
+1. Index建立
+2. SQL Script Tuning/Optimization
+3. I/O流量減少
+
+對常取用的Table做Index, 把SQL Script做點Optimization的處理, 以及對I/O流量的控管或加大流量, 這裏的I/O指網路頻寬及Disk Channel. 
+
+
+專有名詞
+SARG(search argrment) : <,>,>=,<=,between
+
+ref
+http://www.dotblogs.com.tw/ricochen/archive/2011/07/31/32374.aspx
+

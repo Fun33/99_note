@@ -1,0 +1,21 @@
+http://bigone2000.pixnet.net/blog/post/56194164-%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A6%8B%E7%9A%84sql%E6%95%88%E8%83%BD%E5%95%8F%E9%A1%8C
+
+==========================
+SP
+使用 Stored Procedure 取代前端應用程式直接存取資料表
+Stored Procedure 它是事先編譯過，所以效能會比較好，同時也可以節省前端程式陳述式傳遞之頻寬耗損。
+=============================
+
+dbcc dropcleanbuffers--再次執行查詢,先清除BUFFER
+
+===============================
+ref
+index
+http://www.dotblogs.com.tw/ricochen/archive/2011/12/19/62665.aspx
+
+ref
+http://www.dotblogs.com.tw/jamesfu/archive/2013/05/27/computedcolumn.aspx
+http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html
+ 
+
+ 

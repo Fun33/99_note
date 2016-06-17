@@ -1,0 +1,10 @@
+            string cmd ;
+            cmd = "insert into aaa (isBom) values (true)";
+            cmd = "insert into aaa (isBom) values (false)";
+            cmd = "insert into aaa (isBom) values (1)";
+            cmd = "insert into aaa (isBom) values (0)";
+
+            csAccess.OleDbCommand_Execute(cmd);
+
+*true或1, false或0 都可以
+*不用加''

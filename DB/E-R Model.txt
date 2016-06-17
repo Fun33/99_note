@@ -1,0 +1,9 @@
+用來表現資料庫
+我們要處理的資料有那些, 資料與資料之間的關係如何.
+
+參考文件：D:\vanis\DBER\ModelCh3.ppt
+參考資料：http://www.csie.ncnu.edu.tw/~ssyu/course/IBSDB/lecture2.html
+
+google Key Word：E-R model
+
+

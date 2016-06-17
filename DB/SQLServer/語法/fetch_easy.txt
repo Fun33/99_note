@@ -1,0 +1,79 @@
+DECLARE @transid AS nvarchar(100); 
+--1.定義Cursor 
+DECLARE cur CURSOR       FOR 
+	select  Dscription  from PCH1 
+OPEN cur                 --2.開啟跟Table關連
+FETCH NEXT FROM cur 	into @TransId            --這裡只取第一筆      --將值塞進變數 
+
+WHILE(@@FETCH_STATUS=0)         --4.跑迴圈(判斷有沒有值) --這裡會從第一筆跑到最後一筆
+BEGIN  
+	set @return += @TransId     
+	FETCH NEXT from cur into @TransId                  --並使用next指到下一個資料--如果有值就繼續跑迴圈
+END
+ 
+CLOSE cur             --5.關閉與Table關連 
+DEALLOCATE cur            --6.移除Cursor
+ 
+		
+-------------------------------------------------
+DECLARE @transid AS nvarchar(100); 
+--1.定義Cursor 
+DECLARE cur CURSOR       FOR 
+	select  Dscription  from PCH1 where DocEntry=@docnum  and OcrCode =@OcrCode and AcctCode=@AcctCode --條件 
+OPEN cur                 --2.開啟跟Table關連
+
+FETCH NEXT FROM cur 	into @TransId                  --將值塞進變數 
+--這裡只取第一筆
+WHILE(@@FETCH_STATUS=0)         --4.跑迴圈(判斷有沒有值) 
+BEGIN  
+--這裡會從第一筆跑到最後一筆
+	set @return += @TransId     
+FETCH NEXT from cur into @TransId                  --並使用next指到下一個資料--如果有值就繼續跑迴圈
+END
+ 
+CLOSE cur             --5.關閉與Table關連 
+DEALLOCATE cur            --6.移除Cursor
+ 
+
+select @return 
+
+------------------------------
+declare @_CardCode as nvarchar(30);
+declare @_Price as decimal(16,9);
+set @_CardCode='a'
+set @_Price =100000
+
+DECLARE @LineTotal AS decimal(16,9); 
+DECLARE @DocEntry AS int; 
+DECLARE @LineNum AS int; 
+
+DECLARE cur CURSOR       --1.定義Cursor 
+	FOR 
+		select LineTotal,odpi.DocEntry,LineNum  
+		--,cardcode
+		from DPI1 inner join odpi on odpi.docentry=dpi1.docentry 
+		where LineStatus ='O' and odpi.cardcode=@_cardcode 
+		
+OPEN cur                 --2.開啟跟Table關連
+
+FETCH NEXT FROM cur 
+	into @LineTotal,@DocEntry,@LineNum                  --將值塞進變數 
+	select 'chk',@_price,@LineTotal,@DocEntry,@LineNum
+if @LineTotal  >= @_Price 
+begin
+	select 'first', @_price,@LineTotal,@DocEntry,@LineNum
+end
+else
+begin
+	WHILE(@@FETCH_STATUS=0)         --4.跑迴圈(判斷有沒有值) 
+	BEGIN  
+	select 'while', @_price,@LineTotal,@DocEntry,@LineNum
+		FETCH NEXT from cur 
+		into @LineTotal,@DocEntry,@LineNum   --將值塞進變數  --並使用next指到下一個資料--如果有值就繼續跑迴圈
+	END
+end
+CLOSE cur             --5.關閉與Table關連 
+DEALLOCATE cur            --6.移除Cursor
+
+
+

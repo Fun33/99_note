@@ -1,0 +1,57 @@
+﻿--UNION 因为会将各查询子集的记录做比较，故比起UNION ALL ，通常速度都会慢上许多
+--用 UNION 這個指令 時，我們只會看到不同的資料值 (類似 SELECT DISTINCT)。
+--UNION ALL 這個指令的目的也是要將兩個 SQL 語句的結果 合併在一起。 UNION ALL 和 UNION 不同 之處在於 UNION ALL 會將每一筆符合條件的資料都列出來，無論資料值 有無重複。
+--INTERSECT 是交集
+
+select 1,2
+union
+select 1,2
+union
+select 1,3
+
+1	2
+1	3
+
+
+select 1,2
+union all
+select 1,2
+union
+select 1,3
+
+1	2
+1	3
+
+select 1,2
+union all
+select 1,2
+union all
+select 1,3
+
+1	2
+1	2
+1	3
+-------------------------
+select 1,2,3 --no data
+	INTERSECT
+select 1,2,4
+
+select 1,2,3 -- show 1,2,3
+	INTERSECT
+select 1,2,3
+--------------
+http://www.1keydata.com/tw/sql/sql-intersect.html
+我們要找出哪幾天有店面交易和網路交易。要達到這個目的，我們用以下的 SQL 語句：
+
+SELECT Date FROM Store_Information
+INTERSECT
+SELECT Date FROM Internet_Sales
+
+請注意，在 INTERSECT 指令下，不同的值只會被列出一次。 
+-----------------------------minus sql 2008 not supply
+http://www.1keydata.com/tw/sql/sql-minus.html
+而我們要知道有哪幾天是有店面營業額而沒有網路營業額的。要達到這個目的，我們用以下的 SQL 語句：
+
+SELECT Date FROM Store_Information
+MINUS
+SELECT Date FROM Internet_Sales

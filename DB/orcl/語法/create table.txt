@@ -1,0 +1,9 @@
+
+
+create table*****************************************************************create table
+CREATE TABLE AUTONUMBER  (
+	ROW_ID NUMBER(38) NOT NULL PRIMARY KEY,   --PK
+	TAG CHAR (1)  DEFAULT 'N',                --def 'n'
+	DTS_DATE DATE DEFAULT SYSDATE             --def sysdate
+
+) ;

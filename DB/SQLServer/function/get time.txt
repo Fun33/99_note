@@ -1,0 +1,3 @@
+                string ret = DateTime.Now.ToString("hhmmss"); //"105437"
+                ret = DateTime.Now.ToString("hhmm");////"1054"
+                ret = DateTime.Now.ToShortTimeString();//"¤W¤È 10:54"

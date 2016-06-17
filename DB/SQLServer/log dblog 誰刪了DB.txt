@@ -1,0 +1,25 @@
+ref
+http://www.dotblogs.com.tw/jamesfu/archive/2014/09/05/defaulttrace.aspx
+trc檔案再認識
+http://sharedderrick.blogspot.tw/2010/05/sql-profiler-sql-sql-trace.html
+
+
+--way1
+物件總管/右鍵/報表/標準報表/結構描述變更記錄
+
+--========================way2====================
+--SELECT * FROM sys.traces
+WITH ObjectTypeMap(Value,ObjectType) AS
+ (
+     SELECT * FROM 
+         ( Values ( 8259, 'Check Constraint' ),(8272,'Stored Procedure'),(8277, 'Table'),(8278,'View'),
+                  (16964, 'Database'),(17235,'Schema' )
+         ) as TypeMap(Value,ObjectType)
+ )
+select e.name,f.DatabaseName,m.ObjectType, f.ObjectName,f.ApplicationName, f.HostName,f.NTUserName,f.StartTime
+from 
+	fn_trace_gettable((SELECT path FROM sys.traces),5)f
+	JOIN sys.trace_events e ON f.EventClass = e.trace_event_id 
+		AND f.EventClass in (46,47,164) and f.EventSubClass = 0
+	JOIN ObjectTypeMap m ON f.ObjectType = m.Value
+WHERE DatabaseName = 'YFYTW'  

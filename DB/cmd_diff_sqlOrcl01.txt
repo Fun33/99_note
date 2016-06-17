@@ -1,0 +1,36 @@
+*******************************err
+SELECT ID='',CUSTOMER='',KEYWORD='', 
+PARENTID AS CHILDID, 
+PARENTVERSION AS CHILDVERSION,
+PARENTTYPE AS CHILDTYPE,
+BOMTYPE='S',ISROOT='N' FROM             PDM_TREEBOM WHERE  PARENTTYPE ='A' AND  PARENTID=''
+
+
+****************************test 01 ok
+SELECT 
+b.PARENTID AS CHILDID, 
+b.PARENTVERSION AS CHILDVERSION,
+b.PARENTTYPE AS CHILDTYPE
+ FROM             PDM_TREEBOM b
+
+****************************test 01_1ok
+SELECT 
+PARENTID AS CHILDID, 
+PARENTVERSION AS CHILDVERSION,
+PARENTTYPE AS CHILDTYPE
+ FROM             PDM_TREEBOM WHERE  PARENTTYPE ='A' AND  PARENTID=''
+
+************************************************************* test 02 err
+SELECT ID='',CUSTOMER='',KEYWORD='', 
+BOMTYPE='S',ISROOT='N' FROM             PDM_TREEBOM WHERE  PARENTTYPE ='A' AND  PARENTID=''
+
+**想到:到SQL建立VIEW那,把語法放那,讓SQL自動轉換CMD,再放到ORCL看可不可以用
+**test 02_1 OK
+SELECT '' AS ID, '' AS CUSTOMER, '' AS KEYWORD, ParentID AS CHILDID, ParentVersion AS CHILDVERSION, ParentType AS CHILDTYPE, 
+                      'S' AS BOMTYPE, 'N' AS ISROOT
+FROM      dbo.PDM_TreeBOM
+WHERE  (ParentType = 'A') AND (ParentID = '')
+
+select id ='' err
+SELECT '' AS ID OK
+***************************************end

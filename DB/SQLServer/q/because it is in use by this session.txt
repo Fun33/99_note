@@ -1,0 +1,7 @@
+Q:
+執行	backup log t1 to disk='F:\MSSQL\Data\Full_YFY_Kunshan_20141217040707_by_rsp.trn' with norecovery,init
+出現	because it is in use by this session
+
+Ans:
+因為sql視窗,use該db.
+將db換成其它即可

@@ -1,0 +1,8 @@
+eclare @last int=0
+declare  @int int=21 4748 3647
+while(1=1)
+begin
+	set @last =@int 
+	set @int +=1; 
+		select @int 
+end

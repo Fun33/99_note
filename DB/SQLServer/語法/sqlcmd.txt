@@ -1,0 +1,19 @@
+連線
+sqlcmd -S 資料庫IP -U 使用者名稱 -P 使用者密碼 -d 資料庫名稱 -i “.sql
+sqlcmd -S 127.0.0.1  -U sa -P sapb1TADC -d YFY_UNA -i f:\123.sql
+
+sqlcmd -S PcName\SQLEXPRESS -U sa -P password -d DataBaseName -i C:\Script.sql -o C:\log.txt
+
+-S: 此處為在 SSMS 裡寫在「伺服器名稱」的值
+-U: 此處為在 SSMS 裡寫在「登入」的值
+-P: 此處為在 SSMS 裡寫在「密碼」的值
+-i: 匯入的腳本檔，也就是剛才使用資料庫發行精靈 (SqlPubWiz.exe) 產生出來的檔案
+-o: 匯出的檔案，內容大致是平常在 SSMS 裡執行 SQL 語法時會出現在「訊息」窗格裡的內容（我是覺得這批匯入所產生的 log，和我在 SSMS 執行時看到的訊息量不太一樣）
+
+ref
+http://fannys23.pixnet.net/blog/post/29336021-%5Bmssql%5D-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%88%97%E6%A8%A1%E5%BC%8F%E5%9F%B7%E8%A1%8C%E5%A4%A7%E9%87%8F-sql-%E8%AA%9E%E6%B3%95
+解決「.SQL」 檔案太大 無法匯入至SQL SERVER
+
+C# sqlcmd
+1.ADO.NET	http://renjin.blogspot.tw/2009/09/executing-t-sql-scripts-with-net.html
+2.SMO	

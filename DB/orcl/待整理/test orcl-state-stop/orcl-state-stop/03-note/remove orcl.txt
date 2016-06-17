@@ -1,0 +1,17 @@
+http://www.programmer-club.com/pc2020v5/forum/ShowSameTitleN.asp?URL=N&board_pc2020=oracle&id=2984
+
+1.如在程式集裡找找看OUI (Oracle universal installer) 即可移除 
+2.找不到OUI,直接砍
+  1.要先刪除regedit的資料
+    1.Regedit 裡的 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Service
+      ->的Oracle 開頭Service 砍了
+    2.Regedit 裡的 HKEY_LOCAL_MACHINE\SOFTWARE -> 的Oracle 開頭了也砍了 
+  2.再重開機
+  3.再刪除存放的目錄
+    1.Oracle Home的目錄砍了
+    2.Program files -> Oracle 砍了
+
+  要先刪除regedit的資料
+再重開機
+再刪除存放的目錄
+不然會有些檔案在使用中....  

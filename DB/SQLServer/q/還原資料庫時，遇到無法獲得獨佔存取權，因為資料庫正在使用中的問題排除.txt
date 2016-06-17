@@ -1,0 +1,24 @@
+q.exclusive access could not be obtained becasue the database is in use.
+
+1.take offline
+use Master 
+ALTER DATABASE ymk_140605_WO16966 SET MULTI_USER WITH ROLLBACK IMMEDIATE;
+
+2.
+使用sp_who查詢目前存取要還原資料庫的連線有哪些，再搭配kill來結束處理程序。
+exec sp_who
+kill 51
+USE [master]
+GO
+ALTER DATABASE [DBName] SET  SINGLE_USER WITH NO_WAIT
+GO
+ALTER DATABASE [DBName] SET  SINGLE_USER 
+GO
+-------------
+還原DB後,
+USE [master]
+GO
+ALTER DATABASE [DBName] SET  MULTI_USER WITH NO_WAIT
+GO
+ALTER DATABASE [DBName] SET  MULTI_USER 
+GO

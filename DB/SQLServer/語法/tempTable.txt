@@ -1,0 +1,128 @@
+
+@table
+它和暫存表類似, 但它更加彈性, 且不會存在於tempdb 中(完全存在於記憶體).
+使用完畢後, 不須手動去 drop它
+------------------------------------------
+1. 將暫存資料表建立在硬碟上
+
+語法：
+
+  1: CREATE TABLE #TEMP
+  2: (
+  3:     KEY int,
+  4:     NAME nvarchar(50)
+  5: )
+  6: 
+
+說明：
+
+在暫存資料表前面加上「#」，則暫存資料表將會建立在系統的「tempdb」資料庫中。此暫存資料表只有建立者可以使用，其他人可以看到，但無法存取；當建立該暫存資料表的連線結束之時，SQL Server會自動將其刪除。
+
+2. 將暫存資料表建立在記憶體中
+
+語法：
+
+  1: DECLARE @TEMP TABLE
+  2: (
+  3:     KEY int,
+  4:     NAME nvarchar(50)
+  5: )
+  6: 
+
+說明：
+
+在暫存資料表前面加上「@」，並使用「DECLARE」來作變數宣告，則暫存資料表將會建立在記憶體中。此暫存資料表，其他人看不到，且建立該暫存資料表的Function, Stored Procedure, Batch結束之時，SQL Server會自動將其刪除。
+--------------------
+if OBJECT_ID('tempdb..#tmp') is not null 
+	drop table #tmp 
+create table #tmp(ret int);
+insert into #tmp exec  dbo.[SP_TADC_ChkOBTN.ExpDate] @object_type ,@list_of_cols_val_tab_del ;
+select @error=ret from #tmp 
+--------------------------------------
+方法一
+Create Table #TempTable(
+FirstName varchar(20),
+LastName varchar(20)
+) 
+方法二
+DECLARE @TmpTable TABLE (
+FirstName varchar(20), 
+LastName varchar(20)
+)
+
+方法一是建立一個區域性的暫存資料表（Local ），
+簡單地說，就是在 tempdb 資料庫中，建立一個名稱為 #TempTabel 的資料表（位於暫存資料表中），
+這個暫存資料表只有建立者可以使用，其他人可以看到，但無法存取。
+除非利用 DROP TABLE 來明確卸除暫存資料表，否則當建立該暫存資料表的連線結束時，SQL Server 會自動將其刪除。
+
+而方法二則是建立一個 table 資料型別的暫存資料表，它是存在記憶體中的。
+因此其他人無法看到，此外當定義 table 資料型別的函數、預存程序或批次結束時，就會自動清除這個暫存資料表。
+
+
+
+temptable，有 # （只有建立 temptable 的連線可用） 和 ## （全域可用） 二種。 
+
+暫存資料表和永久資料表類似，不過暫存資料表儲存於 tempdb 之中，而且不再使用時就會自動刪除。
+暫存資料表有兩種：區域與全域。它們在名稱、可見性和可用性方面有些差異。
+
+本機暫存資料表是以單一數字符號 (#) 作為名稱的第一個字元；只有目前連接的使用者才能看見它們，
+當使用者中斷與 SQL Server 執行個體的連接時，就會刪除它們。
+
+全域暫存資料表是以兩個數字符號 (#) 作為名稱的前兩個字元；只要一建立好，任何使用者都能看見它們，
+只有當所有參考這些資料表的使用者都中斷與 SQL Server 執行個體的連接時，才會刪除它們。
+
+當預存程序完成時，會自動卸除預存程序中所建立的本機暫存資料表。
+建立資料表的預存程序所執行的任何巢狀預存程序，都可以參考這份資料表。
+呼叫建立資料表的預存程序之處理序不能參考這份資料表。
+------------------------------------------------------------------
+暫存表(Temporary Tables)
+
+CREATE TABLE #Yaks (
+YakID int,
+YakName char(30) )
+table name 前加入"#", 表示這是一個暫存表(temporary table)
+當session 關閉時, 這個table 將會自動drop
+好的寫作習慣, 應在暫存表使用完畢後, 下指令去 drop, 而不是讓系統自動回收
+暫存表是存在主機記憶體中, 因此存取速度較快
+暫存 table 的限制:
+暫存表存在於"tempdb"這個database 裡
+如果有兩個使用者建立同一個名字的暫存表, 則他們會各自擁有獨立的一份, 互相不會干擾.
+若stored procedure A 建立了一個暫存表, 並呼叫 stored procedure B, 則在 B 中可以存取這個暫存表
+如果在SQL Server Management Studio or Query Analyzer 中建立的暫存表, 會等到我們手動drop 去關閉session 才會消失
+　
+
+表格變數(Table Variables)
+
+當我們使用 SQL Server 2000 或以後的版本, 則可以考慮使用 "Table Variables" (表格變數); 使用方式如下例:
+
+DECLARE @TibetanYaks TABLE (
+YakID int,
+YakName char(30) )
+
+INSERT INTO @TibetanYaks (YakID, YakName)
+SELECT YakID, YakName
+FROM dbo.Yaks
+WHERE YakType = 'Tibetan'
+
+-- Do some stuff with the table
+
+ 
+
+ 
+
+它和暫存表類似, 但它更加彈性, 且不會存在於tempdb 中(完全存在於記憶體).
+使用完畢後, 不須手動去 drop它
+ 
+
+兩者的使用時機
+
+ 
+
+當暫存的資料筆數小於100筆時, 使用表格變數, 否則, 可使用暫存表, 因為針對表格變數, SQL Server 不會去解析/最佳化它的效能.
+當我們須要對表格建立索引(Index)時, 則必須使用暫存表.
+在使用暫存表時, 最好能在建立後一併建立索引, 這能增加效能 (SQL Server 2005後, 這方面已改善, 所以可以不建索引; 但建立它仍是一個好習慣)
+ 
+
+全域暫存表(Global Temporary Tables)
+
+在表格名字前面, 加入兩個"#", 比如"##YakHerders", 則表示這是個全域暫存表, 也就是說, 這個表格和一般表格一樣, 可以被所有連線(connections/sessions)使用; 在SQL Server 中, 這樣的應用並不多見.

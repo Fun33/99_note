@@ -1,0 +1,13 @@
+DELETE FROM db
+UPDATE publishers SET city = 'Atlanta', state = 'GA' where ID=;
+INSERT into db (ID,Server) VALUES (1,'2')--第一個值是數字,第二個值是字串.
+
+csConn.CreateOleDbCommand("DELETE FROM db");
+
+UPDATE publishers SET city = 'Atlanta', state = 'GA' where ID=;
+string str = "INSERT into db (ID,Server,DB,[User],Pw) VALUES (1," + csFunc.AA(textBox1.Text) + "," + csFunc.AA(textBox2.Text) + "," + csFunc.AA(textBox3.Text) + "," + csFunc.AA(textBox4.Text) + ")";
+csConn.CreateOleDbCommand(str);
+
+UPDATE        AAA
+SET                  ID = 'b', PW = 'b'
+WHERE         (Name = 'a')

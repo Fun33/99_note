@@ -1,0 +1,48 @@
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[_DDLEventLog]') AND type in (N'U'))
+ DROP TABLE [dbo].[_DDLEventLog]
+ GO
+  
+ CREATE TABLE [dbo].[_DDLEventLog](
+     [ID] [int] IDENTITY(1,1) NOT NULL,
+     [EventTime] [datetime] NULL,
+     [EventType] [sysname] NULL,
+     [ObjectType] [sysname] NULL,
+     [ObjectName] [sysname] NULL,
+     [UserName] [sysname] NULL,
+     [CommandText] [varchar](max) NULL,
+     [EventData] [xml] NULL,
+  CONSTRAINT [PK__DDLEventLog] PRIMARY KEY CLUSTERED 
+ (
+     [ID] ASC
+ )
+ ) ON [PRIMARY]
+go
+--實作 DDL TRIGGER，但因為擔心資訊太多，因此我只記錄目前會有異常狀況發生的幾個 TABLE ，剛好這些名稱都是是 MOC 開頭的
+CREATE TRIGGER [DDL_TRIGGER_FOR_MOC]
+ ON DATABASE
+ FOR ALTER_TABLE,DROP_INDEX,ALTER_INDEX
+ AS
+     SET NOCOUNT ON
+  
+     DECLARE @DATA XML
+     DECLARE @TABLENAME SYSNAME
+     SET @DATA = EVENTDATA()
+     SET @TABLENAME = CONVERT(SYSNAME, @DATA.query('data(/EVENT_INSTANCE/ObjectName)'))
+     
+     IF LEFT( @TABLENAME ,3 )= 'MOC' 
+     BEGIN
+         INSERT INTO dbo._DDLEventLog( EventTime, EventType, ObjectType, ObjectName, UserName, CommandText, [EventData] )
+             SELECT GETDATE(), CONVERT(SYSNAME, @DATA.query('data(/EVENT_INSTANCE/EventType)')),
+                 CONVERT(SYSNAME, @DATA.query('data(/EVENT_INSTANCE/ObjectType)')),
+                 CONVERT(SYSNAME, @DATA.query('data(/EVENT_INSTANCE/ObjectName)')),
+                 CONVERT(SYSNAME, @DATA.query('data(/EVENT_INSTANCE/UserName)')),
+                 CONVERT(VARCHAR(MAX), @DATA.query('data(/EVENT_INSTANCE/TSQLCommand/CommandText)')),
+                 @DATA;
+     END
+ GO
+--而如果這中間有需要暫時關閉或者是重新啟動這個 TRIGGER 的話，也可以透過以下的指令去處理
+-- 關閉
+ DISABLE TRIGGER [DDL_TRIGGER_FOR_MOC] ON DATABASE
+  
+ -- 啟用
+ ENABLE TRIGGER [DDL_TRIGGER_FOR_MOC] ON DATABASE

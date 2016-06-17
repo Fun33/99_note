@@ -1,0 +1,31 @@
+ref
+http://www.dotblogs.com.tw/ricochen/archive/2014/08/26/146370.aspx
+
+ps:每個使用 NEWSEQUENTIALID() 所產生的 GUID 在該電腦上都是唯一的。
+
+create proc usp_genguid
+(
+@id varchar(36) output
+)
+
+as
+set nocount on
+
+
+declare @mytable table 
+(
+	id uniqueidentifier  default NEWSEQUENTIALID()
+)
+
+insert into @mytable values(default)
+
+
+	select @id=id from  @mytable
+select @id as [seqguid]
+
+
+declare @myguid varchar(36)
+
+exec usp_genguid @myguid output
+
+print @myguid

@@ -1,0 +1,20 @@
+number 4-4
+number(p,s)
+p可指定範圍1-38位數,s可指定範圍-84~127
+
+create table test0919(
+si number(6),
+i number(38),
+flt number(15, 8),
+vc varchar2(5),
+t TIMESTAMP WITH LOCAL TIME ZONE,
+lob CLOB
+)
+
+數值
+insert into test0919(si) values(555555)
+=>OK
+insert into test0919(si) values(5555555)
+=>ORA-01438: 值大於此資料欄所允許的指定精確度
+insert into test0919(si) values(555555.5)
+=>存的進去,只是會被四捨五入變整數

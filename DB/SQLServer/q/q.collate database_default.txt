@@ -1,0 +1,5 @@
+在欄位後面加這個就可以了
+collate database_default
+
+select po.itemcode collate database_default 
+from oitm

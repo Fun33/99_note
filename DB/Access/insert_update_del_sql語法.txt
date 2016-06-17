@@ -1,0 +1,9 @@
+csConn.CreateOleDbCommand("DELETE FROM db");
+
+string str = "INSERT into db (ID,Server,DB,[User],Pw) VALUES (1," + csFunc.AA(textBox1.Text) + "," + csFunc.AA(textBox2.Text) + "," + csFunc.AA(textBox3.Text) + "," + csFunc.AA(textBox4.Text) + ")";
+
+csConn.CreateOleDbCommand(str);
+
+UPDATE        AAA
+SET                  ID = 'b', PW = 'b'
+WHERE         (Name = 'a')

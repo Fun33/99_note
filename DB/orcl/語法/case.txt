@@ -1,0 +1,9 @@
+*****************************case
+
+ 如果值為null就給001,如果值不為null,轉成數字+1001,取其後三碼.
+select 
+case
+when MAX(NUM_SEQ) is null then'001'
+else SUBSTRB( TO_CHAR( TO_NUMBER( MAX(NUM_SEQ) )+ 1001 ), 2, 3 )
+end sNUM_SEQ
+from MBOM where COD_ITEM='1'

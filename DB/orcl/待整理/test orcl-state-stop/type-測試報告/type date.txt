@@ -1,0 +1,34 @@
+
+******************************************************
+insert into test0919(t) values('2006/06/06') 
+=>no
+insert into test0919 (t) values(to_DATE(2006/6/6,'dd-MON-yyyy '))
+=>NO
+
+insert into test0919(t) values(TO_DATE('2006/06/07','YYYY/MM/DD')) 
+=>YES
+select to_char(t,'yyyy/mm/dd') from test0919
+=>YES,欄位名稱TO_CHAR(T,'YYYY/MM/DD') 值:2006/06/06 
+select to_char(t,'yyyy/mm/dd') t from test0919
+=>YES,欄位名稱為T 值:2006/06/06 
+OCRL預設是dd-mm-yy
+若輸入時非此格式,請使用TO_DATE
+若輸出時非此格式,請使用TO_CHAR
+
+**************************************************************
+alter session set nls_date_format='yyyy/mm/dd'
+insert into test0919(t) values('2006/06/06') 
+=>no.ORA-01843: 不是有效的月份
+insert into test0919(t) values(2006/06/06) 
+=>no.ORA-00932: 不一致的資料類型: 應該是 TIMESTAMP WITH LOCAL TIME ZONE, 但為 NUMBER
+
+default:DD-MON-RR
+TO_CHAR(<>,<>)
+TO_CHAR('13-JAN-2003','dd-MON-yyyy')
+to_date('2000-01-11 12:54:01','yyyy-mm-dd hh24:mi:ss')
+
+4-5,4-6,4-7
+
+http://www.blueshop.com.tw/board/show.asp?subcde=BRD20070821093335SM2&fumcde=FUM200410061527578K1
+
+

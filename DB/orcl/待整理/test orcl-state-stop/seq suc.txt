@@ -1,0 +1,72 @@
+subject
+1. NOCACHE
+http://blog.blueshop.com.tw/hammerchou/archive/2006/01/06/15935.aspx
+
+2. .nextval/.currval 
+http://www.blueshop.com.tw/board/show.asp?subcde=BRD20070914164859VD2&fumcde=
+
+請參考
+http://blog.blueshop.com.tw/hammerchou/archive/2006/01/06/15935.aspx
+5-78
+
+ROW_ID ID 
+1 1 
+21 2 
+
+create table test0914
+(
+row_id number ,
+ID number(4)
+);
+
+已建立表格.
+
+CREATE SEQUENCE row_id_SEQ INCREMENT BY 1 START WITH 1 ;
+已建立順序.
+insert into test0914(row_id,id) values (row_id_SEQ.nextval ,1); 
+已插入 1 個資料列.
+
+insert into test0914(row_id,id) values (row_id_SEQ.nextval ,2); 
+select * from test0914 
+********************************************************
+ROW_ID ID 
+1 1 
+2 2 
+        Create Sequence row_id_SEQ
+
+                MINVALUE 1
+
+                MAXVALUE 99999999
+
+                INCREMENT BY 1
+
+                START WITH 1
+
+                NOCACHE
+
+                CYCLE
+**最後不可有";"要不會發生錯誤
+
+已建立順序.
+create table test0914
+(
+row_id number ,
+ID number(4)
+);
+
+已建立表格.
+
+CREATE SEQUENCE row_id_SEQ INCREMENT BY 1 START WITH 1 ;
+已建立順序.
+insert into test0914(row_id,id) values (row_id_SEQ.nextval ,1); 
+已插入 1 個資料列.
+
+insert into test0914(row_id,id) values (row_id_SEQ.nextval ,2); 
+select * from test0914 
+
+http://blog.blueshop.com.tw/hammerchou/archive/2006/01/06/15935.aspx
+沒錯,是要建20個 sequence,
+另外在 create sequence 時最好再加一個 no cache 參數,
+否則 oracle 會預先 cache 20 個數字在 memory 裏,下次重開 db 時, 
+sequence 可能就很難連號 (叫 sequence gap)....
+

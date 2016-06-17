@@ -1,0 +1,1 @@
+若要將 Microsoft SQL Server 2005 的現有執行個體變更為其他版本的 SQL Server 2005，您必須從命令提示字元執行 SQL Server 2005 安裝程式，並包括 SKUUPGRADE=1 參數。

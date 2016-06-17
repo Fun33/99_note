@@ -1,0 +1,13 @@
+not in v.s left join 誰的效能好	>not in好
+http://explainextended.com/2009/09/15/not-in-vs-not-exists-vs-left-join-is-null-sql-server/
+https://www.ptt.cc/bbs/Database/M.1164019891.A.82D.html
+http://stackoverflow.com/questions/2246772/whats-the-difference-between-not-exists-vs-not-in-vs-left-join-where-is-null
+NOT IN is a little bit different: it never matches if there is but a single NULL in the list.
+
+In MySQL, NOT EXISTS is a little bit less efficient
+
+In SQL Server, LEFT JOIN / IS NULL is less efficient
+
+In PostgreSQL, NOT IN is less efficient
+
+In Oracle, all three methods are the same.

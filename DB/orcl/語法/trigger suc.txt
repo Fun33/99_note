@@ -1,0 +1,36 @@
+http://tw.myblog.yahoo.com/pome-juju/article?mid=32&next=31&l=f&fid=5
+
+create trigger trigger_name
+before update on trigger_name
+for each row
+begin 
+if updating then
+select sysdate into :new.or_date from dual;
+end if;
+end;
+
+
+二者整合為
+
+create trigger trigger_name
+before insert or update on trigger_name
+for each row
+begin 
+if inserting then
+select seq_name.nextval into :new.or_id from dual;
+else
+select sysdate into :new.or_date from dual;
+end if;
+end; 
+********************
+CREATE TRIGGER BI_VPDM_PART
+
+BEFORE INSERT ON VPDM_PART
+
+FOR EACH ROW
+
+BEGIN 
+
+SELECT VPDM_PART_SEQ.NEXTVAL INTO :NEW.ROW_ID FROM DUAL;
+
+END; 

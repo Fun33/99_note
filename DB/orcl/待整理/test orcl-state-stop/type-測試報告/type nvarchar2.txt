@@ -1,0 +1,1 @@
+1.	varchar2 (2048) OK¡Cnvarchar2 (2048)¤Ó¤j¥¢±Ñ¡C

@@ -1,0 +1,13 @@
+參考:http://forums.microsoft.com/MSDN-CHT/ShowPost.aspx?PostID=3110590&SiteID=14
+datalength(@name)位元組數
+len(@name)字串數
+**********************************************
+For mj = 1 To Len(Trim(mtxt2))
+mstr = Mid(Trim(mtxt2), mj, 1)
+If Asc(mstr) >= 1 And Asc(mstr) <= 255 Then
+mlen1 = mlen1 + 1 <--- 這是英文字
+Else
+mlen2 = mlen2 + 1 <--- 這是中文字
+End If
+Next
+mtxt2len = mlen1 + mlen2 * 2 

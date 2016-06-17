@@ -1,0 +1,11 @@
+DECLARE @TranName VARCHAR(20) = 'MyTransaction';
+BEGIN TRANSACTION @TranName;
+
+	create table t1(c1 char(1))
+
+commit tran @tranname
+--ROLLBACK TRAN @TranName;
+
+--------------------------------------
+select * from t1 
+drop table t1

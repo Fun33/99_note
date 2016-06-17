@@ -1,0 +1,57 @@
+Alex查看Activity Monitor/Process後,
+反應EIP2B1_Sale的服務，連了好多SQLServer的連線.
+
+怎麼打開Acitivity Monitor?
+在工具列按右鍵,把Standard勾選,出現一排按鈕,最後一個,就是Activity Monitor.
+
+
+Activity Moniotr/Process是什麼
+1.SQL Server 執行個體上目前的連線使用者
+2.大家都是拿來看,資料庫在忙什麼(有多少東西在work.有多少在等)
+
+====================================
+sqlserver提供了一些工具,讓你知道sqlserver現在在幹嘛.
+有多少人連線啦.
+在做什麼事啦
+多少job在等,在run啦.
+
+====================================
+ref
+http://myericho.blogspot.tw/2014/06/sql-server_142.html
+
+--查所有連線
+EXEC sp_who
+ 
+--查詢連線大於50以上的，50以下是Server內部的連線
+SELECT * FROM sys.dm_exec_sessions WHERE session_id>50
+ 
+--目前連線的連線數
+SELECT * FROM sys.dm_exec_connections
+ 
+--查詢目前連線中的使用者已連線的時間
+SELECT session_id,login_name,
+DATEDIFF(SECOND,login_time,GETDATE()) AS 已連線時間
+FROM sys.dm_exec_sessions WHERE session_id>50
+ 
+--查詢總共有幾個連線及耗用掉的記憶體
+SELECT COUNT(*) AS 連線數,
+ SUM(memory_usage) AS 已耗用查詢記憶體
+FROM sys.dm_exec_sessions WHERE session_id>50
+--查所有連線
+EXEC sp_who
+ 
+--查詢連線大於50以上的，50以下是Server內部的連線
+SELECT * FROM sys.dm_exec_sessions WHERE session_id>50
+ 
+--目前連線的連線數
+SELECT * FROM sys.dm_exec_connections
+ 
+--查詢目前連線中的使用者已連線的時間
+SELECT session_id,login_name,
+DATEDIFF(SECOND,login_time,GETDATE()) AS 已連線時間
+FROM sys.dm_exec_sessions WHERE session_id>50
+ 
+--查詢總共有幾個連線及耗用掉的記憶體
+SELECT COUNT(*) AS 連線數,
+ SUM(memory_usage) AS 已耗用查詢記憶體
+FROM sys.dm_exec_sessions WHERE session_id>50

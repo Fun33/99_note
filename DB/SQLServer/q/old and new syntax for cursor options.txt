@@ -1,0 +1,3 @@
+加入local就好了
+X	declare cur_test cursor scroll for select o.id from sysobjects as o;
+O	declare cur_test cursor local scroll for select o.id from sysobjects as o;

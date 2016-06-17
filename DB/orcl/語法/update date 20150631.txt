@@ -1,0 +1,2 @@
+update SAP_Flag  set  IsWrite ='N' ,writeDate=TO_DATE('06/31/1900', 'MM/DD/YYYY')   where TableID='EIP_SAP_MATL_COST'
+上一日期對所設定的月份而言是無效的

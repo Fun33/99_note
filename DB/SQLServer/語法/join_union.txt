@@ -1,0 +1,11 @@
+JOIN
+書
+FROM DIYParts P JOIN DIYParts_BOM B ON P.Parent=B.PartName(T1 join T2 ON T1.FLD=T2.FLD//(inner)join就是兩邊資料都要有的意思)
+大大
+FROM DIYParts P, DIYParts_BOM B    WHERE P.Parent=B.PartName
+=>兩個是一樣的,只是寫法不同
+
+select 1
+union
+select 2
+

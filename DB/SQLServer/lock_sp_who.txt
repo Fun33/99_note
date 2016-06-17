@@ -1,0 +1,22 @@
+ref
+http://yun1450.pixnet.net/blog/post/47350164-%E8%99%95%E7%90%86%E9%80%A0%E6%88%90%E8%B3%87%E6%96%99%E5%BA%ABblocking%E7%9A%84%E6%83%85%E5%BD%A2-%26-sp_who
+
+sp_who
+sp_who2
+傳的SPID數值50以下的為系統進程，可以先忽略掉。
+?怎麼看出哪一個SPID是lock的
+
+
+由此如果我們需要知道SPID 55是在做什麼?SQL語句為何?的時候可以用 DBCC INPUTBUFFER  陳述式查看，
+DBCC INPUTBUFFER  可以查看該SPID的SQL語句是什麼，具體使用方式就是 DBCC INPUTBUFFER (SPID)，
+
+找到了影響資料庫Blocking的原因連線後，就可以使用 KILL (SPID) 將此連線中斷掉即可，
+
+另外也可以使用 sp_lock 查看被鎖定的情形。
+
+
+http://yun1450.pixnet.net/blog/post/47350164-%E8%99%95%E7%90%86%E9%80%A0%E6%88%90%E8%B3%87%E6%96%99%E5%BA%ABblocking%E7%9A%84%E6%83%85%E5%BD%A2-%26-sp_who
+55是updaate,未commit.
+53是select
+SPID 53的連線 BlkBy 欄位顯示55，也就是SPID 53因為SPID 55工作未執行完成而被阻擋住了
+===================

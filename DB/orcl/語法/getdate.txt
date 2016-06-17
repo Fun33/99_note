@@ -1,0 +1,18 @@
+oracle 日期常用函數 (SYSDATE、日期格式)
+SYSDATE
+--◎ 可得到目前系統的時間 
+     
+ ex.  
+   select sysdate from dual;
+
+=========================
+select sysdate from dual
+
+select to_char(sysdate,'mm') from dual
+select to_char(sysdate,'YYYY/MM/DD') FROM DUAL; 
+
+select to_char(sysdate,'mm') from dual
+
+ref
+http://sql.robbin0919.com/2009/12/oracle-sysdate.html
+

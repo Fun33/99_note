@@ -1,0 +1,8 @@
+1.varchar ->varchar2  ..OK
+2.int  ->number          ..OK
+3.IDENTITY ->SEQUENCE....OK
+4.not null  ..OK
+5.varchar default  ..OK
+5.date default 
+6.seq trigger
+

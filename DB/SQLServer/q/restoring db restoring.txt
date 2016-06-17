@@ -1,0 +1,2 @@
+ RESTORE DATABASE t123 WITH RECOVERY; 
+ restore database CQIMINGubei_0105_Una  from disk='F:\Kate\CQIMingGubei_20150105.bak'  with recovery

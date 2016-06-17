@@ -1,0 +1,84 @@
+
+method
+***********************************************
+PATINDEX目的為找出指定字串之起始位置
+用法為PATINDEX('%字串%',欄位名稱)
+********************************************
+ SUBSTR(store_name,2,4) 
+********************************************
+dateadd(d,-0,GETDATE())
+************************************
+DATEDIFF(d, t0.CreateDate,GETDATE()) as dd
+************************************************
+DELETE FROM db
+UPDATE publishers SET city = 'Atlanta', state = 'GA' where ID='a';
+INSERT into db (ID,Server) VALUES (1,2);
+
+convert dateformat***********************************************
+參考http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx
+select CONVERT(CHAR(8), getdate(), 112) time
+CONVERT(CHAR(8), B.CREATE_DATE, 112) AS CREATE_DATE
+CONVERT(CHAR(10), getdate(), 102) date
+112就是yyyyMMdd
+102 yyyy.mm.dd
+len************************************************
+參考:http://forums.microsoft.com/MSDN-CHT/ShowPost.aspx?PostID=3110590&SiteID=14
+datalength(@name)位元組數
+len(@name)字串數
+
+replace********************************************************
+replace(字串,被替換字串,替換者字串)
+UPDATE aaa SET name = REPLACE(name, 'private', 'public')
+
+len大於XX,取消輸入.**************************************************BI
+參考:http://forums.microsoft.com/MSDN-CHT/ShowPost.aspx?PostID=3110590&SiteID=14
+參考SQL語法範例辭典P136
+目地:XX欄位長度若超過X,則跳出錯誤訊息,不給輸入.
+CREATE TRIGGER reminder3
+ON pdm_part
+for insert 
+AS
+begin
+declare @name varchar(60)
+select @name=name from inserted
+if datalength(@name)>6
+begin
+RAISERROR ('名稱輸入太長了哦', 16, 10);
+rollback transaction
+end
+end
+
+JOIN************************************************
+書
+FROM DIYParts P JOIN DIYParts_BOM B ON P.Parent=B.PartName(T1 join T2 ON T1.FLD=T2.FLD//(inner)join就是兩邊資料都要有的意思)
+大大
+FROM DIYParts P, DIYParts_BOM B    WHERE P.Parent=B.PartName
+=>兩個是一樣的,只是寫法不同
+
+*************************************************
+現在日期
+select getdate()
+
+**************************************************
+select workgroup='103' 
+------fldname----fldvalues
+
+select************************************************
+select @@version
+-> 7 for sql7
+-> 8 for sql2000
+-> 9 for sql2005
+-> 10 for sql2008
+
+SQL Server 2000 RTM 2000.80.194.0  
+SQL Server 2000 SP1 2000.80.384.0  
+SQL Server 2000 SP2 2000.80.534.0  
+SQL Server 2000 SP3 2000.80.760.0  
+SQL Server 2000 SP3a 2000.80.760.0  
+SQL Server 2000 SP4 2000.8.00.2039    
+
+*******************************************
+
+********************************************
+
+

@@ -1,0 +1,77 @@
+insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('CC2','A','N','12','','共用節點','共用節點','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Sa',To_Date('2007/07/16','yyyy-mm-dd'),'','','N','Y' )";
+
+用ORCL的IE CMD =>
+已插入 1 個資料列.
+
+用C#,using System.Data.OracleClient;
+=>ORA-01756: 引號字串未以恰當方式終止
+是因為中文的關係
+在connectionString加入Unicode=True,即可
+有無transaction都一樣
+ok
+"insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('0813-1','A','N','0813-1','engilsi','','f','AL','a','a','f','','','f','d','','','','','','','','','','','','','','','','f','dfa','adf','adfa','dfad','dfa','','','','Vanis','2007/08/13','Sa','2007/09/20','N','Y' )"
+ok
+"insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('0813-11','A','N','0813-11','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Vanis',To_Date('2007/08/13','yyyy-mm-dd'),'','','N','Y' )"
+not ok
+"insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('CC2','A','N','12','','共用節點','共用節點','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Sa',To_Date('2007/07/16','yyyy-mm-dd'),'','','N','Y' )"
+
+中文not ok,英文ok
+遺漏逗號,加;..ok
+
+中文存進入變亂碼
+ok...Unicode=True
+
+public void RunOracle(string connectionString)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                connection.Open();
+
+                OracleCommand command = connection.CreateCommand();
+
+                try
+                {
+                    command.CommandText =
+                        "insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('CC2','A','N','12','','共用節點','共用節點','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Sa',To_Date('2007/07/16','yyyy-mm-dd'),'','','N','Y' )";
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Both records are written to database.");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    MessageBox.Show("Neither record was written to database.");
+                }
+            }
+        }
+        public void RunOracleTransaction(string connectionString)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                connection.Open();
+
+                OracleCommand command = connection.CreateCommand();
+                OracleTransaction transaction;
+
+                // Start a local transaction
+                transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted);
+                // Assign transaction object for a pending local transaction
+                command.Transaction = transaction;
+
+                try
+                {
+                    command.CommandText =
+                        "insert into VPDM_Part ( ID,Type,Status,Name,EnglishName,Category,GroupProp,RawMaterial,Material,HeatTreatment,SurfaceTreatment,ChiUnit,EngUnit,Sop,Spec,Description,ProductCode,CommodityCode,ProductCodeName,CommCodeName,User_1,User_2,User_3,User_4,User_5,User_6,User_7,User_8,User_9,User_10,User_11,User_12,User_13,User_14,User_15,User_16,RlsStartDate,RlsStopDate,PrevPartID,Create_User,Create_Date,Update_User,Update_Date,ISLocked,ISExport  ) values('CC2','A','N','12','','共用節點','共用節點','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Sa',To_Date('2007/07/16','yyyy-mm-dd'),'','','N','Y' )";
+                    command.ExecuteNonQuery();
+                    transaction.Commit();
+                    MessageBox.Show("Both records are written to database.");
+                }
+                catch (Exception e)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show(e.ToString());
+                    MessageBox.Show("Neither record was written to database.");
+                }
+            }
+        }
+
+                   

@@ -1,0 +1,43 @@
+--drop table POS_IssueList
+--go
+if object_id('POS_IssueList') is null
+ create table  POS_IssueList
+ (
+ Row_ID int  IDENTITY(1,1)
+ ,[Fr] [nvarchar](10)  not null /*inv or 損耗*/
+ ,DocDueDate char(8)
+ ,U_POS nvarchar(12)
+ ,U_POSNum nvarchar(80) not null
+ ,LineNum int not null 
+ ,Vuvu nvarchar(30) not null
+ ,Father nvarchar(30) not null
+ ,Code nvarchar(30) not null
+ ,ChildNum int  not null
+ ,BaseQty decimal(16,8)  
+ ,PlannedQty decimal(16,8) 
+ ,IssuedQty decimal(16,8) default 0
+ ,DEP_LEVEL int    not null
+  , IsClose  char(1)  default 'N' /*20141014*/
+ )  /* ADD  CONSTRAINT若是欲寫佇外口,fld 就要not null
+  ADD  CONSTRAINT若是寫佇內底,fld就免not null,會自己加
+ */
+ if object_id('POS_IssueList') is null
+ alter table POS_IssueList  
+ ADD  CONSTRAINT pk_POSIssueList PRIMARY KEY  (Fr,U_POSNum,LineNum,DEP_LEVEL,Vuvu,Father,Code,ChildNum)  
+  --t select * from POS_IssueList
+  --t insert POS_IssueList (U_POSNum,LineNum,DEP_LEVEL,Vuvu,Father,Code,ChildNum) select 1,2,3,4,5,6,8 
+  
+/*=========================後續加上的欄位===============================*/  
+declare @cnt int;   
+/*==================================================chk FR*/
+select @cnt 
+	= COUNT(*) from syscolumns where id in (select id  from sysobjects where name='POS_IssueList' ) and name='Fr'   
+if @cnt =0
+begin
+	ALTER TABLE POS_IssueList ADD Fr nvarchar(10)  					--因為已經有資料,所以沒法度設成not null
+	update POS_IssueList set Fr='INV1' where Fr is null				--等全部設成有值,再改為not null,才設為PK
+	ALTER TABLE POS_IssueList alter Column  Fr varchar(10) not null
+	
+	alter table POS_IssueList	DROP CONSTRAINT pk_POSIssueList;
+	alter table POS_IssueList   ADD  CONSTRAINT pk_POSIssueList PRIMARY KEY ( Fr,U_POSNum,LineNum,DEP_LEVEL,Vuvu,Father,Code,ChildNum)  
+end

@@ -1,0 +1,5 @@
+--  使用 OFFSET 和 FETCH 子句：依據日期排序，但是跳過前 10 筆資料列
+SELECT OrderID, CustomerID, EmployeeID, OrderDate
+FROM dbo.Orders
+ORDER BY OrderDate DESC
+ OFFSET 10 ROWS;

@@ -1,0 +1,34 @@
+無法度連到emily電腦的SQL Server,出現 : sql server 是否設定為允許遠端連線
+
+chk list
+1.右鍵/屬性/連接，勾選允許此伺服器的遠端連接
+2.執行【SQL Server 組態管理員】，SQL Server 網路組態/通訊協定 啟用 TCP/IP
+	設定 TCP/IP 通訊協定內容：
+	一部主機可能有多組IP，例如內部IP、外部IP、本機IP等等，
+	如果你要允許這些IP都開放遠端連線，就設定為「是」，否則就設定為「否」。
+	設定 TCP/IP 通訊埠：輸入你要使用的 port number 。
+	上一步驟中，若全部接聽設定為「是」，此處你只要指定「IPAll」這個選項即可；
+	否擇，則找到你要使用的那個IP選項。
+	TCP 動態通訊埠：若不使用動態通訊埠，請保留空白；
+	若要使用動態通訊埠，請輸入0。
+3.啟動 SQL Server Broswer
+	如果只有一台預設執行個體，那麼即使不啟用 SQL Server Broswer ，也可以找的到該台執行個體。
+	 SQL Server Broswer 是用來管理與識別電腦上的所有 SQL Server 執行個體，
+	當它啟動時，會要求 UDP 通訊埠 1434，並讀取 SQL Server 的登錄項目，以回應用戶端的要求。
+4.重新啟動 SQL Server 讓設定值生效。
+5.檢查1433的Port有沒有開
+	telnet 192.168.5.5 1433	控制台/程式集/開啟關閉Window功能/Telnet用戶端
+    開PORT: 
+	執行【控制台】-> 【系統及安全】->【Windows 防火牆】，點選進階設定。
+	輸入規格/新增規則/Port/
+	/規則類別	選取TCP 
+		選取特定本機連接埠 
+		輸入1433
+	/執行動作	選取允許連線
+	/套用規則
+	/規則名稱	隨易輸入即可
+6.
+
+==============
+ref
+http://vito-sql.blogspot.tw/2013/11/blog-post_14.html?showComment=1411702190214#c3171567340075359894

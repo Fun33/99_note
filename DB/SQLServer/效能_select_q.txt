@@ -1,0 +1,64 @@
+長時間lock某些資料，長時間的transaction，update的筆數過大，dead lock等問題所造成。
+當某個table肥到不行時，效能自然也會變差
+網路流量
+>用SP可解決此問題
+
+寫與查是分開的
+又如，我們給客戶查詢的資料，通常是用replication的"同步"db。而寫的部份則才用正的那個db。
+寫與查是分開的。
+
+CTE 
+function
+子查詢
+inner join ,left join
+not in,in
+exist,not exist
+>,<,>=,=,between,=0
+=null
+sum()>0	
+round()>0	用五千筆的資料下去跑,看起來還OK,影響不大
+<>
+
+
+q.cte比較好,還是子查詢比較好
+>CTE	ref http://blog.roodo.com/rocksaying/archives/2346392.html
+  
+
+xxx=0 > xxx is null
+
+如果沒有串,用子查詢比用outer join好.select isnull((select oadm.sumdec from oadm ),'') sumdec	>	OADM
+===============
+Q:
+SELECT * FROM PURTC
+  WHERE ( TC001+TC002 >= '330 1007010' ) AND ( TC001+TC002 <='330 1009055' )
+因為無法配合到資料庫的 Index，因此會造成 Table Scan or Index Scan，使得整體的效能不好
+
+Ans:
+計算欄位 ( computed column ) 
+ALTER TABLE dbo.PURTC ADD
+    X  AS TC001+TC002 PERSISTED 
+
+CREATE NONCLUSTERED INDEX IX_PURTC 
+  ON dbo.PURTC(X)  ON [PRIMARY]
+=============================================
+ from的table先串好,才會來和select的子查詢join
+所以資料量比較少.
+
+
+
+from join的時,依是用top each row to scan button input,and match ouput matching row.
+所以資料少的要放top .
+>test結果,看起來沒差.
+ 
+ 
+=============================================
+ 
+
+
+
+ 
+q.怎麼建索引
+-- 建立 nonclusterindex 在ID欄位上
+CREATE NONCLUSTERED INDEX [ix_ID] on [dbo].[EMPLOYEE]([ID])
+
+

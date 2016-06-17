@@ -1,0 +1,11 @@
+select  name,
+        job,
+        name || ', ' || job as "name and title"
+from    emp
+
+http://www.blueshop.com.tw/board/show.asp?subcde=BRD20060330205307F18&fumcde=FUM200410061527578K1
+
+有沒有方法可以下SELECT語法
+查出指定Table中所有的欄位呢?
+SELECT COLUMN_LIST FROM TABLE_NAME 
+http://www.blueshop.com.tw/board/show.asp?subcde=BRD2005052608122029B&fumcde=FUM200410061527578K1

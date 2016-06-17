@@ -1,0 +1,7 @@
+SEQUENCE************************************************************SEQUENCE
+        CREATE SEQUENCE VPDM_PART_SEQ
+                MINVALUE 1  --最小值
+                INCREMENT BY 1  --每次增值
+                START WITH 1  --起始值
+                NOCACHE       --是否
+                NOCYCLE;      --是否循環

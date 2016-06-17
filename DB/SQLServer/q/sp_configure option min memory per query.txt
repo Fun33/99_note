@@ -1,0 +1,10 @@
+--YFY MI_Test Create indx
+--Index creation operation will use 1024 KB of memory specified in the advanced sp_configure option "min memory per query (KB)" instead of 704 KB specified in "index create memory (KB)" option because the former has to be smaller than the latter.
+EXEC sp_configure 'show advanced options', 1; 
+GO 
+RECONFIGURE; 
+GO 
+EXEC sp_configure 'index create memory', 2048 
+GO 
+RECONFIGURE; 
+GO

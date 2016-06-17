@@ -1,0 +1,61 @@
+sp_send_dbmail可以直接將查詢的資料已郵件方式發送出去，
+不過這個功能要是MS SQL Server 2005以上版本才有支援！！
+
+0.add 
+Ctrl+Alt+G
+
+--chk
+use msdb
+go
+SELECT *
+FROM sysmanagement_shared_registered_servers_internal
+
+1.開權限
+USE MASTER 
+GO 
+SP_CONFIGURE 'show advanced options', 1 RECONFIGURE WITH OVERRIDE 
+GO
+/* Enable Database Mail XPs Advanced Options in SQL Server */ SP_CONFIGURE 'Database Mail XPs', 1 RECONFIGURE WITH OVERRIDE
+GO 
+SP_CONFIGURE 'show advanced options', 0 RECONFIGURE WITH OVERRIDE
+GO
+
+2.設MAIL
+
+3.
+DECLARE @server_name varchar(50)
+DECLARE @timeout varchar(3) = '15'
+DECLARE cur CURSOR FOR
+	SELECT server_name
+	FROM msdb.dbo.sysmanagement_shared_registered_servers_internal
+OPEN cur	
+	FETCH NEXT FROM cur INTO @server_name
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	BEGIN TRY
+	EXEC (
+	'SELECT * FROM OPENROWSET 
+	(''SQLNCLI'',''Server=' + @server_name + ';Trusted_Connection=yes;Timeout=' + @timeout +''',
+	''select @@SERVERNAME'')'
+		 )
+	END TRY
+	
+	BEGIN CATCH
+	DECLARE @context nvarchar(100)
+	SET @context = N'【緊急】{' + @server_name + + N'} 執行個體沒有回應。'
+	EXEC msdb.dbo.sp_send_dbmail 
+		@profile_name = 'EMailProfile', 
+		@recipients = 'una.liao@cadmen.com',
+        @copy_recipients = 'una.liao@cadmen.com', 
+		@importance  = 'high',
+		@subject = @context,
+		@body = '請盡速處理!!'
+	END CATCH
+	
+	FETCH NEXT FROM cur INTO @server_name
+END
+CLOSE cur
+DEALLOCATE cur
+
+sysmail_start_sp
+

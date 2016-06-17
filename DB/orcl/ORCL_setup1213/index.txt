@@ -1,0 +1,19 @@
+1.new db
+=>已建立pdm,id:system,pw:oracle
+
+2.進入執行create table.sql
+
+XECLIENT
+client裝XECLIENT就可以連上去,並轉檔.
+servername:cim02-pic
+dbname:pdm(不是ODAC的服務命名)
+
+
+********************************
+P3-19
+http://cim02-pc1:5560/isqlplus/
+id:system
+pw:oracle
+連線ID:pdm
+
+連線身份 SYSTEM@pdm

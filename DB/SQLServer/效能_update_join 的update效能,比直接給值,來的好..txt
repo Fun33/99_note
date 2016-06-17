@@ -1,0 +1,26 @@
+join 的update效能,比直接給值,來的好.
+
+[寫法1]5次花費時間平均(ms):  1167.8
+
+CREATE proc usp_updateByTest	@c1 int,@c2 varchar(30),@c3 datetime,@c4 bit,@c5 real
+as
+	UPDATE 
+		dbo.Test
+	SET 
+		c2=@c2 ,c3=@c3,c4=@c4,c5=@c5
+	where 
+		c1=@c1
+
+[寫法2]	5次花費時間平均(ms):  488.6
+
+CREATE proc [dbo].[usp_UpdateByTestType] @mytable utype_Test READONLY
+as
+	UPDATE 
+		dbo.Test
+	SET 
+		c2=t2.c2 ,c3=t2.c3,c4=t2.c4,c5=t2.c5
+	from 
+		dbo.Test t1 
+		join @mytable t2  on t1.c1=t2.c1
+
+http://www.dotblogs.com.tw/ricochen/archive/2012/08/30/74396.aspx

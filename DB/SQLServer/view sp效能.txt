@@ -1,0 +1,6 @@
+1.use view then use where
+2.use sp set param
+
+speed
+sp very fast
+view very slowly.

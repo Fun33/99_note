@@ -1,0 +1,229 @@
+ref
+http://www.dotblogs.com.tw/jamesfu/archive/2014/06/21/triggersample.aspx
+
+=======================
+--update INV1 set U_item_update='Y' where RowID = @rowid--2015.6.16.這樣只有一筆.改寫成以下,才會是多筆.
+update INV1 set U_item_update='Y' 
+from INV1 inner join inserted on INV1.RowID = inserted.RowID  
+
+=======================
+-- Insert Triggrt
+ CREATE TRIGGER [dbo].[TRG_Sample2_INSERT] ON [dbo].[Sample2]
+ AFTER INSERT
+ AS
+     SET NOCOUNT ON;
+     INSERT INTO [MergeLog]  ( L1,A1,A2,A3 )  
+         SELECT 'INSERT', A1, A2, A3 FROM inserted ;
+  
+     WAITFOR DELAY '00:00:02';
+ GO
+  
+ -- Delete Trigger
+ CREATE TRIGGER [dbo].[TRG_Sample2_DELETE] ON [dbo].[Sample2]
+ AFTER DELETE
+ AS
+     SET NOCOUNT ON;
+     INSERT INTO [MergeLog]  ( L1,A1,A2,A3 )  
+         SELECT 'DELETE', A1, A2, A3 FROM deleted ;
+  
+     WAITFOR DELAY '00:00:02';
+ GO
+  
+ --Update Trigger
+ CREATE TRIGGER [dbo].[TRG_Sample2_UPDATE] ON [dbo].[Sample2]
+ AFTER UPDATE
+ AS
+     SET NOCOUNT ON;
+     INSERT INTO [MergeLog]  ( L1,A1,A2,A3 )  
+         SELECT 'UPDATE-Ins', A1, A2, A3 FROM inserted 
+         UNION ALL
+         SELECT 'UPDATE-Del', A1, A2, A3 FROM deleted 
+  
+     WAITFOR DELAY '00:00:02';
+ GO
+
+http://jengting.blogspot.com/2010/12/sql-trigger-inserted-deleted-table.html
+參考:http://forums.microsoft.com/MSDN-CHT/ShowPost.aspx?PostID=3110590&SiteID=14
+參考SQL語法範例辭典P136
+目地:XX欄位長度若超過X,則跳出錯誤訊息,不給輸入.
+CREATE TRIGGER reminder3
+ON pdm_part
+for insert 
+AS
+begin
+	declare @name varchar(60)
+	select @name=name from inserted
+	if datalength(@name)>6
+	begin
+		RAISERROR ('名稱輸入太長了哦', 16, 10);
+		rollback transaction
+	end
+end
+*********************************************以下是過程(未整理).可以略過不看.
+CREATE TRIGGER reminder3
+ON pdm_part
+for insert 
+AS
+begin
+declare @name varchar(60)
+declare @sname varchar(60)
+select @name=name from inserted
+RAISERROR ('i am %d', 16, 10,@name);
+select @sname = convert(varbinary,@name)
+RAISERROR ('i am %d,i am %d', 16, 10,@sname,@name);
+if len(@sname)>6
+begin
+RAISERROR ('名稱輸入太長了哦', 16, 10);
+rollback transaction
+end
+end
+
+*********************************************
+
+CREATE TRIGGER reminder3
+ON pdm_part
+for  INSERT, UPDATE 
+AS
+begin
+declare @name varchar(60)
+select @name=name from inserted
+if len(@name)>6
+begin
+ RAISERROR ('to much', 16, 10);
+rollback transaction
+end
+end
+*******************************************
+這個是什麼.
+WITH APPEND
+NOT FOR REPLICATION
+邏輯 (概念) 資料表
+相容性等級等於 70
+相容性等級為 80 或更高時
+*******************************************************
+讀取欄位值.
+讀出欄位值長度.
+判斷欄位值.
+顯示訊息,
+丟出錯誤,結束新增.
+if xx=xx then
+raise exception ''中文名稱過長嚕.
+end if;
+
+
+*******************************************************
+
+********************************************************
+
+
+CREATE TRIGGER employee_insupd
+ON employee
+FOR INSERT, UPDATE
+AS
+/* Get the range of level for this job type from the jobs table. */
+DECLARE @min_lvl tinyint,
+   @max_lvl tinyint,
+   @emp_lvl tinyint,
+   @job_id smallint
+SELECT @min_lvl = min_lvl, 
+   @max_lvl = max_lvl, 
+   @emp_lvl = i.job_lvl,
+   @job_id = i.job_id
+FROM employee e INNER JOIN inserted i ON e.emp_id = i.emp_id 
+   JOIN jobs j ON j.job_id = i.job_id
+IF (@job_id = 1) and (@emp_lvl <> 10) 
+BEGIN
+   RAISERROR ('Job id 1 expects the default level of 10.', 16, 1)
+   ROLLBACK TRANSACTION
+END
+ELSE
+IF NOT (@emp_lvl BETWEEN @min_lvl AND @max_lvl)
+BEGIN
+   RAISERROR ('The level for job_id:%d should be between %d and %d.',
+      16, 1, @job_id, @min_lvl, @max_lvl)
+   ROLLBACK TRANSACTION
+END
+*************************************
+
+CREATE or REPLACE TRIGGER Emp_Ins_Upd_Del_Trig
+BEFORE delete or insert or update on EMP
+FOR EACH ROW
+BEGIN
+if UPDATING then
+UPDATE emp_temp
+SET ename = :new.ename
+, job = :new.job
+, mgr = :new.mgr
+, hiredate = :new.hiredate
+, sal = :new.sal
+, comm = :new.comm
+, deptno = :new.deptno;
+end if;
+
+if INSERTING then
+INSERT INTO emp_temp
+VALUES( :new.empno 
+, :new.ename 
+, :new.job 
+, :new.mgr
+, :new.hiredate
+, :new.sal
+, :new.comm
+, :new.deptno);
+end if;
+if DELETING then
+DELETE FROM emp_temp 
+WHERE empno = ld.empno;
+end if;
+END;
+****************************************************
+CREATE  TRIGGER aaa on pdm_part
+for insert , update 
+AS
+DECLARE @name varchar(60)
+select @name=  name from pdm_part
+IF (len(@name) =6)
+BEGIN
+   RAISE notice ('長度過長哦')
+END
+*********************************************
+CREATE TRIGGER trig1     
+
+            AFTER INSERT ON T4    
+
+REFERENCING NEW AS newRow   
+ FOR EACH ROW  
+
+            WHEN (newRow.a <= 10)   
+
+            BEGIN       
+
+                 INSERT INTO T5 VALUES(:newRow.b, :newRow.a);    
+
+            END trig1;
+*************************************
+CREATE TRIGGER trig1    
+            AFTER INSERT ON pdm_part
+REFERENCING NEW AS newRow   
+ FOR EACH ROW  
+            if len(newRow.name) < 6)   
+            BEGIN       
+              RAISE notice ('長度過長哦')
+            END trig1;
+*************************************
+CREATE TRIGGER reminder1
+ON Sales.Customer
+AFTER INSERT, UPDATE 
+AS RAISERROR ('Notify Customer Relations', 16, 10);
+
+raise exception
+''
+CREATE TRIGGER reminder2
+ON pdm_part
+for  INSERT, UPDATE 
+AS 
+begin
+begin transaction
+raise exception ''Notify Customer Relations'';
+rollback transaction
+end

@@ -1,0 +1,68 @@
+http://blog.kkbruce.net/2009/08/microsoft-sql-server-2008-express.html
+
+方法一：傳統安裝法
+　　什麼是傳統安裝法，簡單說，就是拿著DVD安裝，不然就是上Windows Download把所有必須的程式及套件下載回來安裝。
+
+　　前面說過，在開始安裝SQL Server Express之前，必須先準備好作業系統.NET Framework環境，所以我們必須先行下載以下套件(最好依順序安裝)：
+
+Microsoft .Net Framework 3.5 SP1：下載點(啟動載入器)、下載點(完整套件)
+Windows Installer 4.5：下載點 (需重開機)
+Windows PowerShell 1.0：
+x86 版 Windows XP Service Pack 2 的 Windows PowerShell 1.0：下載點
+x64 版 Windows XP Service Pack 2 的 Windows PowerShell 1.0：下載點
+x86 版 Windows Server 2003 Service Pack 1 的 Windows PowerShell 1.0：下載點
+x64 版 Windows Server 2003 的 Windows PowerShell 1.0：下載點
+Itanium 版 Windows Server 2003 Service Pack 1 的 Windows PowerShell 1.0：下載點
+x86 版 Windows Vista 的 Windows PowerShell 1.0：下載點
+x64 版 Windows Vista 的 Windows PowerShell 1.0：下載點
+
+　　要比較注意的只有PowerShell一項，請選擇正確的版本對應的PowerShell，進入下載面畫後，你可以依需求切換PowerShell的語系版本，也就是說，假設我不要使用繁體版本，我習慣看英文，那就可以選擇安裝英文版本的PowerShell，安裝之後，以後只要有關PowerShell的任何訊息都會以英文來顯示。重點是，對應的作業系統版本要對，語系看你喜好。
+
+　　另外只有一種情況下可以不安裝PowerShell，只有單純安裝「SQL Server Express」這個版本時，可以不下載及安裝PowerShell，其他兩個2008 Express版本(with Tools及with Advanced Services)，或單獨安裝SSMSE管理工具，都需要安裝以上三個套件。
+
+SQL Server 2008安裝失敗的原因
+
+　　如果你乖乖的安裝好以上三個套件，然後開始安裝，如果有機會，你會發現一件很好玩的事，SQL Server 2008不管你怎麼安裝，SQL Server 2008就會是安裝失敗，怎麼樣都裝不起來。
+
+　　哈，發生了什麼事，我已經安裝過不下N次2005/2008 Express，SQL Server 2005/2008，都沒有發生過這種情況，而且我在一台剛灌好完全乾淨Windows Server 2003伺服器上安裝，怎麼試都找不出問題點，又在一台Vista上測試，還是一模一樣。我先排除硬體的問題，最後問題出現在Microsoft .Net Framework 3.5 SP1這個「最新」的套件上，Microsoft .Net Framework 3.5 SP1裡會幫我們安裝一個最新版本MSXML 6 SP2的套件，這個MSXML 6 SP2版本會造成SQL Server 2008安裝失敗，真是害死人的MSXML 6 SP2，這個問題讓我花了整整一周時間。所以在進行安裝之前，還才必再做一件事：
+
+移除MSXML 6 SP2
+安裝MSXML 6 下載點
+　　安裝SQL Server 2008 (含Express)完成之後，再上MSXML 6 SP2版本就不會有問題。
+
+MSXML 6 SP2：使用Windows Update升級即可。
+
+　　註：以上問題，除了SQL Server Express with Service Pack 1這個版本不會出現安裝失敗問題，是可以正常安裝。另外，你如果是在XP環境下，預設是不會安裝MSXML 6 SP2，所以不會有安裝失敗的問題。
+----------------------------------------
+方法二：全自動安裝法
+
+
+　　這個方法二可強大了，這可以說是Microsoft IIS方面一個大進步。如果你認真的看最近的微軟發表產品，你會發現功能已經到了強大的境界，但強大的東西就有一定複雜性。安裝一個SQL Server，以前只要下一步加下一步就可以完成的東西，現在必須先安裝A再安裝B還有C，而且安裝時還要注意東注意西。所以微軟也注意到了我們的需求，所以Microsoft推出了一個稱「Microsoft Web Platform Installer(WPI)」的軟體，這個軟體可好用了，它可以「全自動」幫你安裝Microsoft Web Platform(微軟網站平台，說的很白了)所需要的任何東西。只要這個WPI所支援的產品，都可以透過它來自動安裝及使用。
+
+Microsoft Web Platform Installer：下載點 (目前最新2.0 RC版本)
+
+　　下載回來會是一支wpilauncher.exe程式，執行安裝：
+
+
+　　它會依你的作業系統平台顯示你可以安裝的項目。
+
+　　第一部分顯示「What’s New？」
+　　也就是現在有什麼新的產品、軟體可以在Microsoft的網站平台安裝執行。你可以很清楚看到ASP.NET MVC 1.0、SQL Server Express 2008 with Service Pack 1、SQL Server 2008 Management Studio Express，「PHP 5.2.10」，你沒有看錯，現在Microsoft與開放原始碼的關係越來越好，連PHP都直接支援。
+
+
+　　第二部分顯示「Web Platform」，也是就網站平台部分。
+
+
+
+　　這部分的重點在後面的「Customize」，例如我們點擊Web Server後面「Customize」，出現下例自訂選項，
+
+
+　　因為我是在Windows XP上執行，所以出現了IIS 5的選項，在不同平台會出現不同選項，你可以看到除了IIS之外，我還可以安裝其他相關套件，例如安全性的URL Scan 3.1。所以每一項Customize都要好好進去看看。
+
+　第三部分是「Web Applications」，網頁應用程式。也就是Microsoft幫你把目前網路上與.NET Framework配合的很好的應用程式幫你找好也列表出來，這裡面全是當紅的應用程式。你只要選擇你想安裝的應用程式即可，WPI就會自己幫你安裝起來。
+
+
+
+　　WPI在安裝之後，會在你開始程式集裡留下一支WebPlatformInstaller.exe程式，你可以隨時執行，WPI會去同步網路上的資訊，看是否有出新的軟體或套件，讓你節省很多不必要的時間。
+
+　　看完後，有沒有很心動

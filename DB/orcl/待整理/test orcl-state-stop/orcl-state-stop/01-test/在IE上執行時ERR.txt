@@ -1,0 +1,16 @@
+發生錯誤:在IE上,若多個CMD一起執行會發生錯誤
+測試結果:在IE上時,多個CMD要分開執行,一次只能執行一個
+
+create table aaa(a1 varchar2(5),a2 varchar2(5),a3 number(5));
+insert into aaa values('a1','a2',5)
+
+insert into aaa values('a1','a2',5)
+select * from aaa
+ORA-00933: SQL 命令的結束有問題
+
+insert into aaa values('a1','a2',5)
+select * from aaa;
+ORA-00900: SQL 敘述句無效
+insert into aaa values('a1','a2',5);
+select * from aaa;
+ORA-00911: 字元無效

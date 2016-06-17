@@ -1,0 +1,6 @@
+http://expect7.pixnet.net/blog/post/58735978
+
+如何直接清空Table的資料，不用下DELETE慢慢刪?
+TRUNCATE TABLE Table_Name
+下這個指令就會清空該資料表內的資料，如果該表有欄位是auto increase。
+該欄位也會被重置為0開始，所以請注意。

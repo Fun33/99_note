@@ -1,0 +1,9 @@
+如何建使用者.
+1.SQLDEVELOPER 用介面建
+2.
+reate user jackylau identified by richie default tablespace emp temporary
+tablespace temp quota 15m on emp password expire; 
+
+create user username IDENTIFIED BY pwd;
+
+http://blog.csai.cn/user1/32171/archives/2007/17216.html

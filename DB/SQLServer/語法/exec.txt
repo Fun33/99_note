@@ -1,0 +1,53 @@
+IF OBJECT_ID(‘tempdb..#ERRFILE’) is not null  //檢查tempdb內是否存在暫存資料表
+DROP TABLE #ERRFILE                                                //移除暫存資料表
+DECLARE @CMD VARCHAR(1000)
+DECLARE @EXECERROR INT
+CREATE TABLE #ERRFILE(EXECERROR INT)     //新增暫存資料表
+SET @CMD = ‘INSERT #ERRFILE SELECT 1′         //設定動態SQL的值
+EXEC (@CMD)                                                                    //執行動態SQL
+SET @EXECERROR = (SELECT * FROM #ERRFILE)
+SELECT * FROM #ERRFILE                                         //取得暫存資料表內的值
+------------------------
+exec('select 1')
+
+drop  Proc [dbo].[SP_TADC_ChkOBTN.ExpDate]
+go
+create Proc [dbo].[SP_TADC_ChkOBTN.ExpDate]
+  @ObjType int,@DocEntry int 
+ 
+As    
+declare @head nvarchar(20);
+declare @body nvarchar(20);
+if (@ObjType =16)
+begin
+	set @head='ORDN';
+	set @body='RDN1';
+end
+else if (@ObjType =20)
+begin
+	set @head='OPDN';
+	set @body='PDN1';
+end
+
+end
+else
+begin
+select -1  
+end
+
+declare @cmd nvarchar(max);
+set @cmd =' 
+select  count(*)
+from OIGN inner join IGN1 on OIGN.DocEntry=IGN1.DocEntry 
+inner join OITL on OIGN.DocEntry=OITL.ApplyEntry  and IGN1.LineNum=OITL.ApplyLine and IGN1.ObjType = OITL.ApplyType 
+inner join ITL1 on OITL.LogEntry=ITL1.LogEntry 
+inner join OBTN on ITL1.MdAbsEntry=OBTN.AbsEntry 
+inner join OBTW on ITL1.MdAbsEntry=OBTW.MdAbsEntry  
+where OIGN.DocEntry =@DocEntry
+and   OBTN.ExpDate is null or OBTN.ExpDate =''''
+';
+set @cmd=replace(@cmd,'OIGN',@head );
+set @cmd=replace(@cmd,'IGN1',@body );
+set @cmd=replace(@cmd,'@DocEntry',@DocEntry  );
+ exec (@cmd )   
+ 

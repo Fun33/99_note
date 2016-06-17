@@ -1,0 +1,7 @@
+default:DD-MON-RR
+TO_CHAR(<>,<>)
+TO_CHAR('13-JAN-2003','dd-MON-yyyy')
+
+4-5,4-6,4-7
+
+http://www.blueshop.com.tw/board/show.asp?subcde=BRD20070821093335SM2&fumcde=FUM200410061527578K1

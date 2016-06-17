@@ -1,0 +1,43 @@
+--select : sum(InvQty),sum(sumstock),
+--group by : U_Logistic,ItemCode,Comments
+--sinaria : ge有,gr有
+--sinaria : ge有,gr沒
+--sinaria : ge沒,gr有
+
+with ge as
+(
+	select 't1' U_Logistic,'t1'ItemCode,'t1'Comments,5 InvQty
+	union all
+	select 't1' U_Logistic,'t1'ItemCode,'t1'Comments,5 InvQty
+	union all
+	select 't2' U_Logistic,'t2'ItemCode,'t2'Comments,5 InvQty
+)
+,gr as
+(
+	select 't1' U_Logistic,'t1'ItemCode,'t1'Comments,3 InvQty
+	union all
+	select 't3' U_Logistic,'t3'ItemCode,'t3'Comments,5 InvQty
+)
+,geSum as
+(
+	select SUM(InvQty ) InvQty,U_Logistic ,ItemCode,Comments 
+	from ge 
+	group by U_Logistic ,ItemCode,Comments 
+)
+,grSum as
+(
+	select SUM(InvQty ) InvQty,U_Logistic ,ItemCode,Comments 
+	from gr
+	group by U_Logistic ,ItemCode,Comments 
+)
+,v1 as 
+(
+	select 	
+		isnull(ge.InvQty,0)-isnull(gr.InvQty,0)		InvQty
+		,isnull(ge.U_Logistic, gr.U_Logistic) U_Logistic
+		,isnull(ge.ItemCode,gr.ItemCode) ItemCode
+		,isnull(ge.Comments ,gr.Comments) Comments 
+	from
+		geSum ge full outer join   grSum gr on ge.U_Logistic = gr.U_Logistic and ge.Comments = gr.Comments and ge.ItemCode = gr.ItemCode 
+) 
+select * from v1 

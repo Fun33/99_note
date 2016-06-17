@@ -1,0 +1,3 @@
+desc table_name 可以查詢表的結構
+
+select * from user_tables 所有TABLE

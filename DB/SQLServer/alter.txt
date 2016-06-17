@@ -1,0 +1,24 @@
+1.add col
+	alter table "VPDM_Part" add
+	("Tag" char(1) default 'N')
+	XE book 4-23
+2.edit col
+	alter table "VPDM_Part" modify
+	("Tag" char(1) default 'N')
+	XE book 4-25
+3.edit col name
+	alter table "VPDM_Part" rename column
+	"Fag" to "Tag"
+	XE book 4-29
+4.del col
+	alter table "VPDM_Part" drop column
+	"Tag"
+	XE book 4-31
+
+SQLSERVER default
+
+ALTER TABLE [VPDM_Part] ADD 
+	CONSTRAINT [DF_VPDM_Part_TAG] DEFAULT ('N') FOR [TAG],
+	CONSTRAINT [DF_VPDM_Part_DTS_DATE] DEFAULT (getdate()) FOR [DTS_DATE]
+GO
+

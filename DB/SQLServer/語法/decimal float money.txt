@@ -1,0 +1,29 @@
+float	7
+double 	15
+decimal	28		bank.amout.(38.0)
+money	计2
+numeric	same decimal
+
+Ч﹚璶round.⊿猭癘硂,┮﹚璶Τ计.
+
+
+
+declare @i decimal(38,0)
+set @i=12345678912345678912345678912345678912 --程38絏
+select @i,LEN(@i)
+
+declare @i2 decimal(38,2)
+set @i2=123456789123456789123456789123456789 --程38絏.τ38-计翴2=36.┮计逞36
+select @i2,LEN(@i2)
+
+http://sharedderrick.blogspot.tw/2011/08/decimal-numeric.html
+
+decimal(p,s)
+p:0~38 default 18
+s:0~p
+
+C#
+float 	4	7Τ		32じ
+double 	4	15Τ	64じ
+種孔doublememory琌float2
+

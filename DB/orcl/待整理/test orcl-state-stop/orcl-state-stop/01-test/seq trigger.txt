@@ -1,0 +1,14 @@
+        Create Sequence VPDM_PART_SEQ
+                MINVALUE 1
+                MAXVALUE 99999999
+                INCREMENT BY 1
+                START WITH 1
+                NOCACHE
+                CYCLE;
+
+create trigger "BI_VPDM_Part"
+ before insert on "VPDM_Part"
+ for each row
+begin 
+ select "VPDM_PART_SEQ".nextval into :new.Row_ID from dual;
+end;

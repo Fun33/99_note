@@ -1,0 +1,3 @@
+	declare @today nvarchar(8) = getdate()
+	
+	select Datepart(DAY  , @today)

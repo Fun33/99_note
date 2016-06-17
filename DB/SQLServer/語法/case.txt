@@ -1,0 +1,43 @@
+[寫法1]
+declare @pa1 int=1
+declare @pa2 int=2
+
+select 
+CASE 
+	when @pa1 =1 then '1'	--test when 第一個滿足,它就不會再往下跑了.
+	when @pa2 =2 then '2'
+end va 
+
+[寫法2]
+declare @pa1 int=1 
+select 
+CASE @pa1
+	when  1 then '1'	 
+	when  2 then '2'
+end va 
+
+ 
+
+********************************************
+1+2+3+4+5+6+7+8+9+10的加總和
+1的平方+2的平方+....10平方
+
+set numStart=1   //起始值
+set numEnd=10    //結束值
+set numStep=1    //跳號
+set numType=0    //設定0為累加, 1為平方合
+set numResult=0  //結果
+for i=numStart to numEnd Step=numStep
+   select case numType
+      case 0
+         numResult+=i
+      case 1
+         numResult+=(i*i)
+end
+
+******************************************
+select case when count(parentversion) between 1 and 4 then count(parentversion) end as test
+from pdm_treebom
+where parenttype='O'
+
+ 

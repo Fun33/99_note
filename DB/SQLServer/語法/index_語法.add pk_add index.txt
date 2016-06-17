@@ -1,0 +1,66 @@
+==============================add index
+if not exists( select* from sysindexes where id=object_id('oivl') and name='OIVL_JoinDoc')   
+--drop index POS_IssueList_11 on [POS_IssueList]
+CREATE INDEX OIVL_JoinDoc ON "oivl" 
+( 
+ transtype  
+ ,BASE_REF  
+ ,DocLineNum  
+); 
+=====================e.g.
+if   exists( select* from sysindexes where id=object_id('POS_OINV') and name='PK_OINV0') 
+	alter table POS_OINV   add CONSTRAINT PK_OINV0 PRIMARY KEY (DocDueDate,ItemCode) 
+
+
+==============================e.g.add pk
+	drop table t1 
+	create table t1
+	(
+		c1 nvarchar(30) not null
+		,c2 nvarchar(30)
+	)
+	if not exists(select *  from sysindexes where id =OBJECT_ID ('t1') and name='pk_t1')
+	begin
+		select 'add'		
+		alter table t1 add CONSTRAINT pk_t1 PRIMARY KEY (c1) 
+	end
+	else
+	begin	
+		select 'del '
+		ALTER TABLE t1 DROP CONSTRAINT  pk_t1;
+	end
+=========================e.g. add index
+drop table t1
+create table t1
+(
+  c1 nvarchar(30)
+  ,c2 nvarchar(30)
+)
+create index "pk_t1" on t1
+(
+	c1
+);  
+ 
+=====================e.g.
+ if   exists( select* from sysindexes where id=object_id('POS_OINV') and name='PK_OINV0') 
+ begin	
+	alter table POS_OINV   drop  CONSTRAINT PK_OINV0    
+	alter table POS_OINV   ADD  CONSTRAINT PK_OINV0 PRIMARY KEY  (Fr,U_POSNum) 	
+ end
+
+===========================================
+q.如果索引有六個.但where只有5個,那會用到索引嗎		>會!!如果有不會的,再補充
+測試1,建立table給10筆資料.	>>模擬不出來,都是table scan
+
+測試2,拿OITM,先找出沒有index的欄位做實驗.	>測試結果:會用到index
+							--when no Index		when 1fld=index		when 2fld=index
+select * from oitm where U_place='' 			--clustered Index Scan	Index Seek + Key Lookup	Index Seek + Key Lookup
+select * from oitm where U_place='' and u_plus=0	--clustered Index Scan	Index Seek + Key Lookup	Index Seek + Key Lookup
+
+select name,* from sysindexes where id=object_id('oitm')
+--drop index oitm_2fld on oitm
+CREATE INDEX oitm_2fld ON oitm 
+(
+	U_place	
+	,u_plus
+); 

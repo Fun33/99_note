@@ -1,0 +1,44 @@
+--way1.喜歡用這個方法,比較清楚.
+update t2 set c2 = t1.c2 
+from t1 
+inner join t2 on t1.c1 =t2.c1 
+select * from t2 
+
+--way2
+update t2 set c2=t1.c2 
+from t1
+where t1.c1 =t2.c1 
+select * from t2 
+--==============
+drop table t1
+drop table t2 
+create table t1
+(
+c1 nvarchar(30) 
+,c2 nvarchar(30)
+)
+
+create table t2
+(
+c1 nvarchar(30) 
+,c2 nvarchar(30)
+)
+insert into t1 
+select '1','3333'
+insert into t2
+select '1',''
+
+select * from t1
+select * from t2
+
+--way1.喜歡用這個方法,比較清楚.
+update t2 set c2 = t1.c2 
+from t1 
+inner join t2 on t1.c1 =t2.c1 
+select * from t2 
+
+--way2
+update t2 set c2=t1.c2 
+from t1
+where t1.c1 =t2.c1 
+select * from t2 

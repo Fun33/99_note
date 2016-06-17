@@ -1,0 +1,2 @@
+ORA-12154: TNS: 無法解析指定的連線 ID
+=>connectionString設錯

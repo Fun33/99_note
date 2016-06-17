@@ -1,0 +1,37 @@
+REPLACE
+
+來源 , 運用 : 
+今天有一個客戶要換主機, 所以我們pdm的文件路徑可能會被更改,
+rollans 提到藍經理之前教他的REPLAC 語法,可一致的將它改變
+
+語法 : 
+用法1　： 如果c:/和d:/底下都有private , 只要改'C:/private
+方法1 UPDATE aaa SET name = REPLACE(name, ':/private', ':/public')  where Name like 'C:/%'    
+方法2 UPDATE aaa SET name = REPLACE(name, 'C:/private', 'C:/public')
+用法2 : 欄位裡的private字串, 都會被替換成public  (可能會替換到沒要替換的, 所以要小心使用)
+UPDATE aaa SET name = REPLACE(name, 'private', 'public')
+
+sqlserver的help說明
+將 abcdefghi 中的 cde 字串取代為 xxx。
+SELECT REPLACE('abcdefghicde','cde','xxx')
+GO
+以下為結果集：
+abxxxfghixxx
+
+**************************************************************
+
+UPDATE aaa SET name = REPLACE(name, 'D:/', 'C:/')    //這樣就可全部的c:/改成d:/了
+UPDATE aaa SET name = REPLACE(name, 'private', 'public') 看到privqte就改, 若C:\ private裡有一個private也會被更名
+UPDATE aaa SET name = REPLACE(name,  'public' ,'private' )  //明明只有影響一列, 可它會顯示影響總行數
+UPDATE aaa SET name = REPLACE(name, ':/private', ':/public')  明確, 只改根節點下的, 可若C:\ private\private\private, 這樣就麻煩了
+**************************************************************
+ex:
+中華民國台灣
+台灣省南投縣
+
+要如何下指令=>將欄位內容值更改為
+
+中華民國臺灣
+臺灣省南投縣 
+
+update [tablename] set [columnname]= replace([columnname],'臺','台') where [columnname] like '%臺%' 

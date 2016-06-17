@@ -1,0 +1,19 @@
+Q:
+怎麼查都查不出為甚麼 Sql Server 2005 吃掉 3.5G 那麼多的記憶體，原先懷疑程式有重複連線的問題，
+後來雖然查出果真如此，但等所有員工都下班後再觀察主機，從四百多個連線減少到幾十個連線，足足少掉四百個連線，
+但卻只釋放出 150MB 的記憶體，所以判定記憶體狂吃跟連線數量不相干。
+以下三首指令都執行過，並沒有再釋放出更多的記憶體。
+
+DBCC FREESYSTEMCACHE('ALL')
+DBCC FREESESSIONCACHE
+DBCC FREEPROCCACHE WITH NO_INFOMSGS	--若是要測sql效能,清空cache也會用這個----會清空Procedure的最佳化的計劃，重新執行重新產生新的執行計劃 
+
+
+主機重開後，Sql Server 只吃五、六百個 MB 左右，等員工等都一一連線進來之後，記憶體開始愈吃愈多，最後達到 3.5G，
+員工全部都下班了，Sql Server 還是不肯釋放記憶體，真傷腦筋。
+
+Ans:
+那是 sql server 的自然機制，也就是說不是bug，也不是斷線後沒釋放…  詳情請看以下的連結:
+support.microsoft.com/kb/321363/en-us	建議就看這英文的，右邊可以改翻中文
+重點大概是透過 min server memory and max server memory 的設定，就可以達成你想要的。
+只是，你確定你需要釋出嗎?  因為我個人的經驗是sql server 通常是全年不停機，而且整機就只為了sql。

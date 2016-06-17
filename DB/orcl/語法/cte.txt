@@ -1,0 +1,11 @@
+ref
+http://www.dotblogs.com.tw/jamesfu/archive/2012/04/28/sql_cte.aspx
+
+INSERT INTO SalesTable
+  WITH OrdersTable( OrderID, CustomerID, EmployeeID ) as
+     (
+        SELECT   OrderID, CustomerID, EmployeeID 
+        FROM dbo.Orders
+      )
+    )
+    SELECT  * FROM OrdersTable

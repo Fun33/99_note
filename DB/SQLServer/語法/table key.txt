@@ -1,0 +1,20 @@
+ create table  tt1 
+ (
+ DocDate date not null    
+ ,VuVu nvarchar(30) not null    PRIMARY KEY
+ ,Price decimal(16,8)  
+ ) 
+--=======================
+ create table  tt1 
+ (
+ id INT IDENTITY(1,1) PRIMARY KEY,
+, DocDate date not null    
+ ,VuVu nvarchar(30) not null    
+ ,Price decimal(16,8) ,
+ CONSTRAINT pk_tt1 PRIMARY KEY (DocDate,VuVu) 
+ ) 
+===================================
+ALTER TABLE dbo.Items ADD CONSTRAINT DF_Items_flda DEFAULT (0) FOR flda
+GO
+ALTER TABLE dbo.Items ADD CONSTRAINT DF_Items_fldb DEFAULT (getdate()) FOR fldb
+---------------------------------------

@@ -1,0 +1,49 @@
+CREATE   proc  SetOJDT_Voufmt
+(@voudate date)    	
+   as
+  begin   
+ DECLARE @transid AS int
+DECLARE @docnum  AS int  
+DECLARE @fmt_yyyymm  AS char(8)
+DECLARE @fmt_num  AS char(3)
+DECLARE @voufmt  AS char(11)
+ 
+DECLARE myTransId CURSOR       --1.定義Cursor 
+FOR 
+SELECT  TransId  FROM ojdt where refdate=@voudate   order by TransId --條件
+ 
+OPEN myTransId                 --2.開啟跟Table關連
+  
+declare @_i int
+set @_i =0
+FETCH NEXT FROM myTransId 
+into @TransId  
+                --將值塞進變數 
+WHILE(@@FETCH_STATUS=0)         --4.跑迴圈(判斷有沒有值) 
+BEGIN  
+  
+SELECT @transid = TransId , @docnum = Number   from OJDT where TransId =@TransId 
+ 	SET @fmt_yyyymm = convert(char, @voudate, 112)
+	SET @fmt_num = str(@_i+1 ,3,0)
+	SET @fmt_num = replace(@fmt_num, ' ', '0')
+	SET @voufmt = @fmt_yyyymm + @fmt_num
+
+UPDATE OJDT SET U_voufmt = @voufmt, Ref2 = @voufmt WHERE TransId = @transid
+UPDATE JDT1 SET Ref2 = @voufmt WHERE TransId = @transid
+select transid,u_voufmt from  OJDT where TransId=@transid 
+--select transid,Ref2 from  JDT1 where TransId=@transid 
+ set @_i = @_i+1
+FETCH NEXT from myTransId 
+into @TransId                  --並使用next指到下一個資料
+ 
+                                --如果有值就繼續跑迴圈
+ 
+END
+ 
+CLOSE myTransId             --5.關閉與Table關連
+ 
+DEALLOCATE myTransId            --6.移除Cursor
+
+ end  
+
+

@@ -1,0 +1,40 @@
+ref
+http://caryhsu.blogspot.tw/2011/10/suspect-database.html
+
+Use master
+go
+Alter database cary_db set emergency	--由於資料庫狀態為 Suspect ，所以可以透過將資料庫切換成 Emergency，讓資料庫可以進行唯讀存取與修復。
+go
+Alter database cary_db set single_user	--由於需要進行資料庫修復，所以先將資料庫切換成單人模式。
+go
+--透過checkdb來進行資料庫修復，在參數上有兩種常用的方法，
+--建議大家可以先用 [REPAIR_REBUILD] 指令來修復，
+--如果執行完成後仍然有錯時，才會使用[REPAIR_ALLOW_DATA_LOSS] 的指令來執行，因為此指令可能會造成資料的遺失，所以千萬注意，而執行完成後，需確認是否有錯誤訊息顯示。
+DBCC checkdb(cary_db ,REPAIR_REBUILD ||  REPAIR_ALLOW_DATA_LOSS)	
+go
+Alter DATABASE cary_db SET ONLINE	--由於已修復完成，所以將資料庫的狀態切回原本的正常狀態。
+go
+Alter DATABASE cary_db SET multi_user	--再將資料庫切換回多人使用模式
+
+=====================
+db suspect是什麼,就是有錯誤.可能是什麼錯誤呢
+1.沒有disk空間去做備份
+2.db要去讀取檔案時,結果不可存取
+3.db file被OS hold住了
+4.可能SQLServer無預警停止,造成硬體產生問題.
+總歸的說:就是db要讀file,file無法存取.可能是Link不見了.link不正確.可能是file被hold住了.可能是沒有空間了.
+link位置有誤	←位置錯了.
+link要刪除		←沒有這個檔案
+
+
+Possible Causes
+The database could have become corrupted.
+沒空間There is not enough space available for the SQL Server to recover the database during startup.
+無法存取/空間不足.The database cannot be opened due to inaccessible files or insufficient memory or disk space.
+被hold住了.The database files are being held by operating system, third party backup software etc.
+意外存取中斷,造成資料有誤.There was an unexpected SQL Server Shutdown, power failure or a hardware failure.
+
+ a file is missing or 
+a link is deleted
+
+https://scn.sap.com/thread/1213196

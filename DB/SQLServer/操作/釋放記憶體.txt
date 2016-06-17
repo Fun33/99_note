@@ -1,0 +1,65 @@
+1.記憶體垮了,請設定max server memory
+2.記憶體用很多,想重設max server memory,請想釋放記憶體,再設定max server memory
+---------------------SQL SERVER行為--------------------
+1.沒有設max server memory時,它能吃多少,就會吃多少.吃太多了,OS沒得用,就會去吃IO的,然後整個OS的讀寫就會受影響了. 
+
+2.SQL SERVER 32Bit雖然是32Bit,但它預設會用XXX,所以如果OS環境如果是64Bit,它就沒有4G的限制,就吃掉能吃的記憶體
+
+3.SQL SERVER只有在system momory不足,才會釋放buffer pool.
+
+4.記憶體的清除意謂,快取會被清除.也就是若本撈第一次需60sec.第一次後只需6,但清除後,再撈就需要60sec了
+
+-------------------
+ 
+
+
+ 以下幾個是清空SQL Server 2005 已經使用的記憶體區塊之方法，但不會將記憶體釋放給作業系統。
+
+DBCC FREESYSTEMCACHE ('ALL');
+DBCC FREEPROCCACHE： 從程序快取中移除所有元素。
+
+DBCC FREEPROCCACHE;
+DBCC FREESESSIONCACHE： 排清散發查詢對 Microsoft SQL Server 執行個體所用的散發查詢連接快取。
+
+DBCC FREESYSTEMCACHE： 釋出所有快取中所有未使用的快取項目。SQL Server 2005 Database Engine 會主動在背景清除未使用的快取項目，讓記憶體存放目前的項目。
+不過，您可以使用這個命令，以手動方式從所有的快取中移除未使用的項目。
+
+DBCC DROPCLEANBUFFERS： 從緩衝集區中移除所有的清除緩衝區。
+-----------------------------
+介面上的調整
+http://blogs.technet.com/b/technet_taiwan/archive/2012/06/27/work-with-dynamically-configured-memory-in-sql-server-2008-sql-server-2008.aspx
+-----------------------------------------
+ 定期的讓Sql 2008釋放已佔用內存(Memory)
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author: Doyle Chen
+-- Create date: '2012/4/28'
+-- Description: 定期的讓Sql 2008釋放已佔用內存
+-- =============================================
+CREATE PROCEDURE [dbo].reclaimmemory
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+
+CHECKPOINT 
+DBCC FREEPROCCACHE 
+DBCC FREESESSIONCACHE
+DBCC FREESYSTEMCACHE('All')
+DBCC DROPCLEANBUFFERS
+
+exec sp_configure 'show advanced options',1
+reconfigure with override
+exec sp_configure 'max server memory (MB)',512 --改動
+exec ('RECONFIGURE')
+WAITFOR DELAY '00:00:05'
+
+EXEC sp_configure 'max server memory (MB)', 4096 --2147483647
+EXEC ('RECONFIGURE')
+
+END
+GO

@@ -1,0 +1,54 @@
+IF OBJECT_ID(N'TADC_Fn_MaxItemFreight_OITM') IS  NOT NULL 
+DROP function TADC_Fn_MaxItemFreight_OITM;
+-----------------------
+
+ALTER   function   [dbo].[GetQCDocNum](@BaseType   int,@BaseNum int)   
+  returns  int
+  as   
+  begin   	 
+	return   1	
+  end
+------------------
+ALTER   function   [dbo].[GetQCDocNum](@BaseType   int,@BaseNum int)   
+  returns  int
+  as   
+  begin   
+	declare @count int;
+	DECLARE @fmt_num  AS char(3);
+	declare @docnum int;
+	select @count = COUNT(*) from [@OQC] where U_DocNum like cast( @BaseType as nvarchar(500)) +cast( @BaseNum as nvarchar(500))+'___'
+	 
+	
+	SET @fmt_num = str(@count+1,3,0)
+	SET @fmt_num = replace(@fmt_num, ' ', '0')
+	
+	return   cast( @BaseType as nvarchar(500)) +cast( @BaseNum as nvarchar(500))+ cast(@fmt_num as nvarchar(500))
+	
+  end
+------------------------------------------------return table way1
+CREATE FUNCTION  Test_returntable(  )RETURNS TABLE
+AS
+RETURN
+	SELECT 1 c1,2 c2,3 c3
+	union
+	select 2,3,4
+GO
+select * from dbo.Test_returntable()
+------------------------------------------------------return table way2
+if OBJECT_ID('Test_returntable_w2') is not null
+drop function Test_returntable_w2
+go
+CREATE FUNCTION Test_returntable_w2 ( ) RETURNS @Temp TABLE
+ (
+            Code  NVarchar(15)
+           ,Name  NVarchar(40)      
+)
+as 
+begin
+    INSERT INTO @Temp --(Code,Name)
+	select 1,2 
+ 
+    RETURN--¦^¶Ç
+end
+go
+select * from dbo.Test_returntable_w2()

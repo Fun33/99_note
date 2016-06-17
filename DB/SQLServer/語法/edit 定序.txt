@@ -1,0 +1,155 @@
+http://www.programmer-club.com/pc2020v5/forum/ShowSameTitleN.asp?URL=N&board_pc2020=sqlserver&id=2791
+
+定序設定應該有兩處
+SQL Server 安裝時
+新增資料庫時(預設為安裝SQL Server時所設的定序)
+
+變更定序
+變更定序的前提是資料庫中不能有資料
+資料庫的定序 在你建立好後的確沒辦法透過UI直接修改
+不過 可以下指令去改
+alter database dbName
+collate Chinese_PRC_Stroke_BIN
+
+藍經理也有寫一篇文章,關於如何修改定序
+\\casfs1\研發部\產品文件\VPDM 客戶問題說明附件\資料庫定序變更說明
+
+
+PS: 1. 查詢資料庫定序: select databasepropertyex('[DatabaseName]','collation')
+     2. 變更資料庫定序: alter database [DatabaseName] collate [CollationName]
+
+****************************************************************************************
+雖然說只要查詢語法改一下就可以了, 
+但是為了以後維護上的方便, 
+所以打算將資料庫的定序名稱改成"Chinese_Taiwan_Stroke_CI_AS", 
+可是,從SQL Server Enterprise Manager並不能直接去做修改, 
+所以要下語法去異動, 
+而語法如下 :
+
+ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE 
+ALTER DATABASE DatabaseName COLLATE Chinese_Taiwan_Stroke_CI_AS 
+ALTER DATABASE DatabaseName SET MULTI_USER WITH ROLLBACK IMMEDIATE
+
+因為在改定序名稱時,必須先鎖定資料庫, 
+所以第一行要先將資料庫設定為SINGLE_USER,每次只能一個使用者存取資料庫, 
+然後再修改定序名稱, 
+修改完後再將資料庫改回 MULTI_USER 即可, 
+另外要執行這些指令值須先將所在的資料庫切換到master下.
+**********************************************************************columns
+直接去修改syscolumns的collationid
+但是不知道這樣會有什麼後遺症嗎
+
+SP_CONFIGURE 'ALLOW UPDATES',1 RECONFIGURE WITH OVERRIDE
+
+update dbo.syscolumns　set　collationid=53251 where collationid=65539 
+
+SP_CONFIGURE 'ALLOW UPDATES',0 RECONFIGURE WITH OVERRIDE 
+**********************************************************************
+USE Demo
+GO
+
+IF EXISTS(SELECT * FROM SYSOBJECTS WHERE NAME='SF_Change_Column_Collate' AND XTYPE='p')
+DROP PROCEDURE SF_Change_Column_Collate
+GO
+
+CREATE PROCEDURE SF_Change_Column_Collate
+	@TypeName		VARCHAR(255)='varchar'
+	,@OldCollation	VARCHAR(255)='Chinese_Taiwan_Stroke_CI_AS'
+	,@NewCollation	VARCHAR(255)='Chinese_Taiwan_Stroke_CS_AS'
+
+AS
+	SET NOCOUNT ON
+	
+	--暫存資料表用來存放欄位資訊
+	DECLARE @TmpTab TABLE
+	(
+		SID				INT IDENTITY(1,1)	--自動編號
+		,TabName		VARCHAR(255)		--資料表名稱
+		,ColName		VARCHAR(255)		--欄位名稱
+		,[PRECISION]	VARCHAR(10)			--資料長度
+	)
+
+	--取出欄位資訊
+	INSERT INTO @TmpTab(TabName, ColName, [PRECISION])
+		SELECT OBJECT_NAME(id) as TabName ,NAME as ColName, prec FROM syscolumns
+			WHERE id IN
+			(
+				SELECT id FROM sysobjects WHERE xtype='u' AND name <> 'dtproperties'
+			)
+			AND xtype IN
+			(
+					SELECT xtype FROM systypes
+						WHERE name = @TypeName
+			)
+			AND collation = @OldCollation
+				ORDER BY id, colid
+
+	--Debug...
+	--SELECT * FROM @TmpTab
+
+	DECLARE @MaxCount	INT				--資料筆數
+		,@SID			INT				--識別資料用
+		,@strSQL		VARCHAR(8000)	--動態SQL命令
+		,@TabName		VARCHAR(255)	--資料表名稱
+		,@ColName		VARCHAR(255)	--欄位名稱
+		,@Precision		VARCHAR(10)		--資料長度
+		,@tmpCol		VARCHAR(8)		--暫存用欄位名稱
+
+	SELECT @SID = 1
+		,@MaxCount = ISNULL(MAX(SID), 0)
+		,@tmpCol = CONVERT(VARCHAR,GETDATE(),112)
+			FROM @TmpTab
+
+	WHILE @SID <= @MaxCount BEGIN
+
+		--取出該筆資料
+		SELECT @TabName = TabName
+			,@ColName = ColName
+			,@Precision = [Precision]
+				FROM @TmpTab
+					WHERE SID = @SID
+
+		--不是text和ntext的型態，直接變更定序
+		IF CHARINDEX('text',LOWER(@TypeName)) = 0 BEGIN
+			SET @strSQL = 'ALTER TABLE ' + @TabName + ' '
+				+ 'ALTER COLUMN ' + @ColName + ' ' + @TypeName + '(' + @Precision + ') '
+				+ 'COLLATE ' + @NewCollation
+			PRINT @strSQL
+			EXEC(@strSQL)
+		END ELSE BEGIN	--text和ntext另外處理
+			--增加暫存欄位
+			SET @strSQL = 'ALTER TABLE ' + @TabName + ' '
+				+ 'ADD tmp_Col_' + @tmpCol + ' ' + @TypeName + ' '
+				+ 'COLLATE ' + @NewCollation
+			PRINT @strSQL
+			EXEC(@strSQL)
+
+			--更新資料進剛新增的暫存欄位
+			SET @strSQL = 'UPDATE ' + @TabName + ' SET tmp_Col_' + @tmpCol + ' = ' + @ColName
+			PRINT @strSQL
+			EXEC(@strSQL)
+
+			--刪除原本的舊欄位
+			SET @strSQL = 'ALTER TABLE ' + @TabName + ' DROP COLUMN ' + @ColName
+			PRINT @strSQL
+			EXEC(@strSQL)
+
+			--將暫存欄位更名為舊欄位的名字
+			SET @strSQL = 'exec sp_rename [' + @TabName + '.tmp_Col_' + @tmpCol + '], ' + @ColName + ', "column"'
+			PRINT @strSQL
+			EXEC(@strSQL)
+		END
+		
+		SET @SID = @SID + 1
+	END
+RETURN 0
+GO
+
+/*
+
+SF_Change_Column_Collate 'varchar','Chinese_Taiwan_Stroke_CS_AS','Chinese_Taiwan_Stroke_CI_AS'
+SF_Change_Column_Collate 'varchar','Chinese_Taiwan_Stroke_CI_AS','Chinese_Taiwan_Stroke_CS_AS'
+SF_Change_Column_Collate 'text','Chinese_Taiwan_Stroke_CI_AS','Chinese_Taiwan_Stroke_CS_AS'
+SF_Change_Column_Collate 'text','Chinese_Taiwan_Stroke_CS_AS','Chinese_Taiwan_Stroke_CI_AS'
+
+*/

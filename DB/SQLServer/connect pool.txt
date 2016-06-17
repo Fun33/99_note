@@ -1,0 +1,33 @@
+ref
+http://www.dotblogs.com.tw/ethon.chi/archive/2011/12/15/62290.aspx
+http://www.dotblogs.com.tw/shadow/archive/2011/06/25/29896.aspx
+q
+[中文訊息]
+已超過連接逾時的設定。在取得集區連接之前超過逾時等待的時間，可能的原因為所有的共用連接已在使用中，並已達共用集區大小的最大值。
+
+[英文訊息]
+Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.
+
+【發生原因】
+SQLClient 集區已經用盡 SqlInternalConnection 物件。
+程式使用的連線太多，導致Connection Pool用完。
+Max Pool Size預設值為100。
+
+【如何觀察SQL連線】
+
+在執行處輸入：perfmon可開啟效能監視器。
+在右邊圖表的地方右鍵打開選單並選擇新增計數器。
+選擇電腦後效能物件選擇SQLServer:General Statistics，清單選取計數器選擇User Connections。(PS: SQLServer為你的SQL執行個體名稱，視要監視的SQL Server執行個體名稱做選擇。)
+觀察計數器的狀況。
+
+select  db_name(dbid) , count(*) 'connections count'
+from master..sysprocesses
+where spid > 50
+group by  db_name(dbid)
+order by count(*) desc
+
+【解決方式】
+
+資料庫連線之後，除了關閉連線（Conn.Close()），還得 Conn.Dispose()才行。
+
+其實這是一個很重要的基礎觀念，但是通常簡單的網站或者僅供內部使用者操作的網站，可能因為使用人數少，就算沒有Dispose也不會發生問題，但是當使用者多的時候這個問題就會浮現。

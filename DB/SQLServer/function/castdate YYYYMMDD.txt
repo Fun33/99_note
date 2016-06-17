@@ -1,0 +1,84 @@
+ 
+ --select dbo.[CastDate](getdate())
+create FUNCTION [dbo].[CastDate](   @date date   )
+RETURNS nvarchar(max)
+AS
+BEGIN
+    RETURN      
+     CONVERT(char(10), @date,112)
+--     MS SQL
+--小惡魔系統設計慣性用法
+--YYYY-MM-DD (2008-06-26)：CONVERT(CHAR(10), GETDATE(), 120)
+--HH:MM:SS:sss (17:24:30)：CONVERT(CHAR(8), GETDATE(), 114)
+
+--MM DD YYYY (06 26 2008)：CONVERT(CHAR(10), GETDATE(), 100)
+--MM/DD/YYYY (06/26/2008)：CONVERT(CHAR(10), GETDATE(), 101)
+--MM.DD.YYYY (06.26.2008)：CONVERT(CHAR(10), GETDATE(), 102)
+
+--DD/MM/YYYY (14/03/2011)：CONVERT(CHAR(10), GETDATE(), 103)
+--DD.MM.YYYY (14.03.2011)：CONVERT(CHAR(10), GETDATE(), 104)
+--DD-MM-YYYY (14-03-2011)：CONVERT(CHAR(10), GETDATE(), 105)
+--DD MM YYYY (14 03 2011)：CONVERT(CHAR(10), GETDATE(), 106)
+
+--YYYYMMDD (20110314)：CONVERT(CHAR(8), GETDATE(), 112)
+--HH:MM:SS:sss (17:24:30:923)：CONVERT(CHAR(12), GETDATE(), 114)
+
+
+--Sybase
+--YYYYMMDD (20080626)：CONVERT(CHAR(10), GETDATE(), 112)
+--YYYY/MM/DD (2008/11/24)：CONVERT(CHAR(10), GETDATE(), 111)
+--MM-DD-YYYY (11-24-2008)：CONVERT(CHAR(10), GETDATE(), 110)
+
+--HH:mm:SS (15:49:34)：CONVERT(CHAR(10), GETDATE(), 108)
+
+--(轉貼時請加註本行)
+--引用自:藍色小惡魔《SQL 日期時間轉換 (Convert Date Time to string)》
+--http://www.imp.idv.tw/play/forum/viewthread?thread=1372
+
+--MySQL
+--小惡魔系統設計慣性用法
+--select DATE_FORMAT(now(), '%Y-%m-%d');
+--select DATE_FORMAT(now(), '%T');
+
+--use DATE_FORMAT(date,format)
+
+--format 格式如下：
+
+--%Y	年 YYYY ex:2011
+--%y	年 yy ex:11
+
+--%a	星期 英文縮寫名稱 ex:Fri
+--%b	月 英文縮寫名稱 ex:Feb
+--%M	月 英文全名 ex:February
+--%c	月 數值 ex:2 (二月)
+--%m	月 數值(00-12)
+
+--%D	日 數值 加英文首碼 ex:3rd, 20th
+--%d	日 數值 補零 ex:(00-31)
+--%e	日 數值 補零 ex:(0-31)
+--%j	一年的第幾天 (001-366)
+
+--%r	時間 小時12（hh:mm:ss AM 或 PM）ex:10:05:54 PM
+--%T	時間 小時24 (hh:mm:ss)
+
+--%H	小時24 補零 (00-23)
+--%h	小時12 補零 (01-12)
+--%k	小時24 (0-23)
+--%l	小時12 (1-12)
+--%i	分鐘 補零 (00-59)
+--%S	秒(00-59)
+--%s	秒(00-59)
+
+--%f	微秒
+--%p	AM 或 PM
+
+--%U	周 (00-53) 星期日是一周的第一天
+--%u	周 (00-53) 星期一是一周的第一天
+--%V	周 (01-53) 星期日是一周的第一天，與 %X 使用
+--%v	周 (01-53) 星期一是一周的第一天，與 %x 使用
+--%W	星期名
+--%w	周的天 （0=星期日, 6=星期六）
+--%X	年，其中的星期日是周的第一天，4 位，與 %V 使用
+--%x	年，其中的星期一是周的第一天，4 位，與 %v 使用
+END
+GO

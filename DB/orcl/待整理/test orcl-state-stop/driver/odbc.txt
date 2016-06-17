@@ -1,0 +1,16 @@
+keyword:什麼是ODBC
+以下連結是ODBC的定義
+http://www.google.com.tw/search?complete=1&hl=zh-TW&rlz=1T4GZHZ_zh-TWTW237TW237&defl=en&q=define:ODBC&sa=X&oi=glossary_definition&ct=title
+
+http://www.kschool.idv.tw/photoalbum/album_data.asp?post_id=5&id=5888&class1_id=31&class2_id=108
+ODBC 本身一組程式界面的定義， Open Database Connectivity 的縮寫，
+Microsoft 公司根據 SQL Access Group 制定的 Call Interface 規格設計出來的資料庫程式界面. 
+
+有了 ODBC， 應用系統可以存取不同廠牌的資料庫管理系統甚 至非關聯性資料庫，
+在跨平台或跨資料庫的應用上更具可攜性. 
+所以當一個電腦系統必須考慮到未來使用的彈性時， 選擇標準界面可以提高環境適應能力. 
+
+以一開始我們談到的心臟例子來說，
+有了標準界面， 就等於心臟和血管間有了標準的連接方式， 
+如果到時候心臟有什麼問題要把心臟換掉，可以任意的更換，同樣的 ，
+如果血管有什麼問題，也是可以更換任何符合標準的血管即可，

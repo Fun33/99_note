@@ -1,0 +1,35 @@
+*使用varbinary(max) 取代image，因為未來版本不支援。
+
+1. 建立 Image 欄位
+   在 testDB 建立一個 ImportImage Table 並新增一個 image 欄位，資料型態為 Image
+2. BULK INSERT 圖檔語法
+   INSERT INTO ImportImage
+     SELECT * FROM OPENROWSET(
+     BULK 'D:\d2.jpg', SINGLE_BLOB) AS x 
+
+------------------------------------------ch8
+
+INSERT INTO [@TAGPRINT]
+(Code, Name, U_No, U_ItemCode, U_ItemName, U_ItmsGrpCod, U_ItmsGrpNam, U_Price, U_SizeCode, U_SizeName, U_ColorCode, U_ColorName
+, U_BarCode 
+, U_Image ) 
+SELECT 
+	'00000001' AS Code
+	,'00000001' AS Name
+	,N'0000000' AS U_No
+	,N'0000000000017' AS U_ItemCode
+	,N'紙箱' AS U_ItemName
+	,'124' AS U_ItmsGrpCod
+	,N'S 其他' AS U_ItmsGrpNam
+	,'0' AS U_Price
+	,N'00' AS U_SizeCode
+	,N'F' AS U_SizeName
+	,N'000' AS U_ColorCode
+	,N'不分色' AS U_ColorName
+	,N'0000000000017' AS U_BarCode
+	 ,*  FROM 	OPENROWSET
+	(
+		BULK 
+		N'\\Cpc-vm-881\b1_shr\\SDK_Temp_0000000000017.jpg'
+		, SINGLE_BLOB
+	) AS U_Image 

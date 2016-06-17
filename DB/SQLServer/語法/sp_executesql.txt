@@ -1,0 +1,45 @@
+declare @cmd nvarchar(max)
+set @cmd ='select 1'
+select @cmd
+exec(@cmd)
+
+------------------------------------------------------傳dbname.
+ALTER proc [dbo].[TmSp_adding_To_OITW]
+@SourceDB nvarchar(128) = NULL ,
+@UtilityDB    nvarchar(128) = NULL
+as
+begin
+exec     (' INSERT 
+	 INTO  ['+ @SourceDB  +'].[dbo].[OITW]
+		SELECT T1.*
+		FROM   ['+ @UtilityDB +'].[dbo].[OITW] T1
+		      	LEFT OUTER JOIN ['+ @SourceDB  +'].[dbo].[OITW] T0   
+			ON  T0.ItemCode = T1.ItemCode and  T0.WhsCode = T1.WhsCode  
+		WHERE T0.itemcode is NULL and T1.OnHand!=0 ')
+end
+------------------------------
+Dim cmd As New SqlCommand("DECLARE @i INT;SET @i=@j;select @k from sys.objects", cnn)
+cmd.Parameters.Add(New SqlParameter("@j", 10))
+cmd.Parameters.Add(New SqlParameter("@k", "*"))
+
+則 ADO.NET 實際組的語法如下：
+
+exec sp_executesql N’DECLARE @i INT;SET @i=@j;select @k from sys.objects’,N’@j int,@k nvarchar(1)’,@j=10,@k=N’*’
+
+************************************************************
+X	Select dbo.Company_fn_GetMemberBirthday(2266)	馬上就掛了
+O	Select dbo.Company_fn_GetMemberBirthday(2266, 2)   --給予實際數值
+或是
+O	Select dbo.Company_fn_GetMemberBirthday(2266, Default)   --呼叫預設值
+
+User-Defined Functions (UDF)
+ALTER FUNCTION [dbo].[Company_fn_GetMemberBirthday] 
+(    
+    @str_MemberID int, 
+    @bln_ValidMember bit = 1   --預設找有效會員
+)
+RETURNS datetime
+AS
+BEGIN
+....
+END

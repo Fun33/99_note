@@ -1,0 +1,35 @@
+﻿  declare @str   varchar(4000)
+ declare @start int,@widlen int 
+   
+   set @str = N'波士顿生菜'
+   --set @start=1
+    --set @start=3
+      set @start=5
+   set @widlen =4
+ declare   @word   nchar(1),@CN   nvarchar(4000),@cntmp nvarchar(4000)   ,@cnt int;
+ set   @CN=''   ;
+ set @cntmp='';
+ set @cnt=0;     
+  while len(@str)>0  and @cnt<@widlen  and LEN(@str)>=@start
+   begin
+   
+     set   @word=substring(@str,@start,1) 
+
+     if  patindex('%[吖-咗]%',@word)>0
+    set @cnt=@cnt+2;
+    else
+    set @cnt=@cnt+1;
+     set @cntmp=@cntmp+@word;
+     set   @str=right(@str,len(@str)-1)   
+     select @word word,@cnt cnt,@cntmp cntmp,@str str  ,patindex('%[吖-咗]%',@word)    
+     ,@start start,len(@str) len
+   end    
+   select  len(@cntmp)
+   
+--波士 波士顿生菜 1 4 2
+--顿生 波士顿生菜 3 4 2
+--NULL 波士顿生菜 5 4 NULL
+
+--SET @widLen2= dbo.[getWidLen](@itemname,@startindex,@WidhLen);
+--       SET @NewItemName = SUBSTRING(@ItemName,@StartIndex,@widLen2 )    --取出新的字元
+--        select @NewItemName ,@ItemName,@StartIndex,@WidhLen,@widLen2

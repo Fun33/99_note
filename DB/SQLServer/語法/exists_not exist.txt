@@ -1,0 +1,53 @@
+﻿exist / not exist 效能比in/not in好
+
+-- EXISTS 是用來測試內查詢有沒有產生任何結果。
+--如果有的話，系統就會執行外查詢中的 SQL。
+--若是沒有的話，那整個 SQL 語句就不會產生任何結果。
+select 1
+where exists (select * from ORDR where DocEntry=0)
+select 1
+where exists (select * from ORDR where DocEntry=1) 
+
+----------------------------------------------
+很多時候用 exists 代替 in 是一個好的選擇：
+       select num from a where num in(select num from b) 
+       用下面的語句替換：
+       select num from a where exists(select 1 from b where num=a.num)
+
+-------------------------
+-- not EXISTS 是用來測試內查詢有沒有產生任何結果。
+--如果沒有的話，系統就會執行外查詢中的 SQL。
+--若是有的話，那整個 SQL 語句就不會產生任何結果。
+select 1
+where not exists (select * from ORDR where DocEntry=0)
+select 1
+where not exists (select * from ORDR where DocEntry=1) 
+
+--------------------------------------------------------not in換成not exist
+ --not in
+ select Sendorder.id,Sendorder.reads,Sendorder.addtime 
+ from Sendorder 
+ where Sendorder.person_id 
+	not in
+		(select user_id from reg_person ) 
+	  --(SELECT id FROM reg_person where reg_person.user_id=Sendorder.person_id)
+ or 
+ Sendorder.worksite_id 
+	not in
+		(select id from worksite) 
+	  --(SELECT id FROM worksite where worksite.id=Sendorder.worksite_id) 
+order by Sendorder.addtime desc
+		
+--程序执行时间：40109.38毫秒 
+
+--not exist
+ select Sendorder.id,Sendorder.reads,Sendorder.addtime 
+ from Sendorder 
+ where 
+	not EXISTS 
+		(SELECT id FROM reg_person where reg_person.user_id=Sendorder.person_id) 
+or 
+	not EXISTS 
+		(SELECT id FROM worksite where worksite.id=Sendorder.worksite_id) 
+order by Sendorder.addtime desc
+--程序执行时间：8531.25毫秒 

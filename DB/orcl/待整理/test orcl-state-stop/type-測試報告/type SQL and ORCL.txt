@@ -1,0 +1,15 @@
+
+
+4-81,4-82,4-83
+
+Sql	orcl
+integer	Number
+smallint	number(38)
+int 	number
+float 	number
+decimal(p,s)	number(p,s)
+real	number
+double precision	number
+varchar	varchar2
+smalldatetime	date
+datetime	TIMESTAMP WITH LOCAL TIME ZONE

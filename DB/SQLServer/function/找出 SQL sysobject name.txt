@@ -1,0 +1,6 @@
+1.使用下列語法找出 SQL sysobject name
+Select * From sysobjects Where name Like '%UserProfile%'
+2.使用下列語法找出SQL user table 的sysobject name (U for user table)
+Select * From sysobjects Where name Like '%UserProfile%' And xtype = 'U'
+3.使用下列語法找出我的物件被使用在哪些地方
+select object_name(m.object_id), m.* from sys.sql_modules m where m.definition like N'%DRF3_VIEW%'

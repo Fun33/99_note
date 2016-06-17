@@ -1,0 +1,13 @@
+ADO and ADO.NET is deffirent
+http://tw.knowledge.yahoo.com/question/?qid=1405101502813
+
+ADO
+透過ODBC的驅動程式來連結
+http://tw.knowledge.yahoo.com/question/?qid=1005011300660
+
+ODBC
+控制台\系統及維護\系統管理工具\資料來源(ODBC)
+
+OLE DB Provider(s)
+EXCEL\資料\取得外部資料\從其它來源\從資料連線精靈\其它進階\下一步\OLE DB Provider(s)
+

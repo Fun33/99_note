@@ -1,0 +1,29 @@
+\\Casfs1\APPL\Oracle\Express Edition
+OracleXEUniv.exe
+
+userID:system
+pwd:sa
+
+http://127.0.0.1:8080/apex/f?p=4500:601:3679955420913599::NO:::
+
+http://127.0.0.1:8080/apex/f?p=4500:1000:3679955420913599::NO:::http://127.0.0.1:8080/apex/f?p=4500:1000:3679955420913599::NO:::
+
+*****************************************
+1.安裝ORACLE提供之資料庫存取套件.	D:\appl\ORACLE\ODTwithODAC112021
+2.安裝ORACLE server端.			D:\appl\ORACLE\Oracle XE Free\OracleXEUniv
+3.測試於oracle create table.		D:\una\una_work\泰統\test\test sql cmd
+4.泰統與POS資料同步 - 供應商欄位確認	D:\una\una_work\泰統\供應商SQL SERVER與ORACLE欄位型態與大小之差異-20110617
+	將nvarchar轉換為varchar2
+	字串大小若原為15,則更改為30
+5.
+撰寫Oracle 10g 相容的create table語法
+注意: sqlserver與oracle的差別
+	sqlserver	oracle
+	text		CLOB
+	datetime	timestamp	(date只有存date沒有time/time只有存time沒有date)
+	int		integer
+
+6.安裝Toad
+D:\appl\ORACLE\Oracle XE Free\ToadforOracle106SetupFreeware
+=>顯示此版本已過期.上網下載11測試版.this version of toad for oracle has expired.you must download a new version before proceeding.
+=>安裝11測試版,卻跳出需先安裝商業版.toad for oracle version 10.6 not found.please install the latest commercial version of toad before attempting to run the beta.

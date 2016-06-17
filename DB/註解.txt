@@ -1,0 +1,4 @@
+SQLCMD的註解
+單行--
+段落/*……*/
+ORCL和SQLSERVER都適用

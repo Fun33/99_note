@@ -1,0 +1,49 @@
+**************************************************way 1
+開始/執行/cmd  cd..至根目錄
+輸入以下指令
+imp system/sa@orcl  file=c:\impstd-0702 fromuser=impstd touser=system rows=y ignore=y
+system使用者帳號
+sa使用者密碼
+orcl資料庫名稱.
+file 檔案名稱,可以不用打副檔名沒關係.
+fromuser=impstd原資料庫之使用者
+touser=system此次資料庫之使用者
+rows
+ignore
+*********************************************************way2
+Imp  system/sa@mf2000 full=y file=c:\impstd-0207.dmp
+full=y
+若原資料庫擁有者為impstd,則需建立使用者impstd.
+****************************************************************************************
+人家拿給我dmp,然後上網找到dmp是什麼?然後找到語法把它匯入orcl可卻發生使用者不存在的錯 誤,
+上網找,卻找不到答案,怎麼辦呢?
+網路上人家說,exp username=imp username
+所以我向他要了username,看看是不是這個問題.
+如果不是,只好再找找.
+
+IMP的Q在兩點POSE上去問人家了.
+
+不只要出去用,也要帶回家用.
+winzip(\\casfs1\APPL\Compress\WinRAR\371)
+kis
+office 2003
+sqlserver2005:裝好久.
+vs2005
+
+
+delphi
+
+imp-00058:oracle 錯誤1071發生
+ORA-01017:invalid usernamepassword;logon denied
+他說那是空的資料庫
+imp username/sa@orcl file=c:\XX
+
+裝了OFFICE再裝VS,有問題.
+所以把OFFICE移掉再裝,一樣.
+於是把工具刪掉.
+然後從新安裝VS
+本來裝VS有EXPRESS,把它拿掉,想裝正式版,後來藍經理說裝EXPRESS,於是又把VS再裝一次.
+當然啊..裝了若日後有用到就不會沒得用,可有些東西可能一輩子都用不到吧.
+於是問老經驗,老經驗說都可以.
+
+q

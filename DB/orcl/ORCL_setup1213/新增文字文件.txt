@@ -1,0 +1,9 @@
+Enterprise Manager 資料庫控制 URL - (orcl) :
+http://localhost:1158/em
+
+您的資料庫組態檔已經安裝在 c:\oracle\product\10.2.0, 而其他選取的安裝元件則安裝在 c:\oracle\product\10.2.0\db_1.  請小心, 不要意外的將這些組態檔刪除.
+iSQL*Plus URL:
+http://localhost:5560/isqlplus
+
+iSQL*Plus DBA URL:
+http://localhost:5560/isqlplus/dba

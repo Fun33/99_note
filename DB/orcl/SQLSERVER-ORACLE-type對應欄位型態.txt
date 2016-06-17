@@ -1,0 +1,24 @@
+SQLSERVER=>ORACLE
+1.varchar ->varchar2  ..OK
+2.int  ->number          ..OK
+3.IDENTITY ->SEQUENCE....OK
+4.not null  ..OK
+5.varchar default  ..OK
+5.date default 
+6.seq trigger
+
+*****************************************map
+map
+sqlserver				oracle
+datetime				timestamp
+char					char
+smallint				integer
+int					integer
+varchar					varchar2
+numeric(19, 6)				NUMBER(19,6)	
+㏕﹚Τ计㎝计计计
+
+					counter_number(10,3)
+			        	12345.6784 =>12345.678
+					rounded_hundred(5,-2)
+			        	12345=>12300	狦非絋琌0,彼き穦祇ネ程钡俱计

@@ -1,0 +1,5 @@
+ref
+http://www.dotblogs.com.tw/genechang/archive/2014/08/28/146390.aspx
+
+工具\選項\
+展開【設計師】(or Designers)，修改【交易逾時設定值】，預設是30秒，可以改為300秒或以上

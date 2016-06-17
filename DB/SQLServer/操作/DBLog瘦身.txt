@@ -1,0 +1,34 @@
+刪除Log
+w1.-- Truncate the log by changing the database recovery model to SIMPLE.
+可以使用 SSMS 圖型介面管理工具，直接截斷、清空交易記錄檔的內容。流程如下：
+將資料庫切換為「簡單復原模式」，便會自動截斷、清空交易記錄。
+執行SSMS/在「物件總管」，展開「資料庫」，指定的資料庫，滑鼠右鍵/「屬性」/「資料庫屬性」/「選取頁面」/「復原模式」/「完整」/「簡單」
+ALTER DATABASE MESWIPDB
+SET RECOVERY SIMPLE;
+
+w2.
+BACKUP LOG Northwind資料庫檔名稱 WITH TRUNCATE_ONLY 
+DBCC SHRINKFILE(Northwind_log,2) 
+DBCC SHRINKFILE ('Northwind_log資料庫log檔' ,0,TRUNCATEONLY)
+
+
+----------------------------w1 -- Truncate the log by changing the database recovery model to SIMPLE.
+
+ALTER DATABASE MESWIPDB
+
+SET RECOVERY SIMPLE;
+
+GO
+----------------------------w2-- Shrink the truncated log file to 1 MB.
+
+DBCC SHRINKFILE (MESWIPDB_Log, 1);
+
+GO
+
+-- Reset the database recovery model.
+
+ALTER DATABASE MESWIPDB
+
+SET RECOVERY FULL;
+
+GO

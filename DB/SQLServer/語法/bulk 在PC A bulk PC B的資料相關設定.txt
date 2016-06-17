@@ -1,0 +1,25 @@
+http://social.msdn.microsoft.com/Forums/zh-TW/240/thread/0e2a398e-915c-4bcc-8645-92ce1a1bfd7f
+問題:要如何將SQL上登入的使用者擁有Windows上使用者的權限
+狀況:我現在有2台電腦C-1(win2003),C-2(win2003),而C-1是實際存放檔案的電腦,如:123.txt,並將目錄設定成分亨.
+在C-2上設定虛擬磁碟連接到C-1.
+然後,我要在C-2上使用sql server2008的使用者登入後,可以讀到C-1上的虛擬磁碟上的檔案123.txt?
+
+ans:
+將C-2上SQL Server 2008的服務啟動帳戶設為網域使用者。
+設定C-1上分享目錄的安全性為SQL Server服務啟動帳戶有權限可讀取。
+
+
+---------------------------------------------------------------------------
+情境:
+
+多台SQL Server 在AD環境下，進行資料拋轉透過 BULK INSERT 或 OPENROWSET （文字檔 txt or 檔案)， 
+出現錯誤訊息: 
+訊息 4861, 層級 16, 狀態 1, 伺服器 WIN2K3R2, 行 1 
+無法大量載入，因為檔案 ".txt" 無法開啟。作業系統錯誤碼 5(存取被拒。)。
+When executing the BULK INSERT statement by using sqlcmd or osql,
+from one computer, inserting data into SQL Server on a second computer,
+and specifying a data_file on third computer by using a UNC path, you may receive a 4861 error.
+
+解決方案: 
+到 ADOC  (Active Directory Users and Computers ) 設定該電腦名稱-委派 - 信任這台電腦委派的特定服務 – SQL 執行個體 
+設定 SQL 服務類型於委派的特定服務，以下說明文字引用 http://msdn.microsoft.com/zh-tw/library/ms175915.aspx

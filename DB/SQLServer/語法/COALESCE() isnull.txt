@@ -1,0 +1,52 @@
+COALESCE()
+	1.isnull().傳回其引數中第一個非 Null 的運算式
+	2.case when 
+
+1.isnull().傳回其引數中第一個非 Null 的運算式
+	select COALESCE(1,null)
+
+	select COALESCE(null,2)
+
+	select COALESCE(null,null,3)
+
+2.case when 
+--建立一個資料表名為 PriceList
+CREATE TABLE [dbo].[PriceList](
+ [商品ID] [nvarchar](10) NOT NULL,
+ [商品名稱] [nvarchar](50) NOT NULL,
+ [價格一] [int] NULL,
+ [價格二] [int] NULL,
+ [價格三] [int] NULL,
+ CONSTRAINT [PK_PriceList] PRIMARY KEY CLUSTERED 
+(
+ [商品ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+--新增六筆資料
+Insert into dbo.PriceList Values('A0000001', N'男用皮包', 10000, NULL, NULL)
+Insert into dbo.PriceList Values('A0000002', N'女用皮包', 15000, NULL, NULL)
+Insert into dbo.PriceList Values('A0000003', N'陶瓷茶具組', NULL, 5000, NULL)
+Insert into dbo.PriceList Values('A0000004', N'高級酒杯組', NULL, 8000, NULL)
+Insert into dbo.PriceList Values('A0000005', N'咖啡壺', NULL, NULL, 1999)
+Insert into dbo.PriceList Values('A0000006', N'高級炒菜鍋', NULL, NULL, 12000)
+
+--使用 COALESCE 產生資料
+Select 商品ID, 商品名稱, COALESCE(價格一 * 0.7, 價格二 * 0.8, 價格三 * 0.9)
+From dbo.PriceList
+
+--使用 CASE WHEN 來與 COALESCE 來做比較
+Select 商品ID, 商品名稱, 
+CASE 
+ WHEN ISNULL(價格一, '') <> 0 THEN 價格一 * 0.7
+ WHEN ISNULL(價格二, '') <> 0 THEN 價格二 * 0.8
+ WHEN ISNULL(價格三, '') <> 0 THEN 價格三 * 0.9
+END
+From dbo.PriceList
+go
+drop table PriceList
+
+
+==========================
+http://www.dotblogs.com.tw/dc690216/archive/2010/01/28/13379.aspx
+http://sharedderrick.blogspot.tw/2012/06/t-sql-coalesce.html

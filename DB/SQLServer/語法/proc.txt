@@ -1,0 +1,140 @@
+proc
+1.如果不回傳值.記得設定：
+	SET NOCOUNT ON;	-- 設定不要傳回所影響的資料列筆數之訊息
+	SET NOCOUNT OFF;-- 設定要回傳所影響之資料列筆數之訊息，此為預設值 
+
+2.使用2節式命名
+3.名稱不要用sp開頭,建議使用usp開頭.	
+	如果stored procedure使用SP開頭，那SQL Server 會先搜尋master database完後，
+	在搜尋現階段連線的database
+
+==================
+IF OBJECT_ID(N'AddOSCN') IS  NOT NULL 
+DROP proc AddOSCN;
+go
+
+create proc AddOSCN
+@object_type nvarchar(20)
+,@Param2 VarChar (20) = NULL
+AS
+BEGIN
+END
+--------------------------------------
+
+某一行
+INSERT INTO B (bookid) SELECT bookid FROM A
+
+copy talbe
+SELECT userid,username
+INTO temp01
+FROM aspnet_USERS
+
+**********************************
+
+CREATE TABLE #temptable (
+   field1  smallint IDENTITY(1,1),
+   cab_name  char(2)
+)
+INSERT INTO #temptable
+SELECT DISTINCT cab_name FROM EDOC
+
+***********************************
+本質上 Stored procedures (有時又稱 Sproc) 就是儲存在資料庫中的 Script 或 Batch, 
+撰寫 Sproc 並不是太難的一件事,
+通常你會這樣查詢資料庫
+
+Select * From Table
+
+如何將它變成 Sproc? 以下是簡單的例子
+
+Create Proc sp_SprocName1 
+As 
+  Select * From Table 
+Go
+
+現在 Sproc 已成功的建立, 你可以試著去執行它
+
+Exec sp_SprocName1
+
+你可以為你的 Sproc 取任何的名字, 在 SQL 7.0 的命名原則以 128 個字元為限, SQL 並不規定 Stores procedure 之命名要以 sp_ 開頭, 但強烈建議你這麼做!
+
+接下來我們再做些例子, 例如在查詢中加入 where 子句, Select * From Table Where Column1 = 0 , 這裡你是不是會覺得 Column1 的值如果可以改為一個輸入參數由我們輸入, 那就更加完美!
+
+Create Proc sp_SprocName2 
+@MyInput int 
+As 
+  Select * From Table 
+  Where Column1 = @MyInput 
+Go
+
+完整的參數宣告語法為
+@parameter_name datatype [= default|Null] [Varying] [Output]
+
+如果你未提供 default 值, 則這個參數會被假設為必要輸入的, 在宣告參數時你還必須指定資料型態, 應為合法的 SQL Server 資料型態
+
+在 Sproc 接收到輸入值後, 便將它存放在 @MyInput 變數中, 變數以 @ 符號開頭, 以 @@ 開頭的則為全域變數, 
+你可以這麼執行這個 Sproc
+
+Exec sp_SprocName2 0
+
+我們再來看一個 Insert 的例子
+
+Create Proc sp_SprocName3 
+  @Column1 varchar(20) 
+  @Column2 varchar(36) = Null 
+As 
+  Insert Into Table 
+  Values 
+    (@Column1, @Column2) 
+Go
+
+在這例子中, Column2 的值即為選擇性輸入, 你可以這麼執行
+
+Exec sp_SprocName3 'SomeString'
+**********************************************
+create proc usp_account_sel
+@Users table
+as
+select * from account where owner in(table)
+go
+******************************
+***********************************************
+create proc usp_Getusers
+as
+select userid from aspnet_users
+go
+**************************************
+如何接收 Store Procedure 的傳回值
+http://www.dotblogs.com.tw/walter/archive/2009/07/04/how-to-get-store-procedure-return-value.aspx
+way1
+IF OBJECT_ID('mysp_QueryData') IS NOT NULL
+    DROP PROCEDURE mysp_QueryData
+GO
+CREATE PROCEDURE mysp_QueryData (
+@id int
+)
+AS
+BEGIN
+    SELECT LastName, FirstName
+      FROM Customer
+     WHERE CustomerID = @id;
+END
+IF OBJECT_ID('tempdb..#tmp') IS NOT NULL
+    DROP TABLE #tmp
+GO
+CREATE TABLE #tmp (lname varchar(30), fname varchar(10));
+INSERT INTO #tmp EXEC mysp_QueryData '1';
+SELECT * FROM #tmp;
+
+way2
+CREATE PROCEDURE mysp_QueryData (
+@id int,
+@LastName Varchar(30) output
+)
+AS
+BEGIN
+    SELECT @LastName = LastName
+      FROM Customer
+     WHERE CustomerID = @id;
+END
+***************************

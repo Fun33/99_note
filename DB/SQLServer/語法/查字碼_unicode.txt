@@ -1,0 +1,4 @@
+ref
+http://www.dotblogs.com.tw/jamesfu/archive/2012/07/09/compatibilityideographs.aspx
+--¬d¬Ý¦r½X
+select CAST( 'ªL' AS VARBINARY ) 

@@ -1,0 +1,45 @@
+table2不存在,會自動產生
+select val1,va2 into table2 from table1
+
+============================
+INSERT INTO TestTable (FirstName, LastName)
+	SELECT FirstName, LastName FROM  Contact   
+
+
+---------------insert from select
+ref
+http://blog.sqlauthority.com/2007/08/15/sql-server-insert-data-from-one-table-to-another-table-insert-into-select-select-into-table/
+-----w1
+INSERT INTO TestTable (FirstName, LastName)
+	SELECT FirstName, LastName FROM  Contact   
+-----w2
+INSERT INTO TestTable	SELECT FirstName, LastName FROM  Contact   
+
+INSERT INTO TestTable	exec getContact   1
+--------------------------------- 
+
+--ref	http://tw.myblog.yahoo.com/davidbulll/article?mid=371&prev=377&l=f&fid=11
+ UPDATE Classes SET Classes.time = ‘9:00am’
+FROM Classes INNER JOIN Instructors 
+ON Classes.eid = Instructors.eid 
+WHERE Instructors.name = ‘李鴻章’ and Classes.room = ‘300-K’  
+
+-----------------------------------------------
+
+DELETE Classes FROM Classes INNER JOIN Instructors 
+ON Classes.eid = Instructors.eid 
+WHERE Instructors.name = ‘李鴻章’ and Classes.room = ‘300-K’
+
+----------------------------------------
+
+csConn.CreateOleDbCommand("DELETE FROM db");
+
+UPDATE publishers SET city = 'Atlanta', state = 'GA' where ID=;
+string str = "INSERT into db (ID,Server,DB,[User],Pw) VALUES (1," + csFunc.AA(textBox1.Text) + "," + csFunc.AA(textBox2.Text) + "," + csFunc.AA(textBox3.Text) + "," + csFunc.AA(textBox4.Text) + ")";
+csConn.CreateOleDbCommand(str);
+
+UPDATE        AAA
+SET                  ID = 'b', PW = 'b'
+WHERE         (Name = 'a')
+
+-------------------------------------

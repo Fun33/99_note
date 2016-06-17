@@ -1,0 +1,29 @@
+我們在執行打上regedit.exe按下確定開啟登錄編輯程式
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Perflib 
+你會看到在Preflib下面有004和009兩個資料夾
+
+先點004進去,點進去後會看到Counter和Help兩各名稱
+先點Counter兩下開啟,進去後先把?拉到最下面然後看最後的數字是多少?
+
+再點開009→Counter→滑鼠左鍵兩下→拉到最後→看最後的數字
+
+改點進上一層的Perflib然後對Last Counter按滑鼠右鍵選擇修改
+選擇十進位後把數值資料輸入最大的值(本範例為4548)
+
+然後請依照上述步驟比對004和009的Help的最大值後修改Last Help的數值，
+再來您就可以正確的安裝MS SQL Server至您的電腦了
+
+=====================================沒有004機碼的情況
+ref http://www.dotblogs.com.tw/lastsecret/archive/2010/06/14/15865.aspx
+沒有004機碼的情況
+新增一個004機碼
+然後在該機碼上，新增一個 多字串值
+接著只要將0404中的兩個多字串值 Counter跟Help名稱跟資料原封不動的copy過去就好
+
+(好像可以直接將兩個多字串值複製過去，但我不會)
+copy0404的內容至004機碼
+貼的時候遇到這種警告不用緊張，他只是把複製到的空白字串刪掉而已。
+兩個都新增完之後，其他就都跟別的討論串一樣啦。只要將Perflib中的Last Counter和Last Help中的值
+
+分別對應到剛剛新增的Count和Help的最底下兩個數字，就行了。
+

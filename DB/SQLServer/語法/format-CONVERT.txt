@@ -1,0 +1,6 @@
+我知道若DateTime的欄位要轉換成yyyyMMdd可以用:
+CONVERT(varchar(8),datetime的欄位名,112)
+但是，若我是要轉換成yyyyMMddHHmmss(即年月日時分秒全部串連在一起出現)
+
+Convert(Varchar(7) , Col_Name , 120 ) as Year_Month
+=>2007-04

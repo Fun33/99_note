@@ -1,0 +1,28 @@
+ref
+http://social.msdn.microsoft.com/Forums/zh-TW/240/thread/9dca80d3-1f15-49bc-aa04-13c3830fdab6
+
+我們的主機發生大量記憶體被佔用的情形
+
+[工作管理員].[效能] 顯示記憶體被佔用10.7GB
+但是將 [工作管理員].[處理程序] 中所有顯示的程序佔用的記憶體加總也還不到 6GB
+
+我們將 SQL Server 停止後
+[工作管理員].[效能] 顯示記憶體佔用 瞬間從 10.7GB 降到 1.02GB
+
+問題是
+雖然我們用的是 64位元 的作業系統
+但是我們安裝的是 32位元 的SQL Server
+
+32位元 的應用程式不是最多只能使用 4GB 的記憶體嗎??
+這個情形正常嗎??
+--------------------------------ANS------------------------------
+由於OS=64bit 2008 server，所以SQL2005(32bit)預設會已AWE 模式執行，而且你可能也沒改max server memory ，那SQL使用的記憶體一定會超過4G的，但如果你想限制SQL2005最大記憶體使用量，那可以更改max server memory 來達到你的需求。
+開啟SSMS查看SQL Server awe enabled設定
+
+select name,value_in_use from sys.configurations where name='awe enabled'
+
+參考
+
+記憶體架構
+伺服器記憶體選項
+監視記憶體使用狀況

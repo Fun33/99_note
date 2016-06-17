@@ -1,0 +1,30 @@
+已建立表格.
+CREATE TABLE AUTONUMBER  (
+             *
+ERROR 在行 1: 
+ORA-00955: 此一名稱已被一個現有物件使用 
+已建立表格.
+CREATE TABLE VPDM_MAIN (
+             *
+ERROR 在行 1: 
+ORA-00955: 此一名稱已被一個現有物件使用 
+已建立表格.
+CREATE TABLE VPDM_PART (
+             *
+ERROR 在行 1: 
+ORA-00955: 此一名稱已被一個現有物件使用 
+已建立表格.
+CREATE TABLE VPDM_SBOM (
+             *
+ERROR 在行 1: 
+ORA-00955: 此一名稱已被一個現有物件使用 
+已建立序列.
+
+已建立序列.
+        CREATE SEQUENCE VPDM_SBOM_SEQ
+                        *
+ERROR 在行 1: 
+ORA-00955: 此一名稱已被一個現有物件使用 
+已建立觸發程式.
+
+已建立觸發程式.

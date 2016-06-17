@@ -1,0 +1,8 @@
+出現的錯誤是
+
+無法連結至伺服器 xxx :
+伺服器: 訊息17 , 層級16 ,狀態1
+[Microsoft][ODBC SQL Server Driver][DBNETLIB]SQL Server 不存在或拒絕存取
+
+因為
+win2003裝sql server 2000要更新到sql server 2000 sp3才能使用......

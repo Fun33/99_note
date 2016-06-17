@@ -1,0 +1,44 @@
+ref
+http://blog.miniasp.com/post/2008/01/08/The-Gospel-of-the-GUID.aspx
+
+1. I can make less trips to the database, now THAT is a performance enhancement!
+
+   你可以直接在Application中直接產生GUID，不用進資料庫執行 NEWID() 函數
+
+2. Data Merging is so easy, Mac using developers can do it!
+
+   在不同的應用程式之間產生的資料或兩台資料庫之間，很容易就可以合併資料到同一個表格。
+
+3. Type/Table Ignorance
+
+   要做資料稽核的紀錄，或各個表格資料加上一個Note欄位等應用，都很適合用GUID處理，但別想讓這個表格去查Parent Row這件事，很沒意義！
+
+4. The hits just keep on coming!
+
+   很容易區分哪些是「測試機上的資料」或「正式機上面的資料」，直接拿測試機的GUID去刪除正式機上相同的GUID即可！
+
+兩個使用 GUID 的缺點：
+
+1.  比較難自己手動下SQL取得資料
+
+   SELECT * FROM ORDER WHERE ORDERID = 12
+
+   比以下這個 SQL 好下多了:
+
+   SELECT * FROM ORDER WHERE ORDERGUID = ‘{45F57B42-38A4-46ce-A180-6DE0E7051178}'
+
+2. 在效能上，用 GUID 一定比用 INT 欄位格式慢，但只有慢一點點而已，幾乎沒理由不用！
+
+一些閱讀後的心得整理：
+
+1. 如果要處理大量INSERT動作的應用，GUID欄位不適合用Clustered Index做索引！因為GUID是亂數，會導致每次INSERT都要重算索引要被插入的位址。
+
+2. 當 uniqueindentifier (GUID) 的資料表用久了可能會造成資料庫碎片的情況，會浪費一些空間，但這可以透過設定 Fill factor 或在做資料庫維護的時候解決。
+
+3. 為什麼不用 SQL 2005 提供的 NewSequentialID() 函數？因為某些原因所以不用。
+
+4. 類似 Notes 或 Audit 表格儲存所有表格的相關連資料，將無法建立referential integrity (參考完整性) ，即 Foreign Key，不過應該沒關係，因為大多時候資料並不會真正被刪除。
+
+5. 資料庫表格中的 Primary Key 永遠都不要設定成「客戶看的懂得編號」，如果真要讓客戶識別資料，請特別另外留一個欄位給客戶輸入，並設定 UNIQUE Key 保持唯一性。
+
+6. 使用 GUID 將使程式碼易於維護，我們已經處理過太多使用 int 時遇到的問題，例如說：LastInsertedID。

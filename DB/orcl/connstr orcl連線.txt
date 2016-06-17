@@ -1,0 +1,21 @@
+錯誤訊息:
+無法在SYS所屬的物件下建立觸發
+
+解決方法:
+	所以登入時，用SYSTEM登入。
+********************************************************
+	指定資料庫名稱的方法：SERVERNAME/資料庫名稱
+	XE預設資料庫為：XE
+
+ORCL預設資料庫為：ORCL
+string str_dest = 
+string.Format(
+"Data Source={0};Persist Security Info=True;User ID={1};Password={2}", 
+"cas-vista/XE",  "system", "sa");
+
+SID
+	       s = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="{0}")(PORT="+{1}+"))(CONNECT_DATA=(SID=" + {2}+ ")));User Id="+ {3}+ ";Password=" + {4} + ""
+
+SERVERNAME
+            s = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=" +  {0}+ ")(PORT=" + {1} + "))(CONNECT_DATA=(SERVICE_NAME=" + {2} + ")));User Id=" + {3}+ ";Password=" + {4} + ""
+      

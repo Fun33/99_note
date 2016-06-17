@@ -1,0 +1,20 @@
+http://tw.myblog.yahoo.com/pome-juju/article?mid=32&next=31&l=f&fid=5
+
+說明
+create trigger trigger_name
+ before insert on table_name
+ for each row
+begin 
+ select "seq_name".nextval into :new.fld_name from dual;
+end;
+
+實例
+需先CREATE TABLE VPDM_Part
+需先CREATE SEQ VPDM_PART_SEQ
+
+create trigger BI_VPDM_Part
+ before insert on VPDM_Part
+ for each row
+begin 
+ select "VPDM_PART_SEQ".nextval into :new.Row_ID from dual;
+end;

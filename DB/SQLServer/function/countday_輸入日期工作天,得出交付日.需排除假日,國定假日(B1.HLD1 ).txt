@@ -1,0 +1,51 @@
+功能 : 輸入日期/工作天,得出交付日.需排除假日,國定假日(B1.HLD1 )
+
+case
+7/28+3=8/1	7.28-8.1	ret 8.1
+fetch	while
+如果這段期間是六+1,是日+1,是假日+1
+
+
+ declare @startDay datetime
+ declare @endDay datetime
+ declare @chkDay datetime
+  
+ 
+ set @startDay ='2013/10/9' 
+ set @endDay =DATEADD(day,3, @startDay)
+ set @chkDay =@startDay
+ 
+ while (@chkDay<=@endDay)
+ begin
+	select @endDay = dbo.CountDay(@chkDay,@endDay)
+	select @chkDay = DATEADD(day,1, @chkDay)
+	select @chkDay ,@endDay 
+ end 
+
+============================
+ if OBJECT_ID ('CountDay') is not null
+ drop function CountDay
+ go
+ create function CountDay(@chkDay datetime,@endDay datetime)
+	 returns datetime
+ as
+ begin
+	declare @weekday int
+	declare @Isholiday int
+	 select @weekday=DatePart(weekday , @chkDay ) 
+	 select @Isholiday = count(*) from HLD1 where HldCode = year(GETDATE()) and @chkDay>=strdate and @chkDay<=EndDate 
+	 if  @weekday =1 or @weekday=7
+	 begin
+		 set @endDay = DATEADD(day,1, @endDay)
+	 end 	 
+	 else if @Isholiday=1
+	 begin
+			set @endDay = DATEADD(day,1, @endDay)	
+	 end
+	 return @endDay 
+ end
+ 
+ 
+  
+  
+   

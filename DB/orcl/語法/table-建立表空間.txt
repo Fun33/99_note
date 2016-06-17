@@ -1,0 +1,15 @@
+建立表空間
+CREATE TABLESPACE mf2000
+DATAFILE 'C:\ORADATA\mf2000.DBF' SIZE 100M
+錯誤訊息:系統找不到指定路徑.
+錯誤原因:表示路徑不存在,
+解決方法:請建立其路徑.即可
+
+
+如何建表空間.
+CREATE TABLESPACE XXX 
+DATAFILE 'D:\ORADATA\USER01.DBF' SIZE 100M 
+http://blog.csai.cn/user1/32171/archives/2007/17216.html
+1:
+CREATE TABLESPACE mf2000
+DATAFILE 'C:\ORADATA\mf2000.DBF' SIZE 100M 

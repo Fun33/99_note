@@ -1,0 +1,52 @@
+"判斷資料庫中有無這個table與field, 取其len 和type
+
+//這樣就知道有沒有這個table了
+select id  from sysobjects where name='資料表名稱'  
+select id  from sysobjects where name='pdm_part'   
+
+//這樣就可知這個table有沒有這個欄位
+select * from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱' 
+select * from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'   
+
+//這樣就可取得這個table.field的length
+declare @table nvarchar(50)='JdT1'
+declare @fld nvarchar(50)='U_ClearMemo'
+select length  from syscolumns where id in (select id  from sysobjects where name=@table  ) and name=@fld  
+
+select length  from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱' 
+select length  from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'   
+
+//這樣就可取到這個table.field的type
+select name from systypes where xtype in (select xtype  from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱'  )"
+select name from systypes where xtype in (select xtype  from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'  )"
+******************************
+"判斷資料庫中有無這個table與field, 取其len 和type
+
+//這樣就知道有沒有這個table了
+select id  from sysobjects where name='資料表名稱'  
+select id  from sysobjects where name='pdm_part'   
+
+//這樣就可知這個table有沒有這個欄位
+select * from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱' 
+select * from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'   
+
+//這樣就可取得這個table.field的length
+select length  from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱' 
+select length  from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'   
+
+//這樣就可取到這個table.field的type
+select name from systypes where xtype in (select xtype  from syscolumns where id in (select id  from sysobjects where name='資料表名稱' ) and name='欄位名稱'  )"
+select name from systypes where xtype in (select xtype  from syscolumns where id in (select id  from sysobjects where name='pdm_part' ) and name='id'  )"
+*********************************************
+SELECT         dbo.sysobjects.name AS sTableName, 
+                          dbo.syscolumns.name AS sColumnsName, 
+                          dbo.syscolumns.prec AS iColumnsLength, 
+                          --dbo.syscolumns.colorder AS iColumnsOrder, 
+                          dbo.systypes.name + '' AS sColumnsType, 
+                          dbo.syscolumns.isnullable AS iIsNull
+FROM             dbo.sysobjects INNER JOIN
+                          dbo.syscolumns ON dbo.sysobjects.id = dbo.syscolumns.id INNER JOIN
+                          dbo.systypes ON dbo.syscolumns.xusertype = dbo.systypes.xusertype
+WHERE         (dbo.sysobjects.xtype = 'U')
+and  dbo.sysobjects.name='IGE1'
+and dbo.syscolumns.name in ('AcctCode','Code','WhsCode','Quantity','U_POS')

@@ -1,0 +1,13 @@
+ALTER TABLE "table_name" ADD "column_name" "Data Type";
+ALTER TABLE Customer ADD Gender char(1);
+
+ALTER TABLE Customer ADD (Email char(30), Telephone char(20) );
+
+ALTER TABLE IGE1 drop COLUMN POSWOIGENO 
+
+
+if not exists(select * from sys.columns 
+            where Name = N'U_POSWOIGENO' and Object_ID = Object_ID(N'IGE1'))
+begin
+	ALTER TABLE IGE1 ADD U_POSWOIGENO int 	
+end

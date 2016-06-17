@@ -1,0 +1,15 @@
+ref
+http://blog.xuite.net/dlnk/work/51786477-MS-SQL+%E5%88%86%E9%A0%81+(SQL+Paging)
+
+WITH CTEResults AS 
+(
+     SELECT 
+         IDColumn, 
+         SomeField, 
+         DateField ROW_NUMBER() OVER (ORDER BY DateField) AS RowNum
+    FROM MyTable 
+) 
+SELECT 
+*,
+(SELECT MAX(RowNum) FROM CTEResults)  as TotalRows  ---### 這裡會回傳總筆數 
+FROM CTEResults WHERE RowNum BETWEEN 20 AND 30;

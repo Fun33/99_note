@@ -1,0 +1,2 @@
+如果只有一台預設執行個體，那麼即使不啟用 SQL Server Broswer ，也可以找的到該台執行個體。 
+SQL Server Broswer 是用來管理與識別電腦上的所有 SQL Server 執行個體，當它啟動時，會要求 UDP 通訊埠 1434，並讀取 SQL Server 的登錄項目，以回應用戶端的要求。

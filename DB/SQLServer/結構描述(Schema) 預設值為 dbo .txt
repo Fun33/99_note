@@ -1,0 +1,18 @@
+結構描述(Schema) 預設值為 dbo 
+從 SQL 2005 開始，要建立表格，必須要有一個結構描述(Schema)，
+每個表格都必須歸屬於一個結構描述，類似程式語言中的命名空間。 
+但是與命名空間不同的是，結構描述只會有一層，
+所以不會有結構描述歸屬於結構描述的狀況，預設值為 dbo 
+
+one-part name vs two-part name
+one-part name：Product
+只含有物件名稱，預設使用 schema=dbo, database=current, server=connection .
+
+two-part name：dbo.Product
+預設使用 database=current, server=connection
+
+three-part name：DBHQ.dbo.Product
+預設使用 server=connection
+
+four-part name：[LONDONPRODSERVER].DBHQ.dbo.Product
+[LONDONPRODSERVER] 是連結伺服器（linked server）

@@ -1,0 +1,35 @@
+orcl連不上去,
+
+ora
+***********************************************0418
+q:ora-28000
+A:http://lish1.blog.sohu.com/75899786.html
+
+""=NULL
+http://blog.darkthread.net/blogs/darkthreadtw/archive/2008/04/01/empty-string-in-oracle.aspx
+
+ORACLE大小寫
+http://blog.darkthread.net/blogs/darkthreadtw/archive/2007/12/24/1457.aspx
+
+
+http://reg.softking.com.tw/freeware/index.asp?fid1=3&fid2=57&fid3=1498
+加密:一定要放在那個資料夾內.
+
+PL/SQL
+http://www.hkln.net/doc/oracle_plsql_tutorial.zip
+http://www.hkln.net/doc/oracle_sql_advance.zip
+Oracle 效能
+http://www.hkln.net/doc/oracle_performance.zip
+小弟又一草作（草率之作），現時只簡單介紹 DBMS_PROFILER，
+將來會參考 Effective Oracle by Design 一書而寫。
+
+ EXISTS 的運作原理就是：
+「對於 Main Query 的每一行，都去執行一次 Subquery」
+所以如果 mtl_system_items_b 有三千行，那麼 Subquery 也
+會被執行三千次了。
+
+UIS use sqldevelop
+select * from ITEM where cod_item='A'=>has values
+select * from ITEM where cod_item='a'=>no values
+but
+select * from item where cod_item='A'=>has values

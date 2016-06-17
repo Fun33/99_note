@@ -1,0 +1,69 @@
+﻿--一般而言，不會有需要清除SQL Server Cache的問題。但是，在某些時刻它卻是一個必需的指令，例如：在測試performance時，需要前後狀況的比較。或是，在某些狀況下cache無法反應最新的資料狀況時，我們都會需要清除cache的動作，指令如下： 
+--DBCC FREEPROCCACHE 
+----會清空Procedure的最佳化的計劃，重新執行重新產生新的執行計劃 
+
+--DBCC DROPCLEANBUFFERS 
+--會清空儲存在快取中的資料，而不需要重新啟動SQL Server
+
+--SELECT 
+--	count(*) * 8 / 1024 AS '記憶體大小(Mb)'
+--	,sum (CONVERT (bigint, free_space_in_bytes)) / (1024) AS '空閒記憶體(Kb)'    
+--	,CASE database_id         
+--		WHEN 32767 THEN 'ResourceDb'         
+--		ELSE db_name(database_id)         
+--	END AS Database_name
+--FROM 
+--	sys.dm_os_buffer_descriptors
+--where 
+--	db_name(database_id) ='GreenSafe'
+--GROUP BY db_name(database_id) ,database_id
+--ORDER BY '記憶體大小(Mb)' DESC; 
+
+--================================ 
+Q:如果現在查詢花了十秒，我可以解釋是資料庫資料龐大，但等一下相同指令再查一次，花了兩分鐘
+A:
+除非你限制整個SERVER僅一個人連線，或許這樣的測式才有意義。若是N個人同時連上去的話，
+這次快，下次慢，這就變得很"正常"。原因就是若有不良的SQL語法就會造成各種LOCK (含最輕的與最重的)。
+比如說，某人剛好在UPDATE 資料，B這個人剛好要查，那這時候B就會發現慢很多。
+而若B在查的時候，剛好沒人查，或是別人也僅是SELECT，那就又快一點。   
+所以我才會一直和你說  WITH (NOLOCK) 這個指令有沒有用到。 我所見過極多數都不知道要如此來用。
+比如說，印帳單，印的是上個月的資料，非即時性的。於是 NOLOCK 的方式不僅可得到正確答案，而且不會鎖，也不怕鎖。
+在N人上線時，有人查，有人交易等等複雜的情形下，這樣NO LOCK效能就整個拉出差異來。
+
+
+
+ 
+--select name,* from sysindexes where id=object_id('OIVL')
+--drop index POS_IssueList_11 on [POS_IssueList]
+CREATE INDEX "%idxID%" ON "%tableID%" 
+(
+	%fld%
+); 
+
+--===============================================
+
+--declare @DocDueDateFr date = '19900101' ;--optinal
+--declare @DocDueDateTo date = '20160530' ;--optinal
+--declare @DocDateFr date = '20160301' ; 
+--declare @DocDateTo date = '20160331';
+
+--declare @DocDueDateFr date = '20150101' ;--optinal
+--declare @DocDueDateTo date = '20150516' ;--optinal
+--declare @DocDateFr date = '20150501' ; 
+--declare @DocDateTo date = '20150516';
+
+declare @DocDueDateFr date = '2010101' ;--optinal
+declare @DocDueDateTo date = '20160516' ;--optinal
+declare @DocDateFr date = '20150501' ; 
+declare @DocDateTo date = '20160516';
+
+--is Gr,not GE
+
+--未攤是什麼 OIGE+OIGN+OQIR
+ 
+--test YFY CN CR 
+select count(*) from cr_ab
+select count(*) from cr_ab_noamr
+select count(*) from cr_c1
+select count(*) from cr_c2
+select count(*) from cr_d

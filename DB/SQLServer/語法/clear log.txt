@@ -1,0 +1,63 @@
+清除SQL LOG (不影響SQL Server運作下減少log大小)
+分類：資料庫
+2007/08/11 11:21
+分享 FacebookPlurkYAHOO!
+今天公司的前輩發現跑Flow的資料庫log於SQL2000竟然多達16G之大 @@
+於是有了清除SQL-log的念頭,也請我幫忙協助處理,於是我到網路上爬了一些文章整理如下
+於SQL Query中下以下指令:
+語法一:
+====================================
+C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQL2008R2\MSSQL\DATA
+BACKUP LOG ch8 WITH TRUNCATE_ONLY 
+DBCC SHRINKFILE(ch8_0.LDF,2) 
+BACKUP LOG ch8 WITH TRUNCATE_ONLY 
+DBCC SHRINKFILE(ch8_0.LDF,2) 
+====================================
+語法二:
+DBCC SHRINKFILE ('Northwind_log' ,0,TRUNCATEONLY)
+※藍色字體為資料庫檔名稱，綠色字體為資料庫log檔
+PS:不過以上實測的結果此方式只能"適用"於SQL 2005,若要於SQL 2k下清除 LOG,有一個更快的方式(如下)
+step.1: 先停掉 SQL2k的服務
+step.2: 卸離資料庫 (點選資料庫-滑鼠右鍵-工作-卸離)
+step.3: 刪除資料庫實體log檔(建議先備份再刪除,改檔名也可以)
+step.4: 重新附加資料庫...此時會產生新的 log 檔 ,約500k左右 ,清除log任務也到此大功告成!
+
+
+另外網路上有篇很不錯清除SQL-log的文章,轉貼如下:
+##########《以下為轉貼文章》##################################
+sql-清log方法 
+1.sql server 空間不夠時需處理的程序
+backup log 資料庫名稱 with truncate_only 
+dbcc shrinkdatabase('資料庫名稱')
+二者要同時執行
+2.ms-sql之log檔要如何清除? 
+基本上如果復原模式是簡單時，那就會 Truncate log on checkpoint , 
+也就是說每次發生 checkpoint 的時候會把 Log 檔給清除 
+( 但不會縮小 ) ,當需要紀錄 Log的時候他自然會去找可用的空間去使用 , 
+但如果您的 Log 檔會一直增加的話，建議您可以採用幾個步驟去處理 
+a. DBCC CheckDB 
+b. DBCC SHRINKDATABASE 如果做完以上兩個步驟都還不行的話 , 
+有一種暴力方式,就是先把資料庫 deattch , 把 Log刪除後再把資料庫 attach 上去 , 
+此時就會重建 Log 檔了。
+3.最近也有客戶反應，試了之後可以用壓縮的方式解決，可能是異動太大， 
+在SQL Server清掉Log後，空間沒釋放，壓縮後就得到釋放了， 
+試試看吧！資料庫名稱按滑鼠右鍵→所有工作→壓縮資料庫→檔案→確定 
+4.MS-SQL的Log File記錄著每一筆異動的交易,包括Insert/Update/Delete的過程, 
+您可以使用Enterprise管理工具內的提供的壓縮功能來讓Log File變小, 
+但時間一久Log File又會變大,若覺得經常性的壓縮很麻煩,可以在Enterprise 
+管理工具內的排程設定為自動定時壓縮,就可以解決Log File一直長大的問題! 
+還有Log File雖然很大很討厭,有時甚至比資料庫主檔還大,但它還是有優點的, 
+站長剛好看到一套軟體可以View Log File,也可以從Log File中還原某一筆記錄, 
+或還原某一個Table,甚至還原整個資料庫,這套軟體叫作Log Explore 
+For MS SQL Server,相關資料請見 
+5.因為 log 真的很少用到就乾脆設定 AutoClose, trunc. log, autoshrink 都開 
+True rollback 也是用 "簡單" SQL 語法如下 exec sp_dboption N'aDATEBASE', 
+N'autoclose', N'true' exec sp_dboption N'aDATEBASE', N'trunc. log', N'true' 
+exec sp_dboption N'aDATEBASE', N'autoshrink', N'true' 在我這樣的設定下, 
+只有以下情況 log 會暴大 
+●修改 table 欄位等等 
+●Delete 大量 Record 
+●單一批次的交易(也就是一次SQL指令), 動到太多筆資料 
+●當然還有其他我不知道的.. 儘量減少上述情況發生然後常做 log 的壓縮就好了 
+壓縮時, 先壓 Log, 再壓 mdf, 最後再壓一次 log 還有不要限制 tempdb.mdf & templog.ldf 
+的大小並且不要和你的主要 DB 放在同一顆 disk (我認為會影響效能)

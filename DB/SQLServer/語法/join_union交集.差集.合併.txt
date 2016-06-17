@@ -1,0 +1,79 @@
+ref
+http://tw.myblog.yahoo.com/davidbulll/article?mid=371&prev=377&l=f&fid=11
+-----------------------------
+--union.union all
+select 1	union all	select 1	--若都為1,會有兩筆1.
+select 	union	select 1	--若都為1, 只會有一筆1
+
+
+--交集.INTERSECT只取相同的
+select 1	INTERSECT	select 2	--結果:沒有值
+select 1	INTERSECT	select 1	--結果:得1
+
+--差集EXCEPT：取出存在第一列SELECT指令的記錄,且不存在第二列SELECT指令的記錄
+SELECT 1	EXCEPT	SELECT 2	--得1
+SELECT 1	EXCEPT	SELECT 1	--沒有值
+
+--用left join做差集
+select table1.A from table1 
+  left join table2 on table1.A=table2.B
+  where table2.B is null
+---------------------------
+--cross join兩個table加起來.
+SELECT Students.sid, Students.name, Classes.c_no, Classes.eid 
+FROM Students 
+CROSS JOIN Classes 
+WHERE Students.sid = Classes.sid 
+--INNER JOIN 交集
+
+12-5-1 LEFT JOIN左外部合併查詢 
+12-5-2 RIGHT JOIN右外部合併查詢 
+12-5-3 FULL JOIN完全外部合併查詢
+---------------------------------------------------
+把值串起來
+方法1
+select 't1'	union select 't2'	union select 't3'	union select 't4'
+方法2
+declare @t1 table	(POSID nvarchar(50))
+insert into @t1 values ('t1' )
+insert into @t1 values ('t2' )
+insert into @t1 values ('t3' )
+insert into @t1 values ('t4' )
+select * from @t1
+----------------------------------
+子查詢的基礎-注意事項 
+子查詢是位在SQL指令的括號之中。 
+通常子查詢的SELECT指令只會取得單一欄位值，以便與主查詢的欄位進行比較運算。 
+如果需要排序，
+主查詢可以使用ORDER BY子句，
+子查詢不可以使用ORDER BY子句，不過可以使用GROUP BY子句來替代。 
+如果子查詢取得多筆記錄，在主查詢需要使用IN邏輯運算子。 
+BETWEEN/AND邏輯運算子不能使用在主查詢，但是可以在子查詢使用。
+BETWEEN/AND可以在子查詢使用。
+------------------------------------------
+ 
+12-8 合併更新與刪除 
+12-8-1 UPDATE與JOIN的合併更新 
+12-8-2 DELETE與JOIN的合併刪除 
+ 
+12-8-1 UPDATE與JOIN的合併更新-範例 
+SQL查詢範例：Ch12-8-1.sql
+在Classes資料表需要更新講師【李鴻章】在教室300-K的上課時間，將時間改為9:00am，如下所示： 
+UPDATE Classes SET Classes.time = ‘9:00am’
+FROM Classes INNER JOIN Instructors 
+ON Classes.eid = Instructors.eid 
+WHERE Instructors.name = ‘李鴻章’ and Classes.room = ‘300-K’  
+ 
+12-8-1 UPDATE與JOIN的合併更新-結果 
+執行SQL指令顯示Classes資料表的所有記錄和欄位，如下所示： 
+SELECT eid, sid, c_no, room, DATEPART(Hour, time) AS hour
+FROM Classes 
+12-8-2 DELETE與JOIN的合併刪除-範例 
+SQL查詢範例：Ch12-8-2.sql
+在Classes資料表刪除講師【李鴻章】在教室300-K的上課記錄，如下所示： 
+DELETE Classes FROM Classes INNER JOIN Instructors 
+ON Classes.eid = Instructors.eid 
+WHERE Instructors.name = ‘李鴻章’ and Classes.room = ‘300-K’
+12-8-2 DELETE與JOIN的合併刪除-結果 
+執行SQL指令顯示Classes資料表的所有記錄和欄位，如下所示： 
+SELECT eid, sid, c_no, room FROM Classes

@@ -1,0 +1,27 @@
+Windows驗證是以Windows的帳戶（如本機帳戶或AD）驗證使用者
+SysAdmin的權利，才有管理員的權限
+
+	Windows驗證模式	SQL驗證
+使用情境	有架設AD
+使用情境	保持高安全性
+=============================
+
+Windows驗證模式和SQL驗證
+1.	SA帳戶及用Windows帳戶管理那個較好
+A: 若公司內有架設AD ，或者要保持高安全性時，使用Windows驗證較佳
+
+2.	Windows驗證模式和SQL驗證方式有何不同?
+Windows驗證是以Windows的帳戶（如本機帳戶或AD）驗證使用者，
+而SQL驗證則是在SQL Server系統資料庫中會儲存使用者帳戶，不必透過Windows帳戶驗證
+
+
+3.	若需要使用SQL驗證
+請使用SQL Server Management Studio Express，
+用Window驗證進入後，在安全性→登入，建立新的SQL帳號及密碼！
+並將此SQL帳號賦予SysAdmin的權利，才有管理員的權限！
+SQL Server組態管理員/伺服器網路設定，將Name Pipes及TCP/IP，設為已啟用
+
+4.可否利用Windows認證機制管理使用者在 SQL Server的權限
+透過Windows驗證的方式請參考線上叢書中驗證模式 
+
+======================================

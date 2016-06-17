@@ -1,0 +1,16 @@
+create table test0919(
+si number(6),
+i number(38),
+flt number(15, 8),
+vc varchar2(5),
+t TIMESTAMP WITH LOCAL TIME ZONE,
+lob CLOB
+)
+
+字串
+insert into test0919(vc) values('55555') 
+=>OK
+insert into test0919(vc) values('555555') 
+=>ORA-12899: 資料欄 "SYSTEM"."TEST0919"."VC" 的值太大 (實際: 6, 最大值: 5)
+
+1.	varchar2 (2048) OK。nvarchar2 (2048)太大失敗。

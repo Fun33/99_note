@@ -1,0 +1,67 @@
+傳回一個值，可以用function和stored procedure
+
+什麼是純量值函數,就是回傳值的function
+ 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create function [dbo].[fn_getordhid]
+(
+  @incompid nvarchar(10),
+  @incustid nvarchar(10)
+)
+returns nvarchar(15)  ''定值傳回的值
+as  
+Begin
+  declare @ls_hid           nvarchar(15)   /*單號*/
+  declare @ls_tmp           nvarchar(15)
+  declare @ld_tmp           decimal(15,0)
+
+  set @ls_hid = ''
+ 
+  return @ls_tmp  --傳回的變數值
+END
+ 
+呼叫方式
+set @tmp=exec fn_getordhid 'incompid,'incustid'
+================================改善純量值函數效能-SCHEMABINDING
+ref
+http://www.dotblogs.com.tw/ricochen/archive/2014/08/19/146295.aspx
+
+BOL上有建議最佳做法，但實務上我很少看到有人注意到，
+一般我為了效能考量，會加上 SCHEMABINDING 和 RETURNS NULL ON NULL INPUT兩個選項，
+SCHEMABINDING可以改善執行計畫(減少緩衝計算相關運算子)，如下面範例
+create function test1(@i varchar(10))
+returns varchar
+
+begin
+ 
+	return left(@i,2)+substring(@i,5,2)
+
+end
+
+
+create function test1withs(@i varchar(10))
+returns varchar
+with SCHEMABINDING
+
+begin
+ 
+	return left(@i,2)+substring(@i,5,2)
+
+end
+function沒使用SCHEMABINDING，[執行計畫]多出了計算純量運算子。
+
+=============================改善純量值函數效能-2 RETURNS NULL ON NULL INPUT
+RETURNS NULL ON NULL INPUT可以告訴database engine，
+如果輸入為null，那只需要簡單返回null而不需要執行function主體，
+這樣一來可以減少不必要的資源開銷。
+create function test1withs(@i float)
+returns float
+with SCHEMABINDING,RETURNS NULL ON NULL INPUT
+begin
+ return @i+@i*2.5;
+end

@@ -1,0 +1,47 @@
+DATEDIFF ( datepart , startdate , enddate )
+
+DATEDIFF ( day, 2013.04.10 , 2013.04.11 )  =>켹1
+DATEDIFF ( day, 2013.04.10 , 2013.04.12 )  =>켹2
+DATEDIFF ( day, 2013.04.11 , 2013.04.10 )  =>켹-1
+DATEDIFF ( day, 2013.04.12 , 2013.04.10 )  =>켹-2
+
+
+year
+
+yy, yyyy
+
+quarter
+
+qq, q
+
+month
+
+mm, m
+
+dayofyear
+
+dy, y
+
+day
+
+dd, d
+
+week
+
+wk, ww
+
+Hour
+
+hh
+
+minute
+
+mi, n
+
+second
+
+ss, s
+
+millisecond
+
+ms

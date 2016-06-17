@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+</head>
+<body>
+exists （sql 返回&#32467;果集&#20026;真） <br>
+not exists (sql 不返回&#32467;果集&#20026;真） <br>
+如下： <br>
+表A <br>
+ID NAME <br>
+1&nbsp;&nbsp;&nbsp; A1 <br>
+2&nbsp;&nbsp;&nbsp; A2 <br>
+3&nbsp; A3 <br>
+<br>
+表B <br>
+ID AID NAME <br>
+1&nbsp;&nbsp;&nbsp; 1 B1 <br>
+2&nbsp;&nbsp;&nbsp; 2 B2 <br>
+3&nbsp;&nbsp;&nbsp; 2 B3 <br>
+<br>
+表A和表B是１&#23545;多的&#20851;系 A.ID =&gt; B.AID <br>
+<br>
+SELECT ID,NAME FROM A WHERE EXIST (SELECT * FROM B WHERE A.ID=B.AID) <br>
+&#25191;行&#32467;果&#20026; <br>
+1 A1 <br>
+2 A2 <br>
+原因可以按照如下分析 <br>
+SELECT ID,NAME FROM A WHERE EXISTS (SELECT * FROM B WHERE B.AID=１) <br>
+---&gt;SELECT * FROM B WHERE B.AID=１有值返回真所以有&#25968;据 <br>
+<br>
+SELECT ID,NAME FROM A WHERE EXISTS (SELECT * FROM B WHERE B.AID=2) <br>
+---&gt;SELECT * FROM B WHERE B.AID=２有值返回真所以有&#25968;据 <br>
+<br>
+SELECT ID,NAME FROM A WHERE EXISTS (SELECT * FROM B WHERE B.AID=3) <br>
+---&gt;SELECT * FROM B WHERE B.AID=３&#26080;值返回真所以&#27809;有&#25968;据 <br>
+<br>
+NOT EXISTS 就是反&#36807;&#26469; <br>
+SELECT ID,NAME FROM A WHERE　NOT EXIST (SELECT * FROM B WHERE A.ID=B.AID) <br>
+&#25191;行&#32467;果&#20026; <br>
+3 A3 <br>
+=========================================================================== <br>
+EXISTS = IN,意思相同不&#36807;&#35821;法上有&#28857;&#28857;&#21306;&#21035;，好像使用IN效率要差&#28857;，&#24212;&#35813;是不&#20250;&#25191;行索引的原因 <br>
+SELECT ID,NAME FROM A　 WHERE　ID IN (SELECT AID FROM B) <br>
+<br>
+NOT EXISTS = NOT IN ,意思相同不&#36807;&#35821;法上有&#28857;&#28857;&#21306;&#21035; <br>
+SELECT ID,NAME FROM A WHERE　ID　NOT IN (SELECT AID FROM B) <br>
+<br>
+<br>
+下面是普通的用法： <br>
+<br>
+SQL中IN,NOT IN,EXISTS,NOT EXISTS的用法和差&#21035;: <br>
+　　IN:确定&#32473;定的值是否与子查&#35810;或列表中的值相匹配。 <br>
+　　IN &#20851;&#38190;字使您得以&#36873;&#25321;与列表中的任意一&#20010;值匹配的行。 <br>
+　　&#24403;要&#33719;得居住在 California、Indiana 或 Maryland 州的所有作者的姓名和州的列表&#26102;，就需要下列查&#35810;： <br>
+　　SELECT ProductID, ProductName FROM Northwind.dbo.Products WHERE CategoryID = 1 OR CategoryID= 4 OR CategoryID = 5 <br>
+　　然而，如果使用 IN，少&#38190;入一些字符也可以得到同&#26679;的&#32467;果： <br>
+　　SELECT ProductID, ProductName FROM Northwind.dbo.Products WHERE CategoryID IN (1, 4, 5) <br>
+　　IN &#20851;&#38190;字之后的&#39033;目必&#39035;用逗&#21495;隔&#24320;，并且括在括&#21495;中。 <br>
+　　下列查&#35810;在 titleauthor 表中查找在任一种&#20070;中得到的版&#31246;少于 50% 的所有作者的 au_id，然后&#20174; authors 表中&#36873;&#25321; au_id 与 <br>
+　　titleauthor 查&#35810;&#32467;果匹配的所有作者的姓名： <br>
+　　SELECT au_lname, au_fname FROM authors WHERE au_id IN (SELECT au_id FROM titleauthor WHEREroyaltyper &lt;50) <br>
+　　&#32467;果&#26174;示有一些作者&#23646;于少于 50% 的一&#31867;。 <br>
+　　NOT IN:通&#36807; NOT IN &#20851;&#38190;字引入的子查&#35810;也返回一列零值或更多值。 <br>
+　　以下查&#35810;查找&#27809;有出版&#36807;商&#19994;&#20070;籍的出版商的名&#31216;。 <br>
+　　SELECT pub_name FROM publishers WHERE pub_id NOT IN (SELECT pub_id FROM titles WHERE type= 'business') <br>
+　　使用 EXISTS 和 NOT EXISTS 引入的子查&#35810;可用于&#20004;种集合原理的操作：交集与差集。 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#20004;&#20010;集合的交集包含同&#26102;&#23646;于&#20004;&#20010;原集合的所有元素。 <br>
+　　差集包含只&#23646;于&#20004;&#20010;集合中的第一&#20010;集合的元素。 <br>
+　　EXISTS:指定一&#20010;子查&#35810;，&#26816;&#27979;行的存在。 <br>
+　　本示例所示查&#35810;查找由位于以字母 B &#24320;&#22836;的城市中的任一出版商出版的&#20070;名： <br>
+　　SELECT DISTINCT pub_name FROM publishers WHERE EXISTS (SELECT * FROM titles WHERE pub_id= publishers.pub_id AND type = <br>
+　　'business') <br>
+　　SELECT distinct pub_name FROM publishers WHERE pub_id IN (SELECT pub_id FROM titles WHEREtype = 'business') <br>
+　　&#20004;者的&#21306;&#21035;: <br>
+　　EXISTS:后面可以是整句的查&#35810;&#35821;句如:SELECT * FROM titles <br>
+　　IN:后面只能是&#23545;&#21333;列:SELECT pub_id FROM titles <br>
+　　NOT EXISTS: <br>
+　　例如，要查找不出版商&#19994;&#20070;籍的出版商的名&#31216;： <br>
+　　SELECT pub_name FROM publishers WHERE NOT EXISTS (SELECT * FROM titles WHERE pub_id =publishers.pub_id AND type = <br>
+　　'business') <br>
+　　下面的查&#35810;查找已&#32463;不&#38144;售的&#20070;的名&#31216;: <br>
+　　SELECT title FROM titles WHERE NOT EXISTS (SELECT title_id FROM sales WHERE title_id =titles.title_id) <br>
+<br>
+&#35821;法 <br>
+<br>
+EXISTS subquery <br>
+&#21442;&#25968; <br>
+subquery:是一&#20010;受限的 SELECT &#35821;句 (不允&#35768;有 COMPUTE 子句和 INTO &#20851;&#38190;字)。有&#20851;更多信息，&#35831;&#21442;&#35265;SELECT 中有&#20851;子查&#35810;的&#35752;&#35770;。 <br>
+<br>
+&#32467;果&#31867;型:Boolean <br>
+<br>
+<br>
+&#32467;果值:如果子查&#35810;包含行，&#21017;返回 TRUE。 <br>
+<br>
+<br>
+示例 <br>
+A. 在子查&#35810;中使用 NULL 仍然返回&#32467;果集 <br>
+<br>
+&#36825;&#20010;例子在子查&#35810;中指定 NULL，并返回&#32467;果集，通&#36807;使用 EXISTS 仍取值&#20026; TRUE。 <br>
+<br>
+USE Northwind <br>
+GO <br>
+SELECT CategoryName <br>
+FROM Categories <br>
+WHERE EXISTS (SELECT NULL) <br>
+ORDER BY CategoryName ASC <br>
+GO <br>
+<br>
+B. 比&#36739;使用 EXISTS 和 IN 的查&#35810; <br>
+<br>
+&#36825;&#20010;例子比&#36739;了&#20004;&#20010;&#35821;&#20041;&#31867;似的查&#35810;。第一&#20010;查&#35810;使用 EXISTS 而第二&#20010;查&#35810;使用 IN。注意&#20004;&#20010;查&#35810;返回相同的信息。 <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT DISTINCT pub_name <br>
+FROM publishers <br>
+WHERE EXISTS <br>
+&nbsp;&nbsp;&nbsp; (SELECT * <br>
+&nbsp;&nbsp;&nbsp; FROM titles <br>
+&nbsp;&nbsp;&nbsp; WHERE pub_id = publishers.pub_id <br>
+&nbsp;&nbsp;&nbsp; AND type = /'business/') <br>
+GO <br>
+<br>
+-- Or, using the IN clause: <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT distinct pub_name <br>
+FROM publishers <br>
+WHERE pub_id IN <br>
+&nbsp;&nbsp;&nbsp; (SELECT pub_id <br>
+&nbsp;&nbsp;&nbsp; FROM titles <br>
+&nbsp;&nbsp;&nbsp; WHERE type = /'business/') <br>
+GO <br>
+<br>
+<br>
+下面是任一查&#35810;的&#32467;果集： <br>
+<br>
+pub_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+---------------------------------------- <br>
+Algodata
+Infosystems&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+New Moon
+Books&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+C.比&#36739;使用 EXISTS 和 = ANY 的查&#35810; <br>
+<br>
+本示例&#26174;示查找与出版商住在同一城市中的作者的&#20004;种查&#35810;方法：第一种方法使用 = ANY，第二种方法使用EXISTS。注意&#36825;&#20004;种方法返回相同的信息。 <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT au_lname, au_fname <br>
+FROM authors <br>
+WHERE exists <br>
+&nbsp;&nbsp;&nbsp; (SELECT * <br>
+&nbsp;&nbsp;&nbsp; FROM publishers <br>
+&nbsp;&nbsp;&nbsp; WHERE authors.city = publishers.city) <br>
+GO <br>
+<br>
+-- Or, using = ANY <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT au_lname, au_fname <br>
+FROM authors <br>
+WHERE city = ANY <br>
+&nbsp;&nbsp;&nbsp; (SELECT city <br>
+&nbsp;&nbsp;&nbsp; FROM publishers) <br>
+GO <br>
+<br>
+<br>
+D.比&#36739;使用 EXISTS 和 IN 的查&#35810; <br>
+<br>
+本示例所示查&#35810;查找由位于以字母 B &#24320;&#22836;的城市中的任一出版商出版的&#20070;名： <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT title <br>
+FROM titles <br>
+WHERE EXISTS <br>
+&nbsp;&nbsp;&nbsp; (SELECT * <br>
+&nbsp;&nbsp;&nbsp; FROM publishers <br>
+&nbsp;&nbsp;&nbsp; WHERE pub_id = titles.pub_id <br>
+&nbsp;&nbsp;&nbsp; AND city LIKE /'B%/') <br>
+GO <br>
+<br>
+-- Or, using IN: <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT title <br>
+FROM titles <br>
+WHERE pub_id IN <br>
+&nbsp;&nbsp;&nbsp; (SELECT pub_id <br>
+&nbsp;&nbsp;&nbsp; FROM publishers <br>
+&nbsp;&nbsp;&nbsp; WHERE city LIKE /'B%/') <br>
+GO <br>
+<br>
+<br>
+E. 使用 NOT EXISTS <br>
+<br>
+NOT EXISTS 的作用与 EXISTS 正相反。如果子查&#35810;&#27809;有返回行，&#21017;&#28385;足 NOT EXISTS 中的 WHERE 子句。本示例查找不出版商&#19994;&#20070;籍的出版商的名&#31216;： <br>
+<br>
+USE pubs <br>
+GO <br>
+SELECT pub_name <br>
+FROM publishers <br>
+WHERE NOT EXISTS <br>
+&nbsp;&nbsp;&nbsp; (SELECT * <br>
+&nbsp;&nbsp;&nbsp; FROM titles <br>
+&nbsp;&nbsp;&nbsp; WHERE pub_id = publishers.pub_id <br>
+&nbsp;&nbsp;&nbsp; AND type = /'business/') <br>
+ORDER BY pub_name <br>
+GO<br>
+<br>
+</body>
+</html>

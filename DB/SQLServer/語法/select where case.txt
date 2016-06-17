@@ -1,0 +1,32 @@
+Declare @C1 nvarchar(10);
+Declare @C2 nvarchar(10);
+Declare @C3 nvarchar(8);
+set @C1='欄位1';
+set @C2='欄位2';
+set @C3='20140101';
+ 
+SELECT *
+         FROM  dbo.TABLE
+         WHERE    
+         Col1=     --必須完全相等，nvarchar
+              case when ISNULL(@C1,'')='' then
+                   Col1
+              else
+                   @C1
+              end
+         and
+         Col2 like --like 
+             case when ISNULL(@ODL_ListName,'')='' then
+                   '%%'
+             else
+                   '%'+@C2+'%'
+             end
+         and  
+         convert(nvarchar(8),C3,112) >=  --DateTime  format:112 ==>20140101
+             case when ISNULL(@C3,'')='' then
+                  convert(nvarchar(8),C3,112)
+             else
+                  @C3
+             end
+ 
+//結論，雖然這個東西很好用，但是case when本來就比較耗效能，如果不是一定要使用，還是能免則免為佳!

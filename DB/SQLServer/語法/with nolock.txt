@@ -1,0 +1,7 @@
+ref
+http://www.dotblogs.com.tw/ricochen/archive/2014/05/04/144966.aspx
+
+但如果其他交易rollback可能會導致query讀取到未commited資料(dirty read)
+
+use in 上個月帳單
+

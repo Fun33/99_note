@@ -1,0 +1,15 @@
+﻿--EXEC sp_helpserver 
+declare @_server  nvarchar(50)     --这里是给链接服务器取的别名，想取什么名就取什么
+set @_server  ='%LinkServer%'    
+IF EXISTS
+    (
+        SELECT *
+        FROM sys.servers s
+            INNER JOIN sys.linked_logins l ON s.server_id = l.server_id
+        WHERE s.is_linked = 1
+              AND name = @_server
+    )
+begin
+	EXEC sp_droplinkedsrvlogin @rmtsrvname = @_server , @locallogin = NULL 
+	EXEC sp_dropserver @server = @_server  
+end

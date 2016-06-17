@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[_sessioninfo](
+    [id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [host_name] [nvarchar](128) NULL,
+    [program_name] [nvarchar](128) NULL,
+    [login_name] [nvarchar](128) NULL,
+    [nt_user_name] [nvarchar](128) NULL,
+    [process_time] [datetime] NULL DEFAULT (getdate()),
+) ON [PRIMARY]
+go
+REATE TRIGGER dbo.T1_Delete_Trigger
+   ON  dbo.T1 AFTER DELETE
+AS 
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO dbo._sessioninfo ( host_name,program_name,login_name,nt_user_name ) 
+        SELECT host_name,program_name,login_name,nt_user_name FROM sys.dm_exec_sessions 
+            WHERE session_id = @@SPID
+END
+GO
+
+配合 @@SPID 取得命令的 Session ID 之後，透過 dm_exec_sessiobs 這個 DMV 來取得該 Session 連線的資訊，並且將這些資訊存放到 _sessioninfo 這個 Table 內。因此只要對這個 Table 刪除資料的時候，我們就會知道這個命令是從哪台電腦上使用哪個帳號登入 SQL Server 所下的指令。
