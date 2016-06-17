@@ -1,0 +1,12 @@
+[起頭]
+installutil.exe看起來怎麼都像是Command Line應用程式
+http://kmmr.pixnet.net/blog/post/33002186-%E4%BD%BF%E7%94%A8visual-studio(c%23)%E6%92%B0%E5%AF%ABwindows-service
+
+Q : 什麼是Command Line應用程式
+Ans : 
+這是一個以文字為主的應用程式，可以查看、處理並且控制你電腦裡的檔案們
+所以只要是文字為主的應用程式,都叫做Command Line應用程式
+EX: Window 打下cmd跑出的東西
+EX: Terminal
+EX: Visual Studio 命令提示字元 (2010)
+

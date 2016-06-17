@@ -1,0 +1,41 @@
+原來合成是這樣用
+http://antrash.pixnet.net/blog/post/95319070
+
+可以再想想,什麼時侯適合用它
+
+=========================
+動物,人,狗,鳥
+有的動物會飛,有的不會
+有的動物會走,有的不會.有的用4foot走,有的用2foot走
+
+public NoWalk : Walker{}
+public TwoFootWalk : Walker{}
+public FourFootWalk : Walker{}
+public NoFlyer : Flyer{}
+public Flyer : Flyer{}
+
+class Animai {
+  public Walker walker;//Walker跟Flyer皆為介面//代表動物會有這兩個介面組合而成。此及對會變動的部分：『多用合成、少用繼承』的概念。
+  public Flyer flyer; 
+
+  //others common methods
+   … //各動物會用到不會變得寫在此，供後續的子類別使用。
+}
+
+class Person {
+	public Person() 	{
+	walker = new TwoFootWalk();//在此決定person走路的方式
+	flyer = new NoFlyer();
+	}
+}
+
+class Dog {
+	Public Dog(){
+	walker = new FourFootWalk(); //在此決定dog走路的方式
+	flyer = new NoFlyer();
+	}
+}
+
+Animal a = getAnimal(); //取得一個實體動物，可能為Person、Dog、Bird
+a.walker.walk();
+a.flyer.fly();

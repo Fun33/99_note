@@ -1,0 +1,15 @@
+allenkuo 艾倫郭 格子樑
+Consolas 字型 
+
+Windows\SysWOW64 目錄放置所有 32位元的元件.
+
+委派怎麼做,event怎麼做,很清楚.(event要用到委派)
+
+應徵人與被應徵的心血文章
+
+非常著迷OOP,覺得它是救星,但又不是很會用.只能一邊寫一邊看,慢慢領悟其中奧妙~~
+
+int[] intSource = { 1, 1, 2, 2, 4, 3, 2 }; 
+var intSrc=(from int intItem in intSource orderby intItem select intItem).Distinct(); 
+DropDownList1.DataSource = intSrc; 
+DropDownList1.DataBind();

@@ -1,0 +1,228 @@
+二元樹 = binary tree
+===============================
+1.input→output
+→就是用演算法算,用資料結構裝東西.
+
+Q:怎麼找出8
+	1.一個個的問,你是7嗎,你是7嗎.如果有N個,可能就要問N次
+	2.先排序→再往中間問,你是7嗎→不是→那7比你大嗎→往右邊,再找中間問
+						↓
+					往左邊,再找中間問
+	(1,2,3,4,5,6,7	問4→問6→問7	共問3次)
+
+*驚一,原來是這樣啊.一個個問.和先排好,再從中間開始問起.這就是方法啊.
+
+
+2.介紹一個演算法-heap
+它是一個二元樹.
+特性:	1.頂端比左下,右下小.
+	2.新增由上至下,由左至右.
+功能:
+	1.新增
+	2.拿最小的
+達成:	
+	1.新增在最後+比大小移動
+	2.拿取最小,用最後拿到最大+比大小移動.
+
+
+3.用程式實作Heap演算法
+	1.用arrary裝
+	2.用二元樹的規律.頂端K.左下為2K,右下為2K+1,得知位置,以取值比較
+	2.用二元樹的規律.下方K,上方為K/2的整數,得知位置,以取值比較.
+
+*驚二,原來K,2K,2K+1,原來有這種規律.
+*一直想,新增從最後,那怎麼達到頂端最小,原來是因為有一個比大小的移動.
+
+======================================
+Merge sort
+一個排序的方法
+它就是切成一半,再切一半,再切一半,全都切完之後,
+在最小的,開始排序.全部排完後.
+再合併(比,小的拿出來),完成這layer的合併後,再往上合併(比,小的拿出來)
+
+怎麼實作呢
+===============================================
+實作insertion sort	https://youtu.be/V2ZUQilWDSM
+>原來是這樣做啊,跟前一個比的方式是這樣啊for (j=i-1)
+
+=======================
+C怎麼實作list
+https://youtu.be/UOOaKsIVBlk
+
+============================
+什麼是heap
+什麼是Merge sort
+什麼是insertion sort
+什麼是Graph(括f)	https://youtu.be/LXaKETjJlFc
+	點/連接/方向(Directed graph)/標連接線長度
+
+什麼是Tree		https://youtu.be/LXaKETjJlFc	06:00開始
+	1.conneted
+	2.no cycle
+
+什麼是binary search tree	就是頂端比左下小,比右下大
+
+==========================
+什麼是BFS Breadth First Search	https://youtu.be/dJX1WkdbBj8
+	從起點,拜訪所有的點.
+	把起點記錄0,一步到的記錄1,2步到的記錄2.
+	1就是0的nebiger
+	這是演算法.怎麼用資料結構來實作呢.用Q就可以了.	還沒看,等等再來看.
+	visted Q	
+	by indation
+	距離為K+1
+
+什麼是DFS Depth First Search	https://youtu.be/f-aMgGPVUG8
+	從起點,拜訪所有的點.	
+	這個方向,走到不能走,再回頭.
+
+
+什麼是Level order (BFS)		https://youtu.be/27ZOm-4AT04
+	就是BFS.
+
+什麼是pre,post,in [rooted ordered binary tree](DFS)	https://youtu.be/27ZOm-4AT04
+	euler tour on tree.
+	印出來的時間.
+	1.剛來就印.pre order
+	2.第一個路線回來才印.in order
+	3.第二個路線回來才印.post order
+
+什麼是Expression Tree	https://youtu.be/I6qdMYYrX0o	4:30
+	居然有這種tree.這種tree要做什麼呢
+	哦.它可以save運算式.然後就能運算了.
+	它是一個資料結構.它可以用來save運算.
+	左右是不是都是數字.如果不是再往下.如果是就運算.
+	用DFS演算法,就可以了.
+
+什麼是Postfix Notation(543*-2+)	https://youtu.be/I6qdMYYrX0o
+	aprater = opertor
+	543*-2+
+	543*→5 4*3→512
+	512-→5-12→-7
+	-72+→-5
+
+什麼是Infix Conversion	https://youtu.be/sB_KN0r1swA
+	這就是5-4*3+2
+什麼是postfix 
+	Infix		postfix
+	5-4*3+2    →	543*-2+
+	優先順序precedence(p-sir-dence).先乘除後加減.
+	left to right.
+
+什麼是DFS on Directed Graph
+	是個演算法
+	隨便找一個走,第一個標,回頭+1,方向正確才走.
+	finish就放入stack.
+
+什麼是Two Alaorithms
+	是個演算法
+
+
+======================================
+什麼是binary search tree	就是頂端比左下小,比右下大
+實作Binary Search Tree(BST)	https://youtu.be/1eVRJm2LkuY
+規則：
+	什麼是binary search tree	就是頂端比左下小,比右下大
+	它是一個binary tree,	order binary tree
+	用in xx的話,就能由小排到大.
+	每個值都不一樣.(其實也可以一樣)
+		
+	要有這些功能	怎麼做			要有這些功能	怎麼做
+	Query					Update
+	1.what min	一路往左就是min		Insert(K)	跟search(K)一樣的事情.然後放在該在的位置.
+	2.what max	一路往右就是max		Delete(K)	跟search(K)一樣的事情.leaf直接刪.如果不是left,就把原本的刪掉,放入最左邊的值,然後再把原最左的右邊和最後一個串在一起.
+	3.Search(K)k在不在這裡面.	如比K小,就走右.如果比K大就走左.一直比下去.		
+	4.Predecessor(K)找不到K的話,找比K小的.	往左下找,最右邊(右邊右邊右到最後一個右)
+	5.Successor(K)	找不到K的話,找比K大的.	往右下找,最左邊(左邊左邊左到最後一個左)
+
+	缺:連續遞增,連續遞減,會有skew的狀態.skew會怎麼樣.會比對太多次.
+
+================================
+什麼是BF balance Factor=算左方的高度-算右邊的高度=每個node都會有balance factor.
+
+什麼是AVL(Adelson-VelskII Landis) Tree
+	解決binary tree skew的缺點.
+	balances tree
+	如果balance factor of each node be -1,0,1,那就是個AVL Tree.	
+	in/en時,保持它的平衡.下點功失.
+
+===========================
+什麼是harddisk	
+	CPU		只能看到RAM.	
+	↑↓
+	RAM(Mbyte)	RAM能和HD溝通.
+	↑↓
+	HD	I/O operation [read/write 1 page BByte](以一個disk page來傳輸)	
+		磁化資訊.用電磁波原理來讀.
+		只需要read 1bit,但都來了,就把一個disk page都讀了.	
+
+	
+什麼是B-Tree	https://youtu.be/1atP2NYsDmo
+	在harddisk放資料.而且可以查很快.
+	find max	https://youtu.be/1atP2NYsDmo
+	看不懂了.什麼情況,會存數值,要找最大.	
+
+	
+什麼是Hashing	https://youtu.be/Wv8PDgLpI0c
+	它是資料結構.
+	*hash brown薯餅	hash是打亂.brown是金黃色.
+	它解決什麼問題呢
+	它怎麼放 by hash function	H(x)=X平方+3X mod 6.	isbetter.
+	用link串起來.看不懂,先跳過.
+
+==================
+https://youtu.be/q1I3zRMIjs4
+在用電話找人時,希望可以打J就出現John,Jack,Jason,打Ja,就會出現Jack,Jason讓我們選
+怎麼對以下名子做索引?
+John
+Jack
+Jason
+Mary
+Tome
+方法1:用tree,一個node,記錄一個字母.所以第一個節點底下,會有3個節點分別是J,M,T
+	省空間.又加速.
+	Trie(音類似try)
+	RE "Trie" VAL
+	
+=========================
+suffix這咧擱聽沒啊	https://youtu.be/q1I3zRMIjs4
+
+
+錄音同學沒法度說話,真辛苦.
+
+什麼是Indexing strings	
+什麼是digital Trie
+什麼是Suffix Tree
+什麼是Suffix Array
+*Suffix字尾
+
+
+=============================
+
+什麼是balanced 括號
+https://youtu.be/zSRiXeA85ac
+
+什麼是Josephus
+https://youtu.be/5rVSCJAzA4w
+
+========================
+用stack解balance括號	https://youtu.be/zSRiXeA85ac
+
+
+用circular Queue解Josephus	https://youtu.be/5rVSCJAzA4w
+
+
+=============================
+實作list 	https://youtu.be/PeKRPlXFNK0
+實作list-delete	https://youtu.be/vBq1O9wWDTM
+
+實作演算法BFS Breadth First Search	https://youtu.be/dJX1WkdbBj8
+實作演算法DFS				https://youtu.be/f-aMgGPVUG8
+
+
+==========================
+用什麼方法desc
+
+=======================
+
+

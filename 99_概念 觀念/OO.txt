@@ -1,0 +1,40 @@
+SOLID	http://irw.ncut.edu.tw/peterju/se.html#structured
+
+S	SRP	a class should have only a single responsibility
+O	OCP	做好的,不要改.要加功能,請寫新code.	??確認理解是否正確??怎麼寫呢
+L	LSP	繼承爸爸,就不要改爸爸的東西.	??確認理解是否正確
+I	ISP	interface越小越好,不要Interface Contamination
+D	DIP	要用interface,不要直接讀class.
+CARP	儘量使用合成/聚合，少用繼承。
+http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29
+
+
+LSP	Liskov Substitution principle
+程序中的對象應該是可以在不改變程序正確性的前提下被它的子類所替換的
+子類別應該可以使用其基礎類別替代 。	??意思就是父子方法要相同?
+只有當衍生類別可以替換掉基礎類別，且軟體的功能不受影響時，其類別才算真正的被重複使用，而衍生類別也才能夠在基礎類別的基礎上增加新的行為。
+??子能換掉父
+
+http://teddy-chen-tw.blogspot.tw/2012/01/4.html
+
+DIP
+缺:class會很多
+class之間的耦合關係，要多墊一層interface/abstract來隔開。
+透過interface來表述抽象的行為
+ex:茶就要包成紅茶/綠茶
+program to an interface,  not an implementation 
+http://ithelp.ithome.com.tw/question/10055368
+
+OCP the Open-Closed Principle
+Software entities (class, modules, functions, etc.) should be open for extension, but closed for modification.
+解決問題:牽一髮,動全身.
+增加function.不要改原有function
+一個軟體個體應該要夠開放使得它可以被擴充，但是也要夠封閉以避免不必要的修改。 
+因為通常改變的都是實作內容，當需要抽換邏輯時，只需要改變注入的concrete class即可。
+符合開放封閉原則。
+http://teddy-chen-tw.blogspot.tw/2011/12/2.html
+
+CARP Composition / Aggregation Principle ; CARP
+儘量使用合成/聚合，少用繼承。
+能夠用HAS-A就不要用IS-A。
+

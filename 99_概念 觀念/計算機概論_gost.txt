@@ -1,0 +1,13 @@
+disk-to disk兩顆硬碟對拷
+disk-to image硬碟到檔案
+disk-from image從檔案還原到硬碟
+partition-to disk單一磁區到硬碟
+partition-to image單一磁區到檔案
+partition-from image從檔案還原到單一磁區
+
+disk硬碟
+image檔案
+partition單一磁區
+
+單一磁區，何謂單一磁區?就是一顆HD可能分割多槽。而一個槽，稱一個磁區。
+

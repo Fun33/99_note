@@ -1,0 +1,29 @@
+聽了指標的觀念,覺得很開心.(看C++utube教學懂的)
+
+每個變數,都會被分配一塊記憶體.
+通常我們用透由變數在做存取.
+但指標呢.是直接記住人家的編號,把自己變成那個變數,跑去存取.
+
+=============
+59141916
+
+2.1.1.
+2.1.2.Defining Performance
+ 
+想要能做好程式分析.
+藕合降低,鬆散
+
+
+
+
+
+===================
+這個event是掛在什麼上面
+為什麼參考了assembly,它是用了OS的什麼嗎?
+
+幹嘛寫這段,感覺沒用處啊.
+    [EventClass]
+    public class LceClass : ServicedComponent, ILceMsg
+    {
+        public void EventMethod(string message){}
+    }

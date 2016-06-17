@@ -1,0 +1,36 @@
+PL函數的開頭地址在Compile time或Link time就已經決定好了,
+
+
+訊息傳遞機制[2]
+        Procedure Language以函數作為寫作和執行的主體。
+函數由一群程式碼所組成,函數的開頭地址在Compile time或Link time就已經決定好了,
+而在Runtime呼叫函數時給予適當的參數。函數和記憶體之間沒有關聯性,
+而且函數A可以被任何其他函數呼叫,程式語言並沒有特別的規範。
+
+Object-Oriented Language以Class作為寫作的主體,執行時主要由Object來紀錄程式狀態。
+由於物件導向程式語言將Object Variable和Object Method一起定義在Class內,
+再透過Encapsulation的機制規範存取Object Member的範圍,因此Object的Variable和Method就組成了一個完整的個體。
+雖然Object Method寫起來就像Function,但執行Method內程式碼的機制和Function不同:
+Object Method定義物件接受到訊息時的反應, 也就是說執行Method時有一個隱形的參數, 意即這個物件(this)
+Function的實際地址在Compile或Link time就已經決定好了, 
+但對OO來說, Object必須在Runtime接受到訊息後, 才能決定實際要執行的Method。
+?是因為PL早就被new了嗎?而OO是在new時才被new.
+
+OO中使系統能具備彈性跟動態擴充的利器：Polymorphism(多型)。
+多型色是OO四大特色中對初學者而言較為抽象的概念，
+簡單來說多型只是想延後function binding的時間，等到執行時期才決定要呼叫哪一個function。
+如此，可使程式的執行不在於編譯時期決定，而延後到執行期間才動態決定呼叫何者。
+例如：編譯時期只定義動物有一個walk() function，
+而在執行期間若為獅子那就動態呼叫獅子此類別的walk() function；
+反之若為人那就動態呼叫人此類別的walk() function。
+
+現實世界中多型就是相同的稱呼方式以不同的形式存在著，試想一句想同的話以不同的音調呈現，就會變成不一樣的意思存在著。
+舉例來說，光一個『哈！』有可能是乾笑、嘲笑、會心一笑…諸多的意思存在，這其實就是很好的多型概念，
+一個相同的訊息在不同的時空環境跟語調配合下，就會產生出讓人感覺不一樣的意思存在，這不就是『同名異式』。
+而『哈！』的實際意思總是要到實際發生的時間點視情況而定，才知道當下的意思，而當下不就是runtime的概念，
+而runtime才決定意思，不就是dyanmic binding的概念～～
+想通了嗎？...現實生活中本來就存在了多型的概念，而程式的語法設計上只是將實際存在的概念加以抽象化成語法形式來表現，其目的都是為了將真正的行為，用程式來加以反應。
+>還是不懂,function不也是視人家丟什麼給他來決定嗎
+>上一個還懂一點,它說要等到new的時侯才知道要讓誰叫呢.
+
+ 

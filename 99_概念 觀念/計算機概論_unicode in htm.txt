@@ -1,0 +1,91 @@
+http://topic.csdn.net/t/20031013/10/2348785.html
+
+Java繁體中文處理完全攻略（一） 
+
+ 許多人用 Java 處理到中文資料時，常會出現亂碼。關於 Java 和中文相容性的問題，實在讓許多程式員為此傷透腦筋，相關的問題每隔幾天就會出現在網路上。為了舒緩您緊蹙的眉頭，我特別寫了這系列文章，解說 Java 牽涉到文字時的內部處理方式，供讀者參考。讀完本系列文章之後，不求甚解者可以治標，充分理解者可以治本。本文貴在原理解說，別光是囫圇吞棗。
+
+ 快速解決之道 
+
+如果你目前正遭遇到 Java 和中文不相容的問題，請你注意下面這幾點，說不定問題能馬上迎刃而解：
+
+1.          檢查作業系統設定：先檢查你的作業系統，確定國籍語言資料是「Traditional Chinese（Taiwan）」。國籍語言資料的設定會影響 Java 編譯器與JRE的判斷。我之前就是因為國籍資料設定不正確，出了一堆 Java 和中文不相容的怪事。
+
+2.          更新 Java 環境版本：改用最新版的 JDK，新版本的 JDK 說不定已經解決你原有的問題。請注意：某些 Java IDE 所用的編譯器和 JRE 是不相容於中文的（我遇過這樣的情形），你最好能把 Java IDE 的 JDK 指到新版的 JDK。另外，如果資料庫取回的資料是亂碼，換別套或者更新 JDBC 驅動程式試試看。
+
+如果還是無法解決，請詳細閱讀下面各小節的內容，仔細推敲你的錯誤所在。
+
+Unicode、UTF-16、UTF-8 
+
+Java 內部處理字元使用的字序方式是 Unicode，這是一種通行全球的編碼方式。Unicode 因為必須將中、韓、日、英、法、阿拉伯……等許多國家所使用的文字都納入，目前已經包含了六萬多個字元，所以 Unicode 使用了 16 個位元來為字元編碼。因為 Unicode 使用了 16 位元編碼，所以每個字元都用 16 位元來儲存或傳輸是很自然的事，這種儲存或傳輸的格式稱為 UTF-16（是不是很像戰鬥機的名字）。如果你使用到的字元都是西方字元，那麼你一定不會想用 UTF-16 的格式，因為體積比 8 位元的 Latin-1（一種擴充 ASCII 的編碼）多了一倍。所以 Unicode 另有一種儲存或傳輸的格式，叫做 UTF-8。UTF-8 的格式在編碼英文時，只需要 8 位元，但是中文則是 24 位元，所以中文字出現比例高的地方還是使用 UTF-16 比較節省空間。Java 的 Class File（也就是 bytecode）中有一欄位叫做常數區（Constant Pool），一律使用 UTF-8 為字元編碼。
+
+關於 Unicode 的編碼，請查閱「The Unicode Standard, Version 3.0」一書（Addison-Wesley 出版）；關於 UTF-8 編碼，請查閱「Java I/O」一書的 399 頁（O'Reilly 出版）。關於 Java Class File 的格式與 Constant Pool，請查閱「Java Virtual Machine」一書（O'Reilly出版）。
+
+Unicode 與繁體中文編碼的互轉
+
+雖然 Java 內部完整地使用 Unicode，但是你所使用的作業系統可不見得。以繁體中文版的 Windows 98 來說，預設的編碼方式是 MS950，這是一種相容於 Big 5的編碼方式。字串資料從 Windows 一送進 JRE，JRE 的轉碼系統馬上先把字串編碼由 MS950 轉成 Unicode，才能進行處理。字串資料由 JRE 一送出給 Windows，JRE 的轉碼系統馬上先將其由 Unicode 轉成 MS950，作業系統才能處理。
+
+想知道你的 JDK 或 JRE 會用什麼樣的編碼方式來和作業系統溝通，請執行下面的 Java 程式：
+
+public class ShowNativeEncoding {
+
+        public static void main(String[] args) {
+
+                String enc = System.getProperty("file.encoding");
+
+                System.out.println(enc);
+
+}
+
+}
+
+如果執行結果不是下面的字串之一，那麼你的作業系統國籍語言設定可能就有問題了：
+
+Big5：這是繁體中文 de facto 標準。 
+
+CNS11643：台灣的官方標準繁體中文編碼。 
+
+Cp937：繁體中文加上 6204 個使用者自定的字元 
+
+Cp948：繁體中文版 IBM OS/2 用的編碼方式。 
+
+Cp964：繁體中文版 IBM AIX 用的編碼方式。 
+
+EUC_TW：台灣的加強版 Unicode。 
+
+ISO2022CN：編碼中文的一套標準。 
+
+ISO2022CN_CNS：編碼中文的一套標準，繁體版，襲自 CNS11643。 
+
+MS950 或 Cp950：ASCII + Big5，用於台灣和香港的繁體中文 MS Windows作業系統。 
+
+Unicode：有次序記號的 Unicode。次序記號佔用兩個 byte，如果其值是0xFEFF，表示使用 big-endian（由大到小）的次序為 Unicode 編碼；如果其值是 0xFFFF，表示使用 little-endian（由小到大）的次序為 Unicode 編碼。 
+
+UnicodeBig：使用 big-endian（由大到小）的次序為 Unicode 編碼。 
+
+UnicodeLittle：使用 little-endian（由小到大）的次序為 Unicode 編碼。 
+
+UTF8：使用 UTF-8 為 Unicode 編碼。 
+
+關於 Big 5 編碼，請查閱「CJKV Information Processing」一書的附錄 H（O'Reilly出版）。
+
+編譯時的注意事項 
+
+編譯的時候，如果你不說明原始檔編碼方式的話， javac 編譯器在讀進此原始程式檔，開始編譯之前，會先去詢問作業系統檔案預設的編碼方式為何。以繁體中文 Windows 98 來說，javac 會先詢問 Windows 98，得知檔案是用 MS950 的方式編碼。然後就可以將檔案由 MS950 轉成 Unicode 編碼方式，開始進行編譯。
+
+通常在編譯階段，會造成的錯誤有下列幾種可能：
+
+如果作業系統的國籍資料設定錯誤，會造成 javac 編譯器取得的編碼資訊是錯的。 
+
+較差勁的編譯器可能沒有主動詢問作業系統的編碼方式，而是採用編譯器預設的編碼方式。 
+
+如果原始程式不是用編譯當時作業系統預設的編碼方式存檔的，也會造成錯誤。比方說，原始程式檔是台灣程式員寫的，在繁體中文版的 Windows上以 MS950 編碼存檔，再經由網路傳送到泰國，在泰文版的 Windows 上編譯（泰文版 Windows 預設的檔案編碼方式是 MS874）。 
+
+這種因為原始程式檔編碼方式和編譯器無法匹配所造成的問題，輕則編譯成功但執行時文字出現亂碼或出現 Error/Exception，重則無法成功編譯。這時候，你需要主動透過「-encoding」選項來指定原始程式的編碼方式，編譯器會以你指定的編碼為主，不會再去詢問作業系統。下面的例子，我們告訴編譯器「TaiwanClass.java」是以繁體中文版 Windows 的「MS950」編碼的：
+
+        javac –encoding MS950 TaiwanClass.java
+
+如果你手上只有某 class 檔，沒有原始程式檔，而且你確定其 constant pool 的UTF-8 欄位編碼錯誤，你有兩種方式可以用來修正編碼：
+
+先反編譯，取得原始程式，再修改，編譯。 
+
+  或者直接利用 bytecode 編輯軟體，直接修改 class 檔

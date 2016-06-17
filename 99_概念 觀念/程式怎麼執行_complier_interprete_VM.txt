@@ -1,0 +1,180 @@
+¤Ï¥¿¾÷¾¹´N¬OÅª01,¦Ó§Ú­Ì¼gªºªF¦è¨ì01³o¸Ì,­n¸g¹L´XÃö³£¥i¥H,¥u­n³Ì«á¬O01´N¦n¤F.
+
+¡¹¡¹¡¹¤@¯ë¨Ì¾Ú¸Ó³nÅéªº¯S©Ê¡A¦¹ÃþÂà´«¤u¨ã³nÅé¥i¥H¤À¬°¡G
+½sÄ¶¾¹Compiler	±N­ì©lµ{¦¡¤@¦¸Â½Ä¶¬°¥Øªºµ{¦¡«á¡A¦AÁpµ²¨ç¦¡®w©Î¬O¨ä¥L¥Øªºµ{¦¡¬°°õ¦æÀÉ*.exe(ÀÉ®×¤j©ó64K)
+²ÕÄ¶¾¹Assembler	±N²Õ¦X»y¨¥µ{¦¡Â½Ä¶¬°¥Øªºµ{¦¡¡A¦A¸g¹L³sµ²µ{¦¡¡A³sµ²¬°°õ¦æÀÉ*.com(ÀÉ®×¤p©ó64K)
+ª½Ä¶¾¹Interpreter	±N­ì©lµ{¦¡³v¦æÂ½Ä¶¬°¾÷¾¹»y¨¥¡Cµ{¦¡¨C¦¸°õ¦æ¡A¬Ò¥²¶·¸g¹LÂ½Ä¶ªº¤âÄò¡C¥çºÙ¬°¸ÑÄ¶¾¹
+
+¡¹¡¹¡¹»y¨¥±`¥ÎÂ½Ä¶¾÷ºc¥Ø«e¦³³o3ºØ¤è¦¡
+¡¹Interpreted language
+°õ¦æ®É¡A¥¦·|±Nµ{¦¡½X¤@¥y¤@¥yª½±µ§Q¥Îª½Ä¶¾¹°ÊºA±Nµ{¦¡½X³v¥yª½Ä¶¡]interpret¡^¬°¾÷¾¹½X
+¹ï­ì©lµ{¦¡½X¤@ÃäÅª¸Ñ¡A¤@Ãä°õ¦æ,©Ò¥H¤ñ¸ûª½±µÂà¦¨0101ªººC.
+Source code-VBScript language
+¡õ(Interpreter)
+01010101
+
+¡¹Compiled language
+¸g¹L½sÄ¶¾¹¥ý¦æ½sÄ¶¬°¾÷¾¹½X¡A¤§«á¦A°õ¦æ¡C³q±`¥Î©óÂ½Ä¶°ª¶¥»y¨¥¡C
+Source code-High-level language
+¡õ(compiler)
+0010101
+
+¡¹Assembler Language
+±N²Õ¦X»y¨¥µ{¦¡Â½Ä¶¬°¥Øªºµ{¦¡¡A¦A¸g¹L³sµ²µ{¦¡¡A³sµ²¬°°õ¦æÀÉ*.com(ÀÉ®×¤p©ó64K)
+
+¡¹Web Page Script Language
+»s§@¤¬°Ê¦¡ºô­¶ªº»y¨¥¡C¨Ò¦pASP¡BPHP¡BJava Script(Sun)¡B JScript(MS) ¡BWML Script(WAP¤â¾÷ªºScript¡A·½¦ÛJava Script)
+
+¡¹Hybrid Language	VM	¥ý±Nµ{¦¡½X½sÄ¶¬°bytecode¡A¦b°õ¦æ®É¦A¶i¦æª½Ä¶¡C
+¬O¤@­Óµêºc¥X¨Óªº¹q¸£¡A³q¹L¦b¹ê»Úªº¹q¸£¤W¼ÒÀÀ¼ÒÀÀ¦UºØ¹q¸£¥\¯à¨Ó¹ê²{ªº¡C
+Java	.NET
+JVM	CLR(©M¨ä¥¦ªF¦è¤@°_³Q¥]¦¨.Framework
+
+JavaµêÀÀ¾÷¦³¦Û¤v§¹µ½ªºµwÅé¬[ºc¡A¦p³B²z¾¹¡B°ïÅ|¡B¼È¦s¾¹µ¥¡AÁÙ¨ã¦³¬ÛÀ³ªº«ü¥O¨t²Î¡C
+JVM«Ì½ª¤F»P¨ãÅé§@·~¨t²Î¥­»O¬ÛÃöªº«H®§¡A¨Ï±oJavaµ{§Ç¥u»Ý¥Í¦¨¦bJavaµêÀÀ¾÷¤W¹B¦æªº¥Ø¼Ð¥N½X¡]bytecode¡^¡A
+´N¥i¥H¦b¦hºØ¥­»O¤W¤£¥[­×§ï¦a¹B¦æ¡Chttp://lagunawang.pixnet.net/blog/post/9743288-compiler%E4%BB%8B%E7%B4%B9
+
+Source code-C#
+¡õ(compiler)
+CIL·L³nªº¤¤Ä~»y¨¥(MSIL)
+¡õ(CLR¤º«Øassembler)
+Native code01010101
+
+¡¹¡¹¡¹»y¨¥¤À3ºØ
+¡¹High-level language °ª¶¥»y¨¥,¤£¨ü­­¾÷¾¹.¦pPascal¡BC¡BC++¡BC# ¡BJavaµ¥
+¡¹assembly language ²Õ¦X»y¨¥
+¬O¤@ºØ¥Î©ó¹q¤l¹q¸£¡B·L³B²z¾¹¡B·L±±¨î¾¹©Î¨ä¥L¥i½sµ{¾¹¥óªº§C¶¥»y¨¥¡A
+¦b¤£¦Pªº¸Ë¸m¤¤¡A²Õ¦X»y¨¥¹ïÀ³µÛ¤£¦Pªº¾÷¾¹»y¨¥«ü¥O¶°¡C
+¤@ºØ²Õ¦X»y¨¥±M¥Î©ó¬YºØ¹q¸£¨t²Îµ²ºc¡A¦Ó¤£¹³³\¦h°ª¶¥»y¨¥¡A¥i¥H¦b¤£¦P¨t²Î¥­¥x¤§¶¡²¾´Ó¡C
+assembly language for ¹q¸£¨t²Îµ²ºc (¤@¹ï¤@)
+¦­´Áªº¹q¸£³nÅé³£¬O¥Îassembly languageª½±µ½s¼gªº¡A³oºØª¬ªp«ùÄò¤F¼Æ¦~
+¯Ê:µLªk¦b¤£¦P¨t²Î¥­¥x¤§¶¡²¾´Ó¡C
+
+¡¹Machine code/Object code/Native Code
+¬O¹q¸£ªºCPU¥iª½±µ¸ÑÅªªº¸ê®Æ¡C¤£¦P«¬¸¹ªº¹q¸£¨ä¾÷¾¹»y¨¥¬O¤£¬Û³qªº¡A«öµÛ¤@ºØ¹q¸£ªº¾÷¾¹«ü¥O½s¨îªºµ{¦¡¡A¤£¯à¦b¥t¤@ºØ¹q¸£¤W°õ¦æ¡C
+²{¦b¡A°£¤F¹q¸£¥Í²£¼t®aªº±M·~¤H­û¥~¡Aµ´¤j¦h¼Æªºµ{¦¡³]­p®v¤w¸g¤£¦A¥h¾Ç²ß¾÷¾¹»y¨¥¤F¡C
+Q:¤£¦P¾÷«¬¾÷¾¹»y¨¥´N¤£¦P,³o»ò¥i©È,¨º½Ö¦b¼g¾÷¾¹»y¨¥ªºÂ½Ä¶³nÅé
+
+=========================
+High-level language
+¡õ(compiler)
+assembly language->
+¡õ(assembler)
+Machine code  
+
+C#-v2
+High-level language
+¡õ(compiler)
+CIL·L³nªº¤¤Ä~»y¨¥(MSIL)
+¡õ(CLR¤º«Øassembler)
+Native code01010101
+
+C#-v1
+High-level language
+¡õ(compiler)
+·L³nªº¤¤Ä~»y¨¥(MSIL)
+¡õ(assembler)
+CLR·|±NMSIL½XÂà´«¬°§@·~¨t²Îªº­ì¥Í½X¡]Native code¡^¡CCLR¤º«Ø¦³§Y®É½sÄ¶¡^½sÄ¶¾¹¡C
+
+¶}µo¤H­û¨Ï¥Î°ª¶¥µ{¦¡»y¨¥¼¶¼gµ{¦¡¡C½sÄ¶¾¹±Nµ{¦¡½X½sÄ¶¦¨·L³nªº¤¤Ä~»y¨¥(MSIL)¡C°õ¦æªº®É­ÔCLR·|±NMSIL½XÂà´«¬°§@·~¨t²Îªº­ì¥Í½X¡]Native code¡^¡CCLR¤º«Ø¦³§Y®É½sÄ¶¡^½sÄ¶¾¹¡C
+
+¤°»ò¬Ocompiler,´N¬O§âhigh level languageÂ½Ä¶¦¨assembly language
+¦Ó¾÷¾¹¥u¬ÝªºÀ´machine code,©Ò¥HÁÙ­n¥ÎassemblerÂ½Ä¶¦¨machine code
+
+¡¹High-level language °ª¶¥»y¨¥
+¦pPascal¡BC¡BC++¡BC# ¡BJavaµ¥
+
+¡¹assembly language ²Õ¦X»y¨¥
+¬O¤@ºØ¥Î©ó¹q¤l¹q¸£¡B·L³B²z¾¹¡B·L±±¨î¾¹©Î¨ä¥L¥i½sµ{¾¹¥óªº§C¶¥»y¨¥¡A
+¦b¤£¦Pªº¸Ë¸m¤¤¡A²Õ¦X»y¨¥¹ïÀ³µÛ¤£¦Pªº¾÷¾¹»y¨¥«ü¥O¶°¡C
+¤@ºØ²Õ¦X»y¨¥±M¥Î©ó¬YºØ¹q¸£¨t²Îµ²ºc¡A¦Ó¤£¹³³\¦h°ª¶¥»y¨¥¡A¥i¥H¦b¤£¦P¨t²Î¥­¥x¤§¶¡²¾´Ó¡C
+assembly language for ¹q¸£¨t²Îµ²ºc (¤@¹ï¤@)
+¦­´Áªº¹q¸£³nÅé³£¬O¥Îassembly languageª½±µ½s¼gªº¡A³oºØª¬ªp«ùÄò¤F¼Æ¦~
+¯Ê:µLªk¦b¤£¦P¨t²Î¥­¥x¤§¶¡²¾´Ó¡C
+
+¡¹Machine code/Object code/Native Code
+¬O¤@ºØ«ü¥O¶°ªºÅé¨t¡C³oºØ«ü¥O¶°¡AºÙ¾÷¾¹½X¡]machine code¡^¡A¬O¹q¸£ªºCPU¥iª½±µ¸ÑÅªªº¸ê®Æ¡C
+¾÷¾¹½X¦³®É¤]³QºÙ¬°­ì¥Í½X¡]Native Code¡^¡A
+­ì¥Í½X¡]Native Code¡^¡A³o­Ó¦Wµü¤ñ¸û±j½Õ¬YºØµ{¦¡»y¨¥©Î¨ç¦¡®w¡A¥¦»P°õ¦æ¥­¥x¬ÛÃöªº³¡¥÷
+
+¾÷¾¹»y¨¥¬O¥Î¤G¶i¦ì¥N½Xªí¥Üªº¹q¸£¯àª½±µÃÑ§O©M°õ¦æªº¤@ºØ¾÷¾¹«ü¥Oªº¶°¦X¡C
+¥¦¬O¹q¸£ªº³]­pªÌ³q¹L¹q¸£ªºµwÅéµ²ºc½á¤©¹q¸£ªº¾Þ§@¥\¯à¡C
+
+¾÷¾¹»y¨¥¨ã¦³ÆF¬¡¡Bª½±µ°õ¦æ©M³t«×§Öµ¥¯SÂI¡C
+¤£¦P«¬¸¹ªº¹q¸£¨ä¾÷¾¹»y¨¥¬O¤£¬Û³qªº¡A«öµÛ¤@ºØ¹q¸£ªº¾÷¾¹«ü¥O½s¨îªºµ{¦¡¡A¤£¯à¦b¥t¤@ºØ¹q¸£¤W°õ¦æ¡C
+
+¥Î¾÷¾¹»y¨¥½s¼gµ{¦¡¡A½sµ{¤H­û­n­º¥ý¼ô°O©Ò¥Î¹q¸£ªº¥þ³¡«ü¥O¥N½X©M¥N½Xªº²[¸q
+¤â½sµ{¦¡®É¡Aµ{¦¡³]­p®v±o¦Û¤v³B²z¨C±ø«ü¥O©M¨C¤@¸ê®ÆªºÀx¦s¤À°t©M¿é¤J¿é¥X¡A
+ÁÙ±o°O¦í½sµ{¹Lµ{¤¤¨C¨B©Ò¨Ï¥Îªº¤u§@³æ¤¸³B¦b¦óºØª¬ºA¡C
+
+³o¬O¤@¥ó¤Q¤ÀÁcº¾ªº¤u§@¡A½s¼gµ{¦¡ªá¶Oªº®É¶¡©¹©¹¬O¹ê»Ú°õ¦æ®É¶¡ªº´X¤Q­¿©Î´X¦Ê­¿¡C¦Ó¥B¡A
+½s¥Xªºµ{¦¡¥þ¬O¨Ç0©M1ªº«ü¥O¥N½X¡Aª½Æ[©Ê®t¡AÁÙ®e©ö¥X¿ù¡C
+²{¦b¡A°£¤F¹q¸£¥Í²£¼t®aªº±M·~¤H­û¥~¡Aµ´¤j¦h¼Æªºµ{¦¡³]­p®v¤w¸g¤£¦A¥h¾Ç²ß¾÷¾¹»y¨¥¤F¡C
+
+„X	«ü¥O³¡¥÷ªº½d¨Ò
+1.	0000 ¥Nªí ¸ü¤J¡]LOAD¡^
+2.	0001 ¥Nªí Àx¦s¡]STORE¡^
+„X	¼È¦s¾¹³¡¥÷ªº½d¨Ò
+1.	0000 ¥Nªí¼È¦s¾¹ A
+2.	0001 ¥Nªí¼È¦s¾¹ B
+...
+„X	°O¾ÐÅé³¡¥÷ªº½d¨Ò
+1.	000000000000 ¥Nªí¦ì§}¬° 0 ªº°O¾ÐÅé
+2.	000000000001 ¥Nªí¦ì§}¬° 1 ªº°O¾ÐÅé
+3.	000000010000 ¥Nªí¦ì§}¬° 16 ªº°O¾ÐÅé
+4.	100000000000 ¥Nªí¦ì§}¬° 2^11 ªº°O¾ÐÅé
+„X	¾ã¦X½d¨Ò
+1.	0000,0000,000000010000 ¥Nªí LOAD A, 16
+2.	0000,0001,000000000001 ¥Nªí LOAD B, 1
+3.	0001,0001,000000010000 ¥Nªí STORE B, 16
+4.	0001,0001,000000000001 ¥Nªí STORE B, 1
+
+¡¹Compiler ½sÄ¶¾¹¡]Compiler¡^
+¬O¤@ºØ¹q¸£µ{¦¡¡A
+¥¦·|±N¥Î¬YºØµ{¦¡»y¨¥¼g¦¨ªº­ì©l½X¡]­ì©l»y¨¥¡^¡AÂà´«¦¨¥t¤@ºØµ{¦¡»y¨¥¡]¥Ø¼Ð»y¨¥¡^¡C
+¥¦¥D­nªº¥Øªº¬O±N«K©ó¤H½s¼g¡A¾\Åª¡AºûÅ@ªº°ª¶¥¹q¸£»y¨¥©Ò¼g§@ªº­ì©l½Xµ{¦¡¡AÂ½Ä¶¬°¹q¸£¯à¸ÑÅª¡B°õ¦æªº§C¶¥¾÷¾¹»y¨¥ªºµ{¦¡¡A¤]´N¬O°õ¦æÀÉ¡C
+
+¤@­Ó²{¥N½sÄ¶¾¹ªº¥D­n¤u§@¬yµ{¦p¤U¡G ­ì©l½X¡]source code¡^¡÷ ¹w³B²z¾¹¡]preprocessor¡^¡÷ ½sÄ¶¾¹¡]compiler¡^¡÷ ²ÕÄ¶µ{¦¡¡]assembler¡^¡÷ ¥Øªº½X¡]object code¡^¡÷ ³sµ²¾¹¡]Linker¡^¡÷ °õ¦æÀÉ¡]executables¡^
+
+¡¹assembly language ->Machine code  ³o¤@¹Lµ{³QºÙ¬°²ÕÄ¶¹Lµ{¡C
+¨Ï¥Î²Õ¦X»y¨¥½s¼gªº­ì©l½X¡A»Ý­n³q¹L¨Ï¥Î¬ÛÀ³ªº²ÕÄ¶µ{¦¡±N¥¦­ÌÂà´«¦¨¥i°õ¦æªº¾÷¾¹½X¡C
+
+¡¹Compiler C#½d¨Ò
+«D¶ÂÅé¬O¤@¯ë;;¶ÂÅé¬OC#;;
+­ì©l½X¡]source code¡^¡÷ ¹w³B²z¾¹¡]preprocessor¡^¡÷ ½sÄ¶¾¹¡]compiler¡^¡÷ ²ÕÄ¶µ{¦¡¡]assembler¡^¡÷ ¥Øªº½X¡]object code¡^¡÷ ³sµ²¾¹¡]Linker¡^¡÷ °õ¦æÀÉ¡]executables¡^
+
+C#
+src code      
+¡õ
+compile     
+¡õ
+managed(.exe/.dll) 
+MSIL ¤¤Ä~¸ê®Æ     
+¡õ
+CLR(Common Language Runtime) ->.NET FrameworkÃþ§O®w
+¦w¥þ©Ê/°O¾ÐÅé¦^¦¬/JIT½sÄ¶¾¹     
+¡õ     
+OS
+
+ref
+https://i-msdn.sec.s-msft.com/dynimg/IC207805.png
+
+==============================²V¶Ãªº®É´Á
+Javaµ{¦¡¹B§@ªº¤è¦¡¬O±Ä¥ý½sÄ¶«áª½Ä¶¡G
+¤@¤äJavaµ{¦¡­º¥ý¥²¶·¸g¥ÑJava½sÄ¶¾¹½sÄ¶¦¨¦ì¤¸½X¡]Byte Code¡^¡A
+¦ì¤¸½X·f°tJavaµêÀÀ¾÷¾¹¡]JVM¡^«K¬OJava±o¥H¸ó¥­¥xªº­ì¦]¡A
+JVM«K¬Oª½Ä¶¾¹¡]interpreter¡^¡AÅý³o¤äJavaµ{¦¡±o¥H¦b¸Ó¥­¥x¤W°õ¦æ¡A¦p¦¹«K¥i¤£¥Î­×§ï­ì©l½X¦Óª½±µ²¾¨ì¤£¦Pªº¹q¸£¥­¥x¤W°õ¦æ¡C 
+JVM
+- ¤£¦POS´N¥Î¤£¦PªºJVM
+-JVM«K¬Oª½Ä¶¾¹¡]interpreter¡^
+-JavaµêÀÀ¾÷¾¹
+
+
+Q:C#«ç»ò­Ó²V¦Xªk
+High-level language
+¡õ(compiler)
+CIL·L³nªº¤¤Ä~»y¨¥(MSIL)
+¡õ(CLR¤º«Øassembler)
+Native code01010101
+
+Qcompiler¦b°µ¤°»ò,¬°¤°»ò¤£»Ý³Qcompiler.¨ºC­n³Qcomplier¶Ü

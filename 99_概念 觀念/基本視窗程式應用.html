@@ -1,0 +1,578 @@
+<html>
+<head>
+<title>基本視窗程式應用</title>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<link rel="stylesheet" href="../link.css">
+</head>
+<body>
+<p class="unit">1.概說</p>
+<p>計算機語言乃是人與電腦間溝通的語言，亦稱程式語言</p>
+<p>程式語言並非一經撰寫即可在電腦上執行，而是必須經過一定程序的轉換，轉換為電腦所能辨識的執行指令，方可執行。程式語言轉換的過程亦可稱為翻譯。最終轉換的結果為機器語言，只有機器語言才能在電腦上執行
+</p>
+<p class="unit">2.分類</p>
+<p>約略可分為物件導向語言與傳統的非物件導向語言兩種</p>
+<p class="item">非物件導向語言</p>
+<p>一般可以分為</p>
+<ul>
+  <li>通用程式語言：可分為機器導向語言(機器語言，組合語言)，問題導向語言(程序導向，非程序導向語言)
+  </li>
+  <li>特殊問題導向語言：應用於程式控制、數值控制、模擬控制等用途</li>
+</ul>
+<p>機器導向語言依據程式語言對硬體設備的相依性，可分為低階語言與高階語言
+</p>
+<ul>
+  <li>低階語言：對硬體系統的相依性高，例如組合語言與機器語言，對不同機種間其指令具有很大的差異性。</li>
+  <li>高階語言：以類似人類語言格式所形成的語言，對硬體系統的相依性低，所以具有極高的可攜性，可以在不同的電腦系統上編譯執行
+</li>
+</ul>
+<p>問題導向語言依程式設計模式又可分為：</p>
+<ul>
+  <li><a href="lgclass.htm">程序導向語言</a>：指一般結構化高階程式語言，例如Basic,Cobol,Pascal,Fortran,C,Ada...等 。包括有三基本機構：選擇（循序）、判斷（決策、選擇）、重複機構（迴圈）</li>
+  <li>非程序導向語言：指該類程式語言以完成工作為設計導向，例如完成電腦報表的製作，或是設計以完成文件排版格式等各類的程式語言。又稱為4GL程式語言</li>
+</ul>
+<p>第五代程式語言則是以人工智慧為主的自然語言，例如PROLOGO(法、英，推理性語言)，LISP(美，符號處理語言)語言等</p>
+<p class="item"><a name="oop"></a>物件導向語言
+</p>
+<p>Simula是第一個物件導向語言。原本是作為「模擬」用途，但其中的物件以及類別概念，成為現今物件導向語言的主要架構。（<a href="http://en.wikipedia.org/wiki/Simula">資料來源</a>）</p>
+<p>特性I</p>
+<table width="50%" border="1" cellspacing="0">
+  <tr bgcolor="eeeeee">
+    <td>物件object</td>
+    <td>訊息</td>
+    <td>類別class</td>
+    <td>繼承</td>
+  </tr>
+  <tr bgcolor="eeeeee">
+    <td>資料封裝</td>
+    <td>抽象資料型別</td>
+    <td>同名異元多元體</td>
+    <td>動態繫結</td>
+  </tr>
+  <tr bgcolor="eeeeee">
+    <td>屬性Property</td>
+    <td>事件event</td>
+    <td>方法method</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>特性II</p>
+<ul>
+  <li><span class="item">封裝encapsulation</span>：開發人員設計程式時，只要知道使用的物件具有哪些屬性以及方法即可，而無需瞭解該物件內部的設計。如此可以達到軟體IC的使用目的。可以根據類別成員的特性，設定其權限等級，以提高安全性。</li>
+  <li><span class="item">繼承inheritance</span>：子類別會分享父類別所定義的結構與行為(<span class="ref">93統測</span>)。利用常用的基本類別class衍生出子類別，並以此子類別產生新的物件提供程式設計師使用。苦以產生衍生類別，並可擴充基底類別Base class的屬性與方法，或者也可以用新的實做(Implementation) 來覆寫繼承方法。</li>
+  <li><span class="item">多型polymorphism</span>：子類別與父類別可以擁有相同名稱，但功能不同的方法，也就是子類別可以依需要改寫由父類別所定義的方法，或是屬性。亦即每一物件都包含許多不同「屬性」及眾多針對不同「事件」而回應的「方法」(<span class="ref">94統測</span>)，亦即父類別與子類別之間可以擁有相同名稱但是不同功能的方法(<span class="ref">95統測</span>)。提供統一的呼叫介面，程式自動根據不同的參數，執行不同型式的程式碼。</li>
+</ul>
+<p>相關名詞定義：</p>
+<ul>
+  <li>類別：具有類似性質、相同行為及共同關係的物件</li>
+  <li>物件：由父類別重新封裝，繼承，具有多型特性</li>
+  <li>方法（行為）：物件本身具有不變特性的行為</li>
+  <li>事件：物件本身可接受外界的刺激種類</li>
+  <li>事件驅動：因為外界刺激，使物件做出特定的反應。必須經過定義，會具有反映</li>
+  <li>屬性：描述物件的特徵</li>
+</ul>
+<p class="item">種類（連接外站：<a href="http://zh.wikipedia.org/w/index.php?title=程序???言&variant=zh-tw">維基百科</a>）</p>
+<table width="75%" border="1" cellspacing="0">
+  <tr>
+    <td width="10%" bgcolor="eeeeee">SmallTalk</td>
+    <td> 由全錄 (Xerox) 公司所發展出來的物件導向程式語言 (OOP) ，它將使用者介面的觀念帶入物件導向語言當中，目前有 DigiTalk 和Parcplace System 公司發展該語言的編譯器<font color="#999999">[<span class="ref">84商教系</span>]<br>
+    <img src="../image/flash.gif" width="20" height="10">有人稱他是人工智慧語言的一種，事實上，Object oritended 的 Language 都應該在AI 的範圍內，這怎麼說呢？ 目前 AI 的應用範疇大多在模擬，如模擬火箭發射等等，而 Object Oritended 則是模擬真實世界中各種 Object 間的交互關係。如果以此模擬的角度來思考，那 Smalltalk 可算是 AI 的軟體，C++ or Java 也算是。另外，Prolog Language 會列入 AI 的領域，那是因為它的推理機制。所以，小弟的看法和見解，一個 Language 是否會歸類為 AI 軟體，就先由 AI 的範疇來推論。目前 AI 的範疇大多在推理機制、模擬機制、Fuzzy 等等。由這方面去判斷，應可找出脈絡。[<span class="ref">編按：以上是編者與<a href="http://www.tacocity.com.tw/hades/" target="_blank">友站站長</a>鄒效唐先生討論Small Talk是不是人工智慧語言的摘要</span>]</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">C++</td>
+    <td>非常具有效能的程式語言。C++ 語言是90年代才逐漸獲得重視之以物件導向（Object-Oriented） 為基礎的程式語言，它可說是C 程式語言的的延伸，用來作為通用應用軟體之開發工具。</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">Ada</td>
+    <td><a href="http://libai.math.ncu.edu.tw/bcc16/pool/3.01.shtml">Ada語言起源</a>，<a href="http://cww.rdec.gov.tw/mis/standard92/ipcs/ada.htm">介紹</a>。Ada 是一通用之高階之程式開發語言。其特點在於能夠提供優異之資料格式管理、同時作業處理和有效之程式架構等能力。此程式語言特別適用於崁入式的即時系統、分散式作業、高可靠度之軟體發展等應用。</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">VB</td>
+    <td>Visual Basic目前在台灣市場上常見的通用性教學程式語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">VFP</td>
+    <td>Visual Foxpro 資料庫程式語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">Delphi</td>
+    <td>Object Pascal由結構嚴謹的Pascal所後續開發的視窗環境下的程式語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">Java</td>
+    <td><p><a href="http://www.sun.com" target="_blank">昇陽</a>所發展，具跨平台特性，以C++為基礎所發展</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">C#</td>
+    <td>念做c sharp，為MS新推出的程式語言，模仿Java功能，語法類似C語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">PL/1</td>
+    <td>通用語言（商用與科學用）</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">APL</td>
+    <td>A Programming Language </td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee"><a href="http://www.sybase.com.tw/gvswse/site/tw/products_solutions/pb.jsp">Power Builder</a> </td>
+    <td>Sybase資料庫的4GL開發程式</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">SDK</td>
+    <td><p>軟體開發套件（Software Development Kit, 即 SDK）一般是一些被軟體工程師用於為特定的軟體包、軟體框架、硬體平台、作業系統等建立應用軟體的開發工具的集合。</p>
+      <p>它或許只是簡單的為某個程式語言提供應用程式介面的一些檔案，但也可能包括能與某種嵌入式系統通訊的複雜的硬體。一般的工具包括用於偵錯和其他用途的實用工具。SDK 還經常包括範例代碼、支援性的技術註解或者其他的為基本參考資料澄清疑點的支援文檔。</p>
+      <p>軟體工程師通常從標的系統開發者那裡獲得軟體開發包。為了鼓勵開發者使用其系統或者語言，許多 SDK 是免費提供的。SDK 經常可以直接從網際網路下載。有時也被作為行銷手段。例如，甲產品或許會免費提供設備SDK 以鼓勵人們使用它，從而會吸引更多人由於能免費為其編寫應用程式而購買其設備。</p>
+    <p>SDK 可能附帶了使其不能在不相容的許可證下開發軟體的許可證。例如一個專有的 SDK 可能與自由軟體開發抵觸。而GPL能使 SDK 與專有軟體開發近乎不相容</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">widget</td>
+    <td>部件工具箱（widget toolkits）亦稱為GUI工具箱（GUI toolkits），在程式設計中指的某些基本的GUI的構件元素的集合。他們一般以庫或者應用程式框架的形式出現。</td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">API</td>
+    <td><p>「『電腦作業系統（Operating system）』或『程式函式庫』提供給應用程式呼叫使用的程式碼」。</p>
+    <p>其主要目的是讓應用程式開發人員得以呼叫一組常式功能，而無須考慮其底層的原始碼為何、或理解其內部工作機制的細節。API本身是抽象的，它僅定義了一個介面，而不涉入應用程式如何實現的細節。</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="eeeeee">IDE</td>
+    <td><p>整合開發環境（Integrated Development Environment，簡稱 IDE，也有人稱為Integration Design Environment、Integration Debugging Environment）是一種輔助程式開發人員開發軟體的應用軟體。</p>
+    <p>IDE通常包括程式語言編輯器、編譯器／直譯器、自動建立工具、通常還包括除錯器。有時還會包含版本控制系統和一些可以設計圖形用戶界面的工具。許多支援物件導向的現代化IDE還包括了類別瀏覽器、物件檢視器、物件結構圖。雖然目前有一些IDE支援多種程式語言（例如Eclipse、NetBeans、Microsoft Visual Studio），但是一般而言，IDE主要還是針對特定的程式語言而量身打造（例如Visual Basic）。</p></td>
+  </tr>
+</table>
+<p class="unit">3.演進</p>
+<p>計算機語言的演進歷史如下：
+<table width="60%" border="1" cellspacing="0">
+  <tr>
+    <td bgcolor="dddddd" width="10%">第一代</td>
+    <td width="20%">機器語言</td>
+    <td>由0與1所構成，電腦能直接執行的程式語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">第二代</td>
+    <td>組合語言</td>
+    <td>利用助憶碼取代數字碼，亦稱符號語言</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">第三代</td>
+    <td>程序導向語言</td>
+    <td>高階語言以1954年IBM的FORTRAN語言開始</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">第四代</td>
+    <td>非程序導向語言</td>
+    <td>4GL，,查詢語言SQL，應用程式產生器。1970年代萌芽，1980年大量使用主要應用在一般資訊查詢與報表列印，以事件驅動為主</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">第五代</td>
+    <td>自然語言</td>
+    <td>應用在人工智慧AI與所衍生的專家系統ES等特殊領域</td>
+  </tr>
+</table>
+<p>我們可以利用圖形來代表這些語言的演進與人類的關係。</p>
+<p><img src="../image/l_class.gif" width="385" height="298" align="middle">
+</p>
+<p class="unit">4.翻譯程序</p>
+<p>一般程式編寫流程為：編譯，連結／載入，執行
+<p>使用者依程式語言語法規則所撰寫的文件，稱為原始碼(source code)。將原始碼轉換為機器碼以便在電腦上執行的工具軟體，一般依據該軟體的特性，此類轉換工具軟體可以分為： 
+<table width="60%" border="1" cellspacing="0">
+  <tr>
+    <td bgcolor="dddddd">組譯器Assembler</td>
+    <td>將組合語言程式翻譯為目的程式，再經過連結程式，連結為執行檔*.com(檔案小於64K)</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">直譯器Interpreter</td>
+    <td>將原始程式逐行翻譯為機器語言。程式每次執行，皆必須經過翻譯的手續。亦稱為解譯器</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">編譯器Compiler</td>
+    <td>將原始程式一次翻譯為目的程式後，再聯結函式庫或是其他目的程式為執行檔*.exe(檔案大於64K)</td>
+  </tr>
+</table>
+<p>此類工具軟體轉換原始碼為目的碼或是可執行檔的程序，可以用下圖表示：</p>
+<p>組譯程序<img src="../image/assemble.gif" width="709" height="201" align="top"></p>
+<p>直譯程序<img src="../image/interpreter.gif" width="518" height="94" align="top"></p>
+<p>編譯程序<img src="../image/compile.gif" width="699" height="199" align="top"></p>
+<p>吾人可以列出如下的表格比較彼此間的不同： </p>
+<table width="75%" border="1" cellspacing="0">
+  <tr>
+    <td width="190" nowrap bgcolor="#9999FF">　 </td>
+    <td width="150" bgcolor="#9999FF"><div align="center"><font size="2" color="#FFFFFF">組譯</div></td>
+    <td width="150" bgcolor="#9999FF"><div align="center"><font size="2" color="#FFFFFF">直譯</div></td>
+    <td width="150" bgcolor="#9999FF"><div align="center"><font size="2" color="#FFFFFF">編譯</div></td>
+  </tr>
+  <tr>
+    <td width="200" nowrap bgcolor="#CCCCCC">目的程式</td>
+    <td width="150"><div align="center">有</div></td>
+    <td width="150"><div align="center">無</div></td>
+    <td width="150"><div align="center">有</div></td>
+  </tr>
+  <tr>
+    <td width="200" nowrap bgcolor="#CCCCCC">程式執行速度</td>
+    <td width="150"><div align="center">快</div></td>
+    <td width="150"><div align="center">慢</div></td>
+    <td width="150"><div align="center">快</div></td>
+  </tr>
+  <tr>
+    <td width="200" nowrap bgcolor="#CCCCCC">語言處理與程式執行</td>
+    <td width="150"><p align="center">編譯一次</p>
+        <p align="center">執行n次</p></td>
+    <td width="150"><p align="center">編譯一次</p>
+        <p align="center">執行一次</p></td>
+    <td width="150"><p align="center">編譯一次</p>
+        <p align="center">執行n次</p></td>
+  </tr>
+  <tr>
+    <td width="200" nowrap bgcolor="#CCCCCC">原始程式和機器的相關性</td>
+    <td width="150">機器微處理器不同，原始程式敘述不同</td>
+    <td width="150"><div align="center">與機種無關</div></td>
+    <td width="150"><div align="center">與機種無關</div></td>
+  </tr>
+  <tr>
+    <td nowrap bgcolor="#CCCCCC">語言種類</td>
+    <td>MASM</td>
+    <td><p>Perl,Python,REBOL,Ruby,HTML</p>
+      <p>通常亦稱為Script語言</p></td>
+    <td>C/C++,Delphi(Object Pascal)</td>
+  </tr>
+</table>
+<p>除了以上三者外尚有：</p>
+<ul>
+  <li>Web Page Script Language：製作互動式網頁的語言。例如ASP、PHP、Java Script(Sun)、 JScript(MS) 、WML Script(WAP手機的Script，源自Java Script) </li>
+  <li>Hybrid Language：混合式語言。例如Java，C#等，其執行效能或程式簡單性介於直譯式語言與編譯式語言之間</li>
+</ul>
+<p>在使用這些工具程式的同時，有一些特殊的工具程式必須介紹： </p>
+<table width="60%" cellspacing="0" border="1">
+  <tr>
+    <td width="20%" bgcolor="dddddd">編輯程式 editor</td>
+    <td><p>編輯原始檔案的工具程式，如PE2，MS EDIT 。在視窗環境下則以Ultra Edit最有名</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">連結程式 linker</td>
+    <td>將一個以上的目的程式與程式庫連結合併成一個可執行檔</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">載入程式 loader</td>
+    <td>將可執行檔從輔助記憶體中讀入主記憶體使執行的程式</td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">偵錯程式 debugger</td>
+    <td>協助程式設計師偵測程式錯誤點的程式</td>
+  </tr>
+</table>
+<p>近來程式語言的開發環境已經趨向IDE整合介面，使用者只需在單一環境下，便可以撰寫程式，偵錯程式，編譯程式等開發程式的過程。</p>
+<p>由於跨平台執行程式環境的需求日廣，程式必須在不同作業系統平台執行，在java環境下便有byte code （位元組碼）的產生，而微軟則推出.Net Framework的產生。 </p>
+<p class="item">Byte Code位元組碼</p>
+<ul>
+  <li> ByteCode 是給予 JVM 執行的一種虛擬機器碼，也就是給於 JVM 的指令</li>
+  <li> 反過來說，JVM 就是 ByteCode 的解譯程式</li>
+  <li> extends 的原始程式碼 (.java) 經由編譯後產生的類別檔 (.class) 就是 ByteCode 檔案</li>
+  <li> 雖然 JVM 可能因平台而異，但是所有的 JVM 都能執行 extends 的 ByteCode‧</li>
+</ul>
+<p class="item">.Net Framework</p>
+<p>為支援XML，Web Service及跨平台等特性，微軟推出此一平台。此平台除了提供共通語言執行環境外(CLR Common Language Runtime)，還提供一完整的類別程式庫(Comman Class Library)，以供程式設計師可在支援此平台的程式語言中，以程式設計師熟習的語言來開發元件及應用程式，且可輕易與其他程式設計師所開發的元件相整合。任何一個VS .Net家族的程式語言經過編譯後就是一個可以在.Net Framework執行環境中執行的中介程式碼，此中介程式碼會在實際執行時經由.Net Framework中的Just In Time Compiler將其編譯成該平台下的實際執行碼，以達到跨平台的功能。.Net Framework的角色其實就和Java的VM一樣。 而此一平台則是以C#語言為最重要的語言，其後續發展值得觀察。（連結外站：<a href="http://zh.wikipedia.org/w/index.php?title=.NET_Framework&variant=zh-tw">維基百科</a>）</p>
+<p class="unit"><a name="attr"></a>5.特性</p>
+<p>一般來說，計算機語言的結構大同小異，但是在所有的語言中，比較需要注意的有以下各點：
+</p>
+<p class="item">指令</p>
+<p>電腦系統接受指令執行運算，而這些指令便是電子控制訊號。指令分為兩部分：運算碼(Operation code)指揮電腦操作某一運算功能（例如加減乘除等），運算元(Operand)運算碼進行運算的對象（例如：待運算的文字或數值資料）。<br>
+依指令的功能一般可以分為：
+<table width="60%" border="1" cellspacing="0">
+  <tr>
+    <td width="20%" bgcolor="#CCCCCC">輸入指令</td>
+    <td>由輸入裝置擷取資料</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">輸出指令</td>
+    <td>將處理器處理好的資料，送出到顯示裝置顯示結果</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">算術指令</td>
+    <td>執行算術運算。指令中運算元可為暫存器或儲存單位之位址</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">邏輯指令</td>
+    <td>提供處理過程中的邏輯運算，包含資料間的長度、大小、或條件測試</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">搬移指令</td>
+    <td>指定資料或位址的內容複製到目標位址上</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">控制指令</td>
+    <td>改變執行的次序或狀態</td>
+  </tr>
+</table>
+<p><b>變數</b></p>
+<p>可以宣告為全域變數或是區域變數</p>
+<ul>
+  <li>全域Global變數：以Public宣告在整體程式該變數均可使用</li>
+  <li>區域Local變數：以private或是local宣告。以private宣告使用於宣告的副程式與後續呼叫副程式；以local宣告，則只能在宣告的副程式間執行。</li>
+  <li>儲存配置方式：動態Dynamic配置，程式執行時配置記憶體空間；或是靜態Static配置，程式在編譯時即配置記憶體空間</li>
+</ul>
+<p class="item">參數傳遞的方式</p>
+<p>在撰寫程式時，通常需要呼叫其他程式或是函數進行處理。呼叫其他的程式稱為主程式，被呼叫的程式稱為副程式。彼此間透過參數進行資料傳遞。主程式的參數稱為實際參數，副程式的參數稱為形式參數</p>
+<table width="100%" border="1" align="center" cellspacing="0">
+  <tr>
+    <td bgcolor="#CCCCCC">call by address</td>
+    <td>傳址呼叫（空間）。主、副程式的參數使用共同的記憶體空間，當副程式的參數改變內容值，主程式的變數亦連帶改變</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">call by value</td>
+    <td>傳值呼叫（數值）。主、副程式的變數各自擁有獨立記憶體空間，參數只是將內容值複製給引數，程式內的變數值改變，不會相互影響</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">call by name</td>
+    <td> 傳名呼叫，亦稱call by reference。主程式呼叫副程式時，將主程式中實際參數的名稱，傳給副程式中對應的形式參數，副程式中的所有形式參數名稱以實際參數的名稱代替。實際參數與形式參數，佔用相同的記憶體空間</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">call by result-value</td>
+    <td><p>主程式呼叫副程式時，將主程式中實際參數的值，傳給副程式中對應的形式參數。兩者不會佔用相同的記憶體空間　</p>
+    </td>
+  </tr>
+</table>
+<p><b>副程式</b></p>
+<p>優點：可以抒解程式撰寫的壓力，並將功能適當的分散到各個模組執行</p>
+<p>分類：程序Procedure(不一定有傳回值，或是可以傳回一個以上的值)與函數Function(只有一個傳回值)</p>
+<p class="unit"><a name="algorithm"></a>6.演算法Algorithm </p>
+<p><b>定義</b></p>
+<p>由有限的步驟組成，依照這些步驟順序執行，可以完成某一特定的工作。這些步驟稱為演算法，並且同時滿足下列條件：</p>
+<ol>
+  <li>輸入：外界可以輸入0到多項資料</li>
+  <li>輸出：至少輸出一個結果</li>
+  <li>明確性：每一個指令或是步驟必須是簡潔的，而且不含糊(unambiguous)</li>
+  <li>有限性：驗算法必須在有限步驟後結束，不能有無窮迴圈</li>
+  <li>有效性：只要以紙或筆就可以執行該演算法</li>
+</ol>
+<p>演算法均可以以程式流程圖表示，但是程式流程圖不一定能以演算法表示</p>
+<p><b>如何書寫演算法</font></b></p>
+<p>一般使用虛擬語言Pseudo-Language來書寫演算法，常見有Sparks，PASCAL-LIKE語言。其處理流程如下：</font></p>
+<p>問題需求--(設計)--&gt;演算法(Sparks)----&gt;高階語言--(編譯器)--&gt;目標機器語言</font></p>
+<p>由於電腦是依照一定的邏輯步驟來執行運算的機器，在程式設計的時候必須將問題分解為許多小步驟，然後再依一定的次序逐步執行，我們將這個用來描述問題之解決程序的方法稱作演算法。許多同學在第一次接觸程式設計時，多半不知道如何下手。一般建議：多觀摩。多看別人寫的程式，多想一想為何他要這樣寫，自己再試著模擬一次，便可以容易上手了。而應付考試的同學，則建議把常見的考試題型，記憶起來。再看到題目時，如過能夠了解題目所代表的意義，解題便十分容易了</font></p>
+<p>看一看以下這一題，你了解它的意義嗎？</font></p>
+<table width="95%" align="center">
+  <tr>
+    <td width="50%" bgcolor="#CCFFCC"><pre>
+S=0
+FOR I=1 TO 100000
+	X=INT(RND+0.5)
+	IF X=0 THEN S=S+1
+NEXT
+P=S/100000
+PRINT P
+</pre>
+    </td>
+    <td valign="top"><ul>
+      <li>X=INT(RND+.5)取出的值有幾種可能性？</font></li>
+      <li>P=S/100000所代表的意義為何？</font></li>
+      <li>想一想丟骰子，或是丟錢幣取正反面與本題的意義是否相符？</font></li>
+    </ul></td>
+  </tr>
+</table>
+<p><b>虛擬語言Pseudo-Language</b></font></p>
+<p>利用一種結合一般文字敘述、非正確的程式語言來描述演算法的程式碼，稱為 pseudo code。以下是一個排序演算法的描述碼</font></p>
+<table width="50%" border="1">
+  <tr>
+    <td><p> 排序的元素放在陣列 a 中<br>
+      </font> 　for (i = 1; i <= 陣列大小-1; i 依序加一) <br>
+        for (j = i+1; j <= 陣列大小; j 依序加一) <br>
+        if (a[i] > a[j])<br>
+        交換 a[i] 及 a[j]; <br>
+    完成排序動作。 </font></p></td>
+  </tr>
+</table>
+<p> 利用 pseudo code 可彌補程式語言敘述的不足，而又有程式語言結構化且嚴謹的敘述能力，可相當有效率的定義出一個演算法的過程，在資料結構或演算法等領域，經常使用 
+pseudo code 來描述演算法。</font></p>
+<p class="unit"><a name="flowchart"></a>7.流程圖Flow 
+  Chart </p>
+<p>乃是以圖形符號來描述程式的邏輯和處理程序。符號共分為三種： </font> </p>
+<table width="95%" border="1" align="center">
+  <tr>
+    <td width="20%">程式流程符號</font></td>
+    <td><table width="100%">
+      <tr>
+        <td width="25%"></font></td>
+        <td width="25%">輸出入</font></td>
+        <td width="25%">&nbsp;</td>
+        <td width="25%">流程流向</font></td>
+      </tr>
+      <tr>
+        <td></font></td>
+        <td>起點、終點或中斷</font></td>
+        <td>&nbsp;</td>
+        <td>連結</font></td>
+      </tr>
+      <tr>
+        <td></font></td>
+        <td>處理</font></td>
+        <td>&nbsp;</td>
+        <td>備註</font></td>
+      </tr>
+      <tr>
+        <td></font></td>
+        <td>判斷</font></td>
+        <td>&nbsp;</td>
+        <td></font></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>輸入輸出媒體符號</font></td>
+    <td><table width="100%">
+      <tr>
+        <td width="25%">&nbsp;</td>
+        <td width="25%">卡片</font></td>
+        <td width="25%"></font></td>
+        <td width="25%">線上儲存</font></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>卡片檔</font></td>
+        <td></font></td>
+        <td>磁帶檔</font></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>打孔紙帶</font></td>
+        <td></font></td>
+        <td>報表檔</font></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>鍵盤輸入</font></td>
+        <td></font></td>
+        <td>磁碟片</font></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>顯示於螢幕</font></td>
+        <td></font></td>
+        <td>卡式磁帶</font></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>作業處理符號</font></td>
+    <td><table width="100%">
+      <tr>
+        <td width="25%"></font></td>
+        <td width="25%">處理</font></td>
+        <td width="25%"></font></td>
+        <td width="25%">合併</font></td>
+      </tr>
+      <tr>
+        <td></font></td>
+        <td>排序</font></td>
+        <td></font></td>
+        <td>人工作業</font></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="95%" border="1" align="center" cellspacing="0">
+  <tr>
+    <td width="110" height="10"><div align="center">流程圖符號 </font></div></td>
+    <td><div align="center">說明</font></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../image/flowchart.gif" width="110" height="180"></div></td>
+    <td><p>本圖形乃是由Word中所擷取</font></p>
+        <table width="90%" border="1" align="center">
+          <tr>
+            <td width="25%" bgcolor="#FFCCFF">程序(處理)</font></td>
+            <td width="25%">替選處理</font></td>
+            <td width="25%" bgcolor="#FFCCFF">決策(判斷)</font></td>
+            <td width="25%" bgcolor="#FFCCFF">資料(輸入與輸出)</font></td>
+          </tr>
+          <tr>
+            <td width="25%" bgcolor="#FFCCFF">預設處理(副程式)</font></td>
+            <td width="25%">內部儲存裝置</font></td>
+            <td width="25%" bgcolor="#FFCCFF">文件(報表，列印)</font></td>
+            <td width="25%" bgcolor="#CCCCFF">多重文件</font></td>
+          </tr>
+          <tr>
+            <td width="25%" bgcolor="#FFCCFF">開始與結束點</font></td>
+            <td width="25%" bgcolor="#FFCCFF">準備(迴圈)</font></td>
+            <td width="25%">人工輸入</font></td>
+            <td width="25%">人工作業</font></td>
+          </tr>
+          <tr>
+            <td width="25%" bgcolor="#FFCCFF">連接點</font></td>
+            <td width="25%">換頁</font></td>
+            <td width="25%" bgcolor="#CCCCFF">卡片</font></td>
+            <td width="25%">打孔紙帶</font></td>
+          </tr>
+          <tr>
+            <td width="25%">匯合連接點</font></td>
+            <td width="25%" bgcolor="#CCCCFF">或</font></td>
+            <td width="25%">合訂</font></td>
+            <td width="25%">排序</font></td>
+          </tr>
+          <tr>
+            <td width="25%">抽選</font></td>
+            <td width="25%" bgcolor="#CCCCFF">合併</font></td>
+            <td width="25%">儲存裝置</font></td>
+            <td width="25%">延遲</font></td>
+          </tr>
+          <tr>
+            <td width="25%" bgcolor="#FFCCFF"><p>磁帶(</font>循序存取儲存裝置)</font></p></td>
+            <td width="25%">磁片</font></td>
+            <td width="25%"><p>磁碟(</font>直接存取儲存裝置)</font></p></td>
+            <td width="25%">顯示</font></td>
+          </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td><img src="../image/flowchartv.gif" width="279" height="387"></td>
+    <td>左側圖形乃是Visio的流程圖模板</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p class="unit">8.各種語言筆記</p>
+<p class="section"><a href="http://www.microsoft.com/taiwan/MSDN/">MSDN網站</a></p>
+<p class="section">Basic 語言</p>
+<ul>
+  <li>Quick Basic：<a href="quickbasic.htm" target="_blank">看筆記</a></li>
+  <li>Visual Basic 6：<a href="vb6.htm">看筆記</a></li>
+  <li>Visual Studio Visual Basic Express：<a href="vbstudio.htm">看筆記</a> </li>
+  <li><a href="http://sunh.hosp.ncku.edu.tw/~cww/"><img src="../image/vbnote.JPG" alt="連結外站：Visual Basic筆記" width="100" height="47" border="0"></a></li>
+  <li><a href="http://www.startvbdotnet.com/"><img src="../image/vbdotnet.gif" width="318" height="71" border="0"></a></li>
+  <li><a href="http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express">下載Visual Studio 2010</a></li>
+</ul>
+<p class="section">Cobol 語言</p>
+<ul>
+  <li><a href="cobol.htm">看筆記</a>
+  </a> </li>
+</ul>
+<p class="section">C 語言</p>
+<ul>
+  <li><a href="http://caterpillar.onlyfun.net/Gossip/CGossip/CGossip.html" target="_blank">看[c語言學習筆記]網站</a></li>
+</ul>
+<p class="section">Pascal 語言</p>
+<ul>
+  <li><a href="http://www.courseware.ust.hk/cantonese/pasframe.htm" target="_blank">看[Pascal語言及範例]網站</a></li>
+</ul>
+<p class="section">Visual Foxpro語言</p>
+<ul>
+  <li><a href="http://irw.ncit.edu.tw/peterju/vfp.html">看講義 </a></li>
+</ul>
+<p class="section">Java語言</p>
+<ul>
+  <li><a href="http://www.cs.ccu.edu.tw/~hcts92/article/java/note_java.html" target="_blank">看講義[</a>連結外站：http://www.cs.ccu.edu.tw/~hcts92/article/java/note_java.html]</li>
+  <li><a href="http://java.sun.com/" target="_blank">Java Developer Network </a></li>
+  <li><a href="http://www.oreilly.com.tw/column_sleepless.php?id=index_sleepless "><img src="../image/Sleepless2.gif" width="400" height="120" border="0"></a></li>
+</ul>
+<p class="section">Android SDK Developer</p>
+<p><img src="../image/androidsdk.png" width="50" height="50" border="0" usemap="#Map2">
+  <map name="Map2">
+    <area shape="circle" coords="23,24,18" href="http://developer.android.com/sdk/index.html" target="_blank" alt="Android SDK">
+  </map>
+</p>
+<p class="section">iOS APP SDK Developer</p>
+<p><img src="../image/ipadsdk.png" width="112" height="104" border="0" usemap="#Map">
+  <map name="Map">
+    <area shape="rect" coords="7,8,102,95" href="http://developer.apple.com/library/ios/navigation/" target="_blank" alt="iPAD SDK">
+  </map>
+</p>
+</body>
+</html>

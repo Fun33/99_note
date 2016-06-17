@@ -1,0 +1,85 @@
+
+1.直接run
+2.在command prompt
+installutil D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+installutil /u D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+
+3.
+======================
+專案的設定有哪些,那如果沒有用專案這個設定,會用預設.
+這些設定放在哪裡
+
+
+=====================
+[加入內容檔]
+專案右鍵/檢視/檔案系統/應用程式資料夾/右鍵/加入檔案輸出/選專案/選內容檔
+EX : YFY_StandCost用到4個project.其中一個project要輸出內容.而這個內容放在project/SQLFunction/xx.sql
+雖然它在SQLFunction資料夾底下,但我們在做包裝時,不需建立SQLFunction資料夾.
+只要加入輸入內容檔,就會有SQLFunction了.
+
+
+=====================
+
+原來
+沒人聽依說,依嘛說ka真歡喜.
+
+=====================
+cmd.exe和vs command prompt差別是什麼
+kay:一樣的,你看vs command prompt內容是什麼
+↓
+是bat,你看bat寫什麼
+↓
+好多屬性設定,好多情境判斷.不同情境call不同的bat.
+↓
+=====================kay說,下keyword.去想.要找什麼東西.拚命下keyword.狗的直覺.
+怎麼設定發行者
+service 發行者
+↓
+程式和功能 發行者
+↓
+visual studio 程式和功能 發行者
+↓
+visual studio 包裝 發行者
+==============================找不到具有 RunInstallerAttribute.Yes 屬性的公用安裝程式。
+ Microsoft Windows [版本 6.1.7600]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\una.liao>D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+
+C:\Users\una.liao>installutil D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+Microsoft (R) .NET Framework Installation Utility Version 4.0.30319.1
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+正在執行交易性的安裝。
+
+正在開始安裝程式的安裝階段。
+請參閱 D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe 組件進度
+的記錄檔內容。
+檔案是位於 D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.InstallLog。
+正在安裝組件 'D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe'
+。
+受影響的參數為:
+   logtoconsole =
+   logfile = D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.InstallLog  
+   assemblypath = D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+在 D:\9-other\Desktop\WindowsService1\bin\Debug\
+WindowsService1.exe 組件中找不到具有 RunInstallerAttribute.Yes 屬性的公用安裝程式。
+
+安裝階段已經成功完成，正在開始認可階段。
+請參閱 D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe 組件進度的記錄檔內容。
+檔案是位於 D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.InstallLog。
+正在認可組件 'D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe'。
+受影響的參數為:
+   logtoconsole =
+   logfile = D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.InstallLog
+   assemblypath = D:\9-other\Desktop\WindowsService1\bin\Debug\WindowsService1.exe
+在 D:\9-other\Desktop\WindowsService1\bin\Debug\
+WindowsService1.exe 組件中找不到具有 RunInstallerAttribute.Yes 屬性的公用安裝程式。
+由於找不到安裝程式，所以必須移除 InstallState 檔案。
+
+已經成功完成認可階段。
+
+已經完成交易性的安裝。
+
+C:\Users\una.liao>

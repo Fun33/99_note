@@ -1,0 +1,12 @@
+event / 入口一定要try catch
+
+try{  }
+            catch (Exception ex)
+            {
+                boApp.MessageBox(ex.Message);
+                boApp.DealError(ex.ToString());
+                BubbleEvent = false;
+                return;
+            }
+
+

@@ -1,0 +1,68 @@
+ 
+key word
+OOP		Object-Oriented Language
+程序性程式設計	Procedure Language
+
+用思辨了解問題,得到答案
+所以問對問題,真的好重要啊.
+==============================思考的起點v1
+所以如果要reuse,請用abstract or Inheritance.
+如果功能是可能被加入或拿掉的,請把它做成一塊,加入和拿掉都很方便.
+如果是細節是容易變動,請把它跟不會變動的部分分開,那日後就只需改細節部分.就不用擔心改了細節動到其它地方.
+
+============================思考key word
+所以如果要reuse,請用abstract or Inheritance.
+如果功能是可能被加入或拿掉的,請把它做成一塊,加入和拿掉都很方便.
+如果是細節是容易變動,請把它跟不會變動的部分分開,那日後就只需改細節部分.就不用擔心改了細節動到其它地方.
+
+
+傳統的程式設計主張將程式看作一系列函式的集合，或者直接就是一系列對電腦下達的指令。
+
+
+實做，多用、多想、再重複多看
+
+OO的思考
+物件導向程式設計中的每一個物件都應該能夠接受資料、處理資料並將資料傳達給其它物件，因此它們都可以被看作一個小型的「機器」，或者說是負有責任的角色。
+
+善用合成、少用繼承
+
+思考參考
+http://antrash.pixnet.net/blog/post/69452213
+
+換掉DB連線的方法
+http://antrash.pixnet.net/blog/post/76362344-%E8%AB%96%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91part-7%EF%BC%9Ainterface
+
+聚合的說明
+http://antrash.pixnet.net/blog/post/80808873-%E8%AB%96%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91part-9%EF%BC%9A%E8%AA%8D%E8%AD%98is-a%E8%B7%9Fhas-a%E7%9A%84%E5%B7%AE%E7%95%B0%E6%80%A7
+
+==============================程式分析思考->
+所以如果要reuse,請用abstract or Inheritance.
+如果功能是可能被加入或拿掉的,請把它做成一塊,加入和拿掉都很方便.
+如果是細節是容易變動,請把它跟不會變動的部分分開,那日後就只需改細節部分.就不用擔心改了細節動到其它地方.
+
+那我TTFB要怎麼思考呢?
+它可能會有怎樣的異動呢 - MISRC
+case1 增加一個欄位要丟到B1
+case2 key值判斷,由x1欄位的判斷改成x2
+case3 key值判斷,由x1欄位的判斷改成x1+x2
+case4 fldname from x1 be x2	>要怎麼樣他們改fld name我們不用跟著改呢.所以我們要有一個mapping表.mapping表怎麼做.
+case5 把Afld放到B,不用做處理
+
+
+它可能會有怎樣的異動呢
+case1 本來結果只要select,改成要運算.
+case2 運算A的方式改了
+case3 本來要運算A,改成運算A+運算B
+
+
+case1 它要丟DB1
+case2 本來要丟DB1,改成DB2
+case3 本來要丟DB1,改成DB1和DB2都要丟
+
+
+
+ref
+http://antrash.pixnet.net/blog/post/66024067
+=================================
+Q:你看現在SRC_MI怎麼設,EXCEL整理好,就很好設了.
+ 
