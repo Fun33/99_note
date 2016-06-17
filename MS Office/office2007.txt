@@ -1,0 +1,14 @@
+目錄	1
+安裝方法	1
+Professional plus 2007 和enterprise2007之差異	2
+目錄
+安裝方法
+1.向BM借光碟片
+2.開始安裝.選取 Enterprise 2007
+3.getkey
+ 1.從\\casfs1\APPL\MSOffice\Office2007\Office.2007.Application.Keygen取得KEY
+ 2.CDKEY.txt
+4.開始安裝.
+5.安裝完成
+6.安裝PATCH.
+\\casfs1\APPL\MSOffice\Office2007\

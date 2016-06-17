@@ -1,0 +1,4 @@
+www.casys.com.tw/Exchange
+
+pop3/stmp
+mail.casys.com.tw

@@ -1,0 +1,22 @@
+win7
+----------------設定exchange
+
+控制台\所有控制台項目\郵件(32位元)\click btn 電子郵件帳戶\
+click tag 電子郵件\新增\
+Exchange Server	tadcdc-tpe-01.tadc.com.tw
+		chk 使用快取Exchange模式
+使用者名稱	Una Liao[廖微珊]
+
+--------------------增加資料夾
+控制台\所有控制台項目\郵件(32位元)\click btn 電子郵件帳戶\
+click tag 資料檔\新增\
+Exchange Server	tadcdc-tpe-01.tadc.com.tw
+信箱		Una Liao[廖微珊]
+啟動時		自動偵測連線狀態
+
+--------------------增加資料夾 - 個人資料夾
+控制台\所有控制台項目\郵件(32位元)\click btn 電子郵件帳戶\
+click tag 資料檔\新增\
+名稱		資料夾名稱XXX
+檔案名稱		path + filename.pst(ex: D:\VM\mail.pst)
+
