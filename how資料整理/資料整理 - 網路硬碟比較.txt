@@ -1,0 +1,4 @@
+1.顯示方式
+dropbox	與OS較相近.友善.
+	放進來就同步,較方便.
+google	UI不OK

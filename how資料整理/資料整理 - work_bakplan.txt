@@ -1,0 +1,33 @@
+要備的有			備去哪
+D:\unaTADC		FTP
+
+D:\unaTADC ->		Una500
+D:\Program Files ->		Una500	Una16
+VM-->			UnaTADC500
+
+Una16-->
+Una500-->
+=====================工作=======
+現在備份的有
+una_code
+99_note
+11_note
+TADC_單據
+
+未備份的有
+教材.
+參考資料
+VM
+======================要給公司的=====
+una_code
+
+=======================交接data處理===========
+備份una_code 2 FTP
+備份data備到dropbox後,移除程式dropbox AP.
+備份dropbox以外的data.
+3*格式化隨身碟HD 1T.
+3*格式化D槽
+
+
+
+
