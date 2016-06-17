@@ -1,0 +1,10 @@
+course,course,course,course,course,
+courses,courses,courses,courses,courses,
+Minimum / Maximum Participants; Minimum / Maximum Participants;Minimum / Maximum Participants
+Participation Fee:Participation Fee:Participation Fee:Participation Fee:
+Virtual Briefing; Virtual Briefing;Virtual Briefing;
+Eligible for Value Points: Eligible for Value Points:Eligible for Value Points:
+Short Description:Short Description:Short Description:
+Venue:Venue:Venue:Venue:
+Current Registrations:Current Registrations:Current Registrations:
+Required for Product Authorization:Required for Product Authorization:Required for Product Authorization:Required for Product Authorization:

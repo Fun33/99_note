@@ -1,0 +1,25 @@
+ 
+Aging(I 俊)時效
+Supplementary(sa p man tary)補充
+Orientation(O ri 恩 tation)方向
+regarding 關於
+
+Purchase(po 卻)
+instead(in s day)
+
+1761997 – Aging(I 俊)時效 report is incorrect
+1746050 - Quantities in Item Master Data updated unexpectedly by DI API
+1743900 - Error Message :Supplementary(sa p man tree)補充 Code already exists
+1740427 - Incorrect Budget Report
+1741056 - Transaction Notification does not run when updating Special Prices for BP
+1754548 - Page Size and Orientation(O ri 恩 tation)方向Settings of Crystal Report Not Saved in SAP Business One
+1752074 - MSSQL server system database TEMP is locked due(dyou dyou痛) to由於 popup message box regarding 關於budget
+1746174 – Partially(pa show ly) copying a Purchase(po 卻) Order into Purchase Invoices for the second time, via DI API
+1745453 - Balance amounts in Period-End Closing are rounded incorrectly
+1743660 - Opening Fixed Asset Master Data takes couple of minutes, instead(in s day) of seconds
+1765812 - Incorrect posting in AP invoice with linked Down Payment
+1764153 - When user changes the posting date of target document, the Blanket Agreement should not be refreshed
+1757764 - Custom Language Tool  ←新功能
+
+
+ 

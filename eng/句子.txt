@@ -1,0 +1,6 @@
+further 	進一步
+assistance 援助
+revert還原
+
+If you need further information or assistance please revert. 
+

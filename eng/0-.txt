@@ -1,0 +1,53 @@
+欲開講,說賣出來.	>要多讀故事書
+看技術文件,看嘸	>要多看.
+
+
+ preferred ;preferred ;preferred ;preferred ;preferred ; 
+incur;incur;incur;incur;incur;incur;incur;incur;
+postponed;postponed; postponed; postponed; postponed ;
+upon payment ;upon payment; upon payment ;upon payment ;
+penalty fee; penalty fee; penalty fee; penalty fee ;penalty fee ;
+valid reason; valid reason; valid reason ;valid reason ;
+invested; invested; invested; invested; invested; invested ;
+having invested in ;having invested in; having invested in ;having invested in ;
+No refunds are entitled ;No refunds are entitled ;No refunds are entitled ;No refunds are entitled ;
+
+Instead of cancelling a course ;Instead of cancelling a course; Instead of cancelling a course; Instead of cancelling a course ;
+nominate a substitue; nominate a substitue; nominate a substitue; nominate a substitue ;
+intend to; intend to; intend to; intend to; intend to ;
+intend to  do this intend to  do this; intend to  do this; intend to  do this; intend to  do this ;
+due to ;due to ;due to ;due to ;due to ;due to ;
+force majeure; force majeure; force majeure; force majeure;force majeure; 
+due to force majeure;due to force majeure; due to force majeure; due to force majeure ;
+any interpretation; any interpretation ;any interpretation ;any interpretation; any interpretation ;
+exclusive; exclusive; exclusive; exclusive; exclusive; exclusive ;
+jurisdiction; jurisdiction; jurisdiction; jurisdiction ;jurisdiction; jurisdiction ;
+exclusive jurisdiction; exclusive jurisdiction; exclusive jurisdiction ;exclusive ;jurisdiction ;exclusive jurisdiction ;
+above; above; above ;above ;above;above ;
+above matter; above matter; above matter; above matter; above matter ;
+
+
+
+Terms & Conditions
+
+X
+Course Confirmation
+For non chargeable courses, you will receive a reminder that your seat is confirmed 10 working days before the course. 
+
+
+Participation Fee
+For chargeable courses, registration is only confirmed when full payment is made by credit card (preferred) or via bank transfer (which will incur a 5% administration fee) no less than 10 working days before the training takes place. Why? Because providing a shorter notice period would mean that we would still incur full costs (such as trainer bookings, flights and venues) in the event that the training has to be cancelled or postponed if the minimum number of participants is not reached. Upon payment, you will receive your course confirmation. 
+
+Terms of Cancellation
+All cancellations have to be made in writing to admin@sapapjpartneruni.com.
+
+For non chargeable courses, there will be no cancellation fees if we receive a cancellation e-mail 3 working days before the course. However, a penalty fee of € 300 will apply should a cancellation be made in less than 3 working days without valid reason and for no shows. This is because having invested in running the course, SAP could have allocated your seat to another person. 
+
+For chargeable courses, we will refund as follows:
+100% should cancellation be made via e-mail 10 working days before course.
+50% should cancellation be made via e-mail 5 working days before the course.
+No refunds are entitled should cancellation be made 3 working days before the training and for no shows.
+
+Instead of cancelling a course, you may nominate a substitute in your place. Please inform admin@sapapjpartneruni.com should you intend to do this. 
+
+PDAgroup reserves the right to cancel or postpone the course if the minimum number of participants is not reached by registration deadline or due to force majeure. In this case, 100% of the participation fee will be refunded. Any interpretation of these Terms of Use shall be governed in accordance with the laws of Austria within the exclusive jurisdiction of its Courts. We seek your understanding in the above matter. Kindly e-mail admin@sapapjpartneruni.com if you have any questions.
