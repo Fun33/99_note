@@ -1,0 +1,12 @@
+我的C,只剩6G,kay建議可將分頁移到D.
+果真移到D,C就有14G了.
+
+
+將分頁由C移到D
+電腦/右鍵內容/進階系統設定/進階/效能設定/進階變更
+設定後,kay建議立即重新開機
+
+XP
+System Properties/Advanced/Performace[Settings]/
+	Advanced/Virtual memory[Change]/
+		Min=Memory*1.5 Max=Memory*2.5

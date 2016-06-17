@@ -1,0 +1,23 @@
+-s	shoutdown
+-r	restart
+-t 0	after 0 sencond
+	
+shutdown -s 	turn off 
+shutdown -s -t 0	turn off after 0 second
+
+
+shutdown -r	restart 
+shutdown -r -s 0	restart after 0 second
+============================
+shutdown -r -t 0
+
+
+101 關機的方式 shutdown -s -t 0
+-s shutdown
+
+101 重新啟動的方式 shutdown -r -t 0
+-r restart	30秒後,重新啟動
+-r -t 0	馬上,重新啟動
+
+-t  time
+-t 0馬上重開

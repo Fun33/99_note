@@ -1,0 +1,41 @@
+task manager/記憶體
+影像		產品名稱居然叫做影像. 
+認可是什麼? 	保留給處理程序使用的虛擬記憶體數量。	W7之後,都會為常用AP保留記憶體.
+工作集是什麼? 
+可共用是什麼? 
+私人是什麼? 
+PID是什麼?	Process ID	
+
+
+=======================================
+W7會保留記憶體給常用的AP.even AP未開啟.
+
+====================================================
+
+q.怎麼在工作管理員看thread
+>Process Explorer
+
+
+=============================查出記憶體用去哪了.RAMMap
+查出記憶體用去哪了.RAMMap
+
+工作管理員(Task Manager)列出的只包含各程序專屬的私用記憶體區(Process Private)
+並不包含系統層次的記憶體使用統計，例如: 
+
+Process Private(工作管理員(Task Manager)只列出它
++跨程序的共用記憶體區、
++檔案系統快取、
++驅動程式佔用(包含RAMDisk)... 等
++Mapped File(也屬檔案快取的一部分.快取性質，會在記憶體不足時移給程序使用；當記憶體充足，Windows則會盡量使用快取提高效能)
++Driver Locked是驅動程式使用部分
+http://blog.darkthread.net/post-2013-10-27-where-have-all-the-memory-gone.aspx
+
+
+[CPU HT]
+intel E5-2620 v3官方資料，執行緒數量12個
+CPU 執行緒數量指的是 Intel 的超執行緒 (HT, Hyper Thread) 技術
+可以參考維基的說明 https://zh.wikipedia.org/wiki/%E8%B6%85%E5%9F%B7%E8%A1%8C%E7%B7%92
+也有人將其稱為虛擬核心, 開啟了 HT 功能以後, 工作管理員會看到核心數量變成兩倍 6->12
+所以 Intel 這邊的執行緒數量指的是 CPU 同時可以處理的數量
+
+

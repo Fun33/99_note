@@ -1,0 +1,9 @@
+進入dos
+=>執行: cmd
+
+ping 某台機器
+=>ping caspc10 = ping 192.168.10.113
+
+不能用耶,不知之前是怎麼用的
+進去某台機器的某個port
+=>ping caspc10 1433

@@ -1,0 +1,3 @@
+http://technet.microsoft.com/zh-tw/dd181752.aspx
+
+TS RemoteApp

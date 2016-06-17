@@ -1,0 +1,47 @@
+手動啟動營幕保護程式
+Windows+L
+
+=================== 
+Disable/Enable Lock Workstation Functionality (Windows + L)
+As everybody knows, using the Windows+L keys together will lock your workstation running Windows 7, XP or Vista. 
+Did you realize that you can also disable this function by using a registry hack?
+
+I suspect that this article will be much more useful to those of you who can’t lock your workstation
+, but either way we’ll show how to configure this setting.
+
+
+◎Manual Registry Hack
+Open up regedit.exe through the start menu search box, and then browse down to the following key, creating it if it doesn’t exist:
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System
+
+On the right-hand side, 
+create a new DWORD 32-bit value named DisableLockWorkstation 
+and give it one of these values:
+
+1 – Disable Lock Workstation
+0 – Enable Lock Workstation
+The changes should be immediate, no need to restart anything.
+
+
+I’ve provided the hack in a downloadable registry file. 
+Just unzip and then click on the Enable or Disable script, 
+depending on which action you feel like taking.
+http://www.howtogeek.com/howto/windows-vista/disableenable-lock-workstation-functionality-windows-l/
+
+====================
+Q:在win7下有方法可以讓NB"立刻"進入螢幕保護程式嗎?
+
+首先到『C:\WINDOWS\system32』尋找「scrnsave.scr」
+在該檔案上按右鍵→複製
+到桌面上按右鍵→貼上捷徑
+在該捷徑上按右鍵→內容
+設定快速鍵
+>是黑畫面,移動一下,就看到畫面了
+
+首先到『C:\』尋找「PhotoScreensaver.scr」
+在該檔案上按右鍵→複製
+到桌面上按右鍵→貼上捷徑
+在該捷徑上按右鍵→內容
+設定快速鍵
+>是相片,移動一下,就看到畫面了

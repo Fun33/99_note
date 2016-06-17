@@ -1,0 +1,8 @@
+Windows Server 2012 
+
+[開始] 畫面
+按 Windows 標誌鍵。在虛擬機器中，您可以按 Ctrl+Esc。
+將滑鼠游標暫留在畫面右上角，然後按一下 [開始]。
+在桌面上，將滑鼠游標暫留在畫面左下角，然後在 [開始] 畫面縮圖出現時按一下。
+ref
+https://technet.microsoft.com/zh-tw/library/hh831491.aspx

@@ -1,0 +1,17 @@
+準備工具:
+
+燒錄軟體 - CDBurnerXP
+映像檔工具 - MagicISO
+
+1. 先下載 CDBurnerXP 官網提供的 "Floppy 2.88MB" boot image (boot.ima)，用 MagicISO 開啟 boot.ima，將 SPFDISK.EXE 加進去。
+
+2. 執行 CDBurnerXP，建立一個新的「資料光碟」，主功能表「光碟 -> 開機片選項」:
+
+開機片選項: 選 boot.ima 的路徑
+模擬類型: 磁片 2.88MB
+ISO等級: 等級 2
+載入片段: 7C0
+磁區: 1
+勾選 "強制 ISO 等級 1"
+
+然後按 [確定] 關閉對話視窗，主功能表「檔案 -> 儲存編輯表為 ISO 檔案」。

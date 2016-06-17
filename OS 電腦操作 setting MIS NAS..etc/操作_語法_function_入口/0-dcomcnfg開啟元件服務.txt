@@ -1,0 +1,6 @@
+dcomcnfg
+
+"Start"->Search->dcomcnfg
+Click the "Start" button located in the lower left corner of the PC desktop 
+and click "Search," 
+then type "dcomcnfg" and tap the "Enter" key.

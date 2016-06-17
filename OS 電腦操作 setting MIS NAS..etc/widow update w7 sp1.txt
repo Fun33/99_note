@@ -1,0 +1,10 @@
+Q.無法使用window update,重啟window update服務也無效.
+>下載WindowsUpdateDiagnostic.diagcab並執行,就會進行修復,就可以用了
+
+System Update Readiness Tool for Windows 7 for x64-based Systems (KB947821)
+>不使用window update ,使用下載安裝包.
+
+
+Q安裝失敗 8024200d
+>下載Windows6.1-KB947821-v34-x64.msu做OS修復.
+

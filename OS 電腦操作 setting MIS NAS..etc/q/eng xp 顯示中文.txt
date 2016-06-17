@@ -1,0 +1,26 @@
+之前有幫人家裝過英文版XP，純英文版XP在中文顯示上是有問題的，你所看到的中文不是變成???就是變成□□□，其實只需要幾個設定，英文版XP也能正確顯示中文
+
+##CONTINUE##
+
+1.打開控制台(Control Panel) 
+2.打開地區及語言選項(Regional and Language Option) 
+3.語言->安裝東亞文字檔案(Language->Install files for East Languages) 
+4.可能會提示要放入XP光碟片，請放入，安裝完後會要求重新開機 
+5.重開完之後，一樣打開地區及語言選項(Regional and Language Option)，標準及格式(Standards and formats)就會有Chinese(Taiwan)可以選擇 
+6.下面的地區(Location)當然選擇台灣(Taiwan)囉 
+7.接下來打開進階頁面(Advanced)，在非Unicode程式的語言(Language for non-Unicode programs)選擇Chinese(Taiwan) 
+8.下面的預設使用者帳戶設定值(Default user account settings)，建議打勾，他會幫每個使用者帳戶預設這些設定值，讓其他使用者帳戶也能看的懂中文 
+9.完成以上步驟之後可以正確顯示中文，若要安裝中文輸入法則是選擇語言->細節->增加(Language->Details->Add) 
+10.上面的輸入語言(Input language)選Chinese(Taiwan)，下面的就是輸入法了，請選你想要新增的輸入法增加即可 
+11.沒用的英文輸入法就可以移除了，因為中文輸入法就有包含英文輸入法了
+
+以下列舉幾個常用的輸入法名字
+
+新注音->New Phonetic 
+注音->Phonetic 
+新倉頡->New ChangJie 
+倉頡->ChangJie 
+大易->DaYi 
+行列->Array
+
+寫完這篇之後，發現，其實我該用英文寫的，因為，如果在純英文XP之下是看不到這篇的中文字的...XD

@@ -1,0 +1,19 @@
+	read 如何利用「磁碟清理」工具 安全的騰出系統硬碟的多餘空間
+		http://blog.miniasp.com/post/2014/01/23/Using-Disk-Cleanup-Wizard-delete-outdated-Windows-Update-files.aspx#continue
+
+way1
+1. 先按下 Win+R 開啟「執行」視窗，輸入 cleanmgr 並按下 Enter 鍵。
+2. 選擇系統磁碟機，並按下確定鍵
+3.按下「清理系統檔」按鈕 
+4.重選一次系統磁碟機
+5.勾選「Windows Update 清理」與「Windows 升級記錄檔」選項
+
+way2
+若要單獨執行 Windows Update 清理動作，更簡單的方式是透過 DISM 命令提示字元工具，如下指令：
+dism /online /cleanup-image /spsuperseded /hidesp
+
+
+
+在 Windows 7 SP1 與 Windows 8.x 作業系統內建的「磁碟清理」工具，
+額外新增的「Windows Update 清理」與「Windows 升級記錄檔」選項，
+專門幫你用來清除 Windows 更新的過程殘留的那些檔案，通常執行完後可以多出好幾百 MB 的空間喔

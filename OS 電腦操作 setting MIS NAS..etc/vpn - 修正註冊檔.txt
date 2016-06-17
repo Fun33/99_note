@@ -1,0 +1,35 @@
+匯出vpn
+On Windows7 the VPN settings are stored here:
+C:\Users\<username>\AppData\Roaming\Microsoft\Network\Connections\Pbk
+
+Current user:	%AppData%\Microsoft\Network\Connections\Pbk
+or shared with all users:	%ProgramData%\Microsoft\Network\Connections\Pbk
+
+My Envir:
+C:\ProgramData\Microsoft\Network\Connections\Pbk
+
+C:\Users\una.liao\AppData\Roaming\Microsoft\Network\Connections\Pbk
+C:\Users\una\AppData\Roaming\Microsoft\Network\Connections\Pbk
+
+ref
+http://superuser.com/questions/312338/how-to-import-export-vpn-settings-in-windows-7
+
+==============================================
+查詢後消息如下：
+http://support.microsoft.com/kb/326751/zh-tw
+http://support.microsoft.com/kb/240262
+ 
+這個問題查了許多資料，都建議修改註冊檔，
+詢問Ray之後，Ray建議修改註冊檔前，先將註冊檔匯出，步驟如下：
+ 
+1.          執行regedit
+2.          先匯出儲存自己的註冊檔，有問題才可匯入恢復
+3.          到以下路徑
+ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Rasman\Parameters
+ 
+4.          新增註冊檔-ProhibitIpSec	新增/DWORD(32-位元)值
+5.          設定值	數值資料:1	底數：十六進位
+
+重開機再試試看囉
+ 
+網路上亦有說這樣修改是不安全的，但是網路上並沒有看到更好的解決方案，因此先提供此方法給大家參考，感謝J

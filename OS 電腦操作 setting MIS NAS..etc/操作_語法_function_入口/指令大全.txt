@@ -1,0 +1,190 @@
+常用
+msconfig 開機啟動
+telnet IP Port	telnet 192.168.5.5 1433
+cmd
+regedit
+notepad	
+calc	計算機
+
+net start
+net stop
+===================
+windows 指令大全《XP》
+指令：【gpedit.msc】群組原則
+指令：【sndrec32】錄音機
+指令：【Nslookup】IP位址偵測器
+指令：【explorer】開啟檔案總管
+指令：【logoff】登出指令 tsshutdn　60秒倒計時關機指令
+指令：【lusrmgr.msc】本地機用戶和組
+指令：【services.msc】本機服務設定
+指令：【oobe/msoobe /a】檢查XP是否啟動
+指令：【notepad】開啟記事本
+指令：【cleanmgr】磁碟垃圾整理
+指令：【net start messenger】開始信使服務
+指令：【compmgmt.msc】電腦管理
+指令：【net stop messenger】停止信使服務
+指令：【conf】啟動
+指令：【netmeetingdvdplay】DVD播放器charmap】啟動字元對應表
+指令：【diskmgmt.msc】磁牒管理實用程序
+指令：【calc】啟動電子計算器
+指令：【dfrg.msc】磁碟重組工具
+指令：【chkdsk.exe】Chkdsk磁牒檢查
+指令：【devmgmt.msc】裝置管理員
+指令：【drwtsn32】系統醫生
+指令：【rononce -p】15秒關機
+指令：【dxdiag】檢查DirectX資訊
+指令：【regedt32】註冊表編輯器
+指令：【Msconfig.exe】系統配置實用程序
+指令：【rsop.msc】群組原則結果集
+指令：【mem.exe】顯示記憶體使用情況
+指令：【regedit.exe】註冊表
+指令：【winchat】XP自帶區域網路聊天
+指令：【progman】程序管理器
+指令：【winmsd】系統資訊
+指令：【 perfmon.msc】電腦效能監測程序
+指令：【winver】檢查Windows版本
+指令：【sfc /scannow】掃瞄錯誤並復原
+指令：【taskmgr】工作管理器（2000／xp／-2003）
+指令：【eventvwr.msc】事件檢視器
+指令：【secpol.msc】本機安全性設定
+指令：【rsop.msc】原則的結果集
+指令：【ntbackup】啟動制作備份還原嚮導
+指令：【mstsc】遠端桌面
+指令：【wmimgmt.msc】開啟windows管理體系結構WMI)
+指令：【wupdmgr】windows更新程序
+指令：【wscript】windows指令碼宿主設定
+指令：【write】WordPad
+指令：【wiaacmgr】掃瞄儀和照相機嚮導
+指令：【winchat】XP原有的區域網路聊天
+指令：【mplayer2】簡易
+指令：【widnows media player mspaint】畫圖板
+指令：【mstsc】遠端桌面連接
+指令：【mplayer2】媒體播放機
+指令：【magnify】放大鏡實用程序
+指令：【mmc】開啟控制台
+指令：【mobsync】同步指令
+指令：【dfrg.msc】磁碟重組程式
+指令：【dcomcnfg】開啟系統元件服務
+指令：【ddeshare】開啟DDE共享設定
+指令：【dvdplay】DVD播放器
+指令：【nslookup】網路管理的工具嚮導
+指令：【ntbackup】系統制作備份和還原
+指令：【narrator】螢幕「講述人」
+指令：【ntmsmgr.msc】移動存儲管理器
+指令：【ntmsoprq.msc】移動存儲管理員操作請求
+指令：【netstat -an】(TC)指令檢查連接
+指令：【syncapp】新增一個公文包
+指令：【sysedit】系統配置編輯器
+指令：【sigverif】文件簽名驗證程序
+指令：【shrpubw】新增共用資料夾
+指令：【secpol.msc】本機安全原則
+指令：【syskey】系統加密，一旦加密就不能解開，保護windows xp系統的雙重密碼
+指令：【Sndvol32】音量控制程序
+指令：【sfc.exe】系統檔案檢查器
+指令：【sfc /scannow】windows文件保護
+指令：【tourstart】xp簡介（安裝完成後出現的漫遊xp程序）
+指令：【taskmgr】工作管理器
+指令：【eventvwr】事件檢視器
+指令：【eudcedit】造字程序
+指令：【explorer】開啟檔案總管
+指令：【packager】對像包裝程序
+指令：【regsvr32 /u *.dll】停止dll文件執行
+指令：【regsvr32 /u zipfldr.dll】取消ZIP支持
+指令：【cmd.exe】CMD命令提示字元
+指令：【chkdsk.exe】Chkdsk磁牒檢查
+指令：【certmgr.msc】證書管理實用程序
+指令：【calc】啟動計算器
+指令：【cliconfg】SQL SERVER 客戶端網路實用程序
+指令：【Clipbrd】剪貼板檢視器
+指令：【netmeeting compmgmt.msc】電腦管理
+指令：【ciadv.msc】索引服務程序
+指令：【osk】開啟螢幕小鍵盤
+指令：【odbcad32】ODBC資料來源管理器
+指令：【iexpress】木馬元件服務工具，系統原有的
+指令：【fsmgmt.msc】共用資料夾管理器
+指令：【utilman】協助工具管理器
+指令：【Clipbrd】剪貼板檢視器
+指令：【packager】對像包裝程序
+指令：【sfc /scannow】windows文件保護
+
+============================================================
+
+開機→執行→命令（命令集錦，豐富你的知識）
+
+【winver】檢查Windows版本
+【wmimgmt.msc】打開windows管理體系架構(WMI)
+【wupdmgr】windows更新程式
+【wscript】windows腳本宿主設置
+【write】寫字板
+【winmsd】系統訊息
+【wiaacmgr】掃描儀和照相機向導
+【winchat】XP自帶局域網聊天
+【mem.exe】顯示內存使用情況
+【Msconfig.exe】系統配置實用程式
+【mplayer2】簡易widnows media player
+【mspaint】畫圖板
+【mplayer2】媒體播放機
+【magnify】放大鏡實用程式
+【mmc】打開控制台		主控台(Win7)
+【dxdiag】檢查DirectX訊息
+【drwtsn32】系統醫生
+【devmgmt.msc】 設備管理器
+【dfrg.msc】磁片碎片整理程式
+【diskmgmt.msc】磁片管理實用程式
+【dcomcnfg】打開系統組件服務
+【ddeshare】打開DDE共享設置
+【dvdplay】DVD播放器
+【net stop messenger】停止信使服務
+【net start messenger】開始信使服務
+【notepad】打開記事本
+【nslookup】網路管理的工具向導
+【ntbackup】系統備份和還原
+【narrator】螢幕“講述人”
+【ntmsmgr.msc】移動存儲管理器
+【ntmsoprq.msc】移動存儲管理員*(糙)*作請求
+【netstat -an】(TC)命令檢查界面
+【syncapp】創建一個公文包
+【sysedit】系統配置編輯器
+【sigverif】文件簽名驗証程式
+【sndrec32】錄音機
+【shrpubw】創建共享文件夾
+【secpol.msc】本地安全策略
+【syskey】系統加密，一旦加密就不能解開，保護windows xp系統的雙重密碼
+【services.msc】本地服務設置
+【Sndvol32】音量控制程式
+【sfc.exe】系統文件檢查器
+【sfc /scannow】windows文件保護
+【tsshutdn】60秒倒計時關機命令
+【tourstart】xp簡介（安裝完成后出現的漫遊xp程式）
+【taskmgr】任務管理器
+【eventvwr】事件查看器
+【eudcedit】造字程式
+【explorer】打開資源管理器
+【packager】對象包裝程式
+【perfmon.msc】計算機性能監測程式
+【progman】程式管理器
+【regedit.exe】註冊表
+【rsop.msc】組策略結果集
+【regedt32】註冊表編輯器
+【rononce -p】15秒關機
+【regsvr32 /u *.dll】停止dll文件營運
+【regsvr32 /u zipfldr.dll】取消ZIP支持
+【cmd.exe】CMD命令提示符
+【chkdsk.exe】Chkdsk磁片檢查
+【certmgr.msc】證書管理實用程式
+
+【charmap】啟動字符映射表
+【cliconfg】SQL SERVER 客戶端網路實用程式
+【Clipbrd】剪貼板查看器
+【conf】啟動netmeeting
+【compmgmt.msc】計算機管理
+【cleanmgr】垃圾整理
+【ciadv.msc】索引服務程式
+【osk】打開螢幕鍵盤
+【odbcad32】ODBC數據源管理器
+【oobe/msoobe /a】檢查XP是否激活
+【lusrmgr.msc】本機用戶和組
+【logoff】註銷命令
+【fsmgmt.msc】共享文件夾管理器
+【utilman】輔助工具管理器
+【gpedit.msc】組策略

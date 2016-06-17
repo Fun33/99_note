@@ -1,0 +1,58 @@
+簡休按我：忽然懂了.原來測試,可以勾勒出它的功能.
+
+簡休按我：2.如果要看home,它就會叫我登入 
+簡休按我：1.大家都能看到這個public
+
+===================================
+Q : W7可以在網路芳鄰看到NAS,但點進去,就不行了.
+Ans:
+因為ACL沒有打勾.打勾就好了.
+網路芳鄰是一個file system的服務.
+
+linux它有一個ACL file system功能,能做權限設定.
+
+
+=====================
+什麼是ACL?
+ACL
+ACL 是 Access Control List 的縮寫，
+主要的目的是在提供傳統的 owner,group,others 的 read,write,execute 權限之外的細部權限設定。
+ACL 可以針對單一使用者，單一檔案或目錄來進行 r,w,x 的權限規範，對於需要特殊權限的使用狀況非常有幫助。
+
+由於 ACL 是傳統的 Unix-like 作業系統權限的額外支援項目，
+因此要使用 ACL 必須要有檔案系統的支援才行。
+
+讓你的 filesystem 啟動 ACL 支援
+=======================
+什麼是NETBIOS?
+它是一個通訊協定
+它是不可路由的.(只能用在同網段)
+網路芳鄰,就有用到它.
+
+======================
+什麼是網路芳鄰?
+就是用window主機之間的file 分享.每台機器都是一台file server.
+它用的是NETBIOS通訊協定+TCP/IP+NWLink(SMB).
+
+
+ref
+http://www.suse.url.tw/sles10/lesson14.htm
+看完這篇文章,覺得自己真的很不懂電腦.
+為什麼SAMBA,會變成printer server.
+file server 
+PDC
+WINS Server
+身份認證.
+
+?為什麼NetBIOS無法和appl做溝通,那他是在做什麼工作.
+
+========================
+ 
+什麼叫路由?什麼叫不可路由?
+
+不可路由的特性，使得身處不同網段中的主機無法溝通
+基於這個原因，Microsoft 網路則運用了一種叫 NetBIOS Over TCP/IP 的技術，來解決這方面的問題。
+==================
+在 Linux 對 Linux 的環境下，最簡單的方法就是透過 NIS 這玩意兒了！
+ Windows 對 Windows 的環境下，最簡單的方法則是『網路上的芳鄰』啊。
+那如果你的區網中有 Windows 也有 Linux 而且想要共用檔案系統的話，那就使用 Samba 伺服器吧！Samba 可以讓 Linux 加入 Windows 的網芳支援，讓異質平台可以共用檔案系統！ 非常好用的呦！不僅如此， Samba 也可以讓 Linux 上面的印表機成為印表機伺服器 (Printer Server)。

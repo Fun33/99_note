@@ -1,0 +1,12 @@
+這是屬於WINDOW SERVER方面的東西,也就是OS的部分
+
+net start
+http://www.microsoft.com/technet/prodtechnol/windowsserver2003/zh-cht/library/ServerHelp/6c0a1e0b-ea5d-4a38-9682-944d17cfe11c.mspx?mfr=true
+
+查詢net的指令
+下:net 
+就會跑出來
+
+開啟服務
+下:net start 服務名稱
+EX: net start mssqlserver

@@ -1,0 +1,4 @@
+4.RCPT TO:  <i58540041@hotmail.com>
+    輸入	RCPT TO:  <una.liao@cadmen.com>
+    回應	250 的意思就是輸入的資料沒有問題
+    回應	relaying denied. IP name lookup failed	

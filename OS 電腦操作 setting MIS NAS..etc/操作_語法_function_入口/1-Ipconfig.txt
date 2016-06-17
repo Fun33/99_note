@@ -1,0 +1,5 @@
+顯示所有目前 TCP/IP 網路設定值
+
+http://www.microsoft.com/technet/prodtechnol/windowsserver2003/zh-cht/library/ServerHelp/86ac50f1-0fbb-42c4-ba68-727efb24136f.mspx?mfr=true
+=>Ipconfig
+Ipconfig /all

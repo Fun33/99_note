@@ -1,0 +1,47 @@
+===========Q===================
+開機的時候 還沒跑windows xp 的畫面
+
+就出現了以下的文字 (我重開了好幾次 仍然是這樣)
+
+發生了一個軟體錯誤 無法啟動Windows
+請將此問題報告為:
+載入核心(kernel)所需的DLL檔案
+請聯絡您的支援人員並向他報告此項問題
+
+===========ANS===================
+is spice+系統工程師的居酒屋
+1. 假如 Windows XP 還能進去的話，請參考這篇 如何安裝及使用 Windows XP 的修復主控台	http://support.microsoft.com/kb/307654/zh-tw
+2. 無法進入 Windows XP 的話，想要重新安裝系統，則先從 BISO 設定光碟開機，放入 Windows XP 光碟進行安裝
+------------------------------------------------------------------------------- 
+解決方法如下:
+請先準備一片 Windows XP 的安裝光碟
+將光碟置入光碟機並選擇由光碟開機 (可由 BIOS設定)
+1. 將 Windows XP 開機磁片插入軟碟機，或將 Windows XP 光碟插入光碟機，然後重新啟動電腦。
+如果出現提示，請選取從光碟機啟動電腦所需要的任何選項。
+2. 出現「歡迎使用安裝程式」畫面時，請按 R，啟動「修復主控台」。
+3. 如果您的電腦使用雙開機方式或多開機方式，請從「修復主控台」選取您必須使用的安裝。
+4. 出現提示時，請輸入系統管理員的密碼。如果系統管理員密碼是空白，請按下 ENTER。
+5. 在「修復主控台」的命令提示字元中，輸入下列命令列，並在每一行之後按下 ENTER：
+建立一個暫存 md tmp
+copy c:\windows\system32\config\system c:\windows\tmp\system.bak
+copy c:\windows\system32\config\software c:\windows\tmp\software.bak
+copy c:\windows\system32\config\sam c:\windows\tmp\sam.bak
+copy c:\windows\system32\config\security c:\windows\tmp\security.bak
+copy c:\windows\system32\config\default c:\windows\tmp\default.bak
+delete c:\windows\system32\config\system
+delete c:\windows\system32\config\software
+delete c:\windows\system32\config\sam
+delete c:\windows\system32\config\security
+delete c:\windows\system32\config\default
+copy c:\windows\repair\system c:\windows\system32\config\system
+copy c:\windows\repair\software c:\windows\system32\config\software
+copy c:\windows\repair\sam c:\windows\system32\config\sam
+copy c:\windows\repair\security c:\windows\system32\config\security
+copy c:\windows\repair\default c:\windows\system32\config\default
+6. 輸入 exit 以結束「修復主控台」。您的電腦會重新啟動。
+完成這個步驟後重新開機
+就可以恢復正常了
+==================實作======================
+VM換了,出現那樣的訊息.
+於是把壞掉的C,用其它好的VM掛起來,然後copy delete copy.(開啟時,OS有自動修復壞掉的C)
+再重啟壞掉的VM.耶.真的好了.(開啟時,OS有自動修復壞掉的C)

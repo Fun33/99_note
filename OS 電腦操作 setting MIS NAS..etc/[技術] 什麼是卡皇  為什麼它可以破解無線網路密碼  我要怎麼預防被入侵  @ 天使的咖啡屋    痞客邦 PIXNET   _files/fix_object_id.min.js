@@ -1,0 +1,1 @@
+function fixPixnetPlayerID(){var e=document.getElementsByTagName("object");var d=new Array();var a=e.length;for(var c=0;c<a;c++){if(e[c].id.indexOf("PixnetPlayer")==0){var b=e[c].id;if(d[b]==undefined){d[b]=1}else{d[b]++}}}for(var c=0;c<a;c++){if(d[e[c].id]>1){e[c].id+="_"+(d[e[c].id]++);e[c].parentNode.innerHTML=e[c].parentNode.innerHTML}}};

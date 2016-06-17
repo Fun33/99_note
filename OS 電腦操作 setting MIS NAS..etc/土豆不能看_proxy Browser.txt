@@ -1,0 +1,30 @@
+設定proxy		chrome,XP,W7
+setting→Change proxy settings...
+connectins Sheet/LAN settings(L)/ 
+	選取 Use a proxy server for your LAN(These setting will not apply to dial-up or VPN connections) 
+	選取 為您的LAN使用Proxy伺服器(這些設定將不會套用到撥號或VPN連線)(X)
+	Address：203.195.172.147 
+	Port：80 
+	按下OK
+
+測試土豆是否成功	http://www.tudou.com/albumplay/J_Fmkyk41Yk/tLS-dTkLyLg.html
+測試蝦米是否成功	http://t.cn/RLy1SGD
+
+=========================================
+http://reader.roodo.com/evilsmile/archives/9291311.html
+http://chunju.pixnet.net/blog/post/30780230-chrome%E7%80%8F%E8%A6%BD%E5%99%A8%E8%A8%ADproxy
+[目標] 方塊中指定的名稱
+無效
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --proxy-server=223.94.179.47:8123"
+請確定路徑及檔名都正確
+
+[proxy list]
+http://proxy-list.org/english/index.php
+
+
+[set and chk]
+http://whatismyipaddress.com/proxy-check
+
+firefox
+工具→選項
+選擇進階標籤中的網路→連線設定。

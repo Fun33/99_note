@@ -1,0 +1,45 @@
+==========
+Asus AI Recovery	還原用的... 
+Asus FancyStart	美化開機用的 基本上用不到 可刪 
+Asus LifeFrame	網路攝影機的軟體 可以用來拍照 基本上如果沒再玩 可以丟 
+Asus Power4Gear Hybrid	筆記型電腦電源控制用的 可以用fn+空白鍵來切換用電模式 
+Asus Secure Delete	把要刪除的文件,放在這.
+Asus Smartlogon	臉部辨識開機...其實很少用到 可刪 不過如果有玩LifeFrame 3 好像會影響一些功能@@
+Asus Splendid Video Enhancement Technology	調整螢幕色彩的 如果對螢幕的色彩沒有特別注意 可刪
+Asus Virtual Camera	虛擬相機 使用網路相機的時候 可以做顛倒...之類的功能 其實正常應該用不到 可刪 
+AsusScr_U Series_ENG
+Fast Boot 開機會比較快 
+==================
+而刪除的軟體只有這三個你用不到 你可移除 
+ASUS FancyStart(必刪) 
+ASUS Live Update(必刪) 
+Net4Switch(必刪) 
+
+SUS FancyStart 
+可刪可不刪 
+ASUS Live Update 
+可刪可不刪 
+ASUS Power4Gear 
+可刪可不刪 
+ASUS Splendid Video Enhancement Technology 
+可刪可不刪  
+ATK Media 
+可刪可不刪  
+NB Probe 
+刪不得 
+Net4Switch 
+留著吧  
+NVIDIA nView Desktop Manager 
+留著吧   
+SRS Premium Sound Control Panel 
+可刪可不刪 
+WIDCOMM Bluetooth Software 
+留著吧 
+Windows Live上載工具 
+可刪可不刪 
+Windows Live登入小幫手 
+可刪可不刪     
+Yahoo! Software Update 
+可刪可不刪 
+Yahoo!奇摩搜尋設定保護 
+可刪可不刪

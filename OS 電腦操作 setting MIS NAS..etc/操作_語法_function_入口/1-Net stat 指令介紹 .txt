@@ -1,0 +1,36 @@
+顯示通訊協定統計及目前的 TCP/IP 網路連線。只有在安裝 TCP/IP 通訊協定之後，才能使用此指令。 
+
+netstat [-a] [-e] [-n] [-s] [-p protocol] [-r] [interval] 
+
+參數 
+
+-a 
+
+顯示所有連線及接聽連接埠。一般不會顯示伺服器連線。 
+
+-e 
+
+顯示 Ethernet 統計。可以與 -s 選項組合。 
+
+-n 
+
+以數值表單 (而不是嘗試名稱搜尋) 來顯示位址及連接埠編號。 
+
+-s 
+
+顯示每個通訊協定的統計。預設會顯示 TCP、UDP、ICMP 及 IP 的統計。-p 選項可用來指定預設值的子集。 
+
+-p protocol 
+
+顯示由 protocol 所指定的通訊協定連線；protocol 可以是 tcp 或 udp。如果與 -s 選項搭配使用以顯示每個通訊協定的統計，則 protocol 可以是 tcp、udp、icmp 或 ip。 
+
+-r 
+
+顯示路由表的內容。 
+
+interval 
+
+重新顯示所選取的統計 (而每個顯示之間暫停 interval 秒。按 CTRL+B 可停止重新顯示統計。如果省略此參數，netstat 只會列印一次目前的設定資訊。
+
+
+

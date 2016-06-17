@@ -1,0 +1,3 @@
+工具光碟 Ultimate Boot CD (http://www.ultimatebootcd.com/)
+這片光碟不僅包含了 SPFDISK 也包含了許多好用的工具程式，例如檢查硬碟是否有壞軌，甚至進行低階格式化，或是檢查主機板，修復系統無法開機等等。
+更重要的是他是 Free 的!!

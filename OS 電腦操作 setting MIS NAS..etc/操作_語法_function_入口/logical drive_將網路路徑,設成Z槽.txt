@@ -1,0 +1,4 @@
+什麼是logic drive?為什麼要設logic drive?
+
+我們可以透由	\\cpc-km\CPC 共享區	來存取檔案.
+如果我們把	\\cpc-km\CPC 共享區	設成Z槽,這樣就可以在我的電腦,看見它.

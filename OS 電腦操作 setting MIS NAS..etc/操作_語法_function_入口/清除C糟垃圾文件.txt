@@ -1,0 +1,44 @@
+清理c磁碟
+公司可能怕我們抓東西，硬碟實在很小，這對我們寫軟體的實在不夠用。今天用OverDisk這軟體看了一下c槽檔案分佈狀況，發現WINDOWS這資料夾實在佔太大空間了，可能我是用線上更新SP3的關係，Google 一下，發現這些資料夾可以刪：
+C:\WINDOWS\$NtServicePackUninstall$ ...SP2備份用來反安裝的
+C:\WINDOWS\SoftwareDistribution\Download ...網路上下載的更新
+C:\WINDOWS\ServicePackFiles ... 當Windows Service損壞時，復原用
+C:\Windows\$NtUninstallKBxxx ...裝完path後，留下反安裝用的
+C:\Windows\Help ... 說明檔
+C:\WINDOWS\Installer\$PatchCache$\Managed...一些Office反安裝檔
+ 
+其他有些可以搬其他槽的我就懶得搬了，下面兩個連結講的蠻清楚的。
+http://www.dk101.com/Discuz/archiver/?tid-96461.html
+http://dennys.tiger2.net/zh-hant/blog/2007/04/07/winxp-space
+----------------------------------------------------------------------------
+清理垃圾文件
+將下列貼到文字檔，然後改副檔名為.bat，執行可清理C槽。
+
+@echo off
+echo 正在清除系統垃圾文件，請稍等......
+del /f /s /q %systemdrive%\\*.tmp
+del /f /s /q %systemdrive%\\*._mp
+del /f /s /q %systemdrive%\\*.log
+del /f /s /q %systemdrive%\\*.gid
+del /f /s /q %systemdrive%\\*.chk
+del /f /s /q %systemdrive%\\*.mp3
+del /f /s /q %systemdrive%\\*.doc
+del /f /s /q %systemdrive%\\*.gif
+del /f /s /q %systemdrive%\\*.jpg
+del /f /s /q %systemdrive%\\*.dll
+del /f /s /q %systemdrive%\\*.exe
+del /f /s /q %systemdrive%\\*.txt
+del /f /s /q %systemdrive%\\*.old
+del /f /s /q %systemdrive%\\recycled\\*.*
+del /f /s /q %windir%\\*.bak
+del /f /s /q %windir%\\prefetch\\*.*
+rd /s /q %windir%\\temp & md %windir%\\temp
+del /f /q %userprofile%\\cookies\\*.*
+del /f /q %userprofile%\\recent\\*.*
+del /f /s /q %systemdrive%\\*.avi
+del /f /s /q %systemdrive%\\*.rmvb
+del /f /s /q "%userprofile%\\Local Settings\\Temporary Internet Files\\*.*"
+del /f /s /q "%userprofile%\\Local Settings\\Temp\\*.*"
+del /f /s /q "%userprofile%\\recent\\*.*"
+echo 清除完成！
+echo. & pause

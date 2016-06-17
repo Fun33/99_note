@@ -1,0 +1,5 @@
+/*!
+ * Copyright (c) 2008-2011, PIXNET Digital Media Corporation.
+ * All rights reserved.
+ */
+function _uCount(){var i;var _image_src="http://pixanalytics.com/pa.gif";var _userdata="&ver=1.0&random="+Math.random();var _attr=new Array("document.referrer","document.URL","screen.availHeight","screen.availLeft","screen.availTop","screen.availWidth","screen.colorDepth","screen.height","screen.pixelDepth","screen.width","window.closed","window.height","window.innerHeight","window.innerWidth","window.length","window.location","window.pageXOffset","window.pageYOffset","window.outerHeight","window.outerWidth","window.screenX","window.screenY","window.width","navigator.userAgent");for(i in _attr){_userdata+="&"+_attr[i]+"="+encodeURI(eval(_attr[i]))}if(_type!==undefined&&_type){i=new Image(1,1);i.src=_image_src+"?t="+_type+_userdata;i.onload=function(){_uVoid()}}}function _uVoid(){return};
