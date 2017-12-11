@@ -1,0 +1,10 @@
+MS SQL(update 成功筆數回傳)
+
+ @@ROWCOUNT　　--傳回受到前一個陳述式所影響的資料列數。 
+
+--白話點就是告訴我執行update語法後成功的筆數有幾筆！！
+
+方法1：
+
+UPDATE NAME SET NAME = 'TEST ' WHERE NUM ='7' ;
+SELECT @@ROWCOUNT AS count
