@@ -1,0 +1,21 @@
+目前有很多種網頁程式，例如PHP ASP JAVA RUBY ASP.NET ...等，
+請問那種程式語言最適合網頁開發？各有何優缺點？國內外各大網站都是用那種語言為主？
+
+
+
+PHP而言，同樣有支援Active Record的MVC框架阿
+
+Ruby	twitter最初用這個開發
+Ruby是網頁程式
+Ruby真的是一個簡潔好用的語言，只是一般來說，
+跑起來還是比較慢...不知道他有沒有VM跟code cache可以用。
+rails叫做ruby寫成的框架=framework 
+Ruby起來我想主因還是ROR framework，而且twitter最初用這個開發。
+
+python
+台灣有線上遊戲 server 端，用 python script。
+另外，python 也很普遍用在 Linux server 的 script，處理日常的工作。
+Python背後有google在拱，所以使用者也多起來（網頁）。
+hiphop是facebook搞出來的，他會分析php，然後把程式碼改寫成C++，搭配一些函式庫跟內建的event i/o伺服器，編譯成一個執行檔。啟動這個執行檔就等於啟動apache+php，還蠻有趣的。（有一段時間沒碰，不過之前的版本因為所有函式庫都靜態編譯進去，寫個hello world也會變成24MB...）
+
+
