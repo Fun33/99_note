@@ -1,4 +1,9 @@
-﻿報表,都要加nolock
+﻿
+ 
+ dbname.dbo.tablename 也可以寫成dbname..tablename
+ 
+ 
+ 報表,都要加nolock
 
 
 建立資料夾
