@@ -1,0 +1,7 @@
+            Thread t1 = new Thread(_do);
+            t1.IsBackground = false;//就算這個exe的所有UI都關掉了,它還是繼續跑
+            t1.IsBackground = true;//雖然開啟這個thread的UI關掉了,但只要主UI還在,它還是會跑.
+            t1.Start();
+            t1.Join();//本來大家可以隨便關掉UI,就結束了,但如果加入這個,如果work還沒做完,它不允許人家關掉它.
+            if (t1.IsAlive)
+                t1.Abort();//強制結束
