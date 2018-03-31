@@ -1,0 +1,24 @@
+使用VS code
+VS工具使用 31:11 open with code  33:05 <! 按tab  (天啊~好神)
+
+VS Code怎麼用
+https://docs.microsoft.com/zh-tw/dotnet/core/tutorials/with-visual-studio-code
+
+1.在資料夾按右鍵,用vs code開
+2.在資料夾內按右鍵,用vs code開
+3.在vs code開啟資料夾
+  
+
+用VS code 來編輯,介紹怎麼用VS code來編輯
+這是什麼,去哪裡下載?
+它和一般VS有什麼差別?
+Visual Studio Code（簡稱VS Code）是一個由微軟開發的，同時支援Windows、Linux和macOS作業系統的開源文字編輯器。
+1.它支援偵錯，
+2.內建了Git 版本控制功能，同時也
+3.具有開發環境功能，例如代碼補全（類似於IntelliSense）、代碼片段、代碼重構等。
+>原來如此,它是一個支援3種OS的開源文字編輯器,但它又有一些不錯用的功能,像偵錯.像內建GIT,像Intelisense & 重構.
+
+它的使用方式是
+ 1.在資料夾按右鍵,用vs code開
+2.在資料夾內按右鍵,用vs code開
+3.在vs code開啟資料夾
