@@ -1,0 +1,12 @@
+[TortoiseSVN]
+
+check out : 將SVN上的資料checkout出來
+update 	取svn上面最新的
+commit	將變動的放上去
+
+
+資料夾右鍵 SVN Show log 就可以看到目前的版本號
+
+
+待看
+https://ithelp.ithome.com.tw/articles/10079913
