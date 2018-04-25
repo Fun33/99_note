@@ -1,0 +1,9 @@
+		public void Log(string val) 
+		{ 
+
+			using (System.IO.StreamWriter file = 
+					   new System.IO.StreamWriter(@"E:\\testEIS.txt", true))
+			{
+				file.WriteLine(val);
+			}
+		}
