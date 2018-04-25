@@ -1,0 +1,1 @@
+sybase exec dynamic sql parameter  =  sybase 怎麼exec select 1
