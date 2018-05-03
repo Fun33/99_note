@@ -1,0 +1,22 @@
+
+--table & fld
+SELECT --TOP 100 PERCENT 
+	TABLENAME,LASTUPDATED  Into #LastTime
+FROM
+(
+SELECT B.NAME AS 'TABLENAME', MAX(STATS_DATE (ID,INDID)) AS LASTUPDATED
+FROM sys.sysindexkeys AS A
+INNER JOIN sys.objects AS B ON A.ID = B.OBJECT_ID
+WHERE B.TYPE = 'U' AND STATS_DATE (ID,INDID) IS NOT NULL
+--and B.NAME in ('ooo','xxx')
+GROUP BY B.NAME
+) AS A
+order by LASTUPDATED desc
+
+
+SELECT   type_desc,convert(varchar(8),t3.LASTUPDATED,112),o.Name, c.Name,*
+FROM     sys.columns c 
+         JOIN sys.objects o ON o.object_id = c.object_id 
+		 join #LastTime t3 on o.Name = t3.TABLENAME
+WHERE    o.type = 'U' 
+ORDER BY o.Name, c.Name
