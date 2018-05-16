@@ -1,8 +1,0 @@
-DECLARE @ConnectPC_AppCLIENTNAME varchar;
-set @ConnectPC_AppCLIENTNAME  = 'cas-vista';
-select * from aaa where a = @ConnectPC_AppCLIENTNAME
-
-
-DECLARE @ConnectPC_AppCLIENTNAME varchar(500);
-set @ConnectPC_AppCLIENTNAME  = 'cas-vista';
-select * from aaa where a = @ConnectPC_AppCLIENTNAME
