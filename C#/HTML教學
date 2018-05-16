@@ -1,0 +1,126 @@
+HTML教學
+1.http://dia.z6i.org/day_13_using_real_links.html
+2.https://www.youtube.com/watch?v=nqkFio2K4Tc&index=6&list=PLu3b11EPo_MduntrdduCqCsB3sdsExrBH
+
+
+======================
+manifest 哦.有了這個能離線,所以之前我在網路上看小說,結果沒網路,再打開,它refesh,把之前load的,都弄不見了,如果加了這個屬性,是不是就不會有這個問題?
+
+xmls 這是啥,為什麼要弄成xml,什麼情況會弄,有什麼好處.
+
+1.lang 可以讓聲音閱讀器說話
+2.head要有title (reader會說話
+3.用h1,h2
+4.如果有寫縮寫,記得寫title
+5.<a href 用真的
+6.table的col name要用<th>寫
+
+ref
+http://dia.z6i.org/table_of_contents.html
+
+
+
+==================================
+lang寫這個是必要的嗎?為什麼要寫?對瀏覽器的幫助是什麼呢?如果沒寫會怎麼樣嗎?如果裡面有各種語言,那要怎麼設?這是影響文件編碼嗎?﻿
+1.Jackie 從中獲益了。因為她的螢幕朗讀軟體 (JAWS) 必須先知道妳所使用的語言，朗讀時才能準確地發音。如果妳沒有指定， JAWS 就會試著猜測妳所使用的語言，而它可能猜錯；尤其當妳在網頁裡引述源碼，或混雜著其他不屬於語言的內容時。
+2.即使妳寫的就是英文， Google 也從中獲益了，當妳使用的不是英語時更是如此。根據 Google Zeitgeist 的資料顯示，50% 的 Google 使用者用英語之外的語言搜尋，而且許多使用者在 Google preferences 設定只搜尋特定的語言。
+
+另外也請注意：如果同一個頁面裡使用了一種以上的語言，妳也可以在任何元件裡指定使用的語言。比方說，如果妳的網站 (HTML 4) 主要使用德語，但是妳引用了一段英語的文章，那麼可以像這樣標註：
+
+<html lang="de">
+  ...
+  <blockquote lang="en">
+    ...
+  </blockquote>
+
+
+lang=來標註網頁的語系，讓瀏覽器能更正確的解析與編碼
+瀏覽器會依電腦的預設編碼進行處理
+實際上我們應該適當的設定語言編碼，否則在不同語言編碼上的電腦可能會有各種顯示語言編碼的方式。
+
+在VS新增一個html文件,預設是沒有lang設定的
+?難道跟瀏覽器講話有關?
+使用不同的瀏覽器，設定不同的語言偏好，可能會導致「完全不同」的結果。
+
+4. 《回来》的音频，以国语演唱：audio lang=zh-cmn
+5. 《海阔天空》的音频，以粤语演唱：audio lang=yue
+6. 《进来白相相》的音频，以沪语演唱：audio lang=wuu
+?難道可以幫助search
+
+<b lang="zh-cmn-Hans-CN">菠萝</b>和<b lang="zh-cmn-Hant-TW">鳳梨</b>其实是同一种水果。
+只是中國和台湾称谓不同，且新马一带的称谓也是不同的，称之为<b lang="zh-cmn-Hans-SG">黄梨</b>。
+
+
+?難道google翻譯,也會參考這個來做翻 譯.
+
+HTMLTAG
+http://dia.z6i.org/day_6_choosing_a_doctype.html
+
+http://dia.z6i.org/day_6_choosing_a_doctype.html
+
+====================
+為什麼要寫標題 a tilte的功能
+
+Jackie 從中獲益了。因為 JAWS 有個特別的鍵盤快速鍵 (INSERT + F10) 能顯示（並唸出）目前所有開啟視窗的標題。如果開啟的是網頁就會唸出網頁標題。當使用 ALT-TAB 切換視窗時，它也會唸出視窗標題。其他的螢幕朗讀軟體，像是 Home Page Reader 之類的，則會在載入網頁時讀出網頁標題。
+Marcus 從中獲益了。因為 Lynx 會在第一行顯示網頁標題，所以 Marcus 總是可以先用布拉耶點字讀到標題。
+Bill 從中獲益了。由於中風的關係，他有時候會搞混或是忽然忘記他讀的東西。視窗標題列的網頁標題就像是個視覺上的錨點，即使是他捲動頁面時仍會留在同一地方；所以他總是可以回頭看一下標題來喚起記憶。
+Google 從中獲益了。因為 Google 會在搜尋的結果裡顯示網頁標題，而且位於網頁標題的關鍵字會有比較高的排名。這對你來說是好事，尤其是對於那些單篇彙整頁面來說更是如此（選個好標題總是沒錯的）。
+
+http://dia.z6i.org/day_8_constructing_meaningful_page_titles.html
+
+a tilte的功能
+<a title="真的耶" href="/stats/">Statistics</a>
+移過去,會有提示
+http://dia.z6i.org/day_14_adding_titles_to_links.html
+
+====================
+<a href
+使用真實link,因為10%的人用的工具,不支援js,所以js不能用,請讓他們還能使用
+http://dia.z6i.org/day_13_using_real_links.html
+ 
+  
+ 
+
+<link rel="stylesheet" type="text/css" media="screen" href="style.css">
+
+這都是screen .
+如果screen,畫面大小,是什麼情況下,就套用什麼css.
+
+那如果給的值是print呢?那screen時,它會怎麼呈現?
+如果在scren ,我們看到的,就會是預設,也就是沒有CSS的情況.
+符合print時,才會去套用css.
+===========================
+ 
+
+
+	em	strong	i	b
+	強調	重要	術語	關鍵字/商品名/服務名稱/名詞
+效果:	斜體	粗體	斜體	粗體
+	名詞	段落
+				SEO會去找
+
+*feel 斜體,強調的效果不好
+
+=====================
+
+為什麼要用?
+1.方便search engine 來找
+主流浏览器均不支持 cite 属性。不过，搜索引擎可能会使用该属性获得更多有关引用的信息。
+2.方便其它神軟體來辨別資訊
+ 
+
+4:43 看效果
+
+[Q]
+<blockquote cite="">我非常喜歡深入淺出MFC這本書</blockquote>
+<blockquote><p>我非常喜歡<cite>深入淺出MFC</cite>這本書</p></blockquote>
+?blockquote 裡面的文字都是引用嗎
+還是只有那本書是引用?
+如果只有那本書是引用,為什麼要把blockquote拉到最外面?
+難道blockquote不能被<p>包起來嗎?
+
+
+
+?q不用引用符號是什麼意思,為什麼不用.
+所以cite是必用嚕
+ 
