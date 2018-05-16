@@ -1,0 +1,145 @@
+
+
+
+key word:
+jQuery AJAX 
+ajax+asmx
+ajax+ashx
+
+
+
+jQuery 提供的 ajax 函式其中有 4 個 callbacks: beforeSend, complete, error, 以及 success，
+當一個 Ajax request 送出到完成，會依照：
+beforeSend » success or error » complete
+
+
+
+$.ajax({
+      type: "post",
+      url: url,
+      async: false ,//default是true,預設是不同步
+      dataType:'html',
+      success: function(data) { },
+     complete: function(XMLHttpRequest, textStatus) { },
+     error: function(){}
+});
+
+========================beforeSend是什麼========================
+jQuery 提供的 ajax 函式其中有 4 個 callbacks: beforeSend, complete, error, 以及 success，
+當一個 Ajax request 送出到完成，會依照：
+
+beforeSend » success or error » complete
+
+
+
+
+
+===========================data請求字串==================
+发送到服务器的数据。将自动转换为请求字符串格式。GET 请求中将附加在 URL 后。
+查看 processData 选项说明以禁止此自动转换。必须为 Key/Value 格式。
+如果为数组，jQuery 将自动为不同值对应同一个名称。如 {foo:["bar1", "bar2"]} 转换为 '&foo=bar1&foo=bar2'。
+
+
+=============================DataType 傳回值==============================
+DataType
+预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息返回 responseXML 或 responseText，并作为回调函数参数传递，可用值:
+"xml": 返回 XML 文档，可用 jquery 处理。
+"html": 返回纯文本 HTML 信息；包含 script 元素。
+"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。
+"json": 返回 JSON 数据 。
+"jsonp": JSONP 格式。使用 JSONP 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。
+
+
+
+===================================async================================
+
+<script type="text/javascript" src="./js/jquery-1.8.0.js"></script>
+<script type="text/javascript" defer>
+$(function() {
+   $.ajax({
+                url : "js/jquery.tinyscrollbar.min.js",
+                dataType : "script",
+                async: false    // 先把這隻js執行完後，再跑下面的程式，如果不寫此參數，jQuery預設AJAX為異步執行
+   });
+   ......其他要執行的程式........
+});
+</script>
+
+(默认: true) 默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。
+注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
+
+====================把它轉成json string===========================
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var responseEntities = new List<Person>()
+        {
+            new Person{ Name="Joey1", Id="Id1"},
+            new Person{ Name="Joey2", Id="Id2"},
+            new Person{ Name=v1+v2+v3+v4+v5, Id=v2}
+        };
+
+            var result = serializer.Serialize(responseEntities);//放LIST可以,如果直接放person,會出現 "無法將類型 'WebApplication2.person' 隱含轉換為 'string'
+
+==================aspx PageLoad
+
+string 
+            Response.Write("XXXX");
+            Response.End();
+string 讀
+	    response //直接用
+
+json
+            JavaScriptSerializer serializer = new JavaScriptSerializer();//using System.Web.Script.Serialization
+            var responseEntities = getxxx();
+
+            var result = serializer.Serialize(responseEntities);
+            Response.Write(result);
+            Response.End();
+json讀
+            events_data = JSON.parse(response.d); 
+
+*有加沒加,都不影響.contentType: "application/json; charset=utf-8",
+
+  	
+===============asmx 
+
+string          return "xxxx";
+string 讀           
+		contentType: "application/json; charset=utf-8",//asmx不加這行會出錯
+		response.d
+
+json
+	    public string 
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var responseEntities = getxxx();
+
+            var result = serializer.Serialize(responseEntities);
+	    return result;
+json讀
+	    contentType: "application/json; charset=utf-8",//asmx不加這行會出錯
+            events_data = JSON.parse(response.d);//讀d轉成json
+
+
+====================未測試
+[xml]
+var xmlDoc = oXml;
+var name = xmlDoc.childNodes(1).firstChild.nodeValue;
+
+===================
+1.asmx 不能用request
+
+
+ 
+
+============================================
+防正bug產生
+https://dotblogs.com.tw/jasonyah/2013/06/02/use-ajax-you-need-to-be-care
+
+http://blog.ericsk.org/archives/839
+http://blog.csdn.net/zhbitxhd/article/details/9946799
+
+ashx
+https://dotblogs.com.tw/threeday0905/2011/01/07/20648
+
+3個後台(aspx/asmx/asmx
+https://dotblogs.com.tw/hatelove/archive/2009/12/22/jqueryajax.aspx
