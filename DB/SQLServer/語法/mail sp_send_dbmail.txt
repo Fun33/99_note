@@ -1,5 +1,5 @@
-sp_send_dbmail¥i¥Hª½±µ±N¬d¸ßªº¸ê®Æ¤w¶l¥ó¤è¦¡µo°e¥X¥h¡A
-¤£¹L³o­Ó¥\¯à­n¬OMS SQL Server 2005¥H¤Wª©¥»¤~¦³¤ä´©¡I¡I
+sp_send_dbmailå¯ä»¥ç›´æ¥å°‡æŸ¥è©¢çš„è³‡æ–™å·²éƒµä»¶æ–¹å¼ç™¼é€å‡ºå»ï¼Œ
+ä¸éé€™å€‹åŠŸèƒ½è¦æ˜¯MS SQL Server 2005ä»¥ä¸Šç‰ˆæœ¬æ‰æœ‰æ”¯æ´ï¼ï¼
 
 0.add 
 Ctrl+Alt+G
@@ -10,7 +10,7 @@ go
 SELECT *
 FROM sysmanagement_shared_registered_servers_internal
 
-1.¶}Åv­­
+1.é–‹æ¬Šé™
 USE MASTER 
 GO 
 SP_CONFIGURE 'show advanced options', 1 RECONFIGURE WITH OVERRIDE 
@@ -20,9 +20,16 @@ GO
 SP_CONFIGURE 'show advanced options', 0 RECONFIGURE WITH OVERRIDE
 GO
 
-2.³]MAIL
+2.è¨­MAIL
 
 3.
+	EXEC msdb.dbo.sp_send_dbmail
+						@body_format= 'HTML',
+						@profile_name = 'sqlmail',
+						@recipients = 'unaliao@masterlink.com.tw',  						
+						@body =  'test' ,	 
+						@subject =   'test sss' ;
+---------------------------------------------------------------------------------------------------------
 DECLARE @server_name varchar(50)
 DECLARE @timeout varchar(3) = '15'
 DECLARE cur CURSOR FOR
@@ -42,14 +49,14 @@ BEGIN
 	
 	BEGIN CATCH
 	DECLARE @context nvarchar(100)
-	SET @context = N'¡iºò«æ¡j{' + @server_name + + N'} °õ¦æ­ÓÅé¨S¦³¦^À³¡C'
+	SET @context = N'ã€ç·Šæ€¥ã€‘{' + @server_name + + N'} åŸ·è¡Œå€‹é«”æ²’æœ‰å›æ‡‰ã€‚'
 	EXEC msdb.dbo.sp_send_dbmail 
 		@profile_name = 'EMailProfile', 
 		@recipients = 'una.liao@cadmen.com',
         @copy_recipients = 'una.liao@cadmen.com', 
 		@importance  = 'high',
 		@subject = @context,
-		@body = '½ĞºÉ³t³B²z!!'
+		@body = 'è«‹ç›¡é€Ÿè™•ç†!!'
 	END CATCH
 	
 	FETCH NEXT FROM cur INTO @server_name
