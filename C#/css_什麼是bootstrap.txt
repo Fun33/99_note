@@ -1,0 +1,89 @@
+想說嗄筆記用做網頁.
+結果..<p>攏翻譯去啊.
+安怎麥翻譯.
+>將<>改做&lt;    &gt;
+
+
+
+
+===================
+它是一個CSS
+有了它,所有東西都變漂亮了.	>所以我的個股當沖,用了,就會漂亮很多了
+因為它做了很多,所有的控制項,都有.
+一個網頁要的,它都有了,所以被稱為CSS UI Framework.
+
+成大網頁也有用這個.
+那它是免費的嗎?	>對,它是免費的
+
+
+=====================要怎麼用?====================
+
+1.download
+  bootstrap
+  http://getbootstrap.com/
+2.css引用
+
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  *放的位置:head底下
+3.js引用
+  bootstrap.js 和 bootstrap.min.js 都內含所有外掛，僅需要引用其中一支 *.js 即可。
+  <script src="bootstrap/js/jquery_1.11.1.min.js"></script>
+4.class=""
+
+置中的效果  	<div class="container">
+黏在左邊	<div class="has-success">
+
+變成漂亮按鈕	<a class="btn btn-default"
+
+換顏色		<p class="text-info">
+有背景色	<p  class="bg-info">
+
+========================
+
+教學影片
+https://www.youtube.com/watch?v=91tAhtffbCU
+
+https://www.w3schools.com/bootstrap/bootstrap_modal.asp
+
+*https://getbootstrap.com/docs/3.3/css/#forms-example
+
+Ref
+https://kkbruce.tw/bs3/Javascript
+
+http://ithelp.ithome.com.tw/articles/10120582
+看完,了解它是什麼了
+
+教學
+https://www.youtube.com/watch?v=91tAhtffbCU
+
+
+
+=================================== 
+下載後,發現成大的和它不完全相同.
+所以..成大下載後,有自己改過.
+
+===================
+因為我們參考成大的版面,它的一個資料夾,叫做這個.
+本來沒多想,想說就只是命名.
+
+後來找less時,看到它.原來它也是一號人物.
+
+======================彈跳視窗====================
+1.在head底下加入
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+2.加body底下加入
+        <div class="container">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Open</button>
+
+            <div class="modal" id="myModal">
+                <p>i am hihi</p>
+                <button type="button" class="close" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
