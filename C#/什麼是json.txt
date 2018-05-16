@@ -1,0 +1,39 @@
+https://oawan.me/2016/javascript-json-stringify-and-parse/
+
+JavaScript 物件標記法 (JavaScript Object Notation，JSON) 
+
+{name:value}
+[collection, collection]
+
+安捏記錄就乎做json
+{name:bow,phone:0910587011}
+
+2個的呢?
+[
+	{name:bow,phone:0910587011}
+	,{name:Fun,phone:0955123456}
+]
+
+若是安捏甘會駛?
+js + html
+{name:bow,phone:0910587011}		//不可以,因為bow是字串,所以要用""包起來 //phone沒有包是數字,所以0會不見
+{name:"bow",phone:"0910587011"}	//可以
+{"name":"bow","phone":"0910587011"}	//可以
+
+js+server
+        //data: { x: 333 }, //這個可以
+        //data: { "x": 333 }, //這個可以
+        //data: { x: "333" },//這個可以
+        //data: { "x": "333" },//這個可以
+
+        //data: { 'x': 333 },//這個可以
+        //data: { x: '333' },//這個可以
+        //data: { 'x': '333' },//這個可以
+          
+        //data: { 'x': "333" },//這個可以
+        //data: { "x": '333' },//這個可以
+        
+        //data : JSON.stringify(x),//call aspx 這樣不行
+
+#測試環境
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_stringify
