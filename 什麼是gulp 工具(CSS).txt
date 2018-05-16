@@ -1,0 +1,40 @@
+在查找less時,說到less是用gulp-less轉換,說blog用gulp實作.
+所以就又做了點功課,gulp是什麼
+
+
+ 
+什麼是gulp?
+http://abgne.tw/web/gulp/gulp-tuts-install-gulp-js.html
+資料搬移、檔案命名或邏輯處理
+現在前端的技術越來越多了，連帶的若要將專案發佈到主機上之前，您可能需要進行以下的步驟：
+1.將 Babel、TypeScript 及 CoffeeScript 編譯成 JavaScript
+2.將 LESS、SASS、SCSS 或 Stylus 編譯成 CSS
+3.再把 Jade、Slim 或 Haml 編譯成 HTML
+4.合併 HTML 頁面跟 layout
+5.將 CSS 加上前綴
+6.再把 CSS 和 JavaScript 各自成併成單一檔案
+7.壓縮 CSS 和 JavaScript 並產生 Source Map
+8.壓縮圖片
+9...
+
+看了這一連串的工作是不是頭的暈了呢？以上都還沒加上各種測試工作咧！
+如果在瀏覽器上查看發現有錯要進行小變更時，以上動作可能得再來一次了 XD。
+因此就有像是 Gulp.js 這樣的自動化建置工具出現啦！
+只要我們把要執行的各種動作都寫成一個個任務後，就能輕鬆完成一連串的動作囉！
+
+不過在開始安裝 Gulp.js 之前，
+我們得先安裝 Node.js 才能使用方便的 npm 工具，
+再透過 npm 來安裝 Gulp.js 及相關的外掛套件工具。
+
+
+從前面幾篇的介紹，我們有了持續整合伺服器(TeamCity)的協助，加上 NET Core 本身的指令，目前為止可以完成多數的工作。
+但在自動化過程中，我們仍需要透過一些工具進行其他的工作，像是資料搬移、檔案命名或邏輯處理，
+當然，我們可以透過命令提示字元 command-line、powershell 或程式語言(C#, F#)...等方式進行這些工作。
+而這系列文章中，我們會使用 Gulp 與 powershell 來進行這些工作。
+
+這篇要介紹的工具Gulp，是一套前端的任務管理工具，
+它可以幫助工程師將一些前端檔案的處理做成自動化程序，然後佈署在開發環境，
+讓前端工程師專注在開發上面，無須費心於環境設定等瑣事。
+https://blog.ccjeng.com/2015/08/Gulp.html
+
+覺得有隔山的感覺(隔行如隔山
