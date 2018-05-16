@@ -1,5 +1,10 @@
 ﻿
- 
+ !排程中有SQL Server Integration Service封裝,要怎麼看裡面在做什麼?
+>在SQL Server/管理/維護計劃.
+>如果要新增:右鍵:維護計劃精靈
+>修改的話,只能改DB,其實也不能改什麼,因為建立時,也只要選DB和table/view,跟設排程.
+
+ ------------------------------
  dbname.dbo.tablename 也可以寫成dbname..tablename
  
  
