@@ -1,0 +1,62 @@
+我們參考成大的套版,他的檔案裡,有less,不知道是什麼,就做了點功課.
+
+
+
+用來寫CSS的,寫法比較簡單	(聽起來像是翻譯,提供我們簡單的話,再轉成複雜的話給BROWSER看
+
+它是一個CSS預處理器	(啥咪是CSS預處理器,是工具嗎?要怎麼安裝?畫面長怎樣?
+和他一樣的東西有 :SASS
+
+
+那要在哪裡寫?	>任何編輯器都可以.
+它有工具嗎?	>好像沒有
+
+副檔名要叫做什麼?	>副檔名叫.less
+
+要怎麼把它換成BROWSER看得懂的CSS呢?要在cmd呼叫什麼語法嗎?還是它有介面可供操作?	>使用gulp,來做
+
+
+
+如果要用它的話,要安裝什麼嗎?
+1.下載less.js來放
+2.安裝nodeJS
+
+less類似sass的CSS擴充語言
+不同的是sass是在Ruby環境下，
+而less是Javascript library。
+
+eng ref
+http://www.hongkiat.com/blog/sass-vs-less/
+==============
+啥咪是SASS,
+Sass並不是一套軟體，它算是CSS的進階語言，透過Ruby環境編譯成一般CSS，
+而在編寫的過程中Dreamweaver、Sublime text、Visual Studio、記事本只是編寫的工具，並不會影響到編譯後的結果。
+
+ruby環境
+是一種程式語言，而Sass就是用Ruby所編寫，所以在Sass編譯時需要有Ruby的編譯能力。
+
+Sass，為何又有人說scss?
+兩者都屬於sass，而差在附檔名以及編寫方式的不同。
+	編寫方式
+sass	沒有大括號,沒有結束的";"	*用縮排表示在它底下	*一定要縮排
+scss	有大括號
+
+/*CSS Code*/
+.error {
+  border: 1px #f00;
+  background: #fdd;
+}
+/*SCSS Code*/
+.error {
+  border: 1px #f00;
+  background: #fdd;
+}
+/*Sass Code*/
+.error
+  border: 1px #f00
+  background: #fdd
+
+http://ithelp.ithome.com.tw/articles/10127659
+
+
+
