@@ -1,4 +1,0 @@
-syntax eror or access violation :syntax error near 'D'
-
-X exec ( 'select  top 5 * from noktx')
-

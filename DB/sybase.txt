@@ -1,0 +1,18 @@
+syntax eror or access violation :syntax error near 'D'
+
+X exec ( 'select  top 5 * from noktx')
+--------------------------------------------------
+Sybase dbisql	SybaseIQ
+
+1.dbisql要裝在IS上
+2.IS要設環境變數(希望有畫面會更清楚)
+3.connetion的設定
+4.怎麼知道有裝了.在cmd打dbisql如果有裝好,就會跑出來了.
+
+
+
+dbisql -c "uid=stage;pwd=stage;eng=mliqt;links=tcpip(host=SRV-IQ-SERVER;port=2638);AutoPreCommit=YES" -nogui -q
+dbisql -c "uid=stage;pwd=stage;eng=mliqt;links=tcpip(host=SRV-IQ-SERVER;port=2638);AutoPreCommit=YES" -nogui -q
+dbisql -c "uid=DBA  ;pwd=SQL  ;eng=mliqt;links=tcpip(host=SRV-IQ-SERVER;port=2638);AutoPreCommit=YES" -nogui -q
+
+
