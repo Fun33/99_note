@@ -1,0 +1,9 @@
+什麼是PowerShell? 怎麼安裝?怎麼開?怎麼使用?
+
+什麼是PowerShell?
+
+什麼是PowerShell? Windows PowerShell，是以 .NET Framework 2.0 為基礎加以擴充的命令列殼層（Shell）與腳本（Script）語言
+
+怎麼開? 要開啟 Windows PowerShell 的執行環境，較簡單的作法應該是按下「開始」按鈕，選擇「執行」選項， 然後在「執行」對話方塊中的「開啟」文字方塊內，輸入 powershell，然後按下「確定」按鈕。
+
+**怎麼使用? ** ref https://ithelp.ithome.com.tw/articles/10027285
