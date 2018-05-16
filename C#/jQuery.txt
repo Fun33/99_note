@@ -1,0 +1,13 @@
+REF
+https://www.youtube.com/watch?v=AnYy3R3l9-I&t=10s
+
+
+#js 
+var a = document.queryselector("#text").value;  
+document.queryselector("#text").value ='...5'; 
+document.queryselector("#span").innerHTML=3;
+
+#jQuery 
+var a = $('#text').val();   
+$('#text').val(3);  
+$('span').text('3'); 
