@@ -1,0 +1,29 @@
+我們學習成大的排版,看到成大有用這個.
+不知道是什麼,就做了點功課.
+
+可縮放向量圖形（Scalable Vector Graphics，簡稱SVG）是W3C所制定的開放性網路標準之一。
+它是以可擴充套件標記語言（XML），來描述2D圖形的一種圖形格式，也可以作動態效果、提供互動功能。
+
+有jpg轉SVG的工具
+
+how做動態?
+how做互動?有範例可以看嗎?
+
+
+好處:
+SVG有向量圖形的優點，比方可以保持圖像清晰度，不會隨放大與縮小而有所失真，也不會大幅增加檔案的大小。
+
+使用方式:
+
+
+一個簡單的SVG文檔範例如下：
+<?xml version=”1.0″ encoding=”iso-8859-1″?>
+<!DOCTYPE svg PUBLIC “-//W3C//DTD SVG 20000303 Stylable//EN”
+“http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd”>
+<svg xml:space=”preserve” width=”5.5in” height=”.5in”>
+<text style=”fill:red;” y=”15″>This is SVG.</text>
+</svg>
+
+Ref
+https://www.techbang.com/posts/1715
+
