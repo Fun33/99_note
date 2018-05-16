@@ -1,0 +1,14 @@
+一個div id = gv1
+一個div id = gv2
+
+      <style>
+             div#gv1 {
+            border: 0 black dashed;
+            float: left; 
+        }
+        div#gv2 {
+            border: 0 black dashed;
+            float: left;
+            margin-left :10px;
+        }
+            </style>
