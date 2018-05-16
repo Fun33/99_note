@@ -1,1 +1,1 @@
-xxx
+"& VbCrLf  &chr(160) & chr(160) &"
