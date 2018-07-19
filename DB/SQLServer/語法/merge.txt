@@ -1,0 +1,57 @@
+ /*
+ 起頭:建雄用merge語法,這是啥.居然有這!!
+
+
+ ref
+ https://blog.csdn.net/sinat_16998945/article/details/75418634
+
+ */
+ 
+drop table #sourceTable
+drop table #targetTable
+
+create table #sourceTable
+(
+id int,
+name nvarchar(100)
+)
+INSERT INTO #sourceTable values(1,'source1') 
+INSERT INTO #sourceTable values(2,'source2') 
+INSERT INTO #sourceTable values(3,'source3') 
+INSERT INTO #sourceTable values(4,'source4') 
+
+create table #targetTable
+(
+id int,
+name nvarchar(100)
+)
+INSERT INTO #targetTable values(1,'target1') 
+INSERT INTO #targetTable values(5,'target5') 
+ 
+MERGE #targetTable  t --目标表()
+using #sourceTable s  --源表
+on t.id = s.id  -- 匹配条件
+when matched    
+then update set t.name = s.name
+;
+
+ 
+----------------------------------------------
+MERGE #targetTable  t --目标表()
+using #sourceTable s  --源表
+on t.id = s.id  -- 匹配条件
+when matched    
+then update set t.name = s.name
+     --当t.id = s.id时，则更新targetTable的此行记录
+when not matched 
+then INSERT  values(s.id,s.name)
+     --当t.id = s.id不成立时，则插入sourceTable的此行记录到targetTable
+when not matched by source
+then delete
+     --当t.id在sourceTable中不存在，则删除targetTable行记录
+; -- 结尾必须有;
+--MERGE 语句的 'WHEN NOT MATCHED' 子句中不允许 'DELETE' 类型的操作
+
+ select * from #sourceTable 
+select * from #targetTable 
+  
