@@ -7,3 +7,18 @@
 				file.WriteLine(val);
 			}
 		}
+		
+        private void log(string str)
+        {
+            string filename = @"c:\log.txt";
+            if (System.IO.File.Exists(filename) == false)
+            {
+                System.IO.FileStream fileStream = new System.IO.FileStream(filename, System.IO.FileMode.Create);
+                fileStream.Close();   //切記開了要關,不然會被佔用而無法修改喔!!!
+            }
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(filename, true))
+            {
+                file.WriteLine(str);
+            }            
+        } 
