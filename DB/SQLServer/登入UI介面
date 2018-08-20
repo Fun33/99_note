@@ -1,0 +1,9 @@
+QA
+居然有這落好用的咪件
+https://ithelp.ithome.com.tw/questions/10189608
+OK	.\SQLEXPRESS
+NG	.
+
+*
+如果你安裝的是 SQL Express 版本, 必須要用  才可以參考到本機
+如果你是安裝其他高階版本, 你的 Instance 必須是預設名稱才可以使用「.」 
