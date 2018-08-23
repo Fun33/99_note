@@ -1,0 +1,22 @@
+protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+	{
+		if (e.Row.RowIndex != -1)
+		{ 
+ 
+			//自動變色機制
+			if (e.Row.RowIndex % 2 == 1)
+			{
+				//單數資料列
+				e.Row.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#FFFFFF");
+				e.Row.Attributes.Add("onmouseout", "onmouseChangeRowColor(this,true,false);");
+				e.Row.Attributes.Add("onmouseover", "onmouseChangeRowColor(this,true,true);");
+			}
+			else
+			{
+				//雙數資料列
+				e.Row.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#EFF3FB");
+				e.Row.Attributes.Add("onmouseout", "onmouseChangeRowColor(this,false,false);");
+				e.Row.Attributes.Add("onmouseover", "onmouseChangeRowColor(this,false,true);");
+			}
+		}
+	}

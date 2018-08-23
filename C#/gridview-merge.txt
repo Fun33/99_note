@@ -1,0 +1,39 @@
+protected void GridView1_PreRender(object sender, EventArgs e)
+        {
+            if (isSearch == false) return;
+            isSearch = false;
+
+            foreach (GridViewRow gvR in this.GridView1.Rows)
+            {
+                for (int i = gvR.DataItemIndex + 1; i < this.GridView1.Rows.Count; i++)
+                {
+                    //與下一列欄位值相等;
+                    if (this.GridView1.Rows[i].Cells[1].Text.Trim() != " ")
+                    {
+                        if (gvR.Cells[1].Text.Trim() == this.GridView1.Rows[i].Cells[1].Text.Trim())
+                        {
+                            gvR.Cells[1].RowSpan = gvR.Cells[1].RowSpan == 0 ? gvR.Cells[1].RowSpan = 2 : gvR.Cells[1].RowSpan += 1;
+                            this.GridView1.Rows[i].Cells[1].Visible = false;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                for (int i = gvR.DataItemIndex + 1; i < this.GridView1.Rows.Count; i++)
+                {
+                    //與下一列欄位值相等;
+                    if (gvR.Cells[0].Text.Trim() == this.GridView1.Rows[i].Cells[0].Text.Trim())
+                    {
+                        gvR.Cells[0].RowSpan = gvR.Cells[0].RowSpan == 0 ? gvR.Cells[0].RowSpan = 2 : gvR.Cells[0].RowSpan += 1;
+                        this.GridView1.Rows[i].Cells[0].Visible = false;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        } 
