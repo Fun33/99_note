@@ -1,0 +1,62 @@
+雙向繫結	Bind()
+單向繫結	Eval()
+
+
+[textbox]
+1.add template col
+2.edit template : 拉textbox
+3.在textbox binding : DataBinder.Eval(Container, "DataItem.操盤人")
+
+[checkbox]
+1.add template col
+2.edit template : 拉check
+3.在check.checked set	 (Eval("chk2").ToString()=="1")
+
+[修改-c1webgrid]
+
+1.add template col
+2.edit template : 拉LinkButton
+3.set commandName
+4.
+this.C1WebGridList.DeleteCommand += new C1.Web.C1WebGrid.C1CommandEventHandler(this.C1WebGridList_DeleteCommand);
+		private void C1WebGridList_DeleteCommand(object source, C1.Web.C1WebGrid.C1CommandEventArgs e)
+		{
+		.............................
+		}
+
+[修改-Gridview] 
+1.add template col
+2.edit template : 拉LinkButton
+3.set commandName
+4.程式碼
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+                    GridView tmp = GridView1;// (GridView)source; 
+                    int pk_key = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;   
+
+                    string sID = tmp.Rows[pk_key].Cells[2].Text.Trim();
+	Response.Redirect("data_input_modify.aspx?mode=insert&input_id=" + sID );	
+        }
+
+QA 如何拿viisble=false的cell值
+不可以直接visible=false，要bind完再visible
+        protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
+            { 
+                e.Row.Cells[2].Visible = false;//要隱藏的欄位  
+            } 
+        }
+ 
+https://dotblogs.com.tw/eason.yen/2011/01/31/21164
+
+
+[刪除]
+
+
+
+
+
+
+
