@@ -1,0 +1,95 @@
+https://msdn.microsoft.com/zh-tw/library/haa3afyz(v=vs.110).aspx
+
+需要擷取大量資料時，DataReader 是不錯的選擇，因為資料不會快取至記憶體。
+
+用完 DataReader 物件後，請務必呼叫 Close 方法。
+如果您的 Command 包含輸出參數或傳回值，則必須等到 DataReader 關閉後才能使用它們。
+請注意，DataReader 開啟期間，Connection 只能供該 DataReader 使用。 必須等到原始 DataReader 關閉後，才能執行 Connection 的任何命令，包括建立其他 DataReader。
+==================
+if (reader.HasRows)
+  while (reader.Read())
+     reader.GetValue(1)
+reader.Close(); 
+======================================
+            string cn = " Provider=SAOLEDB;Data Source=DW_IQ_NEW "; 
+
+            System.Data.OleDb.OleDbConnection con = null;
+            con = new System.Data.OleDb.OleDbConnection(cn);
+
+            con.Open();
+            System.Data.OleDb.OleDbCommand command = con.CreateCommand();
+
+            command.CommandText = @"Select top 10 * from TRADETOOL_FEE";
+
+            System.Data.OleDb.OleDbDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    laCount1.Text += string.Format("{0}\t{1}\t{2}\t{3}\t{4}  ", reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
+
+                    //Console.WriteLine("{0}\t{1}", reader.GetString(0), reader.GetString(1));
+                }
+            }
+            reader.Close(); 
+
+======================================
+下列程式碼範例在 DataReader 物件中重複，並從每個資料列傳回兩個資料行。
+C#
+static void HasRows(SqlConnection connection)
+{
+    using (connection)
+    {
+        SqlCommand command = new SqlCommand(
+          "SELECT CategoryID, CategoryName FROM Categories;",
+          connection);
+        connection.Open();
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
+                    reader.GetString(1));
+            }
+        }
+        else
+        {
+            Console.WriteLine("No rows found.");
+        }
+        reader.Close();
+    }
+}
+
+====================
+使用 NextResult 來擷取多個結果集
+如果傳回多個結果集，DataReader 會提供 NextResult 方法依序在結果集中重複。 下列範例顯示 SqlDataReader 使用 ExecuteReader 方法，處理兩個 SELECT 陳述式的結果。
+C#VB
+static void RetrieveMultipleResults(SqlConnection connection)
+{
+    using (connection)
+    {
+        SqlCommand command = new SqlCommand(
+          "SELECT CategoryID, CategoryName FROM dbo.Categories;" +
+          "SELECT EmployeeID, LastName FROM dbo.Employees",
+          connection);
+        connection.Open();
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.HasRows)
+        {
+            Console.WriteLine("\t{0}\t{1}", reader.GetName(0),
+                reader.GetName(1));
+
+            while (reader.Read())
+            {
+                Console.WriteLine("\t{0}\t{1}", reader.GetInt32(0),
+                    reader.GetString(1));
+            }
+            reader.NextResult();
+        }
+    }
+}
