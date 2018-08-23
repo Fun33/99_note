@@ -1,0 +1,391 @@
+/ICRMC/ICRMH/ICRMHR029.aspx?version=2
+ Request.Params["version"];
+
+
+--------------------------------
+Session["version"] =  Request.Params["version"];
+Session["version"] .Tostring();
+
+
+#Visul Studio 顧目睭
+http://codeplanet.me/archives/2014/08/change-visual-studio-theme-and-color-scheme/
+
+
+------------------
+
+同層	index.html
+下層	music/index.html
+上層	../index.html
+上上層	../../Index.html
+
+============
+BMeal
+找不到類型或命名空間名稱 'ReportViewer' 
+
+=====================
+js
+console.log("字串")
+
+==========================
+var xmlDoc = oXml;
+var name = xmlDoc.childNodes(1).firstChild.nodeValue;
+
+
+
+[ScriptMethold(ResponseFormat=ReponseFormat.Json)]
+
+
+3個後台(aspx/asmx/asmx
+https://dotblogs.com.tw/hatelove/archive/2009/12/22/jqueryajax.aspx
+
+範例1
+https://dotblogs.com.tw/hatelove/archive/2011/11/22/jquery-ajax-aspx-json.aspx
+
+
+在ASPX頁面移除form標記 ( 這是為了避免不必要的POSTBACK )	>原來如此
+
+
+
+w3school
+https://www.w3schools.com/jquery/jquery_dom_set.asp
+
+
+jQuery Ref
+學習 jQuery 從入門到精通只要兩小時！
+https://blog.miniasp.com/post/2009/04/19/Learning-jQuery-from-novice-to-expert-in-just-two-hours.aspx
+
+js端,讀資料
+https://www.youtube.com/watch?v=OtIOxstrhzY
+
+瘋狂re,所以先mark掉 整個function
+http://192.168.14.24:88/index.aspx?c=auth&m=logout
+http://kikinote.net/article/27.html
+
+http://help.i2yes.com/?q=node/106
+
+https://hackpad.com/javascript-AjaxJSON--EQxyX1RSTxs
+
+
+$("p").html("Hello <b>world</b>!");
+https://www.w3schools.com/jquery/html_html.asp
+
+HTML 自訂屬性
+http://www.kangting.tw/2012/07/html5_09.html
+
+====================把它轉成json string===========================
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var responseEntities = new List<Person>()
+        {
+            new Person{ Name="Joey1", Id="Id1"},
+            new Person{ Name="Joey2", Id="Id2"},
+            new Person{ Name=v1+v2+v3+v4+v5, Id=v2}
+        };
+
+            var result = serializer.Serialize(responseEntities);
+
+
+
+
+=================================
+基本的jQuery 架構
+$(document).ready(function() {
+  // Handler for .ready() called.
+});
+基本上任何的javascript 都寫在 document .ready 裡面就對了。
+這個code 的意思就是：在我的網頁(DOM) load 完成之後，我要做些甚麼事情！
+在jQuery 中， “$" 這個符號代表的就是jQuery。
+因此你也可以寫成
+
+jQuery(document).ready(function(){
+  // Handler for .ready() called.
+});
+
+
+
+=========================
+
+圖表 讓數字更有感覺.沒圖表的,把圖表放上去.
+熱門類股.圖表.字.要改
+
+
+我想看這支股票的表現,多少錢.元富交易有幾張.市場交易有幾張.
+
+
+=====================
+3種做法
+table	千分號,靠右	很手工的方法,但要做什麼變化,比較容易(用HTML)
+GV	千分號		一開始好做,但如果要改顏色,要format欄位值,就很麻煩
+CR	千分號		好做,又漂亮,但比較慢.
+==================
+HTML色彩代码
+
+發佈網站
+1.開啟IIS
+http://lesliechang-blog.logdown.com/posts/246341
+http://lincyi.pixnet.net/blog/post/28591411-win7%E5%AE%89%E8%A3%9Diis%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%88%87asp%E6%9E%B6%E7%AB%99%E8%A8%AD%E5%AE%9A%E6%95%99%E5%AD%B8
+IIS管理主控台,World Wide Web服務
+
+2.Web發行
+
+http://localhost/WebDayTrade/Layout1.aspx
+
+QA1.
+Q
+因為網頁伺服器上設定的多用途網際網路郵件延伸標準 (MIME) 對應原則，而無法提供您要求的網頁。如果此網頁為指令碼，請新增處理常式，而且如果它是應該要下載的檔案，請新增 MIME 對應。
+A
+控制台 -> 程式和功能 -> 開啟或關閉 Windows 功能 -> Internet Information Services -> World Wide Web 服務 -> 應用程式開發功能 -> 將 ASP.NET 勾選起來
+
+QA:
+Report資料夾要移到WebDayTrade底下
+
+Q:剖析器錯誤訊息: 無法載入型別 'RS2.frm.frmDayTrade'。
+A:重開專案
+
+============
+一直用CR,異外用了Gridview,還不錯耶(不過還沒分頁)
+
+===========
+
+sql WITH TIES
+http://powerfuleric.pixnet.net/blog/post/36739961
+
+
+
+
+
+?session cookie優缺點
+session存在哪	
+	session的值存在server,而client會拿一個身份證,server到時會依這個身份證來讀取它的資料.
+
+	session存在server,那我有1萬個登入者,我儲一萬個session	>那怎麼知道他是誰(一個id)	
+
+	client拿的身份證=sessionId存在哪
+	登入後,有了session,每個page都會帶sessionId來server.就像身份證,就可以提取資料.(資料是他的狀態,有沒有登入啦.什麼權限啦.
+
+	1、通過URL存取，URL會帶上一個;jsessionId=xxxxxx等，這樣每次重新請求的時候都傳了sessionId給伺服器
+	通過cookie存取(session cookie存儲在瀏覽器內存中)
+
+	使用方法(C#)
+	Session["Login"] = null;
+	if (Session["Login"]!=null) {}
+
+session Life
+	如果瀏覽器關閉，伺服器保存的session數據不是立即釋放的，此時數據還會存在，只要我們知道那個sessionId，就可以繼續通過請求獲得此session的信息。
+	session裡面的數據都放在伺服器端，通過sessionId保證不會訪問錯誤，服務端自動對session進行管理，如果在規定的時間內沒有訪問，則釋放掉這個session。
+
+cookie存在哪
+	存在client端
+	所以每次都會送給server(	cookie信息則存放在HTTP請求頭中,送到server (使用SSL加密
+	存在client所以很容易被偷去用.(所以不要放敏感資料)
+	MAX 3K / 一個cookie大小
+	MAX 20個/一個domain
+	?怎麼看cookie放哪裡
+	
+	使用方法(C#)
+	Response.Cookies["UserId"].Value = "333";
+	string val = Response.Cookies["UserId"].Value ;
+
+	
+session放cookie中，叫做cookie based session
+
+ViewState
+Hidden field
+Application
+Query strings
+http://www.test104.com/tw/tech/858.html
+
+工具
+查看html
+查看get post
+查看cookie
+
+IE	F12
+Chrome	Shift+Ctrl+I	更多工具/開發人員工具
+https://jingyan.baidu.com/article/3f16e003a87f282590c10347.html
+
+******************************
+MVC
+https://sites.google.com/site/ageechen/work_notes/web-developing-in-php/codeigniter-mvc
+
+
+用到的語法
+
+<title><%:Request.QueryString["a1"];%>  </title>
+解決方法
+<title><%:Request.QueryString["a1"];%>  </title>
+<title><%:Request.QueryString["a1"]%>  </title>
+https://docs.microsoft.com/zh-tw/dotnet/articles/csharp/language-reference/compiler-messages/cs1026
+
+
+
+**後端把值送給前端
+	<div id="debug" runat="server"></div>
+	this.debug.InnerText += ex.Message;
+
+	<div id="GridView" runat="server"></div>
+	this.GridView.InnerHtml += "</table>";
+
+
+            cmd.CommandText = "select Name from Cust where ID=@ID and Pwd= @Pwd";
+            cmd.Parameters.AddWithValue("@ID", txAccount.Text);
+            cmd.Parameters.AddWithValue("@Pwd", txPwd.Text);
+
+
+Alert
+	C# 後端程式	Response.Write("<script>alert('登入失敗');</script>");
+
+
+導到其它頁面(**網頁名稱不分大小寫(C#)
+	Response.Redirect("WelCome.aspx");	Response.Redirect("http://www.google.com");
+	Response.Write("<script>window.location.href='welcome.aspx';</scr ipt>");	**網頁名稱不分大
+
+	Response.Redirect("../xxx.asp")  <-- 目前目錄的上一層
+	Response.Redirect("./ABC/xxx.asp")  <-- 目前目錄下一層小寫
+
+	Server.Transfer("Page2.aspx", True)	由Page1到Page2,但網址上不會呈現Page2.而是呈現Page1	(X)Server.Transfer("http://www.google.com");	?不能連到google
+ref
+https://msdn.microsoft.com/zh-tw/library/540y83hx(v=vs.100).aspx
+
+
+
+**session的使用
+            Session["Login"] = "Y";
+            Response.Write("<script>window.location.href='welcome.aspx';</script>");
+
+            if (Session["Login"]==null)
+                Response.Write("<script>window.location.href='login.aspx';</script>");
+
+            if (Session ["Login"]!="Y")
+                Response.Write("<script>window.location.href='login.aspx';</script>");
+
+**get
+送
+    http://localhost:6547/webForm.aspx?a1=555
+
+取(後端程式)
+    Request.QueryString ["a1"];
+    Request.Form["a1"].ToString();
+
+取(前端程式)
+    <div>
+    <%:Request.QueryString ["a1"]%>	
+    </div>
+聽說也可以用:document.getElementById()
+
+
+**post
+送
+
+    <form id="form1" method="post" runat="server" action="valid.aspx" >
+        帳號：<input id="ID" type="text" runat="server" />
+        密碼：<input id="Pwd" type="text" runat="server" />
+    <input type="submit" value="Submit" >
+    </form>
+接
+protected void Page_Load(object sender, EventArgs e)
+{
+    string sID = Request.Form["ID"].ToString();
+    string sPwd = Request.Form["Pwd"].ToString();
+}
+
+**打開郵件
+    <form method="POST"
+          action="mailto:unaliao@masterlink.com.tw?SUBJECT=test3333"
+          enctype="text/plain">
+        <select name=edu>
+            <option>國小 
+        </select>  
+        <p><input type=submit value="寄 出"><input type=reset value="重 寫"></p>
+    </form>
+
+
+**View Engige
+檢視引擎View Engige(在html裡面使用的語言)
+Razor	ASPX
+	<% %>
+
+**IsPostBack 
+所謂的PostBack是指你按下按鈕(submit)
+把Client的表單submit到Server端，然後Server端再回應到Client端(如果有做這個動作，代表IsPostBack )
+.NET的PostBack機制就好比ASP網頁自己submit自己一樣
+If Not IsPostBack 代表第一次登入網頁，沒過做送出的動作
+e.g.
+那行指令相當常用..比方說如果我第一次從資料庫把資料撈出來到下拉選單
+這個動作只要第一次作就好了
+如果沒判斷，每次PostBack都設定一次，原本所選的值就會被蓋掉
+
+
+
+
+
+==================BtnClick client端執行 & server端執行=================
+
+
+<span style="font-family:SimSun;font-size:18px;">
+ <body> 
+
+  <form id="form1"name="form1" runat="server"> <p> 
+    用戶名：<asp:TextBoxID="TextBox1" name="textbox1"runat="server"></asp:TextBox> </p> <p> 
+    密碼：<asp:TextBoxID="TextBox2" runat="server"></asp:TextBox> </p> 
+    <asp:Button ID="Button1"runat="server" OnClick="Button1_Click"Text="提交" OnClientClick="return buttonClick;"/> 
+  </form> 
+ </body>
+</span>
+cs文件代碼：<span style="font-family:SimSun;font-size:18px;"> 
+protected void Button1_Click(objectsender, EventArgs e) 
+ { Response.Write("我是伺服器端點擊事件！"); }</span>
+
+先跳"我是伺服器端點擊事件！"	>就沒了.
+
+client端執行 + return false	>server端不會接著執行
+client端執行 + return true	>server端接著執行
+
+好處是可以避免面重新刷新頁。
+
+
+原文網址：https://read01.com/jOkG.html
+
+====================runat="server"
+前端,後端程式,放在哪
+https://dotblogs.com.tw/jimmyyu/archive/2009/06/07/8712.aspx
+
+!runat="server"能夠放在附檔名HTML上面嗎
+>不行,會有警告:警告	1	ASP.NET 屬性只能出現在 ASP.NET 檔中。 	(但可以運行)
+>如果後端讀取,會出現錯誤:並未將物件參考設定為物件的執行個體。
+
+
+
+
+aspx运行时会被编译,其中没有runat server属性的html标签会被直接写入response,有runat server属性的html标签会转换成对应的HtmlControl子类加入到页面的控件集合中,按照一个控件的生命周期进行处理,这就是"运行在服务器上"的意思.一个最直接的表现就是,当你写一个id="abc"的div,如果有runat server属性,在你的aspx.cs文件中直接可以使用abc.XXX来操作这个对象,而没有runat server的话,在cs中是没有这个对象的.
+以上说的是asp.net中的html控件,asp控件只能runat server,因为他们不是直接和html对应的
+
+
+如果HTML,沒有runtatserver,沒有POST或是get,是拿不到值的(Request.Form["Select_M"].ToString(); 
+如果HTML,有runtatser,沒有POST/get,也能拿到值.
+
+<form> 是一个标签form 元素可为用户输入创建表单。
+runat "server"控件是一个服务器控件
+只有需要处理回发(PostBack) 的控件才必须放在 Form 内
+
+runat="server"是指你的Form内的内容都是在服务器端运行，
+
+
+包含 runat="server" 属性的声明性标记标识,表示该控件在服务器端运行，然后生成相应的客户端代码。
+
+事件处理运行在服务器
+
+在服务端运行, 将被编译.
+
+html控件也可以加这个属性，但是使用起来比较麻烦，需要加入隐藏按钮，通过JS触发 onserverclick()事件来跟服务器端进行数据交互。
+
+服务器端运行的一个标志，
+在asp中我们
+如果要得到服务器的数据，我们记得必须用Request，
+要写在客户端，必须用Response什么控件！
+
+在asp.net中，ms打破这样做法，制造了两种类型的控件，
+一种就是html控件，就是上面说的加入Runat，很明显Run at，运行在的意思；这种控件，加入了这个Runat之后就可直接来引用这个控件，不用什么Request什么组件来进行引用！
+
+
+
