@@ -1,0 +1,54 @@
+protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+	{
+		if (e.Row.RowIndex != -1)
+		{ 
+ 
+			//自動變色機制
+			if (e.Row.RowIndex % 2 == 1)
+			{
+				//單數資料列
+				e.Row.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#FFFFFF");
+				e.Row.Attributes.Add("onmouseout", "onmouseChangeRowColor(this,true,false);");
+				e.Row.Attributes.Add("onmouseover", "onmouseChangeRowColor(this,true,true);");
+			}
+			else
+			{
+				//雙數資料列
+				e.Row.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#EFF3FB");
+				e.Row.Attributes.Add("onmouseout", "onmouseChangeRowColor(this,false,false);");
+				e.Row.Attributes.Add("onmouseover", "onmouseChangeRowColor(this,false,true);");
+			}
+		}
+	}
+
+-----------------------------------------------有表頭顏色------------------------------------------------
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            switch (e.Row.RowType)
+            {
+                case DataControlRowType.Header:
+                    e.Row.BackColor = System.Drawing. Color.FromArgb(153, 0, 0);
+                    e.Row.ForeColor = System.Drawing.Color.White;
+                    break;
+                case DataControlRowType.DataRow:
+                    //創建奇數行與偶數行的onmouseover及onmouseout的顏色變換
+                    if (Convert.ToInt16(ViewState["LineNo"]) == 0)
+                    {
+                        e.Row.BackColor = System.Drawing.Color.FromArgb(255, 251, 214);
+                        //e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFBD6';this.style.color='black'");
+                        //e.Row.Attributes.Add("onckick", "this.style.backgroundColor='#C0C0FF';this.style.color='#ffffff'");
+
+                        ViewState["LineNo"] = 1;
+                    }
+                    else
+                    {
+                        e.Row.BackColor = System.Drawing.Color.White;
+                        //e.Row.Attributes.Add("onckick", "this.style.backgroundColor='#FFFFFF';this.style.color='black'");
+                        //e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#C0C0FF';this.style.color='#ffffff'");
+
+                        ViewState["LineNo"] = 0;
+                    }
+
+                    break;
+            }
+        }
