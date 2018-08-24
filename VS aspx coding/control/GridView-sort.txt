@@ -1,0 +1,79 @@
+[用sqldatasource]
+1.autosorting = true
+
+[define col + no sqldatasource]
+1.autosorting = true
+2.set col.sortExpress 
+3.dataview set order 
+        private void GridView_DataBinding(GridView gv, string SortField, string SortDict)
+        {
+            string sConnstr = System.Configuration.ConfigurationManager.ConnectionStrings["testConnectionString"].ConnectionString;
+            string cmd = "select top 10 * from A ";
+ 
+            System.Data.DataTable dt = new connection.DBAccess().QueryDT(sConnstr, cmd); ;
+
+            System.Data.DataView dv = dt.DefaultView;
+            if (SortField != "")
+            {
+                string SortTxt = SortField;
+                if (SortDict == "1")
+                    SortTxt += " DESC";
+                dv.Sort = SortTxt;
+            }
+            gv.DataSource = dv;
+            gv.DataBind();
+        }
+4.取目前sort狀態 
+
+        protected void GridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            //▲▼的code出自
+            // http://social.msdn.microsoft.com/Forums/zh-TW/236/thread/932a0f2b-f777-4621-950a-6ed3d7c39139
+             
+            //viewstate名稱都一樣, 怎麼知道,這是哪個col的viewstate.
+            if (ViewState["SortDirection"] == null)
+            {
+                ViewState["SortDirection"] = SortDirection.Ascending.ToString();
+            }
+            //如果不要▲▼可以拿掉
+            for (int i = 0; i <= ((GridView)sender).Columns.Count - 1; i++)
+            {
+                ((GridView)sender).Columns[i].HeaderText = ((GridView)sender).Columns[i].HeaderText.Replace("▲", "");
+                ((GridView)sender).Columns[i].HeaderText = ((GridView)sender).Columns[i].HeaderText.Replace("▼", "");
+            }
+            for (int i = 0; i <= ((GridView)sender).Columns.Count - 1; i++)//有sortExpress的col,如果沒有設sortexpress,count就會是0
+            {
+                if (e.SortExpression == ((GridView)sender).Columns[i].SortExpression)
+                {
+                    if (ViewState["SortDirection"].ToString() == SortDirection.Ascending.ToString())
+                    {
+                        e.SortDirection = SortDirection.Descending; 
+                        ViewState["SortDirection"] = SortDirection.Descending;
+                        ((GridView)sender).Columns[i].HeaderText = ((GridView)sender).Columns[i].HeaderText + "▼";//如果不要▲▼可以拿掉
+                    }
+                    else
+                    {
+                        e.SortDirection = SortDirection.Ascending; 
+                        ViewState["SortDirection"] = SortDirection.Ascending;
+                        ((GridView)sender).Columns[i].HeaderText = ((GridView)sender).Columns[i].HeaderText + "▲";//如果不要▲▼可以拿掉
+                    }
+                }
+            }
+            string SortField = e.SortExpression; 
+            string SortDir = e.SortDirection == SortDirection.Ascending ? "0" : "1";
+            GridView_DataBinding((GridView)sender, SortField, SortDir);
+        }
+
+-----------------------
+dataset > datatable > dataview
+
+            DataView dv =  AccDB.sDataSet.Tables[0].DefaultView ;
+            if (SortField != "")
+            {
+                string SortTxt = SortField;
+                if (SortDict == "1")
+                    SortTxt += " DESC";
+                dv.Sort = SortTxt;
+            }
+            GridView1.DataSource = dv;
+            GridView1.DataBind();
