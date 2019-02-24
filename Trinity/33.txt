@@ -1,0 +1,299 @@
+#進階	#高階課程,會演練.file source.
+
+介面有
+WEBUI:
+Design:add busness/category/job
+task console =monitor
+
+-----------------------------
+一人可以加到多個role
+root 
+administrator role
+
+2G
+
+add account :root/administrator :只能管自己建的帳號.
+
+group :是拿來寄信的
+
+view:detail
+run:可設參數
+rerun : 不能設參數.
+grant:job 我build,要給別人用,就要grant.但如困沒grant有權限,就沒辦法grant給別人
+
+add account,role
+graint<add cate
+作業階層
+
+add busnes 
+>add category
+>>add job
+busnes 滑鼠右鍵.grant permission
+
+!grant permission 可刪掉自己耶.
+這個node沒有,但是還要看父節點有沒有權限.
+!不能查這個人,有什麼權限(不知query可否查
+
+-------------------
+alias reference 別名
+介紹別名
+
+#add connection
+postgreSQL
+jdbc:postgresql://192.168.17.111/dbName
+
+可by entity下建立alias  $xxxx
+變數的概念?!
+有用,就不能刪.(它有檢查)
+要授權,自己建的也要.
+busnese/domain都有變數
+busnese可以建變數,使用方式${xx}
+domain是做什麼用的?變數組,job那可以使用.沒授權,大家都能用.
+工作變數=系統變數=不用建就有的變數.
+  
+------------------------
+?什麼時侯會搬到target?complete?corrupt?duplicate?error?
+error?那要再跑一次,就要再把file搬回received
+
+add alias (add connection/建domain變數/建
+job set domain <add domain
+job set file source(WebUI) 
+
+set file source
+
+#add file source (WebUI)
+-agent上的路徑
+-filename pattern 哇.可設pattern,那真能像chichou want YYYMMDD${TXTDATE1}
+-control file	檔名	大小(可以不要放大小嗎?)
+-file trigger :檔案來,就trigger job  如果要10個檔案,也會等10分,10個都到才trigger.
+??沒設frequency,也能triger嗎
+
+-checksum	是一個演算法結果MD5.SHA1
+-timeout 等檔案的時間.job開始了,但檔案還沒來,就等它10分鐘.
+-min amount of file 3
+-max amount of file 5 如果有6個,會以時間舊的取5個
+-success if no file沒有收檔,也能做job (不過什麼情況會用到這個啊.)
+-append taskUID in file(s) name : 哇.這就是智州說,如果蓋了,也有記錄,不怕不知道.
+
+設排程.
+set job Frequency.
+set job Execution Time (only for this job)
+
+#add Frequencty(WebUI)
+-by working calendar 選workcalendar (這真的很好用耶.我們公司常都需要這個.不交易就不用跑.
+
+
+#add working calendar(WebUI/JDesign) 
+!add working calendar可以用匯的嗎(開發中) 
+e.g.那就要每年,都去換working calendar
+
+#exclude frequency(WebUI)
+台風天,怎麼辦?
+add  exclude frequency & apply frequency.  ?EF1怎麼了,
+apply job (只針對某幾支,不要用)
+apply flw (
+
+Global exclude frequency 不用apply就能用.
+
+
+#
+job
+-frequecy
+-execute time .working calendar
+
+dry run 以一天為單位,可看有哪些東西在跑.
+(JDesign/Design/Dry run)
+
+
+#flow
+成功:有跑完.
+失敗:看最後一個成功還失敗.
+add flow
+
+txdate rule:run date.  ??就是變數${TXDATE}執行日或是執行日的前一天.就是昨天的資料,但今天才進來,就能設昨天前一天.
+.bypass error 如果上次失敗,就不run.
+.only apply completed task 跑完,才能跑下一個.
+.use job rety :這樣才會retry,不然它會跑到下一步.??所有A跑,B也跑?retry after job failed:可設定多跑幾次.
+.skip missing task???(回去聽錄音)
+timeout :檔案沒有收齊
+
+#edit flow 
+add level
+拉job,拉線
+flow 線.
+.mandatory:如果一定要成功,才能跑,就要設這個.
+做完.task console也能看的到.
+
+
+#run flow (task console)
+view task 
+.run flow
+.start from this flow
+.flow mask >skip 這個不要跑.
+.flow mask >endpoint:job4 indclude 以下不要跑.
+.flow mask >branch : 跑自己跟自己的分支.
+.flow mask >tag :??(回去聽錄音)
+.flow mask clean flow mask :clear
+
+#job steam
+JOB1.job stream/join stream
+?這跟flow的差別是什麼?有什麼是flow不能做到的?
+>flow能做的東西比較多,stream是A跑完,叫B
+
+
+#job dependency
+B要run,run前,先去chk A執行的狀況.(??哇.這種denpendency,能查的到嗎
+dep2.dependency/join dependency /dep1   *要dep1做完.
+!它會等dep1多久?參考overtime.
+
+#mutex(JDesign)
+互斥,同時間,只有一個作業能跑.
+??怎麼做(回去聽錄音
+沒勾和有勾的互斥.
+
+#JOB Wizard
+0.建立metadata(WEBUI)
+1.要有metadata/右鍵/generate DM JOB 
+
+#add meta database(webUI)
+meta database右鍵.import datatable/search/import meta table
+
+#產出job(JDesign)
+metadata/TRA12/generate DM JOB
+.name prefix :xx   default table名稱,前面就會叫xxTableN日一水
+plugin atr
+.reader 連線
+
+
+#(wEBUI)
+add connection type:mail
+
+#add step mail(JDesign
+job7/add step :mail 
+sbuject/context : 可用xml語法.
+可夾檔案,檔案要先存在.
+寄件清單:aa/bb/cc/maillist.txt (??格式要長怎樣
+
+#發送通知(JDesign
+到處都有通知:step/job/category
+
+
+#確保db和metatable一致
+右鍵commpare meta table
+匯出檔案
+自動比對匯出.
+
+#資源監控(WebUI)(Task Console)
+configuration/resource 
+add :
+run :
+1.有什麼狀況,要寄通知.e.g.CPU>80 Memory >80 Disk 20000MB
+??所以是有問題,再來kill or 它可以幫我們kill
+
+#import/export(JDesign)
+系統備份:(投影片有)
+resource import :
+JOB1/export :備份job
+Lab1/export :備份jobs
+import
+.resource exist efore they can import job : 勾,先檢查有沒有conn
+.overwrtie denpency:不勾就是不蓋目前有的.
+
+
+#
+
+
+
+----------------------
+add job
+add flow 
+
+jobA (成功)> jobB
+(失敗)>jobC
+
+
+----------------------------------------
+
+
+
+!checksum怎麼用?它是針對大小加密,還是針對檔案內容加密.網路上說是內容
+
+!control file比檔案大小 產檔單位提供.
+
+
+customer-${TXDATE1}-*.txt
+
+
+?什麼時侯會搬到RUN時,target?成功>complete?CANCEL它,就會在corrupt?controlfile 重覆檔案或是歷史記錄/重覆丟 duplicate?error?
+error?那要再跑一次,就要再把file搬回received
+!special  start position 只比後面.具體用法是什麼?
+
+!vitural agent是不是要配合license?而且也要注意,檔案位置.
+>一定要企業版.
+
+
+run :
+1.有什麼狀況,要寄通知.e.g.CPU>80 Memory >80 Disk 20000MB
+!!所以是有問題,再來kill or 它可以幫我們kill>YES
+
+USER需求
+知道data的脈落.
+匯出權限.金管會要.半年要一次.
+明天會跑什麼
+
+
+-----------
+我學到-上午1.建user.role.group.
+我學到-上午2.
+add alias (add connection/建domain變數/建
+job set domain <add domain
+job set file source(WebUI) <add file source
+-agent上的路徑
+-filename pattern 哇.可設pattern,那真能像chichou want YYYMMDD${TXTDATE1}
+ 
+
+
+
+我學到-上午
+我學到-下午
+我學到-整天
+
+------------------
+晃神.
+不好集中注意力.
+昨天也沒睡那麼少,怎麼會這麼想睡.
+等等喝cafe看看.
+
+
+他人很好,還會把需求記起來.
+xx就很市儈.讓人感覺不好.
+
+他用筆數去比.向他學習.
+如果有需求,就記錄下來.就能知道有這樣的需求.
+?同學會問,我有xx需求,要怎麼查.
+
+天啊...temple好快.
+資訊量好大
+
+sir兇我逼我要去改line名子和名牌=情緒勒索= focus在我的目標=你為什麼來這邊.
+如果他得逞,就會強化它的行為.
+
+my hair 酸酸的
+i like 香香.
+
+他們的女廁味道,i like it.
+
+他們也想跟你好好相處,只是他們不懂how.help them.
+
+弄個彩虹的東西,人家才知道在樓上.
+
+
+小P的頭髮也曾酸酸的.
+變得很懶,連澡都不洗.奈會安捏.下午 04:10 2019/2/20
+
+
+
+god.我又發呆了.
+在想痛苦的禮拜五.
+----------------------
+考量DB負荷..所以用FTP

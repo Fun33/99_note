@@ -1,0 +1,21 @@
+
+
+#
+job
+-frequecy
+-execute time 
+.working calendar
+.apply time mode
+.holiday calendar ??skip ??forward??backward
+-forecast run的時程表
+
+
+#add flow
+add job
+add job step echo "hihi"
+
+add category
+add flow
+edit flow map
+.insert level
+
